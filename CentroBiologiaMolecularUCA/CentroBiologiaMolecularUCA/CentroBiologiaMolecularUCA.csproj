@@ -604,6 +604,7 @@
     <Content Include="Scripts\jquery.signalR-2.2.3.min.js" />
     <Content Include="Site.Master" />
     <Content Include="ViewSwitcher.ascx" />
+    <Content Include="Views\ViewADN\AdnValidacion.aspx" />
     <Content Include="Views\ViewCliente\AgregarCliente.aspx" />
     <Content Include="Views\ViewCliente\BuscarCliente.aspx" />
     <Content Include="Views\ViewCliente\EditarCliente.aspx" />
@@ -686,6 +687,13 @@
     </Compile>
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ViewADN\AdnValidacion.aspx.cs">
+      <DependentUpon>AdnValidacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\ViewADN\AdnValidacion.aspx.designer.cs">
+      <DependentUpon>AdnValidacion.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\ViewCliente\AgregarCliente.aspx.cs">
       <DependentUpon>AgregarCliente.aspx</DependentUpon>
