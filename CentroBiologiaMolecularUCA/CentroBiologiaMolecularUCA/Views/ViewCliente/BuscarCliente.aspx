@@ -1,9 +1,15 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="BuscarCliente.aspx.cs" Inherits="CentroBiologiaMolecularUCA.Views.ViewCliente.BuscarCliente" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     
-    <script src="../../Scripts/jquery-1.6.4.min.js"></script>
+<%--     <script src="/assets/js/lib/data-table/datatables.min.js"></script>
+    <script src="/assets/js/lib/data-table/dataTables.bootstrap.min.js"></script>
+    <script src="/assets/js/lib/data-table/buttons.print.min.js"></script>
+    <script src="/assets/js/lib/data-table/datatables-init.js"></script>--%>
+        
+                 <script src="../../Scripts/jquery-1.6.4.min.js"></script>
     <script src="../../Scripts/jquery.signalR-2.2.3.min.js"></script>
     <script src="/signalr/js"></script>
+
 
     <script type="text/javascript">
         $(function () {
@@ -49,13 +55,15 @@
               });
           }
       </script>
+    
+
     <form id="form1" runat="server">
             <div class="card">
                 <div class="card-header">
                     <strong class="card-title">Listado de Clientes</strong>
                 </div>
                 <div class="card-body">
-                    <table id="bootstrap-data-table" class="table table-striped table-bordered">
+                    <table id="datatable-fixed-header" class="table table-striped table-bordered">
                         <thead id="encabezadoTabla">
                         </thead>
                         <tbody id="contenidoTabla">
@@ -64,5 +72,4 @@
                 </div>
             </div>
     </form>
-    
 </asp:Content>
