@@ -277,7 +277,38 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
             using (var connection = new SqlConnection(ConfigurationManager.ConnectionStrings["DataBase"].ConnectionString))
             {
                 connection.Open();
-                using (SqlCommand command = new SqlCommand(@"SELECT  [Id_cliente],[Nombre],[Apellido],[Email] FROM T_Clientes", connection))
+                using (SqlCommand command = new SqlCommand(@"SELECT  [Id_cliente],[Nombre],[Apellido],[Email] FROM T_Clientes where Activo=1", connection))
+                {
+                    // Make sure the command object does not already have
+                    // a notification object associated with it.
+                    command.Notification = null;
+                    SqlDependency.Start(ConfigurationManager.ConnectionStrings["DataBase"].ConnectionString);
+                    SqlDependency dependency = new SqlDependency(command);
+                    dependency.OnChange += new OnChangeEventHandler(dependency_OnChange);
+
+                    if (connection.State == ConnectionState.Closed)
+                        connection.Open();
+
+                    using (var reader = command.ExecuteReader())
+                        return reader.Cast<IDataRecord>()
+                            .Select(x => new Cliente()
+                            {
+                                Id_Cliente = x.GetInt32(0),
+                                Nombres = x.GetString(1),
+                                Apellidos = x.GetString(2),
+                                Correo = x.GetString(3)
+                            }).ToList();
+
+                }
+            }
+        }
+
+        public IEnumerable<Cliente> GetDataDesactivados()
+        {
+            using (var connection = new SqlConnection(ConfigurationManager.ConnectionStrings["DataBase"].ConnectionString))
+            {
+                connection.Open();
+                using (SqlCommand command = new SqlCommand(@"SELECT  [Id_cliente],[Nombre],[Apellido],[Email] FROM T_Clientes where Activo=0", connection))
                 {
                     // Make sure the command object does not already have
                     // a notification object associated with it.

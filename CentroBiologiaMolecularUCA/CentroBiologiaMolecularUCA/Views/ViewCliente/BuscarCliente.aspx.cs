@@ -14,7 +14,7 @@ namespace CentroBiologiaMolecularUCA.Views.ViewCliente
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            ViewCliente.SetActiveView(ClientesActivos);
         }
         [WebMethod]
         public static IEnumerable<Cliente> GetData()
@@ -22,6 +22,25 @@ namespace CentroBiologiaMolecularUCA.Views.ViewCliente
             DTcliente dtp = new DTcliente();
 
             return dtp.GetData();
+        }
+        protected void TablaClientesDesactivos(object sender, EventArgs e)
+        {
+            ViewCliente.SetActiveView(ClientesDesactivos);
+
+        }
+
+        [WebMethod]
+        public static IEnumerable<Cliente> GetDataDesactivados()
+        {
+            DTcliente dtp = new DTcliente();
+
+            return dtp.GetDataDesactivados();
+        }
+
+        protected void TablaClienteActivos(object sender, EventArgs e)
+        {
+            ViewCliente.SetActiveView(ClientesActivos);
+
         }
     }
 }
