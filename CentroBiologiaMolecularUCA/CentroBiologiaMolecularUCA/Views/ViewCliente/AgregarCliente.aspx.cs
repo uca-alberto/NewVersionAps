@@ -16,7 +16,7 @@ namespace CentroBiologiaMolecularUCA.Views.ViewCliente
         private DTcliente dtcliente;
         private DTdepartamento dtdepartamento;
         private DTmunicipio dtmunicipio;
-
+        
         protected void Page_Load(object sender, EventArgs e)
         {
             this.dtcliente = new DTcliente();
@@ -126,22 +126,23 @@ namespace CentroBiologiaMolecularUCA.Views.ViewCliente
                 Cliente cli = GetEntity();
                 //LLAMANDO A CAPA DE NEGOCIO
                 bool resp = NGcliente.getInstance().guardarcliente(cli);
+               
                 if (resp == true)
                 {
-                    ScriptManager.RegisterStartupScript(this, this.GetType(), "none", "confirm('Cliente Guardado');", true);
                     Response.Redirect("BuscarCliente.aspx");
+                    //ClientScript.RegisterStartupScript(GetType(), "Javascript", "javascript: ADD(); ", true);
 
                 }
                 else
                 {
                     Response.Write("<script>alert('REGISTRO INCORRECTO.')</script)");
                 }
+
             }
             else
             {
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "none", "confirm('Error, revisar Formulario');", true);
-                RegularExpressionValidator.GetValidationProperty(RequiredFieldValidator1);//sino esta validado me mostrara los campos a corregir y no mandara datos.
-
+                ClientScript.RegisterStartupScript(GetType(), "Javascript", "javascript: ADD(); ", true);
+                // ScriptManager.RegisterStartupScript(this, GetType(), "none", "swal('hola , perro , mama')", true); //esta era otra forma de hacerlo pero esta mas compleja
             }
 
         }

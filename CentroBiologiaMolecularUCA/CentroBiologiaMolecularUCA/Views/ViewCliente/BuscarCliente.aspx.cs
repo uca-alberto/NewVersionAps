@@ -17,7 +17,7 @@ namespace CentroBiologiaMolecularUCA.Views.ViewCliente
             ViewCliente.SetActiveView(ClientesActivos);
         }
         [WebMethod]
-        public static IEnumerable<Cliente> GetData()
+        public static List<Cliente> GetData()
         {
             DTcliente dtp = new DTcliente();
 
@@ -42,5 +42,20 @@ namespace CentroBiologiaMolecularUCA.Views.ViewCliente
             ViewCliente.SetActiveView(ClientesActivos);
 
         }
+        [WebMethod]
+        public static bool EliminarEmp(String id)
+        {
+            bool resp = false;
+
+            Cliente ep = new Cliente()
+            {
+                Id_Cliente = Convert.ToInt32(id)
+            };
+            Console.Write(ep);
+
+            resp = DTcliente.getInstance().eliminar(ep);
+            return resp;
+        }
+
     }
 }
