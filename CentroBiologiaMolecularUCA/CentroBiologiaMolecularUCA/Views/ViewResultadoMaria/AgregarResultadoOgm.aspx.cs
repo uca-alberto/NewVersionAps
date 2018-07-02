@@ -37,7 +37,7 @@ namespace CentroBiologiaMolecularUCA.Views.ViewResultadoMaria
             }
             else
             {
-                re.Fecha_procesamiento = Mfecha.Text;
+                re.Fecha_procesamiento = Convert.ToDateTime(Mfecha.Text);
             }
             if (Mvalidacion.ToString() == null)
             {

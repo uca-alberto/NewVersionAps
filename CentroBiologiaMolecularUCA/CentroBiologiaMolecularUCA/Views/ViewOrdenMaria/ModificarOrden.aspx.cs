@@ -37,7 +37,7 @@ namespace CentroBiologiaMolecularUCA.Views.ViewOrdenMaria
                 ord.Baucher = this.registro["Baucher"].ToString();
                 ord.No_orden = int.Parse(this.registro["No_orden"].ToString());
                 ord.Estado = this.registro["Estado"].ToString();
-                this.ord.Fecha = this.registro["Fecha"].ToString();
+                this.ord.Fecha = Convert.ToDateTime(this.registro["Fecha"].ToString());
             }
         }
 
@@ -102,7 +102,7 @@ namespace CentroBiologiaMolecularUCA.Views.ViewOrdenMaria
             }
             else
             {
-                ord.Fecha = Mfecha.Text;
+                ord.Fecha = Convert.ToDateTime(Mfecha.Text);
             }
 
             //  ord.Tipo_caso = Mtipocaso.SelectedValue;
