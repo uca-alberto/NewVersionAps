@@ -206,11 +206,6 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <None Include="Scripts\jquery-1.6.4-vsdoc.js" />
-    <Content Include="js\fechas.js" />
-    <Content Include="js\plugins\input-mask\jquery.inputmask.date.extensions.js" />
-    <Content Include="js\plugins\input-mask\jquery.inputmask.js" />
-    <Content Include="js\plugins\moment\moment.min.js" />
-    <Content Include="js\plugins\timepicker\bootstrap-timepicker.min.js" />
     <Content Include="prueba.aspx" />
     <Content Include="Scripts\jquery-1.6.4.js" />
     <Content Include="Scripts\jquery-1.6.4.min.js" />

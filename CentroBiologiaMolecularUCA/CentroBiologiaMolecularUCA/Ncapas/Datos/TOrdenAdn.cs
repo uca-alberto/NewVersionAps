@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using CentroBiologiaMolecularUCA;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
-using System.Configuration;
-using System.Data;
 using WebSistemaCentroBiologiaMolecularUCA.Ncapas.Entidades;
 
 namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
@@ -265,44 +262,6 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
             this.registros = comando.ExecuteReader();
             return this.registros;
             c.Close();
-        }
-
-        //nuevo cambio
-        public IEnumerable<OrdenAdn> GetData()
-        {
-            using (var connection = new SqlConnection(ConfigurationManager.ConnectionStrings["DataBase"].ConnectionString))
-            {
-                connection.Open();
-                using (SqlCommand command = new SqlCommand(@"SELECT  [Id_orden],[Baucher] FROM T_Orden where Actividad=1", connection))
-                {
-                    // Make sure the command object does not already have
-                    // a notification object associated with it.
-                    command.Notification = null;
-                    SqlDependency.Start(ConfigurationManager.ConnectionStrings["DataBase"].ConnectionString);
-                    SqlDependency dependency = new SqlDependency(command);
-                    dependency.OnChange += new OnChangeEventHandler(dependency_OnChange);
-
-                    if (connection.State == ConnectionState.Closed)
-                        connection.Open();
-
-                    using (var reader = command.ExecuteReader())
-                        return reader.Cast<IDataRecord>()
-                            .Select(x => new OrdenAdn()
-                                
-                            {
-                                Id_orden = x.GetInt32(0),
-                                Baucher = x.GetString(1),
-                              
-                            }).ToList();
-
-                }
-            }
-        }
-
-        private static void dependency_OnChange(object sender, SqlNotificationEventArgs e)
-        {
-            MyHub.Show();
-
         }
 
         List<OrdenAdn> Igeneric<OrdenAdn>.listarTodo()

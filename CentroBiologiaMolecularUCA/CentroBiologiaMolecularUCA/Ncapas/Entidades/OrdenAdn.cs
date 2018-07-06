@@ -14,7 +14,7 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Entidades
         private String baucher;
         private int no_orden;
         private String estado;
-        private DateTime fecha;
+        private String fecha;
 
         public int Id_orden
         {
@@ -107,7 +107,7 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Entidades
             }
         }
 
-        public DateTime Fecha
+        public string Fecha
         {
             get
             {

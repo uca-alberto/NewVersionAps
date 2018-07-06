@@ -29,7 +29,7 @@ namespace CentroBiologiaMolecularUCA.Views.ViewResultadoMaria
 
             if (registro.Read())
             {
-                this.re.Fecha_procesamiento = Convert.ToDateTime(this.registro["Fecha"].ToString());
+                this.re.Fecha_procesamiento = this.registro["Fecha_procesamiento"].ToString();
                 re.Validacion = this.registro["Validacion"].ToString();
                 re.Parametros = this.registro["Resultado"].ToString();
                 re.Estado = this.registro["Estado"].ToString();
@@ -56,7 +56,7 @@ namespace CentroBiologiaMolecularUCA.Views.ViewResultadoMaria
             }
             else
             {
-                re.Fecha_procesamiento = Convert.ToDateTime(Mfecha.Text);
+                re.Fecha_procesamiento = Mfecha.Text;
             }
             if (Mvalidacion.ToString() == null)
             {

@@ -99,7 +99,7 @@ namespace CentroBiologiaMolecularUCA.Views.ViewOrdenMaria
             }
             else
             {
-                ord.Fecha = Convert.ToDateTime(Mfecha.Text);
+                ord.Fecha = Mfecha.Text;
             }
 
 

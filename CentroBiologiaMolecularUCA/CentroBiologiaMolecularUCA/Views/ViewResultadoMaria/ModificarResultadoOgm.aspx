@@ -8,24 +8,13 @@
                   <form method="post" enctype="multipart/form-data" class="form-horizontal" runat="server">
                                                   <!--Comienzo de los formulario-->
                                                         <!--fecha-->
-                            <div class="row form-group ">
-                            <div class="col col-md-3 "><label for="text-input" class=" form-control-label">Fecha</label></div>
-                            <div class="col-12 col-md-9">&nbsp; 
-                                <div class="input-group">
-                                    <div class="input-group-addon">
-                                        <i class="fa fa-calendar"></i>
-                                    </div>
-                                
-
-                                 <asp:TextBox ID="Mfecha" CssClass="form-control" BackColor="Wheat" Font-Bold="false" data-inputmask="'alias':'dd/mm/yyyy'"
-                                    data-mask="" runat="server"></asp:TextBox> 
-                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ControlToValidate="Mfecha" ErrorMessage="Siga este formato dd/mm/yyyy" ValidationExpression="^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$"></asp:RegularExpressionValidator>
-                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="Mfecha" Display="Dynamic" ErrorMessage="Este Campo es requerido"></asp:RequiredFieldValidator> 
-                                   
-                                 
-                          </div>
+                           <div class="row form-group ">
+                            <div class="col col-md-3 "><label for="password-input" class=" form-control-label">Fecha</label></div>
+                            <div class="col-12 col-md-9">
+                           <asp:TextBox ID="Mfecha" runat="server" Text="" ToolTip="Fecha" CssClass="form-control" placeholder="Ingrese la fecha"></asp:TextBox>
+                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="Mfecha" Display="Dynamic" ErrorMessage="Este Campo es requerido"></asp:RequiredFieldValidator>     
                                </div>
-                                    </div>
+                          </div>
 
                             <!--validacion-->
                        <div class="row form-group ">
@@ -108,7 +97,7 @@
                             <div class="col-12 col-md-9">
                            <asp:TextBox ID="Musuarioprocesa" runat="server" Text="" ToolTip="Fecha" CssClass="form-control" placeholder="Ingrese el nombre del usuario que realizo el examen"></asp:TextBox>
                                  <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="Musuarioprocesa" ErrorMessage="Solo letras" ValidationExpression="^[a-z &amp; A-Z]*$"></asp:RegularExpressionValidator>
-                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="Musuarioprocesa" Display="Dynamic" ErrorMessage="Este Campo es requerido"></asp:RequiredFieldValidator>     
+                                                       <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="Musuarioprocesa" Display="Dynamic" ErrorMessage="Este Campo es requerido"></asp:RequiredFieldValidator>     
                                </div>
                           </div>
 
@@ -147,12 +136,5 @@
             edit( '<%=re.Fecha_procesamiento%>', '<%=re.Validacion%>', '<%=re.Parametros%>','<%=re.Estado%>',
                   '<%=re.Usuario_procesa%>','<%=re.Usuario_valida%>','<%=re.Analisis%>')
         };
-    </script> 
-    
-       <script src="../../js/plugins/input-mask/jquery.inputmask.js"></script>
-                       
-                       <script src="../../js/plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
-                       
-                       <script src="../../js/plugins/timepicker/bootstrap-timepicker.min.js"></script>
-                       <script src="../../js/plugins/moment/moment.min.js"></script> 
+    </script>  
 </asp:Content>

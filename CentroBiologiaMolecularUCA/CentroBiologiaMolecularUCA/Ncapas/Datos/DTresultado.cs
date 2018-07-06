@@ -3,9 +3,6 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
-using System.Configuration;
-using System.Data;
-using CentroBiologiaMolecularUCA;
 using WebSistemaCentroBiologiaMolecularUCA.Ncapas.Entidades;
 
 namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
@@ -258,44 +255,6 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
             this.registros = comando.ExecuteReader();
             return this.registros;
             c.Close();
-        }
-
-
-        public IEnumerable<Resultado> GetData()
-        {
-            using (var connection = new SqlConnection(ConfigurationManager.ConnectionStrings["DataBase"].ConnectionString))
-            {
-                connection.Open();
-                using (SqlCommand command = new SqlCommand(@"SELECT  [Id_resultado],[Analisis] FROM T_Resultados where Actividad=1", connection))
-                {
-                    // Make sure the command object does not already have
-                    // a notification object associated with it.
-                    command.Notification = null;
-                    SqlDependency.Start(ConfigurationManager.ConnectionStrings["DataBase"].ConnectionString);
-                    SqlDependency dependency = new SqlDependency(command);
-                    dependency.OnChange += new OnChangeEventHandler(dependency_OnChange);
-
-                    if (connection.State == ConnectionState.Closed)
-                        connection.Open();
-
-                    using (var reader = command.ExecuteReader())
-                        return reader.Cast<IDataRecord>()
-                            .Select(x => new Resultado()
-
-                            {
-                                Id_resultado = x.GetInt32(0),
-                                Analisis = x.GetString(1),
-
-                            }).ToList();
-
-                }
-            }
-        }
-
-        private static void dependency_OnChange(object sender, SqlNotificationEventArgs e)
-        {
-            MyHub.Show();
-
         }
 
         List<Resultado> Igeneric<Resultado>.listarTodo()
