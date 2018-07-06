@@ -8,7 +8,7 @@
                                              
             <div class="card-body card-block">
                 <form id="myfrom" method="post" enctype="multipart/form-data" class="form-horizontal" runat="server">
-                    <!--Comienzo de los formulario-->                
+                    <!--Comienzo de los formularios-->                
                     <!--fecha-->
                 <div class="row form-group ">
                 <div class="col col-md-3 "><label for="text-input" class=" form-control-label">Fecha</label></div>
