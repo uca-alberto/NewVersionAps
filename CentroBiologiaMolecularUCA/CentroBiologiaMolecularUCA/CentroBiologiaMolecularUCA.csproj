@@ -600,6 +600,10 @@
     <Content Include="assets\scss\_switches.scss" />
     <Content Include="assets\scss\_widgets.scss" />
     <None Include="Scripts\jquery-1.6.4-vsdoc.js" />
+    <Content Include="js\fechas.js" />
+    <Content Include="js\plugins\input-mask\jquery.inputmask.date.extensions.js" />
+    <Content Include="js\plugins\moment\moment.min.js" />
+    <Content Include="js\plugins\timepicker\bootstrap-timepicker.min.js" />
     <Content Include="pruebaalertas.aspx" />
     <Content Include="pruebavista.aspx" />
     <Content Include="Scripts\jquery-1.6.4.js" />

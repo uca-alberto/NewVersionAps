@@ -9,7 +9,7 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Entidades
     {
         private int id_resultado;
         private String validacion;
-        private String fecha_procesamiento;
+        private DateTime fecha_procesamiento;
         private String usuario_valida;
         private String usuario_procesa;
         private String estado;
@@ -42,7 +42,8 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Entidades
             }
         }
 
-        public string Fecha_procesamiento
+        //
+        public DateTime Fecha_procesamiento
         {
             get
             {
@@ -119,5 +120,7 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Entidades
                 parametros = value;
             }
         }
+
+        
     }
 }

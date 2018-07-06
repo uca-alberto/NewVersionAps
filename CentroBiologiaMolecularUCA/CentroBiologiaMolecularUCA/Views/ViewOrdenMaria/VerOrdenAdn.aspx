@@ -59,12 +59,22 @@
 
                 <!--fecha-->
                     <div class="row form-group ">
-                    <div class="col col-md-3 "><label for="text-input" class=" form-control-label">Fecha</label></div>
-                    <div class="col-12 col-md-9">
-                            <asp:TextBox ID="Mfecha" runat="server" Text="" ToolTip="fecha" CssClass="form-control" ValidateRequestMode="Enabled" ReadOnly="true"></asp:TextBox> 
+                            <div class="col col-md-3 "><label for="text-input" class=" form-control-label">Fecha</label></div>
+                            <div class="col-12 col-md-9">&nbsp; 
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-calendar"></i>
+                                    </div>
+                                
+
+                                 <asp:TextBox ID="Mfecha" CssClass="form-control" BackColor="Wheat" Font-Bold="false" data-inputmask="'alias':'dd/mm/yyyy'"
+                                    data-mask="" runat="server"></asp:TextBox> 
+                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="Mfecha" ErrorMessage="Siga este formato dd/mm/yyyy" ValidationExpression="^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$"></asp:RegularExpressionValidator>
+                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="Mfecha" Display="Dynamic" ErrorMessage="Este Campo es requerido"></asp:RequiredFieldValidator> 
                                      
-                    </div>
-                        </div>
+                          </div>
+                               </div>
+                                    </div>
                                 <!--observaciones-->                            
                         <div class="row form-group ">
                     <div class="col col-md-3 "><label for="password-input" class=" form-control-label">Observaciones</label></div>
@@ -88,5 +98,13 @@ window.onload = function () {
     edit( '<%=ord.Tipo_caso%>', '<%=ord.Tipo_orden%>', '<%=ord.Observaciones%>','<%=ord.Baucher%>',
             '<%=ord.No_orden%>','<%=ord.Estado%>','<%=ord.Fecha%>')
 };
-</script>    
+
+
+</script> 
+    <script src="../../js/plugins/input-mask/jquery.inputmask.js"></script>
+                       
+                       <script src="../../js/plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
+                       
+                       <script src="../../js/plugins/timepicker/bootstrap-timepicker.min.js"></script>
+                       <script src="../../js/plugins/moment/moment.min.js"></script>   
 </asp:Content>
