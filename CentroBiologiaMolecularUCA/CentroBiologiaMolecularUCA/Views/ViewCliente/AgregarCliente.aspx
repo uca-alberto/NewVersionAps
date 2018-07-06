@@ -1,6 +1,21 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="AgregarCliente.aspx.cs" Inherits="CentroBiologiaMolecularUCA.Views.ViewCliente.AgregarCliente" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-     <div class="card-header">
+     <script src="../../assets/sweetalert.min.js"></script>
+          
+     <script>
+        function ADD() {
+            swal({
+                title: "Error",
+                text: "Revisar Formulario",
+                icon: "warning",
+                button: "OK",
+            });
+    }
+    </script><!--script de alerta-->
+
+ <!--script de alerta-->
+    
+    <div class="card-header">
         <strong class="card-title">Nuevo Cliente</strong>
          </div>  
             <div class="card">
@@ -109,8 +124,12 @@
                         <asp:Button id="cancelar" runat="server" Text="Cancelar" CssClass="btn btn-secondary" />
                         <asp:HiddenField runat="server" ID="id_cliente" />
                         <asp:Button id="alert" runat="server" Text="Registrar" CssClass="btn btn-primary" OnClick="InsertarCliente"/>
+                        
                     </div>
                 </form>
             </div>
-         </div>       
+         </div>   
+
+   
+   
 </asp:Content>

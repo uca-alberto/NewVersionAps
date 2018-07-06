@@ -10,6 +10,6 @@
 namespace CentroBiologiaMolecularUCA {
     
     
-    public partial class prueba {
+    public partial class pruebaalertas {
     }
 }
