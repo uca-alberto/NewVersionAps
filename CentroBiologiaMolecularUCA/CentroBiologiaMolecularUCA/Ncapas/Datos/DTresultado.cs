@@ -15,7 +15,7 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
         private SqlDataReader registros;
         //private Conexion c;
         //private SqlCommand comando;
-
+        //prueba2019
         //PATRÓN SINGLETON
 
         #region "SINGLETON"
