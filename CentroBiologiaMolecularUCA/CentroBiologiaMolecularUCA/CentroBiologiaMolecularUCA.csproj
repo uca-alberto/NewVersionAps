@@ -619,7 +619,7 @@
     <Content Include="Views\ViewCliente\EditarCliente.aspx" />
     <Content Include="Views\ViewCliente\VerCliente.aspx" />
     <Content Include="Views\ViewLogin\Index.aspx" />
-    <Content Include="Views\ViewLogin\Login.aspx" />
+    <Content Include="Login.aspx" />
     <Content Include="Views\ViewOrdenMaria\AgregarOrden.aspx" />
     <Content Include="Views\ViewOrdenMaria\BuscarOrdenAdn.aspx" />
     <Content Include="Views\ViewOrdenMaria\ModificarOrden.aspx" />
@@ -760,11 +760,11 @@
     <Compile Include="Views\ViewLogin\Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\ViewLogin\Login.aspx.cs">
+    <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\ViewLogin\Login.aspx.designer.cs">
+    <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\ViewOrdenMaria\AgregarOrden.aspx.cs">

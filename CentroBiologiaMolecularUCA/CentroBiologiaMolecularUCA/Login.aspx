@@ -6,14 +6,14 @@
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
-      <link rel="stylesheet" href="/assets/css/normalize.css"/>
-    <link rel="stylesheet" href="/assets/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="/assets/css/font-awesome.min.css"/>
-    <link rel="stylesheet" href="/assets/css/themify-icons.css"/>
-    <link rel="stylesheet" href="/assets/css/flag-icon.min.css"/>
-    <link rel="stylesheet" href="/assets/css/cs-skin-elastic.css"/>
-    <link rel="stylesheet" href="/assets/scss/style.css"/>
-    <link href="/assets/css/lib/vector-map/jqvmap.min.css" rel="stylesheet"/>
+      <link rel="stylesheet" href="../../assets/css/normalize.css"/>
+    <link rel="stylesheet" href="../../assets/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../../assets/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="../../assets/css/themify-icons.css"/>
+    <link rel="stylesheet" href="../../assets/css/flag-icon.min.css"/>
+    <link rel="stylesheet" href="../../assets/css/cs-skin-elastic.css"/>
+    <link rel="stylesheet" href="../../assets/scss/style.css"/>
+    <link href="../../assets/css/lib/vector-map/jqvmap.min.css" rel="stylesheet"/>
 
 </head>
 <body>
@@ -55,8 +55,8 @@
         </div>
     </div>
 
-      <script src="/assets/js/vendor/jquery-2.1.4.min.js"></script>
-    <script src="/assets/js/plugins.js"></script>
-    <script src="/assets/js/main.js"></script>
+      <script src="../../assets/js/vendor/jquery-2.1.4.min.js"></script>
+    <script src="../../assets/js/plugins.js"></script>
+    <script src="../../assets/js/main.js"></script>
 </body>
 </html>
