@@ -383,6 +383,5 @@ C:\Users\Hacker\Documents\GitHub\NewVersionAps\CentroBiologiaMolecularUCA\Centro
 C:\Users\Hacker\Documents\GitHub\NewVersionAps\CentroBiologiaMolecularUCA\CentroBiologiaMolecularUCA\bin\es\Microsoft.Owin.Security.Google.resources.dll
 C:\Users\Hacker\Documents\GitHub\NewVersionAps\CentroBiologiaMolecularUCA\CentroBiologiaMolecularUCA\bin\es\Microsoft.Owin.Security.Twitter.resources.dll
 C:\Users\Hacker\Documents\GitHub\NewVersionAps\CentroBiologiaMolecularUCA\CentroBiologiaMolecularUCA\bin\es\Microsoft.Owin.Security.MicrosoftAccount.resources.dll
-C:\Users\Hacker\Documents\GitHub\NewVersionAps\CentroBiologiaMolecularUCA\CentroBiologiaMolecularUCA\obj\Debug\CentroBiologiaMolecularUCA.csprojResolveAssemblyReference.cache
 C:\Users\Hacker\Documents\GitHub\NewVersionAps\CentroBiologiaMolecularUCA\CentroBiologiaMolecularUCA\obj\Debug\CentroBiologiaMolecularUCA.dll
 C:\Users\Hacker\Documents\GitHub\NewVersionAps\CentroBiologiaMolecularUCA\CentroBiologiaMolecularUCA\obj\Debug\CentroBiologiaMolecularUCA.pdb

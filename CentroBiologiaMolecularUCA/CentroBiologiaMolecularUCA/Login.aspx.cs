@@ -25,8 +25,9 @@ namespace CentroBiologiaMolecularUCA.Views.ViewLogin
             }
             else
             {
-                //Response.Redirect("~/");
-                RegularExpressionValidator.GetValidationProperty(RequiredFieldValidator1);
+                Response.Redirect("~/");
+                //RegularExpressionValidator.GetValidationProperty(RequiredFieldValidator1);
+                ClientScript.RegisterStartupScript(GetType(), "Javascript", "javascript: Required(); ", true);
 
             }
             if (Mcontrasena.ToString() != null)
@@ -35,8 +36,9 @@ namespace CentroBiologiaMolecularUCA.Views.ViewLogin
             }
             else
             {
-                //Response.Redirect("~/");
-                RegularExpressionValidator.GetValidationProperty(RequiredFieldValidator1);
+                Response.Redirect("~/");
+                //RegularExpressionValidator.GetValidationProperty(RequiredFieldValidator1);
+                ClientScript.RegisterStartupScript(GetType(), "Javascript", "javascript: Required(); ", true);
 
             }
 
@@ -50,7 +52,7 @@ namespace CentroBiologiaMolecularUCA.Views.ViewLogin
             }
             else
             {
-                Response.Write("<script>alert('El usuario o contraseña es invalido')</script>)");
+                ClientScript.RegisterStartupScript(GetType(), "Javascript", "javascript: ADD(); ", true);
             }
 
         }

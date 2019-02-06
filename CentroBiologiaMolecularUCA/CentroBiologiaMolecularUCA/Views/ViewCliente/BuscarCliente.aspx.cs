@@ -14,7 +14,7 @@ namespace CentroBiologiaMolecularUCA.Views.ViewCliente
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            ViewCliente.SetActiveView(ClientesActivos);
+           
         }
         [WebMethod]
         public static List<Cliente> GetData()
@@ -23,27 +23,9 @@ namespace CentroBiologiaMolecularUCA.Views.ViewCliente
 
             return dtp.GetData();
         }
-        protected void TablaClientesDesactivos(object sender, EventArgs e)
-        {
-            ViewCliente.SetActiveView(ClientesDesactivos);
-
-        }
 
         [WebMethod]
-        public static IEnumerable<Cliente> GetDataDesactivados()
-        {
-            DTcliente dtp = new DTcliente();
-
-            return dtp.GetDataDesactivados();
-        }
-
-        protected void TablaClienteActivos(object sender, EventArgs e)
-        {
-            ViewCliente.SetActiveView(ClientesActivos);
-
-        }
-        [WebMethod]
-        public static bool EliminarEmp(String id)
+        public static bool EliminarCli(String id)
         {
             bool resp = false;
 
@@ -53,9 +35,9 @@ namespace CentroBiologiaMolecularUCA.Views.ViewCliente
             };
             Console.Write(ep);
 
-            resp = DTcliente.getInstance().eliminar(ep);
+            resp = DTcliente.getInstance().eliminar(ep);  
             return resp;
+         
         }
-
     }
 }

@@ -14,6 +14,27 @@
     <link rel="stylesheet" href="../../assets/css/cs-skin-elastic.css"/>
     <link rel="stylesheet" href="../../assets/scss/style.css"/>
     <link href="../../assets/css/lib/vector-map/jqvmap.min.css" rel="stylesheet"/>
+    <script src="../../assets/sweetalert.min.js"></script>
+         <script>
+        function ADD() {
+            swal({
+                title: "Error",
+                text: "Datos Incorrectos",
+                icon: "warning",
+                button: "OK",
+            });
+    }
+    </script>
+       <script>
+        function Required() {
+            swal({
+                title: "Error",
+                text: "Campo Vacio",
+                icon: "warning",
+                button: "OK",
+            });
+    }
+    </script>
 
 </head>
 <body>
@@ -31,18 +52,18 @@
                           <div class="row form-group">
                             <div class="col col-md-3"><label for="text-input" class=" form-control-label">Nombre de Usuario</label></div>
                             <div class="col-12 col-md-9">
-                                 <asp:TextBox ID="Mnombre" runat="server" Text="" ToolTip="Nombre de usuario" CssClass="form-control" ValidateRequestMode="Enabled"></asp:TextBox>         
+                                 <asp:TextBox ID="Mnombre" runat="server" Text="" ToolTip="Usuario" CssClass="form-control" ValidateRequestMode="Enabled"></asp:TextBox>         
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="Mnombre" Display="Dynamic" ErrorMessage="Este Campo es requerido" BorderColor="#FF5050" BorderStyle="None" CssClass="form_hint" ForeColor="Red"></asp:RequiredFieldValidator>
-                                 <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="Mnombre" ErrorMessage="Nombre incorrecto"></asp:RegularExpressionValidator>
+                                 <%--<asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="Mnombre" ErrorMessage="Nombre incorrecto"></asp:RegularExpressionValidator>--%>
                             </div>
                           </div>
                             <!--Contraseña-->
                           <div class="row form-group">
                             <div class="col col-md-3"><label for="email-input" class=" form-control-label">Contraseña</label></div>
                             <div class="col-12 col-md-9">
-                                 <asp:TextBox ID="Mcontrasena" runat="server" Text="" ToolTip="Contraseña" CssClass="form-control" ValidateRequestMode="Enabled"></asp:TextBox>                                              
+                                 <asp:TextBox ID="Mcontrasena" runat="server" TextMode="Password" ToolTip="Contraseña" CssClass="form-control" ValidateRequestMode="Enabled"></asp:TextBox>                                              
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="Mnombre" Display="Dynamic" ErrorMessage="Este Campo es requerido" BorderColor="#FF5050" BorderStyle="None" CssClass="form_hint" ForeColor="Red"></asp:RequiredFieldValidator>
-                                 <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="Mcontrasena" ErrorMessage="Contraseña incorrecta"></asp:RegularExpressionValidator>
+                                 <%--<asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="Mcontrasena" ErrorMessage="Contraseña incorrecta"></asp:RegularExpressionValidator>--%>
                             </div>
                           </div>
                          <div class="modal-footer">
@@ -54,7 +75,6 @@
             </div>
         </div>
     </div>
-
       <script src="../../assets/js/vendor/jquery-2.1.4.min.js"></script>
     <script src="../../assets/js/plugins.js"></script>
     <script src="../../assets/js/main.js"></script>

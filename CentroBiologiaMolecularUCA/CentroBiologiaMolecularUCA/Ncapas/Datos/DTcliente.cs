@@ -235,7 +235,7 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
             return guardado;
         }
 
-        /*public SqlDataReader listarCliente()
+        public SqlDataReader listarCliente()
         {
             c = Conexion.getInstance().ConexionDB();
             String sql = "select * from T_Clientes where Activo= 1;";
@@ -259,7 +259,7 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
                 }
             }
 
-        }*/
+        }
 
         public SqlDataReader getClienteporid(int id)
         {
