@@ -5,9 +5,49 @@
             <script src="../../Scripts/jquery.signalR-2.2.3.js"></script>
             <script src="../../Scripts/jquery.signalR-2.2.3.min.js"></script>
             <script src="/signalr/hubs"></script>
+        <script src="../../assets/sweetalert.min.js"></script>
+    <form runat="server">
+          <asp:ScriptManager runat="server" ID="Update">
 
+    </asp:ScriptManager>
+        <asp:UpdatePanel runat="server" ID="Update1">
+        <ContentTemplate>
+              <div class="content mt-3">
+            <div class="animated fadeIn">
+                <div class="row">
 
-            <asp:MultiView ID="ViewCliente" runat="server">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <strong class="card-title">Data Table</strong>
+                        </div>
+                        <div class="card-body">
+                  <table id="bootstrap-data-table" class="table table-striped table-bordered">
+                    <thead>
+                        <th>Codigo</th>
+                        <th>Nombres</th>
+                        <th>Apellidos</th>
+                        <th>Correo</th>
+                        <th>Opciones</th>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                  </table>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div><!-- .animated -->
+        </div><!-- .content -->
+        </ContentTemplate>
+
+    </asp:UpdatePanel>
+    </form>
+  
+    
+           
+
+          <%--  <asp:MultiView ID="ViewCliente" runat="server">
     <asp:View ID="ClientesActivos" runat="server">
             <script src="../../Content/global.js"></script>
     <script>
@@ -96,8 +136,10 @@
         </form>
 
                 </asp:View>
-            </asp:MultiView>
- 
-    
+            </asp:MultiView>--%>
 
+           
+ 
+  <%--   <script src="../../TablesJS/TableCliente.js"></script>--%>
+    <script src="../../TablesJS/new.js"></script>
 </asp:Content>
