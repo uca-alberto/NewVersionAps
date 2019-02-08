@@ -6,30 +6,20 @@
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
-      <link rel="stylesheet" href="../../assets/css/normalize.css"/>
-    <link rel="stylesheet" href="../../assets/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="../../assets/css/font-awesome.min.css"/>
-    <link rel="stylesheet" href="../../assets/css/themify-icons.css"/>
-    <link rel="stylesheet" href="../../assets/css/flag-icon.min.css"/>
-    <link rel="stylesheet" href="../../assets/css/cs-skin-elastic.css"/>
-    <link rel="stylesheet" href="../../assets/scss/style.css"/>
-    <link href="../../assets/css/lib/vector-map/jqvmap.min.css" rel="stylesheet"/>
-    <script src="../../assets/sweetalert.min.js"></script>
+      <link rel="stylesheet" href="assets/css/normalize.css"/>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="assets/css/themify-icons.css"/>
+    <link rel="stylesheet" href="assets/css/flag-icon.min.css"/>
+    <link rel="stylesheet" href="assets/css/cs-skin-elastic.css"/>
+    <link rel="stylesheet" href="assets/scss/style.css"/>
+    <link href="assets/css/lib/vector-map/jqvmap.min.css" rel="stylesheet"/>
+    <script src="assets/sweetalert.min.js"></script>
          <script>
         function ADD() {
             swal({
                 title: "Error",
                 text: "Datos Incorrectos",
-                icon: "warning",
-                button: "OK",
-            });
-    }
-    </script>
-       <script>
-        function Required() {
-            swal({
-                title: "Error",
-                text: "Campo Vacio",
                 icon: "warning",
                 button: "OK",
             });
@@ -43,14 +33,14 @@
             <div class="login-content">
                 <div class="login-logo">
                     <a href="index.html">
-                        <img class="align-content" src="../../Content/images/logo.png" alt="">
+                        <img class="align-content" src="../../assets/imagenes/Uca_Logo.jpg" alt="">
                     </a>
                 </div>
                 <div class="login-form">
                     <form method="post" enctype="multipart/form-data" class="form-horizontal" runat="server">
                           <!--nombre-->
                           <div class="row form-group">
-                            <div class="col col-md-3"><label for="text-input" class=" form-control-label">Nombre de Usuario</label></div>
+                            <div class="col col-md-3"><label for="text-input" class=" form-control-label">Usuario</label></div>
                             <div class="col-12 col-md-9">
                                  <asp:TextBox ID="Mnombre" runat="server" Text="" ToolTip="Usuario" CssClass="form-control" ValidateRequestMode="Enabled"></asp:TextBox>         
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="Mnombre" Display="Dynamic" ErrorMessage="Este Campo es requerido" BorderColor="#FF5050" BorderStyle="None" CssClass="form_hint" ForeColor="Red"></asp:RequiredFieldValidator>
@@ -75,8 +65,8 @@
             </div>
         </div>
     </div>
-      <script src="../../assets/js/vendor/jquery-2.1.4.min.js"></script>
-    <script src="../../assets/js/plugins.js"></script>
-    <script src="../../assets/js/main.js"></script>
+      <script src="assets/js/vendor/jquery-2.1.4.min.js"></script>
+    <script src="assets/js/plugins.js"></script>
+    <script src="assets/js/main.js"></script>
 </body>
 </html>

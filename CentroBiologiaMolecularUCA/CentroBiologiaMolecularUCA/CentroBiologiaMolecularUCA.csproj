@@ -218,6 +218,14 @@
     <Content Include="assets\fonts\icomoon\index.html" />
     <Content Include="assets\fonts\index.html" />
     <Content Include="assets\fonts\themify.svg" />
+    <Content Include="assets\imagenes\1.png" />
+    <Content Include="assets\imagenes\2.png" />
+    <Content Include="assets\imagenes\3.png" />
+    <Content Include="assets\imagenes\4.png" />
+    <Content Include="assets\imagenes\5.png" />
+    <Content Include="assets\imagenes\6.png" />
+    <Content Include="assets\imagenes\b-topCBM.png" />
+    <Content Include="assets\imagenes\Uca_Logo.jpg" />
     <Content Include="assets\js\chartjs.min.js" />
     <Content Include="assets\js\dashboard.js" />
     <Content Include="assets\js\index.html" />
@@ -600,6 +608,7 @@
     <Content Include="assets\scss\_switches.scss" />
     <Content Include="assets\scss\_widgets.scss" />
     <None Include="Scripts\jquery-1.6.4-vsdoc.js" />
+    <Content Include="js\bootstrap.js" />
     <Content Include="js\fechas.js" />
     <Content Include="js\plugins\input-mask\jquery.inputmask.date.extensions.js" />
     <Content Include="js\plugins\moment\moment.min.js" />
