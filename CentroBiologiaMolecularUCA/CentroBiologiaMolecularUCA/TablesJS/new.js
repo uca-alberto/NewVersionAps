@@ -7,8 +7,8 @@ function addRowDT(data) {
            data[i].Nombres,
            data[i].Apellidos,
            data[i].Correo,
-           '<button value="Actualizar" title="Actualizar" class="btn btn-primary btn-edit" data-target="#imodal" data-toggle="modal"><i class="fa fa-edit"></i></button>&nbsp;' +
-           '<button value="Eliminar" title="Eliminar" class="btn btn-danger btn-delete"><i class="fa fa-trash-o"></i></button>'
+           '<a title="Editar" href="EditarCliente.aspx?id=' + data[i].Id_Cliente + '"><i class="fa fa-edit"></i>&nbsp;' +
+           '<a value="Eliminarre" id="Eliminar"><i class="fa fa-trash-o"></i>'
 
         ]).draw(false);
     }
@@ -30,31 +30,7 @@ function sendDataAjax() {
         }
     });
 }
-//Método para Eliminar Datos
-//function deleteDataAjax(data) {
-//    var obj = JSON.stringify({
-//        id: JSON.stringify(data)
-//    });
-//    $.ajax({
-//        type: "POST",
-//        url: "BuscarCliente.aspx/EliminarCli",
-//        data: obj,
-//        dataType: "json",
-//        contentType: "application/json; charset=utf-8",
-//        error: function (xhr, ajaxOptions, thrownError) {
-//            console.log(xhr.status + "\n" + xhr.responseText, thrownError);
-//        },
-//        success: function (response) {
-//            if (response.d) {
-//                alert('Registro eliminado de Manera Correcta');
-//            }
-//            else {
-//                alert('No se pudo eliminarr el registro');
-//            }
 
-//        }
-//    });
-//}
 function deleteDataAjax(data) {
         swal({
             title: "Esta Seguro?",
@@ -75,24 +51,21 @@ function deleteDataAjax(data) {
                   dataType: "json",
                   contentType: "application/json; charset=utf-8",
                   error: function (xhr, ajaxOptions, thrownError) {
-                      console.log(xhr.status + "\n" + xhr.responseText, thrownError);
-                  
+                      console.log(xhr.status + "\n" + xhr.responseText, thrownError); 
                   },
 
               });
               swal("Se Elimino Correctamente", {
                   icon: "success",
-                
-              }); 
-          } else {
-              swal("Your imaginary file is safe!");
+              });
+              location.href = "BuscarCliente.aspx"
           }
       });
     }
 
 
 //EVENTO PARA BOTON ELIMINAR
-$(document).on('click', '.btn-delete', function (e) {
+$(document).on('click', '#Eliminar', function (e) {
     e.preventDefault();
     var dataRow = tabla.rows($(this).parents('tr')).data()[0];
     console.log(dataRow[0])

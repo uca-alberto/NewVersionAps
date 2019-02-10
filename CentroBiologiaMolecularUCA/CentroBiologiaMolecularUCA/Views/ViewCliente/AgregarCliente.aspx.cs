@@ -129,8 +129,8 @@ namespace CentroBiologiaMolecularUCA.Views.ViewCliente
                
                 if (resp == true)
                 {
-                    Response.Redirect("BuscarCliente.aspx");
-                    //ClientScript.RegisterStartupScript(GetType(), "Javascript", "javascript: ADD(); ", true);
+                    ClientScript.RegisterStartupScript(GetType(), "Javascript", "javascript: InsertarCliente(); ", true);
+                    //Response.Redirect("BuscarCliente.aspx");
 
                 }
                 else
@@ -142,7 +142,6 @@ namespace CentroBiologiaMolecularUCA.Views.ViewCliente
             else
             {
                 ClientScript.RegisterStartupScript(GetType(), "Javascript", "javascript: ADD(); ", true);
-                // ScriptManager.RegisterStartupScript(this, GetType(), "none", "swal('hola , perro , mama')", true); //esta era otra forma de hacerlo pero esta mas compleja
             }
 
         }

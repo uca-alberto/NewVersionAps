@@ -1,16 +1,17 @@
-﻿$(function () {
+﻿
+$(function () {
 
     // Proxy created on the fly
     var job = $.connection.myHub;
 
 //     Declare a function on the job hub so the server can invoke it
     job.client.displayStatus = function () {
-        sendDataAjax()
+        addRowDT(data)
     };
 
     // Start the connection
     $.connection.hub.start();
-    sendDataAjax()
+    addRowDT(data)
 });
 
 var data, tabla;
@@ -22,11 +23,13 @@ function addRowDT(data) {
            data[i].Nombres,
            data[i].Apellidos,
            data[i].Correo,
-           '<button value="Actualizar" title="Actualizar" class="btn btn-primary btn-edit" data-target="#imodal" data-toggle="modal"><i class="fa fa-edit"></i></button>&nbsp;' +
-           '<button value="Eliminar" title="Eliminar" class="btn btn-danger btn-delete"><i class="fa fa-trash-o"></i></button>'
+           '<a title="Editar" href="EditarCliente.aspx?id=' + data[i].Id_Cliente + '"><i class="fa fa-edit"></i>&nbsp;' +
+           '<a value="Eliminarre" id="Eliminar"><i class="fa fa-trash-o"></i>'
+
         ]).draw(false);
     }
 }
+
 function sendDataAjax() {
     $.ajax({
         type: "POST",
@@ -44,44 +47,41 @@ function sendDataAjax() {
     });
 }
 
-//Funcion para obtener los datos 
-function sendDataAjax() {
-    var $tblEncabezado = $('#Body');
-    var $tblContenido = $('#contenidoTabla');
-    $.ajax({
-        type: "POST",
-        url: "BuscarCliente.aspx/GetData",
-        data: {},
-        contentType: "application/json; charset=utf-8",
-        error: function (xhr, ajaxOptions, thrownError) {
-            console.log(xhr.status + "\n" + xhr.responseText, thrownError);
-        },
-        success: function (data) {
-            //console.log(data.d);
-            // addRowDT(data.d);
-            if (data.d.length > 0) {
-                var newdata = data.d;
+function deleteDataAjax(data) {
+    swal({
+        title: "Esta Seguro?",
+        text: "Eliminar Cliente",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+    })
+  .then((willDelete) => {
+      if (willDelete) {
+          var obj = JSON.stringify({
+              id: JSON.stringify(data)
+          });
+          $.ajax({
+              type: "POST",
+              url: "BuscarCliente.aspx/EliminarCli",
+              data: obj,
+              dataType: "json",
+              contentType: "application/json; charset=utf-8",
+              error: function (xhr, ajaxOptions, thrownError) {
+                  console.log(xhr.status + "\n" + xhr.responseText, thrownError);
+              },
 
-                $tblEncabezado.empty();
-                $tblEncabezado.append('<tr><th scope="col">Código</th><th scope="col">Nombres</th><th scope="col">Apellidos</th><th scope="col">Correo Electrónico</th><th scope="col">Opciones</th></tr>');
-
-                $tblContenido.empty();
-                var rows = [];
-                for (var i = 0; i < newdata.length; i++) {
-
-                    rows.push('<tr><th scope="row">' + newdata[i].Id_Cliente + '</th><td>' + newdata[i].Nombres + '</td><td>' + newdata[i].Apellidos + '</td><td>' + newdata[i].Correo + '</td><td><a title="Mostrar" href="VerCliente.aspx?id=' + newdata[i].Id_Cliente + '"><i class="ti-eye"></i></a><a title="Editar" href="EditarCliente.aspx?id=' + newdata[i].Id_Cliente + '"><i class="ti-pencil-alt"></i></a><a value="Eliminar" id="Eliminar" ><i class="fa fa-trash-o"></i></a> </td></tr>');
-                }
-                $tblContenido.append(rows.join(''));
-            }
-
-        }
-    });
+          });
+          swal("Se Elimino Correctamente", {
+              icon: "success",
+          });
+          location.href = "BuscarCliente.aspx"
+      }
+  });
 }
 
 
-
 //EVENTO PARA BOTON ELIMINAR
-$(document).on('click', '.Eliminar', function (e) {
+$(document).on('click', '#Eliminar', function (e) {
     e.preventDefault();
     var dataRow = tabla.rows($(this).parents('tr')).data()[0];
     console.log(dataRow[0])
@@ -89,8 +89,9 @@ $(document).on('click', '.Eliminar', function (e) {
     //ENVIAR EL ID POR MEDIO DE AJAX
     deleteDataAjax(dataRow[0]);
     //RENDERIZAR EL DATATABLE
-    tabla.clear().draw();
+
     sendDataAjax();
+    tabla.clear().draw();
 });
 
 

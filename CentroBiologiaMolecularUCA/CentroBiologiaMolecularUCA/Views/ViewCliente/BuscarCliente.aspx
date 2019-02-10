@@ -2,9 +2,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
             <script src="../../assets/js/vendor/jquery-2.1.4.min.js"></script>
+    <%--   <script src="../../Scripts/jquery.signalR-2.2.3.min.js"></script>--%>
             <script src="../../Scripts/jquery.signalR-2.2.3.js"></script>
-            <script src="../../Scripts/jquery.signalR-2.2.3.min.js"></script>
-            <script src="/signalr/hubs"></script>
+                     <script src="/signalr/hubs"></script>
         <script src="../../assets/sweetalert.min.js"></script>
     <form runat="server">
           <asp:ScriptManager runat="server" ID="Update">
@@ -138,8 +138,6 @@
                 </asp:View>
             </asp:MultiView>--%>
 
-           
- 
-  <%--   <script src="../../TablesJS/TableCliente.js"></script>--%>
-    <script src="../../TablesJS/new.js"></script>
+    <script src="../../TablesJS/TableCliente.js"></script>          
+    
 </asp:Content>

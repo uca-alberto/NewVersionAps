@@ -12,6 +12,29 @@
             });
     }
     </script><!--script de alerta-->
+   <%-- <script>
+       function InsertarCliente() {
+           swal("Cliente agregado!", "Clik Para Continuar!", "success");
+           location.href = "BuscarCliente.aspx";
+    }
+    </script>--%>
+    <script>
+        function InsertarCliente(data) {
+            swal({
+                title: "Cliente Agregado",
+                text: "Correctamente",
+                icon: "success",
+               // buttons: true,
+                //dangerMode: true,
+            })
+          .then((willDelete) => {
+              if (willDelete) {
+                  location.href = "BuscarCliente.aspx";
+              } 
+          });
+        }
+    </script>
+
 
  <!--script de alerta-->
     
@@ -34,23 +57,24 @@
                 </div>
                                                 
                     <!--nombre-->
-                <div>
+                <div class="form-group">
                     <div class="col col-md-1"><label for="text-input" class=" form-control-label">Nombres:</label></div>
                     <div class="col-12 col-md-3">&nbsp;
                         <asp:TextBox ID="Mnombre" runat="server" Text="" ToolTip="Nombres" CssClass="form-control" ></asp:TextBox>
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="Mnombre" Display="Dynamic" ErrorMessage="Este Campo es requerido" BorderColor="#FF5050" BorderStyle="None" CssClass="form_hint" ForeColor="Red"></asp:RequiredFieldValidator>
                         <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="Mnombre" ErrorMessage="Datos Incorrectos" ValidationExpression="^[a-z &amp; A-Z]*$" BackColor="White" BorderColor="#FF5050" BorderStyle="None" Font-Bold="False" Font-Italic="False" ForeColor="Red"></asp:RegularExpressionValidator>
-                    </div>
-                </div>
-
-                    <!--apelldio-->
-                <div class="row form-group"  >
-                    <div class="col col-md-3"><label for="email-input" class=" form-control-label">Apellidos:</label></div>
+                         <div class="col col-md-1"><label for="email-input" class=" form-control-label">Apellidos:</label></div>
                     <div class="col-12 col-md-8">&nbsp;
                         <asp:TextBox ID="Mapellido" runat="server" Text="" ToolTip="Apellidos" CssClass="form-control" ></asp:TextBox>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="Mapellido" Display="Dynamic" ErrorMessage="Este Campo es requerido" ForeColor="#FF3300"></asp:RequiredFieldValidator>
                         <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="Mapellido" ErrorMessage="Datos Incorrectos" ValidationExpression="^[a-z &amp; A-Z]*$" ForeColor="#FF3300"></asp:RegularExpressionValidator>              
                     </div>
+                    </div>
+                </div>
+
+                    <!--apelldio-->
+                <div class="row form-group"  >
+                   
                 </div>
                     <div class="card-header">
                         <strong class="card-title">Datos Primarios </strong>
@@ -130,6 +154,11 @@
             </div>
          </div>   
 
+   <div class="card-header">
+        <strong class="card-title">Nuevo Cliente</strong>
+         </div> 
+    
+    
    
    
 </asp:Content>

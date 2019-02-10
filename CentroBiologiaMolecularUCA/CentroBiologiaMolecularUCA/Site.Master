@@ -91,7 +91,7 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-files-o"></i>Generar Reportes</a>
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="menu-icon fa fa-file"></i><a href="../../Views/ViewADN/AdnValidacion.aspx">Nuevo reporte</a></li>
-                             <li><i class="menu-icon fa fa-file"></i> <a href="../../prueba.aspx">prueba.aspx</a>Nuevo reporte</li>
+                             <li><i class="menu-icon fa fa-file"></i> <a href="../../pruebaalertas.aspx">pruebaalertas.aspx</a>Nuevo reportasadsde</li>
                         </ul>
                        
                     </li>
