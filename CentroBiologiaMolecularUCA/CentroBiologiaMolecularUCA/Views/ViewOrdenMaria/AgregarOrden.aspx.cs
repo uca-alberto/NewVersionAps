@@ -116,6 +116,8 @@ namespace CentroBiologiaMolecularUCA.Views.ViewOrdenMaria
                 bool resp = NOrdenAdn.getInstance().guardarord(ord);
                 if (resp == true)
                 {
+                    //nuevo
+                    ClientScript.RegisterStartupScript(GetType(), "Javascript", "javascript: InsertarOrden; ", true);
                     Response.Redirect("BuscarOrdenAdn.aspx");
                 }
                 else
@@ -125,6 +127,7 @@ namespace CentroBiologiaMolecularUCA.Views.ViewOrdenMaria
             }
             else
             {
+                ClientScript.RegisterStartupScript(GetType(), "Javascript", "javascript: ADD(); ", true);
                 RegularExpressionValidator.GetValidationProperty(RequiredFieldValidator1);//sino esta validado me mostrara los campos a corregir y no mandara datos.
             }
         }

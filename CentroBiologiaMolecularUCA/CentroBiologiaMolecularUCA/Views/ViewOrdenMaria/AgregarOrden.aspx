@@ -1,13 +1,50 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="AgregarOrden.aspx.cs" Inherits="CentroBiologiaMolecularUCA.Views.ViewOrdenMaria.AgregarOrden" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+    <script src="../../assets/sweetalert.min.js"></script>
+
+
+      <script>
+        function ADD() {
+            swal({
+                title: "Error",
+                text: "Revisar Formulario",
+                icon: "warning",
+                button: "OK",
+            });
+    }
+    </script>
+   <%-- <script>
+       funcion para Agregar orden
+          
+    </script>--%>
+
+     <script>
+        function InsertarOrden(data) {
+            swal({
+                title: "Orden de ADN Agregada",
+                text: "Correctamente",
+                icon: "success",
+               
+            })
+          .then((willDelete) => {
+              if (willDelete) {
+                  location.href = "BuscarOrdenAdn.aspx";
+              } 
+          });
+        }
+    </script>
     
     <div class="card-header">
-            <strong class="card-title" v-if="headerText">Crear Orden ADN</strong>
+            <!--strong class="card-title" v-if="headerText">Crear Orden ADN</!--strong-->
+         <strong class="card-title">Crear Orden ADN</!--strong>
         </div>
             <div class="card">
                                              
             <div class="card-body card-block">
                 <form id="myfrom" method="post" enctype="multipart/form-data" class="form-horizontal" runat="server">
+
+
+
                     <!--Comienzo de los formularios-->                
                     <!--fecha-->
                            <div class="row form-group ">
@@ -109,7 +146,7 @@
     </div>
                            
                    
-    <script src="../../js/plugins/input-mask/jquery.inputmask.js"></script>
+                 <script src="../../js/plugins/input-mask/jquery.inputmask.js"></script>
                        
                        <script src="../../js/plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
                        

@@ -13,6 +13,15 @@ namespace CentroBiologiaMolecularUCA.Views.ViewResultadoMaria {
     public partial class AgregarResultadoOgm {
         
         /// <summary>
+        /// Control myfrom.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlForm myfrom;
+        
+        /// <summary>
         /// Control Mfecha.
         /// </summary>
         /// <remarks>
