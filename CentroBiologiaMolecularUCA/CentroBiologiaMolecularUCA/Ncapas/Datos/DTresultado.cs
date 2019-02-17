@@ -238,16 +238,42 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
             return guardado;
         }
 
-        public SqlDataReader listarTodo()
+        //  public SqlDataReader listarTodo()
+        //  {
+        //   c = Conexion.getInstance().ConexionDB();
+        //   String sql = "select * from T_Resultados where Actividad = 1;";
+
+        //   SqlCommand comando = new SqlCommand(sql, this.c);
+        //   this.registros = comando.ExecuteReader();
+        //    return this.registros;
+        //     c.Close();
+        //   }
+        public SqlDataReader listarResultado()
         {
             c = Conexion.getInstance().ConexionDB();
-            String sql = "select * from T_Resultados where Actividad = 1;";
+            String sql = "select * from T_Resultados where Actividad= 1;";
 
-            SqlCommand comando = new SqlCommand(sql, this.c);
-            this.registros = comando.ExecuteReader();
-            return this.registros;
-            c.Close();
+            using (var connection = new SqlConnection(ConfigurationManager.ConnectionStrings["DataBase"].ConnectionString))
+            {
+                connection.Open();
+                using (SqlCommand comando = new SqlCommand(sql, this.c))
+                {
+                    // Make sure the command object does not already have
+                    // a notification object associated with it.
+                    comando.Notification = null;
+                    SqlDependency.Start(ConfigurationManager.ConnectionStrings["DataBase"].ConnectionString);
+                    SqlDependency dependency = new SqlDependency(comando);
+                    dependency.OnChange += new OnChangeEventHandler(dependency_OnChange);
+
+                    this.registros = comando.ExecuteReader();
+                    return this.registros;
+                    c.Close();
+
+                }
+            }
         }
+
+
 
         public SqlDataReader getresultadoporid(int id)
         {
@@ -260,8 +286,44 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
             c.Close();
         }
 
+
+       
+
+
         //nuevo
-        public IEnumerable<Resultado> GetData()
+        public List<Resultado> GetData()
+        {
+            using (var connection = new SqlConnection(ConfigurationManager.ConnectionStrings["DataBase"].ConnectionString))
+            {
+                connection.Open();
+                using (SqlCommand command = new SqlCommand(@"SELECT  [Id_resultado],[Analisis] FROM T_Resultados where Actividad=1", connection))
+                {
+                    // Make sure the command object does not already have
+                    // a notification object associated with it.
+                    command.Notification = null;
+                    SqlDependency.Start(ConfigurationManager.ConnectionStrings["DataBase"].ConnectionString);
+                    SqlDependency dependency = new SqlDependency(command);
+                    dependency.OnChange += new OnChangeEventHandler(dependency_OnChange);
+
+                    if (connection.State == ConnectionState.Closed)
+                        connection.Open();
+
+                    using (var reader = command.ExecuteReader())
+                        return reader.Cast<IDataRecord>()
+                            .Select(x => new Resultado()
+
+                            {
+                                Id_resultado = x.GetInt32(0),
+                                Analisis = x.GetString(1),
+
+                            }).ToList();
+
+                }
+            }
+        }
+
+
+        public IEnumerable<Resultado> GetDataDesactivados()
         {
             using (var connection = new SqlConnection(ConfigurationManager.ConnectionStrings["DataBase"].ConnectionString))
             {
@@ -298,7 +360,7 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
 
         }
 
-        List<Resultado> Igeneric<Resultado>.listarTodo()
+       public List<Resultado> listarTodo()
         {
             throw new NotImplementedException();
         }

@@ -14,19 +14,19 @@ namespace CentroBiologiaMolecularUCA.Views.ViewResultadoMaria
     public partial class AgregarResultadoOgm : System.Web.UI.Page
     {
         private DTresultado dtresultado;
-        private SqlDataReader registro;
+     //   private SqlDataReader registro;
        
         protected void Page_Load(object sender, EventArgs e)
         {
             this.dtresultado = new DTresultado();
-            this.registro = this.dtresultado.listarTodo();
+          //  this.registro = this.dtresultado.listarTodo();
 
         }
 
-        public SqlDataReader getregistros()
-        {
-            return this.registro;
-        }
+       // public SqlDataReader getregistros()
+       // {
+         //   return this.registro;
+      //  }
 
         public Resultado GetEntity()
         {
@@ -91,7 +91,7 @@ namespace CentroBiologiaMolecularUCA.Views.ViewResultadoMaria
             return re;
         }
 
-        protected void InsertarOrden(object sender, EventArgs e)
+        protected void InsertarResultado(object sender, EventArgs e)
         {
             if (IsValid)
             {
@@ -99,7 +99,8 @@ namespace CentroBiologiaMolecularUCA.Views.ViewResultadoMaria
                 bool resp = NGresultado.getInstance().guardarresultado(re);
                 if (resp == true)
                 {
-                    Response.Redirect("AgregarResultadoOgm.aspx");
+                    ClientScript.RegisterStartupScript(GetType(), "Javascript", "javascript: InsertarResultado(); ", true);
+                    //  Response.Redirect("AgregarResultadoOgm.aspx");
                 }
                 else
                 {
@@ -108,7 +109,8 @@ namespace CentroBiologiaMolecularUCA.Views.ViewResultadoMaria
             }
             else
             {
-                RegularExpressionValidator.GetValidationProperty(RequiredFieldValidator1);//sino esta validado me mostrara los campos a corregir y no mandara datos.
+                ClientScript.RegisterStartupScript(GetType(), "Javascript", "javascript: ADD(); ", true);
+             
 
             }
         }
