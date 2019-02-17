@@ -22,21 +22,24 @@ namespace CentroBiologiaMolecularUCA.Views.ViewCliente
             this.dtcliente = new DTcliente();
             this.dtdepartamento = new DTdepartamento();
             this.dtmunicipio = new DTmunicipio();
+          
+                if (!IsPostBack)
+                {
+                    //en esta parte se carga el dropdownlist
+                    Mdepartamento.DataSource = dtdepartamento.listardepartamento();//aqui le paso mi consulta que esta en la clase dtdepartamento
+                    Mdepartamento.DataBind();
 
-            if (!IsPostBack)
-            {
-                //en esta parte se carga el dropdownlist
-                Mdepartamento.DataSource = dtdepartamento.listardepartamento();//aqui le paso mi consulta que esta en la clase dtdepartamento
-                Mdepartamento.DataBind();
+                    ListItem li = new ListItem("SELECCIONE", "0");//creamos una lista, para agregar el seleccione
+                    Mdepartamento.Items.Insert(0, li);//agregamis el seleccione en la posicion uno
+                    Mmunicipio.Items.Insert(0, li);
+                    Mmunicipio.Enabled = false;
+                }
 
-                ListItem li = new ListItem("SELECCIONE", "0");//creamos una lista, para agregar el seleccione
-                Mdepartamento.Items.Insert(0, li);//agregamis el seleccione en la posicion uno
-                Mmunicipio.Items.Insert(0, li);
-                Mmunicipio.Enabled = false;
-            }
+            
+           
         }
 
-       
+      
 
         public Cliente GetEntity()
         {
@@ -116,7 +119,7 @@ namespace CentroBiologiaMolecularUCA.Views.ViewCliente
             }
             return cli;
         }
-
+      
         protected void InsertarCliente(object sender, EventArgs e)
         {
 
@@ -150,6 +153,24 @@ namespace CentroBiologiaMolecularUCA.Views.ViewCliente
         {
             if (Mdepartamento.SelectedIndex == 0)
             {
+
+            }
+            else
+            {
+                Mmunicipio.Enabled = true;
+                Mmunicipio.DataSource = dtmunicipio.getmunicipioporid(int.Parse(Mdepartamento.SelectedValue));
+                Mmunicipio.DataBind();
+                //tienes que resolver, el problema que recarga la pagina y se sale del formulario, resolverlo
+                //tratar de hacerlo con jqury https://www.youtube.com/watch?v=P_-zxQYPy5w Ese es eñ video
+            }
+        }
+
+        protected void NewCliente(object sender, EventArgs e)
+        {
+            string user="";
+            if (user.ToString() =="admin")
+            {
+                Response.Redirect("AgregarCliente.aspx.aspx");
 
             }
             else
