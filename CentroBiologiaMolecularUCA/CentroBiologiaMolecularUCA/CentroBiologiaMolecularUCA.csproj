@@ -623,6 +623,7 @@
     <Content Include="Site.Master" />
     <Content Include="TablesJS\new.js" />
     <Content Include="TablesJS\TableCliente.js" />
+    <Content Include="TablesJS\TableResultadoOgm.js" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Views\ViewADN\AdnValidacion.aspx" />
     <Content Include="Views\ViewCliente\AgregarCliente.aspx" />

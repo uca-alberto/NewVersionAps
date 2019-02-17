@@ -11,5 +11,23 @@ namespace CentroBiologiaMolecularUCA.Views.ViewResultadoMaria {
     
     
     public partial class BuscarResultadoOgm {
+        
+        /// <summary>
+        /// Control Update.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.ScriptManager Update;
+        
+        /// <summary>
+        /// Control Update1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel Update1;
     }
 }
