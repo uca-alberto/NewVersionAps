@@ -106,7 +106,7 @@
                             </div>
                                 <br />
                                 <div class="modal-footer">
-                                        <button type="button" id="cancel" class="btn btn-secondary" data-dismiss="modal" onclick="Cancel()">Cancelar</button>
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                                         <asp:HiddenField runat="server" ID="Id_cliente" />
                                        <asp:Button id="enviar" runat="server" Text="Modificar" CssClass="btn btn-primary" OnClick="EditarFormulario"/>
                                   </div>
@@ -114,14 +114,7 @@
                         </div>
                         </div>      
 
-    <script type="text/javascript" src="../../Content/listacliente.js"></script>  
-    <script typeof="text/javascript">
-        //document.getElementById("cancel").onclick = function() {myFunction()};
-        function Cancel() {
-            location.href = "BuscarCliente.aspx";
-        }
-
-    </script>  
+    <script type="text/javascript" src="../../Content/listacliente.js"></script>    
      
     <script  type="text/javascript">
         window.onload = function () {

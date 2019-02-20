@@ -28,8 +28,8 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
         public SqlConnection ConexionDB()
         {
             SqlConnection conexion = new SqlConnection();
-             conexion.ConnectionString = "Data Source=.;Initial Catalog=CBM;User ID=sa;Password=123";
-            //conexion.ConnectionString = "Data Source=DESKTOP-GCFVTUI;Initial Catalog=biologia; MultipleActiveResultSets=True ;Max Pool Size = 50; Min Pool Size = 1; Pooling = True;User ID = sa; Password = 1234;";
+           // conexion.ConnectionString = "Data Source=DESKTOP-PF2CIA5\\SA;Initial Catalog=Biologias;Integrated Security=True";
+            conexion.ConnectionString = "Data Source=localhost;Initial Catalog=centro; MultipleActiveResultSets=True ;Max Pool Size = 50; Min Pool Size = 1; Pooling = True;User ID = sa; Password = 123;";
             // conexion.ConnectionString = "Data Source=165.98.12.158;Initial Catalog=cbm;User ID=aps;Password=$qlS3rv3rAPS*";
             conexion.Open();
             return conexion;

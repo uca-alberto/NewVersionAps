@@ -191,6 +191,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="assets\css\animate.css" />
+    <Content Include="assets\css\bootstrap-datetimepicker.css" />
+    <Content Include="assets\css\bootstrap-datetimepicker.min.css" />
     <Content Include="assets\css\bootstrap-select.css" />
     <Content Include="assets\css\bootstrap.css" />
     <Content Include="assets\css\bootstrap.min.css" />
@@ -225,7 +227,10 @@
     <Content Include="assets\imagenes\4.png" />
     <Content Include="assets\imagenes\5.png" />
     <Content Include="assets\imagenes\6.png" />
-    <Content Include="assets\imagenes\b-topCBM.png" />
+    <Content Include="assets\imagenes\admin.jpg" />
+    <Content Include="assets\imagenes\CBM.png" />
+    <Content Include="assets\imagenes\calendario.png" />
+    <Content Include="assets\imagenes\logo.png" />
     <Content Include="assets\imagenes\Uca_Logo.jpg" />
     <Content Include="assets\js\chartjs.min.js" />
     <Content Include="assets\js\dashboard.js" />
@@ -609,11 +614,15 @@
     <Content Include="assets\scss\_switches.scss" />
     <Content Include="assets\scss\_widgets.scss" />
     <None Include="Scripts\jquery-1.6.4-vsdoc.js" />
+    <Content Include="js\bootstrap-datetimepicker.es.js" />
+    <Content Include="js\bootstrap-datetimepicker.min.js" />
     <Content Include="js\bootstrap.js" />
+    <Content Include="js\bootstrap.min.js" />
     <Content Include="js\fechas.js" />
+    <Content Include="js\moment.min.js" />
     <Content Include="js\plugins\input-mask\jquery.inputmask.date.extensions.js" />
     <Content Include="js\plugins\moment\moment.min.js" />
-    <Content Include="js\plugins\timepicker\bootstrap-timepicker.min.js" />
+    <Content Include="js\bootstrap-timepicker.min.js" />
     <Content Include="pruebaalertas.aspx" />
     <Content Include="pruebavista.aspx" />
     <Content Include="Scripts\jquery-1.6.4.js" />
@@ -623,7 +632,6 @@
     <Content Include="Site.Master" />
     <Content Include="TablesJS\new.js" />
     <Content Include="TablesJS\TableCliente.js" />
-    <Content Include="TablesJS\TableResultadoOgm.js" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Views\ViewADN\AdnValidacion.aspx" />
     <Content Include="Views\ViewCliente\AgregarCliente.aspx" />
@@ -635,12 +643,10 @@
     <Content Include="Login.aspx" />
     <Content Include="Views\ViewOrdenMaria\AgregarOrden.aspx" />
     <Content Include="Views\ViewOrdenMaria\BuscarOrdenAdn.aspx" />
-    <Content Include="Views\ViewOrdenMaria\EliminarOrden.aspx" />
     <Content Include="Views\ViewOrdenMaria\ModificarOrden.aspx" />
     <Content Include="Views\ViewOrdenMaria\VerOrdenAdn.aspx" />
+    <Content Include="Views\ViewOrden\AgregarOrdenOgm.aspx" />
     <Content Include="Views\ViewResultadoMaria\AgregarResultadoOgm.aspx" />
-    <Content Include="Views\ViewResultadoMaria\BuscarResultadoOgm.aspx" />
-    <Content Include="Views\ViewResultadoMaria\EliminarresultadoOgm.aspx" />
     <Content Include="Views\ViewResultadoMaria\ModificarResultadoOgm.aspx" />
     <Content Include="Views\ViewResultadoMaria\VerResultadoOgm.aspx" />
     <Content Include="Views\ViewUsuario\AgregarUsuario.aspx" />
@@ -673,6 +679,7 @@
     <Compile Include="Ncapas\Datos\DTdepartamento.cs" />
     <Compile Include="Ncapas\Datos\DTexamenes.cs" />
     <Compile Include="Ncapas\Datos\DTlogin.cs" />
+    <Compile Include="Ncapas\Datos\DTmuestra.cs" />
     <Compile Include="Ncapas\Datos\DTmunicipio.cs" />
     <Compile Include="Ncapas\Datos\DTresultado.cs" />
     <Compile Include="Ncapas\Datos\DTrol.cs" />
@@ -797,13 +804,6 @@
     <Compile Include="Views\ViewOrdenMaria\BuscarOrdenAdn.aspx.designer.cs">
       <DependentUpon>BuscarOrdenAdn.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\ViewOrdenMaria\EliminarOrden.aspx.cs">
-      <DependentUpon>EliminarOrden.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Views\ViewOrdenMaria\EliminarOrden.aspx.designer.cs">
-      <DependentUpon>EliminarOrden.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Views\ViewOrdenMaria\ModificarOrden.aspx.cs">
       <DependentUpon>ModificarOrden.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -818,26 +818,19 @@
     <Compile Include="Views\ViewOrdenMaria\VerOrdenAdn.aspx.designer.cs">
       <DependentUpon>VerOrdenAdn.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Views\ViewOrden\AgregarOrdenOgm.aspx.cs">
+      <DependentUpon>AgregarOrdenOgm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\ViewOrden\AgregarOrdenOgm.aspx.designer.cs">
+      <DependentUpon>AgregarOrdenOgm.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\ViewResultadoMaria\AgregarResultadoOgm.aspx.cs">
       <DependentUpon>AgregarResultadoOgm.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Views\ViewResultadoMaria\AgregarResultadoOgm.aspx.designer.cs">
       <DependentUpon>AgregarResultadoOgm.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Views\ViewResultadoMaria\BuscarResultadoOgm.aspx.cs">
-      <DependentUpon>BuscarResultadoOgm.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Views\ViewResultadoMaria\BuscarResultadoOgm.aspx.designer.cs">
-      <DependentUpon>BuscarResultadoOgm.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Views\ViewResultadoMaria\EliminarresultadoOgm.aspx.cs">
-      <DependentUpon>EliminarresultadoOgm.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Views\ViewResultadoMaria\EliminarresultadoOgm.aspx.designer.cs">
-      <DependentUpon>EliminarresultadoOgm.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\ViewResultadoMaria\ModificarResultadoOgm.aspx.cs">
       <DependentUpon>ModificarResultadoOgm.aspx</DependentUpon>
@@ -870,6 +863,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="js\plugins\timepicker\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
