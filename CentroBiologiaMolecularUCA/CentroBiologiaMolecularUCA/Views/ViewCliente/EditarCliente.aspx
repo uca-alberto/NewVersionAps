@@ -106,7 +106,7 @@
                             </div>
                                 <br />
                                 <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                    <asp:Button runat="server" CssClass="btn btn-secondary" ID="Cancelar" Text="Cancelar" OnClick="Cancelar_Click" />
                                         <asp:HiddenField runat="server" ID="Id_cliente" />
                                        <asp:Button id="enviar" runat="server" Text="Modificar" CssClass="btn btn-primary" OnClick="EditarFormulario"/>
                                   </div>

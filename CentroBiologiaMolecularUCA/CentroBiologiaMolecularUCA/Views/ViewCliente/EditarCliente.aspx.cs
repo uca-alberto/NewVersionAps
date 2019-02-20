@@ -184,5 +184,10 @@ namespace CentroBiologiaMolecularUCA.Views.ViewCliente
                 //tratar de hacerlo con jqury https://www.youtube.com/watch?v=P_-zxQYPy5w Ese es eñ video
             }
         }
+
+        protected void Cancelar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("BuscarCliente.aspx");
+        }
     }
 }

@@ -11,7 +11,8 @@
                 button: "OK",
             });
     }
-    </script><!--script de alerta-->
+    </script>
+    <!--script de alerta-->
    <%-- <script>
        function InsertarCliente() {
            swal("Cliente agregado!", "Clik Para Continuar!", "success");
@@ -93,6 +94,11 @@
                 </div>
                       
                     <!--Seleccion de departamento-->
+                    <asp:ScriptManager runat="server" ID="scriptmanager"></asp:ScriptManager>
+                    <asp:UpdatePanel runat="server" ID="Panel">
+                        <ContentTemplate>
+
+                     
                 <div >
                     <div class="col col-md-1"><label for="select" class=" form-control-label">Departamento:</label></div>
                     <div class="col-12 col-md-3"> &nbsp;
@@ -111,6 +117,8 @@
 
                     </div>
                 </div>
+                </ContentTemplate>
+               </asp:UpdatePanel>
                         <!--Direccion-->
                 <div class="row form-group">
                     &nbsp; &nbsp;<div class="col col-md-1"><label for="text-input" class=" form-control-label">&nbsp;Direccion:</label></div>
@@ -152,10 +160,6 @@
                 </form>
             </div>
          </div>   
-
-   <div class="card-header">
-        <strong class="card-title">Nuevo Cliente</strong>
-         </div> 
     
     
    
