@@ -112,6 +112,24 @@ namespace CentroBiologiaMolecularUCA.Views.ViewCliente {
         protected global::System.Web.UI.WebControls.DropDownList Msexo;
         
         /// <summary>
+        /// Control scriptmanager.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.ScriptManager scriptmanager;
+        
+        /// <summary>
+        /// Control Panel.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel Panel;
+        
+        /// <summary>
         /// Control Mdepartamento.
         /// </summary>
         /// <remarks>

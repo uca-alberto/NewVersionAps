@@ -18,6 +18,13 @@
  <link rel="stylesheet" href="/assets/css/lib/datatable/dataTables.bootstrap.min.css">
     <link href="/assets/css/lib/vector-map/jqvmap.min.css" rel="stylesheet">
     <link href="assets/sweetalert.css" rel="sweetalert"/>
+
+  <link href="assets/css/bootstrap-datetimepicker.min.css" rel="stylesheet"> 
+    <link href="assets/css/bootstrap-datetimepicker.css" rel="stylesheet"> 
+
+
+ 
+     
    
     <asp:PlaceHolder runat="server">
     </asp:PlaceHolder>
@@ -35,8 +42,10 @@
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fa fa-bars"></i>
                 </button>
+               <!--
                 <a class="navbar-brand" href="../../Views/ViewLogin/Index.aspx"><img src="../../Content/images/logo.png" alt="Logo"></a>
                 <a class="navbar-brand hidden" href="../../Views/ViewLogin/Index.aspx"><img src="../../images/logo2.png" alt="CBM"></a>
+                -->
             </div>
 
             <div id="main-menu" class="main-menu collapse navbar-collapse">
@@ -54,7 +63,7 @@
                                 
                         </ul>
                     </li>
-
+                  
                     <!-- /Menu de control de Clientes -->
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-male"></i>Control de Cliente</a>
@@ -69,6 +78,7 @@
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-list-ol"></i>Control De Orden</a>
                         <ul class="sub-menu children dropdown-menu">
+                            <li><i class="menu-icon fa fa-plus-circle"></i><a href="../../Views/ViewOrden/AgregarOrdenOgm.aspx">Crear Orden OGM</a></li>
                             <li><i class="menu-icon fa fa-plus-circle"></i><a href="../../Views/ViewOrdenMaria/AgregarOrden.aspx">Crear Orden ADN</a></li>
                             <li><i class="ti-search"></i><a href="../../Views/ViewOrdenMaria/BuscarOrdenAdn.aspx">Buscar Orden ADN</a></li>
                             
@@ -80,8 +90,7 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-area-chart"></i>Control de Resultados</a>
                         <ul class="sub-menu children dropdown-menu">
                              <li><i class="menu-icon fa fa-plus-circle"></i><a href="../../Views/ViewResultadoMaria/AgregarResultadoOgm.aspx">Crear Resultado OGM</a></li>
-                             <li><i class="ti-search"></i><a href="../../Views/ViewResultadoMaria/BuscarResultadoOgm.aspx">Buscar Resultado OGM</a></li>
-                            
+                            <li><i class="ti-eye"></i><a href="#">Visualizar Resultados</a></li>
                             <!--li><i class="ti-search"></i><a href="#">Buscar</a></!--li-->
                         </ul>
                     </li>
@@ -114,8 +123,15 @@
 
                 <div class="col-sm-7">
                     <a id="menuToggle" class="menutoggle pull-left"><i class="fa fa fa-tasks"></i></a>
-                    <div class="header-left">     
-                 <img class="col-sm-10" src="../../assets/imagenes/b-topCBM.png" width="800" />
+                    <div class="header-left">
+                        <button class="search-trigger"><i class="fa fa-search"></i></button>
+                        <div class="form-inline">
+                            <form class="search-form">
+                                <input class="form-control mr-sm-2" type="text" placeholder="Search ..." aria-label="Search">
+                                <button class="search-close" type="submit"><i class="fa fa-close"></i></button>
+                            </form>
+                        </div>
+                 <strong class="col-sm-2">Centro De Biologia Molecular UCA</strong>
                          
                 </div>
                 </div>
@@ -124,7 +140,7 @@
                 <div class="col-sm-5">
                     <div class="user-area dropdown float-right">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img class="user-avatar rounded-circle" src="../../Content/images/admin.jpg" alt="User Avatar">
+                            <img class="user-avatar rounded-circle" src="../../assets/imagenes/admin.jpg" alt="User Avatar">
                         </a>
 
                         <div class="user-menu dropdown-menu">
@@ -136,14 +152,14 @@
 
                 </div>
             </div>
-            
+
         </header><!-- /header -->
         <!-- Header-->
+    
         <div class="container body-content">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
         </div>
-       
    
     <script src="/assets/js/vendor/jquery-2.1.4.min.js"></script>
     <script src="/assets/js/plugins.js"></script>

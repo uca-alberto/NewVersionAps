@@ -11,7 +11,8 @@
                 button: "OK",
             });
     }
-    </script><!--script de alerta-->
+    </script>
+    <!--script de alerta-->
    <%-- <script>
        function InsertarCliente() {
            swal("Cliente agregado!", "Clik Para Continuar!", "success");
@@ -63,18 +64,17 @@
                         <asp:TextBox ID="Mnombre" runat="server" Text="" ToolTip="Nombres" CssClass="form-control" ></asp:TextBox>
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="Mnombre" Display="Dynamic" ErrorMessage="Este Campo es requerido" BorderColor="#FF5050" BorderStyle="None" CssClass="form_hint" ForeColor="Red"></asp:RequiredFieldValidator>
                         <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="Mnombre" ErrorMessage="Datos Incorrectos" ValidationExpression="^[a-z &amp; A-Z]*$" BackColor="White" BorderColor="#FF5050" BorderStyle="None" Font-Bold="False" Font-Italic="False" ForeColor="Red"></asp:RegularExpressionValidator>
-                         <div class="col col-md-1"><label for="email-input" class=" form-control-label">Apellidos:</label></div>
-                    <div class="col-12 col-md-8">&nbsp;
-                        <asp:TextBox ID="Mapellido" runat="server" Text="" ToolTip="Apellidos" CssClass="form-control" ></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="Mapellido" Display="Dynamic" ErrorMessage="Este Campo es requerido" ForeColor="#FF3300"></asp:RequiredFieldValidator>
-                        <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="Mapellido" ErrorMessage="Datos Incorrectos" ValidationExpression="^[a-z &amp; A-Z]*$" ForeColor="#FF3300"></asp:RegularExpressionValidator>              
-                    </div>
                     </div>
                 </div>
 
                     <!--apelldio-->
-                <div class="row form-group"  >
-                   
+                <div class="row form-group">
+                    <div class="col col-md-1"><label for="email-input" class=" form-control-label">Apellidos:</label></div>
+                     <div class="col-12 col-md-8">&nbsp;
+                        <asp:TextBox ID="Mapellido" runat="server" Text="" ToolTip="Apellidos" CssClass="form-control" ></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="Mapellido" Display="Dynamic" ErrorMessage="Este Campo es requerido" ForeColor="#FF3300"></asp:RequiredFieldValidator>
+                        <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="Mapellido" ErrorMessage="Datos Incorrectos" ValidationExpression="^[a-z &amp; A-Z]*$" ForeColor="#FF3300"></asp:RegularExpressionValidator>              
+                    </div>
                 </div>
                     <div class="card-header">
                         <strong class="card-title">Datos Primarios </strong>
@@ -94,6 +94,11 @@
                 </div>
                       
                     <!--Seleccion de departamento-->
+                    <asp:ScriptManager runat="server" ID="scriptmanager"></asp:ScriptManager>
+                    <asp:UpdatePanel runat="server" ID="Panel">
+                        <ContentTemplate>
+
+                     
                 <div >
                     <div class="col col-md-1"><label for="select" class=" form-control-label">Departamento:</label></div>
                     <div class="col-12 col-md-3"> &nbsp;
@@ -112,6 +117,8 @@
 
                     </div>
                 </div>
+                </ContentTemplate>
+               </asp:UpdatePanel>
                         <!--Direccion-->
                 <div class="row form-group">
                     &nbsp; &nbsp;<div class="col col-md-1"><label for="text-input" class=" form-control-label">&nbsp;Direccion:</label></div>
@@ -153,10 +160,6 @@
                 </form>
             </div>
          </div>   
-
-   <div class="card-header">
-        <strong class="card-title">Nuevo Cliente</strong>
-         </div> 
     
     
    
