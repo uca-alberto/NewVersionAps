@@ -644,11 +644,15 @@
     <Content Include="Views\ViewLogin\Index.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Views\ViewOrdenMaria\AgregarOrden.aspx" />
+    <Content Include="Views\ViewOrdenMaria\AgregarOrdenAdnMulti.aspx" />
     <Content Include="Views\ViewOrdenMaria\BuscarOrdenAdn.aspx" />
+    <Content Include="Views\ViewOrdenMaria\EliminarOrden.aspx" />
     <Content Include="Views\ViewOrdenMaria\ModificarOrden.aspx" />
     <Content Include="Views\ViewOrdenMaria\VerOrdenAdn.aspx" />
     <Content Include="Views\ViewOrden\AgregarOrdenOgm.aspx" />
     <Content Include="Views\ViewResultadoMaria\AgregarResultadoOgm.aspx" />
+    <Content Include="Views\ViewResultadoMaria\BuscarResultadoOgm.aspx" />
+    <Content Include="Views\ViewResultadoMaria\EliminarresultadoOgm.aspx" />
     <Content Include="Views\ViewResultadoMaria\ModificarResultadoOgm.aspx" />
     <Content Include="Views\ViewResultadoMaria\VerResultadoOgm.aspx" />
     <Content Include="Views\ViewUsuario\AgregarUsuario.aspx" />
@@ -799,12 +803,26 @@
     <Compile Include="Views\ViewOrdenMaria\AgregarOrden.aspx.designer.cs">
       <DependentUpon>AgregarOrden.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Views\ViewOrdenMaria\AgregarOrdenAdnMulti.aspx.cs">
+      <DependentUpon>AgregarOrdenAdnMulti.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\ViewOrdenMaria\AgregarOrdenAdnMulti.aspx.designer.cs">
+      <DependentUpon>AgregarOrdenAdnMulti.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\ViewOrdenMaria\BuscarOrdenAdn.aspx.cs">
       <DependentUpon>BuscarOrdenAdn.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Views\ViewOrdenMaria\BuscarOrdenAdn.aspx.designer.cs">
       <DependentUpon>BuscarOrdenAdn.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ViewOrdenMaria\EliminarOrden.aspx.cs">
+      <DependentUpon>EliminarOrden.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\ViewOrdenMaria\EliminarOrden.aspx.designer.cs">
+      <DependentUpon>EliminarOrden.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\ViewOrdenMaria\ModificarOrden.aspx.cs">
       <DependentUpon>ModificarOrden.aspx</DependentUpon>
@@ -833,6 +851,20 @@
     </Compile>
     <Compile Include="Views\ViewResultadoMaria\AgregarResultadoOgm.aspx.designer.cs">
       <DependentUpon>AgregarResultadoOgm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ViewResultadoMaria\BuscarResultadoOgm.aspx.cs">
+      <DependentUpon>BuscarResultadoOgm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\ViewResultadoMaria\BuscarResultadoOgm.aspx.designer.cs">
+      <DependentUpon>BuscarResultadoOgm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ViewResultadoMaria\EliminarresultadoOgm.aspx.cs">
+      <DependentUpon>EliminarresultadoOgm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\ViewResultadoMaria\EliminarresultadoOgm.aspx.designer.cs">
+      <DependentUpon>EliminarresultadoOgm.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\ViewResultadoMaria\ModificarResultadoOgm.aspx.cs">
       <DependentUpon>ModificarResultadoOgm.aspx</DependentUpon>

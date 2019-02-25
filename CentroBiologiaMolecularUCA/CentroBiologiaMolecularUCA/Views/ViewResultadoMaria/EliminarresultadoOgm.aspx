@@ -5,7 +5,7 @@
          function Delete() {
             swal({
                 title: "Esta Seguro?",
-                text: "Eliminar Orden ADN",
+                text: "Eliminar resultado OGM",
                 icon: "warning",
                 buttons: true,
                 dangerMode: true,
