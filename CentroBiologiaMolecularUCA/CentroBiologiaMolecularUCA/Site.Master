@@ -22,10 +22,6 @@
   <link href="assets/css/bootstrap-datetimepicker.min.css" rel="stylesheet"> 
     <link href="assets/css/bootstrap-datetimepicker.css" rel="stylesheet"> 
 
-
- 
-     
-   
     <asp:PlaceHolder runat="server">
     </asp:PlaceHolder>
     <webopt:bundlereference runat="server" path="~/Content/css" />

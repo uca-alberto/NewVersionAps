@@ -23,6 +23,7 @@ function addRowDT(data) {
            data[i].Nombres,
            data[i].Apellidos,
            data[i].Correo,
+           '<a title="Editar" href="VerCliente.aspx?id=' + data[i].Id_Cliente + '"><i class="fa ti-eye"></i>&nbsp;' +
            '<a title="Editar" href="EditarCliente.aspx?id=' + data[i].Id_Cliente + '"><i class="fa fa-edit"></i>&nbsp;' +
            '<a value="Eliminarre" id="Eliminar"><i class="fa fa-trash-o"></i>'
 
