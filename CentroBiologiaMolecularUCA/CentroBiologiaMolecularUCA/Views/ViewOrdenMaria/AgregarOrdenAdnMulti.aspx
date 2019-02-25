@@ -1,17 +1,38 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="AgregarOrden.aspx.cs" Inherits="CentroBiologiaMolecularUCA.Views.ViewOrdenMaria.AgregarOrden" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="AgregarOrdenAdnMulti.aspx.cs" Inherits="CentroBiologiaMolecularUCA.Views.ViewOrdenMaria.AgregarOrdenAdnMulti" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    
+
+
     <div class="card-header">
             <strong class="card-title" v-if="headerText">Crear Orden ADN</strong>
         </div>
-            <div class="card">
-                                             
-            <div class="card-body card-block">
-                <form id="myfrom" method="post" enctype="multipart/form-data" class="form-horizontal" runat="server">
-                    <!--Comienzo de los formularios--> 
-                    
-                   
-                               
+    <div class="card">
+    <div class="card-body card-block">
+    <form id="form1" runat="server">
+        
+        <asp:MultiView ID="MultiView1" runat="server" ActiveViewIndex="0">
+            <!-- index of view =0-->
+            <asp:View ID="PaternidadView" runat="server">
+                <h1>Paternidad</h1>
+                <!--Comienzo de los formularios-->  
+                <div class="card-header">
+                        <strong class="card-title">Datos de las personas de orden ADN </strong>
+                            </div>  &nbsp;
+                  <!--nombre del padre-->  
+                        <div class="row form-group ">
+                <div class="col col-md-3 "><label for="password-input" class=" form-control-label">Nombre del padre</label></div>
+                <div class="col-12 col-md-9">&nbsp;
+                <asp:TextBox ID="Mnombrepadre" runat="server" Text="" ToolTip="nombredelpadre" CssClass="form-control" placeholder="Ingrese el nombre del padre"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="Mnombrepadre" Display="Dynamic" ErrorMessage="Este Campo es requerido"></asp:RequiredFieldValidator>     
+                    </div>
+                </div>
+                    <!--nombre del hijo-->    
+                       <div class="row form-group ">
+                <div class="col col-md-3 "><label for="password-input" class=" form-control-label">Nombre del hijo</label></div>
+                <div class="col-12 col-md-9">&nbsp;
+                <asp:TextBox ID="Mnombrehijo" runat="server" Text="" ToolTip="nombrehijo" CssClass="form-control" placeholder="Ingrese el nombre del hijo"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="Mnombrehijo" Display="Dynamic" ErrorMessage="Este Campo es requerido"></asp:RequiredFieldValidator>     
+                    </div>
+                </div>              
                     <!--fecha-->
                            <div class="row form-group ">
                             <div class="col col-md-3 "><label for="text-input" class=" form-control-label">Fecha</label></div>
@@ -31,7 +52,7 @@
                                </div>
                                     </div>
 
-                    <!--tipo caso-->
+                   <!--tipo caso-->
                     <div class="row form-group ">
                 <div class="col col-md-3 "><label for="select" class=" form-control-label">Caso</label></div>
                 <div class="col-12 col-md-9 ">&nbsp; 
@@ -44,14 +65,12 @@
                 </div>
                 </div>
 
-                         
-                  
-                        <div class="card-header">
+                 <div class="card-header">
                         <strong class="card-title">Datos para el investigador </strong>
                             </div>  &nbsp;  
 
                         <!--Seleccion de tipo orden-->
-                <div class="row form-group ">
+                 <div class="row form-group ">
                 <div class="col col-md-3 "><label for="select" class=" form-control-label">Tipo de examen</label></div>
                 <div class="col-12 col-md-9 ">&nbsp; 
                         <asp:DropDownList ID="Mtipoorden" runat="server" ToolTip="tipo" CssClass="form-control"  OnSelectedIndexChanged="Mtipoorden_SelectedIndexChanged" AutoPostBack="true">
@@ -59,8 +78,8 @@
        
                 </div>
                 </div>
-                       
-                    <!--observaciones-->                            
+              
+                 <!--observaciones-->                            
                     <div class="row form-group ">
                 <div class="col col-md-3 "><label for="password-input" class=" form-control-label">Observaciones</label></div>
                 <div class="col-12 col-md-9">&nbsp;
@@ -71,8 +90,8 @@
                             <div class="card-header">
                         <strong class="card-title">Datos secundarios de orden ADN </strong>
                             </div>  &nbsp;
-                           
-                <!--bouvher -->
+
+                 <!--bouvher -->
                 <div class="row form-group ">
                 <div class="col col-md-3 "><label for="text-input" class=" form-control-label">Boucher</label></div>
                 <div class="col-12 col-md-9">&nbsp; 
@@ -81,18 +100,16 @@
                 </div>
                     </div>
 
-                <!--no_orden-->
-              
-                      <div class="row form-group ">
+                 <!--no_orden-->
+                <div class="row form-group ">
                 <div class="col col-md-3 "><label for="text-input" class=" form-control-label">Número orden</label></div>
                 <div class="col-12 col-md-9">&nbsp; 
                         <asp:TextBox ID="Mnoorden" runat="server" Text="" ToolTip="noorden" CssClass="form-control" placeholder="Ingrese el número de orden"></asp:TextBox>
                         <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ControlToValidate="Mnoorden" ErrorMessage="Ingrese Solo numeros" ValidationExpression="^[0-9]*$" MaxLength="8"></asp:RegularExpressionValidator>   
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="Mnoorden" Display="Dynamic" ErrorMessage="Este Campo es requerido"></asp:RequiredFieldValidator>     
                 </div>
-                    </div>     
-
-                <!--Seleccion de estado-->
+                    </div>
+  <!--Seleccion de estado-->
 
                     <div class="row form-group ">
                 <div class="col col-md-3 "><label for="select" class=" form-control-label">Estado</label></div>
@@ -104,23 +121,49 @@
                     </asp:DropDownList>
                 </div>
                 </div>
-
-             <div class="modal-footer">
+                 <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                 <asp:HiddenField runat="server" ID="id_orden" />
                 <asp:Button id="enviar" runat="server" Text="enviar" CssClass="btn btn-primary" OnClick="InsertarOrden"/>
             </div>
-        </form>
-    </div>
-    </div>
-                           
-                   
-    <script src="../../js/plugins/input-mask/jquery.inputmask.js"></script>
-                       
-                       <script src="../../js/plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
-                       
-                       <script src="../../js/plugins/timepicker/bootstrap-timepicker.min.js"></script>
-                       <script src="../../js/plugins/moment/moment.min.js"></script>
-     
 
+
+                
+                
+                <asp:Button ID="Button2" runat="server" Text="Paternidad" OnClick="Button2_Click" />&nbsp;
+                <asp:Button ID="Button1" runat="server" Text="Maternidad" OnClick="Button1_Click"/>
+               
+                    
+            </asp:View>
+
+              <asp:View ID="View1" runat="server">
+                  <h1>Maternidad</h1>
+                  <div class="card-header">
+                        <strong class="card-title">Datos de las personas de orden ADN </strong>
+                            </div>  &nbsp;
+                  <!--nombre de la madre-->  
+                        <div class="row form-group ">
+                <div class="col col-md-3 "><label for="password-input" class=" form-control-label">Nombre del padre</label></div>
+                <div class="col-12 col-md-9">&nbsp;
+                <asp:TextBox ID="Mnombredelamadre" runat="server" Text="" ToolTip="nombredelamadre" CssClass="form-control" placeholder="Ingrese el nombre de la madre"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="Mnombredelamadre" Display="Dynamic" ErrorMessage="Este Campo es requerido"></asp:RequiredFieldValidator>     
+                    </div>
+                </div>
+                    <!--nombre del hijo de la madre-->    
+                       <div class="row form-group ">
+                <div class="col col-md-3 "><label for="password-input" class=" form-control-label">Nombre del hijo</label></div>
+                <div class="col-12 col-md-9">&nbsp;
+                <asp:TextBox ID="Mnombrehijomadre" runat="server" Text="" ToolTip="nombrehijomadre" CssClass="form-control" placeholder="Ingrese el nombre del hijo"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ControlToValidate="Mnombrehijomadre" Display="Dynamic" ErrorMessage="Este Campo es requerido"></asp:RequiredFieldValidator>     
+                    </div>
+                </div>    
+                
+                  <asp:Button ID="Btnbackpaternidad" runat="server" Text="Paternidad" OnClick="Btnbackpaternidad_Click"  />&nbsp;
+                  
+           
+                  </asp:View>
+        </asp:MultiView>
+    </form>
+        </div>
+        </div>
 </asp:Content>

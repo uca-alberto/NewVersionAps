@@ -260,8 +260,8 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
             c.Close();
         }
 
-        //nuevo
-        public IEnumerable<Resultado> GetData()
+        //nuevo cambio 20/02/2019
+        public List<Resultado> GetData()
         {
             using (var connection = new SqlConnection(ConfigurationManager.ConnectionStrings["DataBase"].ConnectionString))
             {
