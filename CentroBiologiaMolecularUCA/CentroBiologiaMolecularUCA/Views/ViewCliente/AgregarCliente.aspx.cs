@@ -22,6 +22,8 @@ namespace CentroBiologiaMolecularUCA.Views.ViewCliente
             this.dtcliente = new DTcliente();
             this.dtdepartamento = new DTdepartamento();
             this.dtmunicipio = new DTmunicipio();
+            Mcedula.MaxLength = 16;
+           
 
             if (!IsPostBack)
             {
@@ -30,7 +32,7 @@ namespace CentroBiologiaMolecularUCA.Views.ViewCliente
                 Mdepartamento.DataBind();
 
                 ListItem li = new ListItem("SELECCIONE", "0");//creamos una lista, para agregar el seleccione
-                Mdepartamento.Items.Insert(0, li);//agregamis el seleccione en la posicion uno
+                Mdepartamento.Items.Insert(0,li);
                 Mmunicipio.Items.Insert(0, li);
                 Mmunicipio.Enabled = false;
             }
@@ -82,9 +84,9 @@ namespace CentroBiologiaMolecularUCA.Views.ViewCliente
             {
                 cli.Municipio = Mmunicipio.SelectedValue;
             }
-            if (Msexo.ToString() == null)
+            if (int.Parse(Msexo.SelectedValue) == 0)
             {
-                RegularExpressionValidator.GetValidationProperty(RequiredFieldValidator1);
+                ClientScript.RegisterStartupScript(GetType(), "Javascript", "javascript: ADD(); ", true);
             }
             else
             {
@@ -160,6 +162,11 @@ namespace CentroBiologiaMolecularUCA.Views.ViewCliente
                 //tienes que resolver, el problema que recarga la pagina y se sale del formulario, resolverlo
                 //tratar de hacerlo con jqury https://www.youtube.com/watch?v=P_-zxQYPy5w Ese es eñ video
             }
+        }
+
+        protected void cancelar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("../ViewLogin/Index.aspx");
         }
     }
 }

@@ -15,12 +15,10 @@
                           <div>
                             <div class="col col-sm-3"><label>Fecha:</label><input type="Date" class="form-control"></div>
                           </div>
-                          <div class="row form-group">
-                            <div class="col col-sm-8"><label>Mec Total:</label><input type="text" placeholder=".col-sm-6" class="form-control"></div>
-                          </div>
+                         
                             </form>
                           &nbsp&nbsp
-                          
+                         </div> 
                       <div class="card">
                       <div class="card-header">
                        <strong>Marcadores</strong>

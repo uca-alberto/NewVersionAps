@@ -623,6 +623,7 @@
     <Content Include="js\plugins\input-mask\jquery.inputmask.date.extensions.js" />
     <Content Include="js\plugins\moment\moment.min.js" />
     <Content Include="js\bootstrap-timepicker.min.js" />
+    <Content Include="Plantilla.aspx" />
     <Content Include="pruebaalertas.aspx" />
     <Content Include="pruebavista.aspx" />
     <Content Include="Scripts\jquery-1.6.4.js" />
@@ -703,6 +704,13 @@
     <Compile Include="Ncapas\Negocio\NGresultado.cs" />
     <Compile Include="Ncapas\Negocio\NGUsuario.cs" />
     <Compile Include="Ncapas\Negocio\NOrdenAdn.cs" />
+    <Compile Include="Plantilla.aspx.cs">
+      <DependentUpon>Plantilla.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Plantilla.aspx.designer.cs">
+      <DependentUpon>Plantilla.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="pruebaalertas.aspx.cs">
       <DependentUpon>pruebaalertas.aspx</DependentUpon>
