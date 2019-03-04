@@ -1,33 +1,26 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="CentroBiologiaMolecularUCA.SiteMaster" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="configuration.master.cs" Inherits="CentroBiologiaMolecularUCA.configuration" %>
 
 <!DOCTYPE html>
 
-<html lang="es">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%: Page.Title %> - Mi aplicación ASP.NET</title>
-    <link rel="stylesheet" href="/assets/css/normalize.css">
-    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/assets/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/assets/css/themify-icons.css">
-    <link rel="stylesheet" href="/assets/css/flag-icon.min.css">
-    <link rel="stylesheet" href="/assets/css/cs-skin-elastic.css">
-    <link rel="stylesheet" href="/assets/scss/style.css">
-    <link rel="stylesheet" href="assets/css/lib/datatable/dataTables.bootstrap.min.css">
-    <link href="/assets/css/lib/vector-map/jqvmap.min.css" rel="stylesheet">
+    <title></title>
+        <link rel="stylesheet" href="/assets/css/normalize.css"/>
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/assets/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="/assets/css/themify-icons.css"/>
+    <link rel="stylesheet" href="/assets/css/flag-icon.min.css"/>
+    <link rel="stylesheet" href="/assets/css/cs-skin-elastic.css"/>
+    <link rel="stylesheet" href="/assets/scss/style.css"/>
+    <link rel="stylesheet" href="assets/css/lib/datatable/dataTables.bootstrap.min.css"/>
+    <link href="/assets/css/lib/vector-map/jqvmap.min.css" rel="stylesheet"/>
     <link href="/assets/sweetalert.css" rel="sweetalert"/>
-     <script src="../../assets/sweetalert.min.js"></script>
 
-  <link href="assets/css/bootstrap-datetimepicker.min.css" rel="stylesheet"> 
-    <link href="assets/css/bootstrap-datetimepicker.css" rel="stylesheet"> 
-
-    <asp:PlaceHolder runat="server">
-    </asp:PlaceHolder>
-    <webopt:bundlereference runat="server" path="~/Content/css" />
- 
-
+  <link href="assets/css/bootstrap-datetimepicker.min.css" rel="stylesheet"/> 
+    <link href="assets/css/bootstrap-datetimepicker.css" rel="stylesheet"/> 
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
 </head>
 <body>
     <!-- Left Panel -->
@@ -38,64 +31,54 @@
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fa fa-bars"></i>
                 </button>
-               <!--
-                <a class="navbar-brand" href="../../Views/ViewLogin/Index.aspx"><img src="../../Content/images/logo.png" alt="Logo"></a>
-                <a class="navbar-brand hidden" href="../../Views/ViewLogin/Index.aspx"><img src="../../images/logo2.png" alt="CBM"></a>
-                -->
             </div>
 
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li class="active">
-                        <a href="../../Views/ViewLogin/Index.aspx"> <i class="menu-icon fa  fa-stethoscope"></i>CBM UCA  </a>
+                        <a href="../../Views/OpcionesConfigurables/Index.aspx"> <i class="menu-icon fa  fa-stethoscope"></i>CBM UCA  </a>
                     </li>
-                    <h3 class="menu-title">Sistema CBM</h3><!-- /.menu-title -->
+                    <h3 class="menu-title">Configuraciónes CBM</h3><!-- /.menu-title -->
                     
                     <!-- /Menu de control de Usuarios -->
-<%--                    <li class="menu-item-has-children active dropdown">
+                    <li class="menu-item-has-children active dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-users"></i>Control de Usuarios</a>
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="ti-user"></i><a href="../../Views/ViewUsuario/AgregarUsuario.aspx">Crear Usuario</a></li>
                                 
                         </ul>
-                    </li>--%>
+                    </li>
                   
-                    <!-- /Menu de control de Clientes -->
+                    <!-- /Menu de control de Examenes -->
                     <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-male"></i>Control de Cliente</a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-male"></i>Control de Empleados</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-plus-circle"></i><a href="../../Views/ViewCliente/AgregarCliente.aspx">Agregar Cliente</a></li>
-                            <li><i class="ti-search"></i><a href="../../Views/ViewCliente/BuscarCliente.aspx">Buscar Cliente</a></li>
+                            <li><i class="menu-icon fa fa-plus-circle"></i><a href="../../Views/ViewCliente/AgregarCliente.aspx">Agregar Empleado</a></li>
+                            <li><i class="ti-search"></i><a href="../../Views/ViewCliente/BuscarCliente.aspx">Buscar Empleado</a></li>
                         </ul>
                     </li>
 
                     <!--/Segundo Menu, seccion de ordenes y resultados-->
-                    <h3 class="menu-title">Control de Servicios</h3><!-- /Titulo del Menu -->
+                    <h3 class="menu-title">Variables Globales</h3><!-- /Titulo del Menu -->
                     <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-list-ol"></i>Control De Orden</a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-list-ol"></i>Control De Exames</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-plus-circle"></i><a href="../../Views/ViewOrden/AgregarOrdenOgm.aspx">Crear Orden OGM</a></li>
-                            <li><i class="menu-icon fa fa-plus-circle"></i><a href="../../Views/ViewOrdenMaria/AgregarOrden.aspx">Crear Orden ADN</a></li>
-                             <li><i class="menu-icon fa fa-plus-circle"></i><a href="../../Views/ViewOrdenMaria/AgregarOrdenAdnMulti.aspx">Crear Orden ADN Multi</a></li>
-                            <li><i class="ti-search"></i><a href="../../Views/ViewOrdenMaria/BuscarOrdenAdn.aspx">Buscar Orden ADN</a></li>
-                            
-
+                            <li><i class="menu-icon fa fa-plus-circle"></i><a href="../../Views/ViewOrden/AgregarOrdenOgm.aspx">Crear Examen</a></li>
+                            <li><i class="menu-icon fa fa-plus-circle"></i><a href="../../Views/ViewOrdenMaria/AgregarOrden.aspx">Asignacion de Precio</a></li>
                             
                         </ul>
                     </li>
                     <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-area-chart"></i>Control de Resultados</a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-area-chart"></i>Control De Muestras</a>
                         <ul class="sub-menu children dropdown-menu">
-                             <li><i class="menu-icon fa fa-plus-circle"></i><a href="../../Views/ViewResultadoMaria/AgregarResultadoOgm.aspx">Crear Resultado OGM</a></li>
-                            <li><i class="ti-search"></i><a href="../../Views/ViewOrdenResultadoMaria/BuscarResultadoOgm.aspx">Buscar Resultado Ogm</a></li>
-
-                            <li><i class="ti-eye"></i><a href="#">Visualizar Resultados</a></li>
+                             <li><i class="menu-icon fa fa-plus-circle"></i><a href="../../Views/ViewResultadoMaria/AgregarResultadoOgm.aspx">Crear Examen</a></li>
+                            <li><i class="ti-search"></i><a href="../../Views/ViewOrdenResultadoMaria/BuscarResultadoOgm.aspx">Asignacion de Precio</a></li>
                             <!--li><i class="ti-search"></i><a href="#">Buscar</a></!--li-->
                         </ul>
                     </li>
 
                      <!--/Tercer Menu, seccion de reportes-->
-                    <h3 class="menu-title">Reportes</h3><!-- /.menu-title -->
+<%--                    <h3 class="menu-title">Reportes</h3><!-- /.menu-title -->
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-files-o"></i>Generar Reportes</a>
                         <ul class="sub-menu children dropdown-menu">
@@ -103,7 +86,7 @@
                              <li><i class="menu-icon fa fa-file"></i> <a href="../../pruebaalertas.aspx">pruebaalertas.aspx</a>Nuevo reportasadsde</li>
                         </ul>
                        
-                    </li>
+                    </li>--%>
                 </ul>
             </div><!-- /.navbar-collapse -->
         </nav>
@@ -116,7 +99,8 @@
         <div id="right-panel" class="right-panel">
 
         <!-- Header-->
-      <header id="header" class="header">
+        <!-- Header-->
+        <header id="header" class="header">
 
             <div class="header-menu">
 
@@ -126,7 +110,7 @@
                         <button class="search-trigger"><i class="fa fa-search"></i></button>
                         <div class="form-inline">
                             <form class="search-form">
-                                <input class="form-control mr-sm-2" type="text" placeholder="Search ..." aria-label="Search">
+                                <input class="form-control mr-sm-2" type="text" placeholder="Search ..." aria-label="Search"/>
                                 <button class="search-close" type="submit"><i class="fa fa-close"></i></button>
                             </form>
                         </div>
@@ -137,22 +121,21 @@
                 <div class="col-sm-5">
                     <div class="user-area dropdown float-right">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img class="user-avatar rounded-circle" src="../../assets/imagenes/admin.jpg" alt="User Avatar">
+                            <img class="user-avatar rounded-circle" src="../../assets/imagenes/admin.jpg" alt="User Avatar"/>
                         </a>
 
                         <div class="user-menu dropdown-menu">
-                            <a class="nav-link" href="../../Views/OpcionesConfigurables/Index.aspx"><i class="fa fa-wrench">&nbsp;&nbsp;</i>Configuraciones</a>
+                            <a class="nav-link" href="../../Views/ViewLogin/Index.aspx"><i class="fa fa-flask">&nbsp;&nbsp;</i>CBM Sistema</a>
                             <a class="nav-link" href="../../Views/ViewLogin/Login.aspx"><i class="fa fa-sign-in">&nbsp;&nbsp;</i>Cerrar Sesion</a>
                         </div>
                     </div>
                 </div>
             </div>
         </header>
+        <!-- /header --> 
 
-        <div class="container body-content">
-            <asp:ContentPlaceHolder ID="MainContent" runat="server">
-            </asp:ContentPlaceHolder>
-        </div>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
    
     <script src="/assets/js/vendor/jquery-2.1.4.min.js"></script>
     <script src="/assets/js/popper.min.js"></script>
@@ -160,7 +143,7 @@
     <script src="/assets/js/main.js"></script>
  
 
-<%--     <script src="/assets/js/lib/chart-js/Chart.bundle.js"></script>
+<%--<script src="/assets/js/lib/chart-js/Chart.bundle.js"></script>
     <script src="/assets/js/dashboard.js"></script>
     <script src="/assets/js/widgets.js"></script>--%>
     <script src="/assets/js/lib/vector-map/jquery.vmap.js"></script>
@@ -168,11 +151,9 @@
     <script src="/assets/js/lib/vector-map/jquery.vmap.sampledata.js"></script>
     <script src="/assets/js/lib/vector-map/country/jquery.vmap.world.js"></script>
        
-        <script src="/assets/js/lib/data-table/datatables.min.js"></script>
+    <script src="/assets/js/lib/data-table/datatables.min.js"></script>
     <script src="/assets/js/lib/data-table/dataTables.bootstrap.min.js"></script>
     <script src="/assets/js/lib/data-table/datatables-init.js"></script>
         <!--Scripts de las Tablas-->
-
-
 </body>
 </html>
