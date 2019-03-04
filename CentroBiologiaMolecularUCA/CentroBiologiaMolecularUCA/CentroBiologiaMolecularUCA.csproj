@@ -613,6 +613,7 @@
     <Content Include="assets\scss\_gauge.scss" />
     <Content Include="assets\scss\_switches.scss" />
     <Content Include="assets\scss\_widgets.scss" />
+    <Content Include="configuration.Master" />
     <None Include="Scripts\jquery-1.6.4-vsdoc.js" />
     <Content Include="js\bootstrap-datetimepicker.es.js" />
     <Content Include="js\bootstrap-datetimepicker.min.js" />
@@ -623,9 +624,6 @@
     <Content Include="js\plugins\input-mask\jquery.inputmask.date.extensions.js" />
     <Content Include="js\plugins\moment\moment.min.js" />
     <Content Include="js\bootstrap-timepicker.min.js" />
-    <Content Include="Plantilla.aspx" />
-    <Content Include="pruebaalertas.aspx" />
-    <Content Include="pruebavista.aspx" />
     <Content Include="Scripts\jquery-1.6.4.js" />
     <Content Include="Scripts\jquery-1.6.4.min.js" />
     <Content Include="Scripts\jquery.signalR-2.2.3.js" />
@@ -636,6 +634,7 @@
     <Content Include="TablesJS\new.js" />
     <Content Include="TablesJS\TableCliente.js" />
     <Content Include="ViewSwitcher.ascx" />
+    <Content Include="Views\OpcionesConfigurables\Index.aspx" />
     <Content Include="Views\ViewADN\AdnValidacion.aspx" />
     <Content Include="Views\ViewCliente\AgregarCliente.aspx" />
     <Content Include="Views\ViewCliente\BuscarCliente.aspx" />
@@ -676,6 +675,13 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="configuration.Master.cs">
+      <DependentUpon>configuration.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="configuration.Master.designer.cs">
+      <DependentUpon>configuration.Master</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -704,28 +710,7 @@
     <Compile Include="Ncapas\Negocio\NGresultado.cs" />
     <Compile Include="Ncapas\Negocio\NGUsuario.cs" />
     <Compile Include="Ncapas\Negocio\NOrdenAdn.cs" />
-    <Compile Include="Plantilla.aspx.cs">
-      <DependentUpon>Plantilla.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Plantilla.aspx.designer.cs">
-      <DependentUpon>Plantilla.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="pruebaalertas.aspx.cs">
-      <DependentUpon>pruebaalertas.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="pruebaalertas.aspx.designer.cs">
-      <DependentUpon>pruebaalertas.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="pruebavista.aspx.cs">
-      <DependentUpon>pruebavista.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="pruebavista.aspx.designer.cs">
-      <DependentUpon>pruebavista.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -747,6 +732,13 @@
     </Compile>
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\OpcionesConfigurables\Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\OpcionesConfigurables\Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\ViewADN\AdnValidacion.aspx.cs">
       <DependentUpon>AdnValidacion.aspx</DependentUpon>

@@ -7,9 +7,9 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace CentroBiologiaMolecularUCA {
+namespace CentroBiologiaMolecularUCA.Views.OpcionesConfigurables {
     
     
-    public partial class pruebaalertas {
+    public partial class Index {
     }
 }

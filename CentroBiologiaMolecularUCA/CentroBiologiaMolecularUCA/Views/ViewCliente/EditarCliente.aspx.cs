@@ -152,7 +152,7 @@ namespace CentroBiologiaMolecularUCA.Views.ViewCliente
                 bool resp = NGcliente.getInstance().Modificarcliente(cli);
                 if (resp == true)
                 {
-                    Response.Redirect("BuscarCliente.aspx");
+                    ClientScript.RegisterStartupScript(GetType(), "Javascript", "javascript: ModificarCliente(); ", true);
                 }
                 else
                 {
@@ -162,8 +162,7 @@ namespace CentroBiologiaMolecularUCA.Views.ViewCliente
             }
             else
             {
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "none", "confirm('Error, revisar Formulario');", true);
-                RegularExpressionValidator.GetValidationProperty(RequiredFieldValidator1);
+                ClientScript.RegisterStartupScript(GetType(), "Javascript", "javascript: ADD(); ", true);
             }
         }
 
@@ -185,9 +184,9 @@ namespace CentroBiologiaMolecularUCA.Views.ViewCliente
             }
         }
 
-        protected void Cancelar_Click(object sender, EventArgs e)
+        protected void cancelar_Click(object sender, EventArgs e)
         {
-            Response.Redirect("BuscarCliente.aspx");
+            Response.Redirect("../ViewLogin/Index.aspx");
         }
     }
 }
