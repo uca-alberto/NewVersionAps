@@ -26,6 +26,7 @@ namespace CentroBiologiaMolecularUCA.Views.ViewCliente
             dtdepartamento = new DTdepartamento();
             this.dtmunicipio = new DTmunicipio();
             cli = new Cliente();
+            Mcedula.MaxLength = 16;
 
             String valor = Request.QueryString["id"];//obtenemos el id que le pasamos a travez de la url
             int id = int.Parse(valor);//parseamos el valorm, para obtenerlo un int;
