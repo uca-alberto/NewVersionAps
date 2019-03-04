@@ -33,7 +33,7 @@ namespace CentroBiologiaMolecularUCA.Views.ViewOrdenMaria
         //paternidad
         protected void Button2_Click(object sender, EventArgs e)
         {
-            MultiView1.ActiveViewIndex = 0;
+            MultiView1.ActiveViewIndex = 4;
         }
 
         //nada
@@ -64,29 +64,84 @@ namespace CentroBiologiaMolecularUCA.Views.ViewOrdenMaria
             }
         }
 
-      //  protected void Btnbackmaternidad_Click(object sender, EventArgs e)
-      //  {
-      //      MultiView1.ActiveViewIndex = 1;
-      //  }
+        protected void Btnabuelidad_Click(object sender, EventArgs e)
+        {
+            MultiView1.ActiveViewIndex = 2;
+        }
 
-     //   protected void Btnbackabuelidad_Click(object sender, EventArgs e)
-     //   {
-     //       MultiView1.ActiveViewIndex = 2;
-     //   }
+        protected void Btnbackabuelidad_Click(object sender, EventArgs e)
+        {
+            MultiView1.ActiveViewIndex = 2;
+        }
 
-      //  protected void Btnbackalzheimer_Click(object sender, EventArgs e)
-      //  {
-      //      MultiView1.ActiveViewIndex = 3;
-      //  }
+        protected void Btnalzheimer_Click(object sender, EventArgs e)
+        {
+            MultiView1.ActiveViewIndex = 3;
+        }
+
+        protected void insertarordenmaternidad_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        protected void Btnpapiloma_Click(object sender, EventArgs e)
+        {
+            MultiView1.ActiveViewIndex = 4;
+        }
+
+        protected void Btnbackmaternidad_Click(object sender, EventArgs e)
+        {
+            MultiView1.ActiveViewIndex = 1;
+        }
+
+        protected void Btnbackalzheimer_Click(object sender, EventArgs e)
+        {
+            MultiView1.ActiveViewIndex = 3;
+        }
+
+        protected void btnpaternidad_Click(object sender, EventArgs e)
+        {
+            MultiView1.ActiveViewIndex = 0;
+        }
+
+        protected void insertarordenabuelidad_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void insertarordenalzheimer_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void insertarordenpapiloma_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        //  protected void Btnbackmaternidad_Click(object sender, EventArgs e)
+        //  {
+        //      MultiView1.ActiveViewIndex = 1;
+        //  }
+
+        //   protected void Btnbackabuelidad_Click(object sender, EventArgs e)
+        //   {
+        //       MultiView1.ActiveViewIndex = 2;
+        //   }
+
+        //  protected void Btnbackalzheimer_Click(object sender, EventArgs e)
+        //  {
+        //      MultiView1.ActiveViewIndex = 3;
+        //  }
         //abuelidad
-     //   protected void Button4_Click(object sender, EventArgs e)
-     //   {
-     //       MultiView1.ActiveViewIndex = 2;
-     //   }
+        //   protected void Button4_Click(object sender, EventArgs e)
+        //   {
+        //       MultiView1.ActiveViewIndex = 2;
+        //   }
         //alzheimer
-       // protected void Button5_Click(object sender, EventArgs e)
-       // {
+        // protected void Button5_Click(object sender, EventArgs e)
+        // {
         //    MultiView1.ActiveViewIndex = 3;
-       // }
+        // }
     }
 }
