@@ -688,6 +688,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="MyHub.cs" />
     <Compile Include="Ncapas\Datos\Conexion.cs" />
+    <Compile Include="Ncapas\Datos\DTAdnPaternidad.cs" />
     <Compile Include="Ncapas\Datos\DTcliente.cs" />
     <Compile Include="Ncapas\Datos\DTdepartamento.cs" />
     <Compile Include="Ncapas\Datos\DTexamenes.cs" />
@@ -704,8 +705,14 @@
     <Compile Include="Ncapas\Entidades\Examen.cs" />
     <Compile Include="Ncapas\Entidades\Municipio.cs" />
     <Compile Include="Ncapas\Entidades\OrdenAdn.cs" />
+    <Compile Include="Ncapas\Entidades\OrdenAdnAbuelidad.cs" />
+    <Compile Include="Ncapas\Entidades\OrdenAdnAlzheimer.cs" />
+    <Compile Include="Ncapas\Entidades\OrdenAdnMaternidad.cs" />
+    <Compile Include="Ncapas\Entidades\OrdenAdnPapiloma.cs" />
+    <Compile Include="Ncapas\Entidades\OrdenAdnPaternidad.cs" />
     <Compile Include="Ncapas\Entidades\Resultado.cs" />
     <Compile Include="Ncapas\Entidades\Usuario.cs" />
+    <Compile Include="Ncapas\Negocio\NGAdnPaternidad.cs" />
     <Compile Include="Ncapas\Negocio\NGcliente.cs" />
     <Compile Include="Ncapas\Negocio\NGresultado.cs" />
     <Compile Include="Ncapas\Negocio\NGUsuario.cs" />
