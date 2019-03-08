@@ -9,7 +9,6 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Entidades
     {
         private int id_examenes;
         private string nombre;
-        private int precio_examen;
 
         public int Id_examenes
         {
@@ -34,19 +33,6 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Entidades
             set
             {
                 nombre = value;
-            }
-        }
-
-        public int Precio_examen
-        {
-            get
-            {
-                return precio_examen;
-            }
-
-            set
-            {
-                precio_examen = value;
             }
         }
     }

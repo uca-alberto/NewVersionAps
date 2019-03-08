@@ -6,22 +6,22 @@ using System.Web;
 
 namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
 {
-    public class DTexamenes
+    public class DTanalisis
     {
         private SqlDataReader registros;
         //PATRÓN SINGLETON
         #region "SINGLETON"
-        private static DTexamenes dte = null;
-        public DTexamenes()
+        private static DTanalisis dte = null;
+        public DTanalisis()
         {
 
         }
 
-        public static DTexamenes getInstance()
+        public static DTanalisis getInstance()
         {
             if (dte == null)
             {
-                dte = new DTexamenes();
+                dte = new DTanalisis();
             }
             return dte;
         }
@@ -31,10 +31,10 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
         SqlConnection c = new SqlConnection();
         SqlCommand comando = null;
 
-        public SqlDataReader listarexamenes()
+        public SqlDataReader listaranalisis()
         {
             c = Conexion.getInstance().ConexionDB();
-            String sql = "select Id_examenes , Nombre  from T_Examenes;";
+            String sql = "select Id_analisis , analisis  from T_Tipo_Analisis;";
 
             SqlCommand comando = new SqlCommand(sql, this.c);
             this.registros = comando.ExecuteReader();
@@ -42,4 +42,6 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
             c.Close();
         }
     }
+
+
 }

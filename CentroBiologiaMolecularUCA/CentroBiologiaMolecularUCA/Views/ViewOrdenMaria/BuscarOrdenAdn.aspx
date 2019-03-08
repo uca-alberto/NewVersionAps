@@ -33,16 +33,18 @@
                                                 <td><%=getregistros()["Baucher"] %></td>
                                                                   
                                                 <td>
-                                                    <a title="Mostrar" onclick="mostrar" href="VerOrdenAdn.aspx?id=<%=getregistros()["Id_orden"] %>">
+                                                    <a title="Mostrar" onclick="mostrar" href="../../Views/ViewOrden/VerOrden.aspx?id=<%=getregistros()["Id_orden"] %>">
                                                     <i class="ti-eye"></i>
                                                     </a>
-                                                    <a title="Editar" onclick="editar" href="ModificarOrden.aspx?id=<%=getregistros()["Id_orden"] %>">
+                                                    <a title="Editar" onclick="editar" href="../../Views/ViewOrden/ModificarOrden.aspx?id=<%=getregistros()["Id_orden"] %>">
                                                     <i class="ti-pencil-alt"></i>
                                                 </a> 
                                                     <a href="EliminarOrden.aspx?id=<%=getregistros()["Id_orden"] %>" onclick="Eliminar('EliminarOrden.aspx?id=<%=getregistros()["Id_orden"] %>');">
                                                     <i class="menu-icon fa fa-trash-o"></i>
                                                     </a> 
                                                     </td>
+
+                                               
                                             </tr>
                                         <%
                                     }
@@ -57,7 +59,7 @@
     </div><!-- .animated -->
 </div><!-- .content -->
 
-    <script type="text/javascript" src="../../Content/Listaorden.js"></script>
+    <script type="text/javascript" src="../../Content/ListaordenOgm.js"></script>
     
 
 </asp:Content>

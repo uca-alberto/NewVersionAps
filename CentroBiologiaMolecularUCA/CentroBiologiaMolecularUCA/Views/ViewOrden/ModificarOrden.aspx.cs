@@ -11,51 +11,58 @@ using WebSistemaCentroBiologiaMolecularUCA.Ncapas.Negocio;
 
 namespace CentroBiologiaMolecularUCA.Views.ViewOrden
 {
-    public partial class AgregarOrdenOgm : System.Web.UI.Page
+    public partial class ModificarOrden : System.Web.UI.Page
     {
         private TOrden tOrden;
         private DTanalisis dtanalisis;
         private DTmuestra dtmuestra;
         private SqlDataReader registro;
-        private Conexion conexion;
-        private String valor = "";
+        public OrdenAdn ord;
         protected void Page_Load(object sender, EventArgs e)
         {
             this.tOrden = new TOrden();
+            ord = new OrdenAdn();
             this.dtanalisis = new DTanalisis();
             this.dtmuestra = new DTmuestra();
-            this.conexion = new Conexion();
-            this.registro = this.tOrden.listarTodo();
 
-            //Generar el codigo
-            Mcodigo.Text = tOrden.generarCodigo();
+            String valor = Request.QueryString["id"];
+            int id = int.Parse(valor);
+            ord.Id_orden = id;
 
-            if (!IsPostBack)
+            //Cargar los tipos de Analisis
+
+            Manalisis.DataSource = dtanalisis.listaranalisis();
+            Manalisis.DataTextField = "analisis";
+            Manalisis.DataValueField = "Id_analisis";
+            Manalisis.DataBind();
+
+            //Cargar Tipos de Muestras
+            Mmuestra.DataSource = dtmuestra.listarmuestras();
+            Mmuestra.DataTextField = "muestra";
+            Mmuestra.DataValueField = "Id_tipo_muestra";
+            Mmuestra.DataBind();
+
+            this.registro = tOrden.getOrdenporid(id);
+            Id_orden.Value = valor;
+
+            if (registro.Read())
             {
-                //en esta parte se carga el dropdownlist de Examen
-
-                Manalisis.DataSource = dtanalisis.listaranalisis();//aqui le paso mi consulta que esta en la clase dtexamenes
-                Manalisis.DataTextField = "analisis";//le paso el texto del items
-                Manalisis.DataValueField = "Id_analisis";//le paso el id de cada items
-                Manalisis.DataBind();
-
-                //en esta parte se carga el dropdownlist de Muestra
-                Mmuestra.DataSource = dtmuestra.listarmuestras();
-                Mmuestra.DataTextField = "muestra";
-                Mmuestra.DataValueField = "Id_tipo_muestra";
-                Mmuestra.DataBind();
+                ord.Id_codigo = this.registro["Id_codigo"].ToString();
+                ord.Fecha = Convert.ToDateTime(this.registro["Fecha"].ToString());
+                ord.Tipo_examen = this.registro["Id_examenes"].ToString();
+                ord.Tipo_muestra = this.registro["Id_tipo_muestra"].ToString();
+                ord.Observaciones = this.registro["Observaciones"].ToString();
+                ord.Baucher = this.registro["Baucher"].ToString();
+                ord.Estado = this.registro["Estado"].ToString();
             }
         }
 
-        public SqlDataReader getregistros()
-        {
-            return this.registro;
-
-        }
-
-        public OrdenAdn GetEntity()
+        public OrdenAdn Modificar()
         {
             OrdenAdn ord = new OrdenAdn();
+            String valor = Request.QueryString["id"];
+            int id = int.Parse(valor);
+            ord.Id_orden = id;
 
             if (Manalisis.ToString() == null)
             {
@@ -89,14 +96,7 @@ namespace CentroBiologiaMolecularUCA.Views.ViewOrden
             {
                 ord.Baucher = Mbaucher.Text;
             }
-            if (Mcodigo.ToString() == null)
-            {
-                RegularExpressionValidator.GetValidationProperty(RequiredFieldValidator1);
-            }
-            else
-            {
-                ord.Id_codigo = Mcodigo.Text;
-            }
+
             if (Mestado.ToString() == null)
             {
                 RegularExpressionValidator.GetValidationProperty(RequiredFieldValidator1);
@@ -114,24 +114,22 @@ namespace CentroBiologiaMolecularUCA.Views.ViewOrden
                 ord.Fecha = Convert.ToDateTime(Mfecha.Text);
             }
 
-            String userid = (string)Session["Id_usuario"];
-            ord.Id_usuario = userid;
             return ord;
         }
 
-        protected void InsertarOrden(object sender, EventArgs e)
+        protected void EditarFormulario(object sender, EventArgs e)
         {
 
-            if (IsValid)//valido que si mi formulario esta correcto
+            if (IsValid)
             {
-                OrdenAdn ord = GetEntity();
+                OrdenAdn ord = Modificar();
                 //LLAMANDO A CAPA DE NEGOCIO
-                bool resp = NGorden.getInstance().guardarord(ord);
+                bool resp = NGorden.getInstance().modificarord(ord);
 
                 if (resp == true)
                 {
-                    ClientScript.RegisterStartupScript(GetType(), "Javascript", "javascript: InsertarOrden(); ", true);
-                    //Response.Redirect("/Views/ViewOrdenMaria/BuscarOrdenAdn.aspx");
+                    ClientScript.RegisterStartupScript(GetType(), "Javascript", "javascript: ModificarOrden(); ", true);
+
                 }
                 else
                 {
@@ -141,33 +139,11 @@ namespace CentroBiologiaMolecularUCA.Views.ViewOrden
             else
             {
                 ClientScript.RegisterStartupScript(GetType(), "Javascript", "javascript: ADD(); ", true);
-                // RegularExpressionValidator.GetValidationProperty(RequiredFieldValidator1);//sino esta validado me mostrara los campos a corregir y no mandara datos.
-            }
-
-        }
-        //COMBO BOX EXAMEN
-        protected void Manalisis_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-            for (int i = 0; i < Manalisis.Items.Count; i++)
-            {
-                if (Manalisis.Items[i].Selected)
-                {
-                    valor = valor + " " + Manalisis.Items[i].Text;
-                }
             }
         }
-        //COMBO BOX MUESTRA
-        protected void Mmuestra_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (Mmuestra.SelectedIndex == 0)
-            {
 
-            }
-            else
-            {
-            }
-        }
+
 
     }
 }
+

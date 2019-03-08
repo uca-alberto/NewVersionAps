@@ -69,6 +69,7 @@ namespace CentroBiologiaMolecularUCA
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            
             String userid = (string)Session["Id_usuario"];
             if (!IsPostBack)
             {

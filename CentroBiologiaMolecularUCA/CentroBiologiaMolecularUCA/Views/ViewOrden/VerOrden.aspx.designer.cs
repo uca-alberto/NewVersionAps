@@ -10,7 +10,7 @@
 namespace CentroBiologiaMolecularUCA.Views.ViewOrden {
     
     
-    public partial class AgregarOrdenOgm {
+    public partial class VerOrden {
         
         /// <summary>
         /// Control myfrom.
@@ -31,15 +31,6 @@ namespace CentroBiologiaMolecularUCA.Views.ViewOrden {
         protected global::System.Web.UI.WebControls.TextBox Mcodigo;
         
         /// <summary>
-        /// Control RequiredFieldValidator3.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator3;
-        
-        /// <summary>
         /// Control Mfecha.
         /// </summary>
         /// <remarks>
@@ -47,15 +38,6 @@ namespace CentroBiologiaMolecularUCA.Views.ViewOrden {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox Mfecha;
-        
-        /// <summary>
-        /// Control RequiredFieldValidator4.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator4;
         
         /// <summary>
         /// Control Manalisis.
@@ -103,15 +85,6 @@ namespace CentroBiologiaMolecularUCA.Views.ViewOrden {
         protected global::System.Web.UI.WebControls.TextBox Mbaucher;
         
         /// <summary>
-        /// Control RequiredFieldValidator2.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
-        
-        /// <summary>
         /// Control Mestado.
         /// </summary>
         /// <remarks>
@@ -121,21 +94,12 @@ namespace CentroBiologiaMolecularUCA.Views.ViewOrden {
         protected global::System.Web.UI.WebControls.DropDownList Mestado;
         
         /// <summary>
-        /// Control id_orden.
+        /// Control Id_orden.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField id_orden;
-        
-        /// <summary>
-        /// Control enviar.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button enviar;
+        protected global::System.Web.UI.WebControls.HiddenField Id_orden;
     }
 }

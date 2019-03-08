@@ -35,11 +35,11 @@ namespace CentroBiologiaMolecularUCA.Views.ViewOrdenMaria
             {
 
 
-                this.ord.Tipo_caso = this.registro["Tipo_caso"].ToString();
-                ord.Tipo_orden = this.registro["Id_examenes"].ToString();
+               // this.ord.Tipo_caso = this.registro["Tipo_caso"].ToString();
+                //ord.Tipo_orden = this.registro["Id_examenes"].ToString();
                 ord.Observaciones = this.registro["Observaciones"].ToString();
                 ord.Baucher = this.registro["Baucher"].ToString();
-                ord.No_orden = int.Parse(this.registro["No_orden"].ToString());
+                //ord.No_orden = int.Parse(this.registro["No_orden"].ToString());
                 ord.Estado = this.registro["Estado"].ToString();
                 this.ord.Fecha = Convert.ToDateTime(this.registro["Fecha"].ToString());
 
