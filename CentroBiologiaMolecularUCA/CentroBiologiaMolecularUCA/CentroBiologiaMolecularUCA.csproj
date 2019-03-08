@@ -312,11 +312,11 @@
     <Content Include="assets\sweetalert.css" />
     <Content Include="assets\sweetalert.min.js" />
     <Content Include="Content\Global.js" />
-    <Content Include="Content\listacliente.js" />
     <Content Include="Content\Listaorden.js" />
     <Content Include="Content\ListaOrdenOgm.js" />
     <Content Include="Content\listausuario.js" />
     <Content Include="Content\Vercliente.js" />
+    <Content Include="Content\VerExamen.js" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -634,7 +634,12 @@
     <Content Include="TablesJS\new.js" />
     <Content Include="TablesJS\TableCliente.js" />
     <Content Include="ViewSwitcher.ascx" />
+    <Content Include="Views\OpcionesConfigurables\AgregarExamenes.aspx" />
+    <Content Include="Views\OpcionesConfigurables\BuscarExamenes.aspx" />
+    <Content Include="Views\OpcionesConfigurables\EditarExamenes.aspx" />
     <Content Include="Views\OpcionesConfigurables\Index.aspx" />
+    <Content Include="Views\OpcionesConfigurables\VerExamen.aspx" />
+    <Content Include="Views\VerExamen.aspx" />
     <Content Include="Views\ViewADN\AdnValidacion.aspx" />
     <Content Include="Views\ViewCliente\AgregarCliente.aspx" />
     <Content Include="Views\ViewCliente\BuscarCliente.aspx" />
@@ -714,6 +719,7 @@
     <Compile Include="Ncapas\Entidades\Usuario.cs" />
     <Compile Include="Ncapas\Negocio\NGAdnPaternidad.cs" />
     <Compile Include="Ncapas\Negocio\NGcliente.cs" />
+    <Compile Include="Ncapas\Negocio\NGExamen.cs" />
     <Compile Include="Ncapas\Negocio\NGresultado.cs" />
     <Compile Include="Ncapas\Negocio\NGUsuario.cs" />
     <Compile Include="Ncapas\Negocio\NOrdenAdn.cs" />
@@ -740,12 +746,47 @@
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
     </Compile>
+    <Compile Include="Views\OpcionesConfigurables\AgregarExamenes.aspx.cs">
+      <DependentUpon>AgregarExamenes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\OpcionesConfigurables\AgregarExamenes.aspx.designer.cs">
+      <DependentUpon>AgregarExamenes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\OpcionesConfigurables\BuscarExamenes.aspx.cs">
+      <DependentUpon>BuscarExamenes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\OpcionesConfigurables\BuscarExamenes.aspx.designer.cs">
+      <DependentUpon>BuscarExamenes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\OpcionesConfigurables\EditarExamenes.aspx.cs">
+      <DependentUpon>EditarExamenes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\OpcionesConfigurables\EditarExamenes.aspx.designer.cs">
+      <DependentUpon>EditarExamenes.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\OpcionesConfigurables\Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Views\OpcionesConfigurables\Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\OpcionesConfigurables\VerExamen.aspx.cs">
+      <DependentUpon>VerExamen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\OpcionesConfigurables\VerExamen.aspx.designer.cs">
+      <DependentUpon>VerExamen.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\VerExamen.aspx.cs">
+      <DependentUpon>VerExamen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\VerExamen.aspx.designer.cs">
+      <DependentUpon>VerExamen.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\ViewADN\AdnValidacion.aspx.cs">
       <DependentUpon>AdnValidacion.aspx</DependentUpon>

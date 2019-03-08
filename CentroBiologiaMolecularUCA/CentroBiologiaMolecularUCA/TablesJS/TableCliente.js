@@ -50,8 +50,8 @@ function sendDataAjax() {
 
 function deleteDataAjax(data) {
     swal({
-        title: "Esta Seguro?",
-        text: "Eliminar Cliente",
+        title: "Está Seguro?",
+        text: "De eliminar este cliente",
         icon: "warning",
         buttons: true,
         dangerMode: true,

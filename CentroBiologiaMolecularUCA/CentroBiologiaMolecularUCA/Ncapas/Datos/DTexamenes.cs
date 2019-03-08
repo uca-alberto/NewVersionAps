@@ -28,18 +28,159 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
         #endregion
 
         //CONSTANTES DE CONEXIÓN Y COMANDO SQL
-        SqlConnection c = new SqlConnection();
+        SqlConnection conexion = new SqlConnection();
         SqlCommand comando = null;
+
+        public bool crear(Entidades.Examen e)
+        {
+            bool guardado = false;
+            try
+            {
+                //CONSULTA SQL
+                conexion = Conexion.getInstance().ConexionDB();
+                // string sql = "insert into T_Orden (Id_orden,Fecha,Entregado,Tipo_orden,Observaciones,Baucher,No_orden,Estado,Actividad) VALUES(2,@Mfecha,@Mentregado,@Mtipoorden,@Mobservaciones,@Mbaucher,@Mnoorden,@Mestado,1)";
+
+                string sql = "insert into T_Examenes (Nombre, Precio_examen) VALUES(@Mnombre, @Mprecio)";
+                //PASANDO PARÁMETROS A CONSULTA SQL
+                using (comando = new SqlCommand(sql, conexion))
+                {
+
+                    comando.Parameters.AddWithValue("@Mnombre", e.Nombre);
+                    comando.Parameters.AddWithValue("@Mprecio", e.Precio_examen);
+
+                    //VALIDANDO SI LA CONEXIÓN ESTÁ ACTIVA O CERRADA
+                    if (comando.Connection.State != System.Data.ConnectionState.Closed)
+                    {
+                        //EJECUTANDO SENTENCIA SQL CON EXECUTENONQUERY
+                        int result = comando.ExecuteNonQuery();
+
+                        /* 
+                         * EL BLOQUE IF SIRVE PARA HACER UNA VALIDACIÓN DEL EXECUTENONQUERY
+                         * DICHO MÉTODO DEVUELVE UN ENTERO, DONDE 0 ES QUE NO AFECTO NINGUNA FILA
+                         * SI ES MAYOR A 0 (POSITIVO)
+                         * QUIERE DECIR QUE SE GUARDARON DATOS EN LA BASE DE DATOS
+                         */
+                        if (result < 0)
+                        {
+                            guardado = false;
+                            Console.WriteLine("ERROR AL INSERTAR DATOS");
+                        }
+                        else
+                        {
+                            guardado = true;
+                        }
+                    }
+                    else
+                    {
+                        comando.Connection.Open();
+
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                comando.Connection.Close();
+                conexion.Close();
+                conexion = null;
+                throw;
+            }
+            finally
+            {
+                //LUEGO DE REALIZAR LA SENTENCIA SQL
+                //CERRAMOS LA CONEXIÓN A LA BASE DE DATOS
+                comando.Connection.Close();
+                conexion.Close();
+                conexion = null;
+            }
+
+            return guardado;
+
+        }
+
+        public bool modificar(Entidades.Examen e)
+        {
+            bool guardado = false;
+            try
+            {
+                //CONSULTA SQL
+                conexion = Conexion.getInstance().ConexionDB();
+                string sql = "update T_Examenes set Nombre=(@Mnombre), Precio_examen=(@Mprecio_examenes) where Id_examenes = (@mid_examenes)";
+
+                //PASANDO PARÁMETROS A CONSULTA SQL
+                using (comando = new SqlCommand(sql, conexion))
+                {
+                    comando.Parameters.AddWithValue("@Mid_examenes", e.Id_examenes);
+                    comando.Parameters.AddWithValue("@Mnombre", e.Nombre);
+                    comando.Parameters.AddWithValue("@Mprecio_examenes", e.Precio_examen);
+
+                    //VALIDANDO SI LA CONEXIÓN ESTÁ ACTIVA O CERRADA
+                    if (comando.Connection.State != System.Data.ConnectionState.Closed)
+                    {
+                        //EJECUTANDO SENTENCIA SQL CON EXECUTENONQUERY
+                        int result = comando.ExecuteNonQuery();
+
+                        /* 
+                         * EL BLOQUE IF SIRVE PARA HACER UNA VALIDACIÓN DEL EXECUTENONQUERY
+                         * DICHO MÉTODO DEVUELVE UN ENTERO, DONDE 0 ES QUE NO AFECTO NINGUNA FILA
+                         * SI ES MAYOR A 0 (POSITIVO)
+                         * QUIERE DECIR QUE SE GUARDARON DATOS EN LA BASE DE DATOS
+                         */
+                        if (result < 0)
+                        {
+                            guardado = false;
+                            Console.WriteLine("ERROR AL INSERTAR DATOS");
+                        }
+                        else
+                        {
+                            guardado = true;
+                        }
+                    }
+                    else
+                    {
+                        comando.Connection.Open();
+
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                comando.Connection.Close();
+                conexion.Close();
+                conexion = null;
+                throw;
+            }
+            finally
+            {
+                //LUEGO DE REALIZAR LA SENTENCIA SQL
+                //CERRAMOS LA CONEXIÓN A LA BASE DE DATOS
+                comando.Connection.Close();
+                conexion.Close();
+                conexion = null;
+            }
+
+            return guardado;
+        }
 
         public SqlDataReader listarexamenes()
         {
-            c = Conexion.getInstance().ConexionDB();
-            String sql = "select Id_examenes , Nombre  from T_Examenes;";
+            conexion = Conexion.getInstance().ConexionDB();
+            String sql = "select Id_examenes , Nombre, Precio_examen from T_Examenes;";
 
-            SqlCommand comando = new SqlCommand(sql, this.c);
+            SqlCommand comando = new SqlCommand(sql, this.conexion);
+            registros = comando.ExecuteReader();
+            return registros;
+            conexion.Close();
+        }
+
+        public SqlDataReader getExamenporid(int id)
+        {
+            conexion = Conexion.getInstance().ConexionDB();
+            String sql = "select Id_examenes, Nombre, Precio_examen from T_Examenes where Id_examenes='" + id + "';";
+
+            SqlCommand comando = new SqlCommand(sql, this.conexion);
             this.registros = comando.ExecuteReader();
             return this.registros;
-            c.Close();
+            conexion.Close();
         }
     }
 }
