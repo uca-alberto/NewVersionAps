@@ -1,5 +1,49 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="AgregarOrdenAdnMulti.aspx.cs" Inherits="CentroBiologiaMolecularUCA.Views.ViewOrdenMaria.AgregarOrdenAdnMulti" %>
+
+<asp:Content ID="Content2" ContentPlaceHolderID="head" runat="server">
+     <!-- Script Para el Date Picker -->
+ <script type="text/javascript">
+      $(document).ready( function() {
+          $("input[id$='Mfecha']").attr('readOnly', 'true').datepicker({
+              showOn: 'button',
+              buttonImageOnly: true,
+              buttonImage: '../../assets/imagenes/calendar.png',
+              maxDate: 'Today',
+              buttonText: 'Mostrar Calendario',
+              
+          });  
+      });
+ </script>
+</asp:Content>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+      <!--Añadimos el Script-->
+    <script src="../../assets/sweetalert.min.js"></script>
+    
+     <script>
+        function ADD() {
+            swal({
+                title: "Error",
+                text: "Revisar Formulario",
+                icon: "warning",
+                button: "OK",
+            });
+    }</script>
+
+     <script>
+        function InsertarOrden(data) {
+            swal({
+                title: "Orden Agregada",
+                text: "Correctamente",
+                icon: "success",
+            })
+          .then((willDelete) => {
+              if (willDelete) {
+                  location.href = "../../Views/ViewOrdenMaria/BuscarOrdenAdn.aspx";
+              } 
+          });
+        }
+    </script>
 
 
     <div class="card-header">
