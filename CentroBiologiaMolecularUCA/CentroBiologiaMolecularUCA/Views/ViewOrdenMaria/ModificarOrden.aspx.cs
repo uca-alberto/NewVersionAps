@@ -31,11 +31,11 @@ namespace CentroBiologiaMolecularUCA.Views.ViewOrdenMaria
             {
 
 
-                this.ord.Tipo_caso = this.registro["Tipo_caso"].ToString();
-                ord.Tipo_orden = this.registro["Id_examenes"].ToString();
+               // this.ord.Tipo_caso = this.registro["Tipo_caso"].ToString();
+               // ord.Tipo_orden = this.registro["Id_examenes"].ToString();
                 ord.Observaciones = this.registro["Observaciones"].ToString();
                 ord.Baucher = this.registro["Baucher"].ToString();
-                ord.No_orden = int.Parse(this.registro["No_orden"].ToString());
+               // ord.No_orden = int.Parse(this.registro["No_orden"].ToString());
                 ord.Estado = this.registro["Estado"].ToString();
                 this.ord.Fecha = Convert.ToDateTime(this.registro["Fecha"].ToString());
             }
@@ -54,7 +54,7 @@ namespace CentroBiologiaMolecularUCA.Views.ViewOrdenMaria
             }
             else
             {
-                ord.Tipo_caso = Mtipocaso.SelectedValue;
+                //ord.Tipo_caso = Mtipocaso.SelectedValue;
             }
             if (Mtipoorden.ToString() == null)
             {
@@ -62,7 +62,7 @@ namespace CentroBiologiaMolecularUCA.Views.ViewOrdenMaria
             }
             else
             {
-                ord.Tipo_orden = Mtipoorden.SelectedValue;
+                //ord.Tipo_orden = Mtipoorden.SelectedValue;
             }
             if (Mobservaciones.ToString() == null)
             {
@@ -86,7 +86,7 @@ namespace CentroBiologiaMolecularUCA.Views.ViewOrdenMaria
             }
             else
             {
-                ord.No_orden = int.Parse(Mnoorden.Text);
+                //ord.No_orden = int.Parse(Mnoorden.Text);
             }
             if (Mestado.ToString() == null)
             {

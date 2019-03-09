@@ -51,7 +51,7 @@ namespace CentroBiologiaMolecularUCA.Views.ViewOrdenMaria
             }
             else
             {
-                ord.Tipo_caso = Mtipocaso.SelectedValue;
+                //ord.Tipo_caso = Mtipocaso.SelectedValue;
             }
             if (Mtipoorden.ToString() == null)
             {
@@ -59,7 +59,7 @@ namespace CentroBiologiaMolecularUCA.Views.ViewOrdenMaria
             }
             else
             {
-                ord.Tipo_orden = Mtipoorden.SelectedValue;
+                //ord.Tipo_orden = Mtipoorden.SelectedValue;
             }
             if (Mobservaciones.ToString() == null)
             {
@@ -83,7 +83,7 @@ namespace CentroBiologiaMolecularUCA.Views.ViewOrdenMaria
             }
             else
             {
-                ord.No_orden = int.Parse(Mnoorden.Text);
+                //ord.No_orden = int.Parse(Mnoorden.Text);
             }
             if (Mestado.ToString() == null)
             {

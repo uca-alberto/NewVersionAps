@@ -10,7 +10,7 @@ using WebSistemaCentroBiologiaMolecularUCA.Ncapas.Entidades;
 
 namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
 {
-    public class TOrdenAdn : Igeneric<OrdenAdn>
+    public class TOrden : Igeneric<OrdenAdn>
     {
         private SqlDataReader registros;
         //private Conexion c;
@@ -19,17 +19,17 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
         //PATRÓN SINGLETON
 
         #region "SINGLETON"
-        public static TOrdenAdn dte = null;
-        public TOrdenAdn()
+        public static TOrden dte = null;
+        public TOrden()
         {
 
         }
 
-        public static TOrdenAdn getInstance()
+        public static TOrden getInstance()
         {
             if (dte == null)
             {
-                dte = new TOrdenAdn();
+                dte = new TOrden();
             }
             return dte;
         }
@@ -54,15 +54,15 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
                 c = Conexion.getInstance().ConexionDB();
                 // string sql = "insert into T_Orden (Id_orden,Fecha,Entregado,Tipo_orden,Observaciones,Baucher,No_orden,Estado,Actividad) VALUES(2,@Mfecha,@Mentregado,@Mtipoorden,@Mobservaciones,@Mbaucher,@Mnoorden,@Mestado,1)";
 
-                string sql = "insert into T_Orden (Tipo_caso,Id_examenes,Observaciones,Baucher,No_orden,Estado,Actividad,Fecha) VALUES(@Mtipocaso,@Mtipoorden,@Mobservaciones,@Mbaucher,@Mnoorden,@Mestado,1,@Mfecha)";
+                string sql = "insert into T_Orden (id_Codigo,Tipo_caso,Id_examenes,Id_tipo_muestra,Id_cliente,Id_usuario,Id_empleado,Nombre_pareja,Nombre_menor,fec_nac,Observaciones,Baucher,Estado,Activo,Fecha) VALUES(@Mcodigo,NULL,NULL,@Mtipomuestra,1,@Midusuario,NULL,NULL,NULL,NULL,@Mobservaciones,@Mbaucher,@Mestado,1,@Mfecha)";
                 //PASANDO PARÁMETROS A CONSULTA SQL
                 using (comando = new SqlCommand(sql, c))
                 {
-                   // comando.Parameters.AddWithValue("@Mtipocaso", e.Tipo_caso);
-                    //comando.Parameters.AddWithValue("@Mtipoorden", e.Tipo_orden);
+                    comando.Parameters.AddWithValue("@Mcodigo", e.Id_codigo);
+                    comando.Parameters.AddWithValue("@Mtipomuestra", e.Tipo_muestra);
+                    comando.Parameters.AddWithValue("@Midusuario", e.Id_usuario);
                     comando.Parameters.AddWithValue("@Mobservaciones", e.Observaciones);
                     comando.Parameters.AddWithValue("@Mbaucher", e.Baucher);
-                   // comando.Parameters.AddWithValue("@Mnoorden", e.No_orden);
                     comando.Parameters.AddWithValue("@Mestado", e.Estado);
                     comando.Parameters.AddWithValue("@Mfecha", e.Fecha);
 
@@ -120,17 +120,15 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
             {
                 //CONSULTA SQL
                 c = Conexion.getInstance().ConexionDB();
-                string sql = "update T_Orden set Tipo_caso=(@Mtipocaso),Id_examenes=(@Mtipoorden),Observaciones=(@Mobservaciones),Baucher=(@Mbaucher),No_orden=(@Mnoorden),Estado=(@Mestado),Fecha=(@Mfecha) where Id_orden=(@mid)";
+                string sql = "update T_Orden set Id_tipo_muestra=@Mtipomuestra,Observaciones=(@Mobservaciones),Baucher=(@Mbaucher),Estado=(@Mestado),Fecha=(@Mfecha) where Id_orden=(@mid)";
 
                 //PASANDO PARÁMETROS A CONSULTA SQL
                 using (comando = new SqlCommand(sql, c))
                 {
                     comando.Parameters.AddWithValue("@mid", e.Id_orden);
-                    //comando.Parameters.AddWithValue("@Mtipocaso", e.Tipo_caso);
-                   // comando.Parameters.AddWithValue("@Mtipoorden", e.Tipo_orden);
+                    comando.Parameters.AddWithValue("@Mtipomuestra", e.Tipo_muestra);
                     comando.Parameters.AddWithValue("@Mobservaciones", e.Observaciones);
                     comando.Parameters.AddWithValue("@Mbaucher", e.Baucher);
-                   // comando.Parameters.AddWithValue("@Mnoorden", e.No_orden);
                     comando.Parameters.AddWithValue("@Mestado", e.Estado);
                     comando.Parameters.AddWithValue("@Mfecha", e.Fecha);
                     //VALIDANDO SI LA CONEXIÓN ESTÁ ACTIVA O CERRADA
@@ -259,7 +257,7 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
         public SqlDataReader getOrdenporid(int id)
         {
             c = Conexion.getInstance().ConexionDB();
-            String sql = "select  Tipo_caso, Id_examenes , Observaciones, Baucher, No_orden, Estado, Fecha from T_Orden where Id_orden='" + id + "';";
+            String sql = "select Id_codigo,Fecha,Id_Examenes,Id_tipo_muestra,Observaciones,Baucher,Estado from T_Orden where Id_orden='" + id + "';";
 
             SqlCommand comando = new SqlCommand(sql, this.c);
             this.registros = comando.ExecuteReader();
@@ -309,5 +307,56 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
         {
             throw new NotImplementedException();
         }
+
+        public String generarCodigo()
+        {
+            c = Conexion.getInstance().ConexionDB();
+            String codigo = "";
+            int total = 0;
+            String date;
+            date = DateTime.Now.ToString("MM/dd/yyyy");
+            String mes = date.Substring(0, 2);
+            String anio = date.Substring(8, 2);
+
+            try
+            {
+                SqlCommand cmd = new SqlCommand("Select count(*) as Id_orden from T_Orden", c);
+                SqlDataReader sd = cmd.ExecuteReader();
+
+                if (sd.Read())
+                {
+                    total = int.Parse(sd["Id_orden"].ToString()) + 1;
+                }
+                sd.Close();
+
+                if (total < 10)
+                {
+                    codigo = "OGM" + mes + anio + "-0000" + total.ToString();
+                }
+                else if (total < 100)
+                {
+                    codigo = "OGM" + mes + anio + "-000" + total.ToString();
+                }
+                else if (total < 1000)
+                {
+                    codigo = "OGM" + mes + anio + "-00" + total.ToString();
+                }
+                else if (total < 10000)
+                {
+                    codigo = "OGM" + mes + anio + "-0" + total.ToString();
+                }
+
+            }
+            catch (Exception)
+            {
+
+                c.Close();
+
+            }
+            return codigo;
+
+        }
+
+
     }
 }

@@ -650,6 +650,9 @@
     <Content Include="Views\ViewOrdenMaria\ModificarOrden.aspx" />
     <Content Include="Views\ViewOrdenMaria\VerOrdenAdn.aspx" />
     <Content Include="Views\ViewOrden\AgregarOrdenOgm.aspx" />
+    <Content Include="Views\ViewOrden\EliminarOrden.aspx" />
+    <Content Include="Views\ViewOrden\ModificarOrden.aspx" />
+    <Content Include="Views\ViewOrden\VerOrden.aspx" />
     <Content Include="Views\ViewResultadoMaria\AgregarResultadoOgm.aspx" />
     <Content Include="Views\ViewResultadoMaria\BuscarResultadoOgm.aspx" />
     <Content Include="Views\ViewResultadoMaria\EliminarresultadoOgm.aspx" />
@@ -689,6 +692,7 @@
     <Compile Include="MyHub.cs" />
     <Compile Include="Ncapas\Datos\Conexion.cs" />
     <Compile Include="Ncapas\Datos\DTAdnPaternidad.cs" />
+    <Compile Include="Ncapas\Datos\DTanalisis.cs" />
     <Compile Include="Ncapas\Datos\DTcliente.cs" />
     <Compile Include="Ncapas\Datos\DTdepartamento.cs" />
     <Compile Include="Ncapas\Datos\DTexamenes.cs" />
@@ -699,6 +703,7 @@
     <Compile Include="Ncapas\Datos\DTrol.cs" />
     <Compile Include="Ncapas\Datos\DTUsuario.cs" />
     <Compile Include="Ncapas\Datos\Igeneric.cs" />
+    <Compile Include="Ncapas\Datos\TOrden.cs" />
     <Compile Include="Ncapas\Datos\TOrdenAdn.cs" />
     <Compile Include="Ncapas\Entidades\Cliente.cs" />
     <Compile Include="Ncapas\Entidades\Departamento.cs" />
@@ -714,6 +719,7 @@
     <Compile Include="Ncapas\Entidades\Usuario.cs" />
     <Compile Include="Ncapas\Negocio\NGAdnPaternidad.cs" />
     <Compile Include="Ncapas\Negocio\NGcliente.cs" />
+    <Compile Include="Ncapas\Negocio\NGorden.cs" />
     <Compile Include="Ncapas\Negocio\NGresultado.cs" />
     <Compile Include="Ncapas\Negocio\NGUsuario.cs" />
     <Compile Include="Ncapas\Negocio\NOrdenAdn.cs" />
@@ -851,6 +857,27 @@
     </Compile>
     <Compile Include="Views\ViewOrden\AgregarOrdenOgm.aspx.designer.cs">
       <DependentUpon>AgregarOrdenOgm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ViewOrden\EliminarOrden.aspx.cs">
+      <DependentUpon>EliminarOrden.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\ViewOrden\EliminarOrden.aspx.designer.cs">
+      <DependentUpon>EliminarOrden.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ViewOrden\ModificarOrden.aspx.cs">
+      <DependentUpon>ModificarOrden.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\ViewOrden\ModificarOrden.aspx.designer.cs">
+      <DependentUpon>ModificarOrden.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ViewOrden\VerOrden.aspx.cs">
+      <DependentUpon>VerOrden.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\ViewOrden\VerOrden.aspx.designer.cs">
+      <DependentUpon>VerOrden.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\ViewResultadoMaria\AgregarResultadoOgm.aspx.cs">
       <DependentUpon>AgregarResultadoOgm.aspx</DependentUpon>

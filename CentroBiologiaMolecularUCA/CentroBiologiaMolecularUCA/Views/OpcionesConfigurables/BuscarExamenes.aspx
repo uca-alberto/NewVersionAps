@@ -1,7 +1,9 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="BuscarOrdenAdn.aspx.cs" Inherits="CentroBiologiaMolecularUCA.Views.ViewOrdenMaria.BuscarOrdenAdn" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <div class="card-header">
-       <strong class="card-title">Orden ADN</strong>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/configuration.Master" AutoEventWireup="true" CodeBehind="BuscarExamenes.aspx.cs" Inherits="CentroBiologiaMolecularUCA.Views.OpcionesConfigurables.BuscarExamenes" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+     <div class="card-header">
+       <strong class="card-title">Examenes</strong>
         </div> 
      <!--Tabla de orden-->                               
         <div class="content mt-3">
@@ -10,7 +12,7 @@
             <div class="col-md-12 ">
                 <div class="card">
                     <div class="card-header">
-                        <strong class="card-title">Orden ADN humano</strong>
+                        <strong class="card-title">Examenes</strong>
                     </div>
                     <div class="card-body">
                         <table id="bootstrap-data-table" class="table table-striped table-bordered">
@@ -18,7 +20,9 @@
                                 <tr>
                                     <th>Codigo</th>
                                                          
-                                    <th>baucher</th>
+                                    <th>Nombre</th>
+
+                                    <th>Precio</th>
                                                         
                                     <th>Opciones</th>
                                 </tr>
@@ -28,23 +32,20 @@
                                     while(getregistros().Read())
                                     {
                                         %>
-                                            <tr><td><%=getregistros()["Id_orden"] %></td>
+                                            <tr><td><%=getregistros()["Id_examenes"] %></td>
                                                                   
-                                                <td><%=getregistros()["Baucher"] %></td>
+                                                <td><%=getregistros()["Nombre"] %></td>
+
+                                                <td><%=getregistros()["Precio_examen"] %></td>
                                                                   
                                                 <td>
-                                                    <a title="Mostrar" onclick="mostrar" href="../../Views/ViewOrden/VerOrden.aspx?id=<%=getregistros()["Id_orden"] %>">
+                                                    <a title="Mostrar" onclick="mostrar" href="VerExamen.aspx?id=<%=getregistros()["Id_examenes"] %>">
                                                     <i class="ti-eye"></i>
                                                     </a>
-                                                    <a title="Editar" onclick="editar" href="../../Views/ViewOrden/ModificarOrden.aspx?id=<%=getregistros()["Id_orden"] %>">
+                                                    <a title="Editar" onclick="editar" href="EditarExamenes.aspx?id=<%=getregistros()["Id_examenes"] %>">
                                                     <i class="ti-pencil-alt"></i>
                                                 </a> 
-                                                    <a href="EliminarOrden.aspx?id=<%=getregistros()["Id_orden"] %>" onclick="Eliminar('EliminarOrden.aspx?id=<%=getregistros()["Id_orden"] %>');">
-                                                    <i class="menu-icon fa fa-trash-o"></i>
-                                                    </a> 
-                                                    </td>
-
-                                               
+                                                </td>
                                             </tr>
                                         <%
                                     }
@@ -59,7 +60,5 @@
     </div><!-- .animated -->
 </div><!-- .content -->
 
-    <script type="text/javascript" src="../../Content/ListaordenOgm.js"></script>
-    
-
+    <script type="text/javascript" src="../../Content/ListaExamen.js"></script>
 </asp:Content>

@@ -1,26 +1,28 @@
-﻿function edit(fecha, validacion, resultado, estado, usuario_procesa, usuario_valida, analisis) {
-
-
+﻿function edit(codigo, fecha, analisis, muestra, observaciones, boucher, estado) {
+    document.getElementById('MainContent_Mcodigo').value = codigo;
     document.getElementById('MainContent_Mfecha').value = fecha;
-    document.getElementById('MainContent_Mvalidacion').value = validacion;
-    document.getElementById('MainContent_Mresultado').value = resultado;
-    document.getElementById('MainContent_Mestado').value = estado;
-    document.getElementById('MainContent_Musuarioprocesa').value = usuario_procesa;
-    document.getElementById('MainContent_Musuariovalida').value = usuario_valida;
-
     document.getElementById('MainContent_Manalisis').value = analisis;
-
-
-
-
-
-
+    document.getElementById('MainContent_Mmuestra').value = muestra;
+    document.getElementById('MainContent_Mobservaciones').value = observaciones;
+    document.getElementById('MainContent_Mbaucher').value = boucher;
+    document.getElementById('MainContent_Mestado').value = estado;
+}
+function Eliminar(id) {
+    swal({
+        title: "¿Estas Seguro?",
+        text: "Eliminar Orden",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+    })
+    .then((willDelete) => {
+        if (willDelete) {
+            swal("La Orden ha sido Eliminada", {
+                icon: "success",
+            });
+        } else {
+            swal("Eliminacion Cancelada");
+        }
+    });
 }
 
-function Eliminar(url) {
-    if (window.confirm('estas seguro?')) {
-
-        window.toLocaleString = url;
-
-    }
-}

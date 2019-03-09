@@ -8,11 +8,18 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Entidades
     public class OrdenAdn
     {
         private int id_orden;
-        private String tipo_caso;
-        private String tipo_orden;
+        private String id_codigo;
+        private String tipo_Caso;
+        private String tipo_examen;
+        private String tipo_muestra;
+        private String id_cliente;
+        private String id_usuario;
+        private String id_empleado;
+        private String nombre_pareja;
+        private String nombre_menor;
+        private DateTime fec_nac;
         private String observaciones;
         private String baucher;
-        private int no_orden;
         private String estado;
         private DateTime fecha;
 
@@ -29,29 +36,32 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Entidades
             }
         }
 
-        public string Tipo_caso
+
+
+
+        public string Tipo_examen
         {
             get
             {
-                return tipo_caso;
+                return tipo_examen;
             }
 
             set
             {
-                tipo_caso = value;
+                tipo_examen = value;
             }
         }
 
-        public string Tipo_orden
+        public string Tipo_muestra
         {
             get
             {
-                return tipo_orden;
+                return tipo_muestra;
             }
 
             set
             {
-                tipo_orden = value;
+                tipo_muestra = value;
             }
         }
 
@@ -81,19 +91,6 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Entidades
             }
         }
 
-        public int No_orden
-        {
-            get
-            {
-                return no_orden;
-            }
-
-            set
-            {
-                no_orden = value;
-            }
-        }
-
         public string Estado
         {
             get
@@ -117,6 +114,110 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Entidades
             set
             {
                 fecha = value;
+            }
+        }
+
+        public string Id_codigo
+        {
+            get
+            {
+                return id_codigo;
+            }
+
+            set
+            {
+                id_codigo = value;
+            }
+        }
+
+        public string Tipo_Caso
+        {
+            get
+            {
+                return tipo_Caso;
+            }
+
+            set
+            {
+                tipo_Caso = value;
+            }
+        }
+
+        public string Id_cliente
+        {
+            get
+            {
+                return id_cliente;
+            }
+
+            set
+            {
+                id_cliente = value;
+            }
+        }
+
+        public string Id_empleado
+        {
+            get
+            {
+                return id_empleado;
+            }
+
+            set
+            {
+                id_empleado = value;
+            }
+        }
+
+        public string Nombre_pareja
+        {
+            get
+            {
+                return nombre_pareja;
+            }
+
+            set
+            {
+                nombre_pareja = value;
+            }
+        }
+
+        public string Nombre_menor
+        {
+            get
+            {
+                return nombre_menor;
+            }
+
+            set
+            {
+                nombre_menor = value;
+            }
+        }
+
+        public DateTime Fec_nac
+        {
+            get
+            {
+                return fec_nac;
+            }
+
+            set
+            {
+                fec_nac = value;
+            }
+        }
+
+        public string Id_usuario
+        {
+            get
+            {
+                return id_usuario;
+            }
+
+            set
+            {
+                id_usuario = value;
             }
         }
     }
