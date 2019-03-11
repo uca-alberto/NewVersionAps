@@ -313,10 +313,12 @@
     <Content Include="assets\sweetalert.min.js" />
     <Content Include="Content\Global.js" />
     <Content Include="Content\listacliente.js" />
+    <Content Include="Content\listaempleado.js" />
     <Content Include="Content\Listaorden.js" />
     <Content Include="Content\ListaOrdenOgm.js" />
     <Content Include="Content\listausuario.js" />
     <Content Include="Content\Vercliente.js" />
+    <Content Include="Content\VerExamen.js" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -633,8 +635,18 @@
     <Content Include="Site.Master" />
     <Content Include="TablesJS\new.js" />
     <Content Include="TablesJS\TableCliente.js" />
+    <Content Include="TablesJS\TableEmpleado.js" />
+    <Content Include="TablesJS\TableResultadoOgm.js" />
     <Content Include="ViewSwitcher.ascx" />
+    <Content Include="Views\OpcionesConfigurables\AgregarExamenes.aspx" />
+    <Content Include="Views\OpcionesConfigurables\BuscarExamenes.aspx" />
+    <Content Include="Views\OpcionesConfigurables\EditarExamenes.aspx" />
+    <Content Include="Views\OpcionesConfigurables\Emp\AgregarEmpleado.aspx" />
+    <Content Include="Views\OpcionesConfigurables\Emp\EditEmployee.aspx" />
+    <Content Include="Views\OpcionesConfigurables\Emp\SearchEmpleado.aspx" />
+    <Content Include="Views\OpcionesConfigurables\Emp\SeeEmployee.aspx" />
     <Content Include="Views\OpcionesConfigurables\Index.aspx" />
+    <Content Include="Views\OpcionesConfigurables\VerExamen.aspx" />
     <Content Include="Views\ViewADN\AdnValidacion.aspx" />
     <Content Include="Views\ViewCliente\AgregarCliente.aspx" />
     <Content Include="Views\ViewCliente\BuscarCliente.aspx" />
@@ -695,6 +707,7 @@
     <Compile Include="Ncapas\Datos\DTanalisis.cs" />
     <Compile Include="Ncapas\Datos\DTcliente.cs" />
     <Compile Include="Ncapas\Datos\DTdepartamento.cs" />
+    <Compile Include="Ncapas\Datos\DTEmpleados.cs" />
     <Compile Include="Ncapas\Datos\DTexamenes.cs" />
     <Compile Include="Ncapas\Datos\DTlogin.cs" />
     <Compile Include="Ncapas\Datos\DTmuestra.cs" />
@@ -707,6 +720,7 @@
     <Compile Include="Ncapas\Datos\TOrdenAdn.cs" />
     <Compile Include="Ncapas\Entidades\Cliente.cs" />
     <Compile Include="Ncapas\Entidades\Departamento.cs" />
+    <Compile Include="Ncapas\Entidades\Empleado.cs" />
     <Compile Include="Ncapas\Entidades\Examen.cs" />
     <Compile Include="Ncapas\Entidades\Municipio.cs" />
     <Compile Include="Ncapas\Entidades\OrdenAdn.cs" />
@@ -719,6 +733,8 @@
     <Compile Include="Ncapas\Entidades\Usuario.cs" />
     <Compile Include="Ncapas\Negocio\NGAdnPaternidad.cs" />
     <Compile Include="Ncapas\Negocio\NGcliente.cs" />
+    <Compile Include="Ncapas\Negocio\NGEmpleado.cs" />
+    <Compile Include="Ncapas\Negocio\NGExamen.cs" />
     <Compile Include="Ncapas\Negocio\NGorden.cs" />
     <Compile Include="Ncapas\Negocio\NGresultado.cs" />
     <Compile Include="Ncapas\Negocio\NGUsuario.cs" />
@@ -746,12 +762,68 @@
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
     </Compile>
+    <Compile Include="Views\OpcionesConfigurables\AgregarExamenes.aspx.cs">
+      <DependentUpon>AgregarExamenes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\OpcionesConfigurables\AgregarExamenes.aspx.designer.cs">
+      <DependentUpon>AgregarExamenes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\OpcionesConfigurables\BuscarExamenes.aspx.cs">
+      <DependentUpon>BuscarExamenes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\OpcionesConfigurables\BuscarExamenes.aspx.designer.cs">
+      <DependentUpon>BuscarExamenes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\OpcionesConfigurables\EditarExamenes.aspx.cs">
+      <DependentUpon>EditarExamenes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\OpcionesConfigurables\EditarExamenes.aspx.designer.cs">
+      <DependentUpon>EditarExamenes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\OpcionesConfigurables\Emp\AgregarEmpleado.aspx.cs">
+      <DependentUpon>AgregarEmpleado.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\OpcionesConfigurables\Emp\AgregarEmpleado.aspx.designer.cs">
+      <DependentUpon>AgregarEmpleado.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\OpcionesConfigurables\Emp\EditEmployee.aspx.cs">
+      <DependentUpon>EditEmployee.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\OpcionesConfigurables\Emp\EditEmployee.aspx.designer.cs">
+      <DependentUpon>EditEmployee.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\OpcionesConfigurables\Emp\SearchEmpleado.aspx.cs">
+      <DependentUpon>SearchEmpleado.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\OpcionesConfigurables\Emp\SearchEmpleado.aspx.designer.cs">
+      <DependentUpon>SearchEmpleado.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\OpcionesConfigurables\Emp\SeeEmployee.aspx.cs">
+      <DependentUpon>SeeEmployee.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\OpcionesConfigurables\Emp\SeeEmployee.aspx.designer.cs">
+      <DependentUpon>SeeEmployee.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\OpcionesConfigurables\Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Views\OpcionesConfigurables\Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\OpcionesConfigurables\VerExamen.aspx.cs">
+      <DependentUpon>VerExamen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\OpcionesConfigurables\VerExamen.aspx.designer.cs">
+      <DependentUpon>VerExamen.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\ViewADN\AdnValidacion.aspx.cs">
       <DependentUpon>AdnValidacion.aspx</DependentUpon>

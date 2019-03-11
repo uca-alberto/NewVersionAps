@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="assets/css/lib/datatable/dataTables.bootstrap.min.css"/>
     <link href="/assets/css/lib/vector-map/jqvmap.min.css" rel="stylesheet"/>
     <link href="/assets/sweetalert.css" rel="sweetalert"/>
+    <script src="../../../assets/sweetalert.min.js"></script>
 
   <link href="assets/css/bootstrap-datetimepicker.min.css" rel="stylesheet"/> 
     <link href="assets/css/bootstrap-datetimepicker.css" rel="stylesheet"/> 
@@ -53,18 +54,18 @@
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-male"></i>Control de Empleados</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-plus-circle"></i><a href="../../Views/ViewCliente/AgregarCliente.aspx">Agregar Empleado</a></li>
-                            <li><i class="ti-search"></i><a href="../../Views/ViewCliente/BuscarCliente.aspx">Buscar Empleado</a></li>
+                            <li><i class="menu-icon fa fa-plus-circle"></i><a href="../../../Views/OpcionesConfigurables/Emp/AgregarEmpleado.aspx">Agregar Empleado</a></li>
+                            <li><i class="ti-search"></i><a href="../../../Views/OpcionesConfigurables/Emp/SearchEmpleado.aspx">Buscar Empleado</a></li>
                         </ul>
                     </li>
+                    
 
                     <!--/Segundo Menu, seccion de ordenes y resultados-->
                     <h3 class="menu-title">Variables Globales</h3><!-- /Titulo del Menu -->
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-list-ol"></i>Control De Exames</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-plus-circle"></i><a href="../../Views/ViewOrden/AgregarOrdenOgm.aspx">Crear Examen</a></li>
-                            <li><i class="menu-icon fa fa-plus-circle"></i><a href="../../Views/ViewOrdenMaria/AgregarOrden.aspx">Asignacion de Precio</a></li>
+                            <li><i class="menu-icon fa fa-plus-circle"></i><a href="../../../Views/OpcionesConfigurables/AgregarExamenes.aspx">Crear Examen</a></li>
                             
                         </ul>
                     </li>
@@ -121,12 +122,12 @@
                 <div class="col-sm-5">
                     <div class="user-area dropdown float-right">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img class="user-avatar rounded-circle" src="../../assets/imagenes/admin.jpg" alt="User Avatar"/>
+                            <img class="user-avatar rounded-circle" src="../../../assets/imagenes/admin.jpg" alt="User Avatar"/>
                         </a>
 
                         <div class="user-menu dropdown-menu">
-                            <a class="nav-link" href="../../Views/ViewLogin/Index.aspx"><i class="fa fa-flask">&nbsp;&nbsp;</i>CBM Sistema</a>
-                            <a class="nav-link" href="../../Views/ViewLogin/Login.aspx"><i class="fa fa-sign-in">&nbsp;&nbsp;</i>Cerrar Sesion</a>
+                            <a class="nav-link" href="../../../Views/ViewLogin/Index.aspx"><i class="fa fa-flask">&nbsp;&nbsp;</i>CBM Sistema</a>
+                            <a class="nav-link" href="../../../Views/ViewLogin/Login.aspx"><i class="fa fa-sign-in">&nbsp;&nbsp;</i>Cerrar Sesion</a>
                         </div>
                     </div>
                 </div>
