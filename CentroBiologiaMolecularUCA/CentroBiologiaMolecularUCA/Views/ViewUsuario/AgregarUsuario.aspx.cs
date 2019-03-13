@@ -19,8 +19,55 @@ namespace CentroBiologiaMolecularUCA.Views.ViewUsuario
         private String Rol;
         private DTrol dtrol;
 
+
         protected void Page_Load(object sender, EventArgs e)
         {
+            this.dtusuario = new DTUsuario();
+            String rolid = (string)Session["Id_rol"];
+            string ubicacion = "../../Views/ViewUsuario/AgregarUsuario.aspx";
+
+            int rol = Convert.ToInt32(rolid);
+
+            this.registro = dtusuario.acceso(rol);
+            bool permiso = false;
+            String[] array = new String[10];
+            int index = 0;
+
+             if (rolid == "1")
+             {
+                 permiso = true;
+             }
+             else
+             {
+                 //guardar los datos que se extraen de la BD
+                 while (registro.Read())
+                 {
+                     array[index] = registro["opciones"].ToString();
+                     index++;
+
+                 }
+
+                 for (int i = 0; i < array.Length; i++)
+                 {
+
+                     if (array[i] == ubicacion)
+                     {
+                         permiso = true;
+                         break;
+                     }
+
+
+                 }
+             }
+
+
+
+             if(permiso == false)
+             {
+                 Response.Redirect("../../Views/OpcionesConfigurables/Index.aspx");
+             }
+            
+
             this.dtusuario = new DTUsuario();
             this.registro = this.dtusuario.listarTodo();
             this.conexion = new Conexion();
@@ -34,40 +81,42 @@ namespace CentroBiologiaMolecularUCA.Views.ViewUsuario
 
         }
 
-        public SqlDataReader getregistros()
-        {
-            return this.registro;
-        }
+
+
+
 
         //Extraer los datos de la vista
         public Usuario GetEntity()
         {
             Usuario us = new Usuario();
-            if (Mnombre.ToString() != null)
+            if (Mnombre.ToString() == null)
+            {
+                RegularExpressionValidator.GetValidationProperty(RequiredFieldValidator1);
+
+            }
+            else
             {
                 us.Nombre = Mnombre.Text;
             }
-            else
+
+            if (Mcontrasena.ToString() == null)
             {
                 RegularExpressionValidator.GetValidationProperty(RequiredFieldValidator1);
+
             }
-            if (Mcontrasena.ToString() != null)
+            else
             {
                 us.Contrasena = Mcontrasena.Text;
             }
+            if (Mrol.ToString() == null)
+            {
+                RegularExpressionValidator.GetValidationProperty(RequiredFieldValidator1);
+
+            }
             else
             {
-                RegularExpressionValidator.GetValidationProperty(RegularExpressionValidator1);
-            }
-            if (Mrol.ToString() != null)
-            {
-
                 Rol = Mrol.SelectedValue;
                 us.Id_rol = Convert.ToInt32(Rol);
-            }
-            else
-            {
-                RegularExpressionValidator.GetValidationProperty(RegularExpressionValidator1);
             }
             us.Activo = 1;
 
@@ -83,7 +132,7 @@ namespace CentroBiologiaMolecularUCA.Views.ViewUsuario
                 bool resp = NGUsuario.getInstance().guardarUsuario(us);
                 if (resp == false)
                 {
-                    Response.Redirect("AgregarUsuario.aspx");
+                    Response.Redirect("/Views/ViewUsuario/BuscarUsuario.aspx");
                 }
                 else
                 {
@@ -92,9 +141,10 @@ namespace CentroBiologiaMolecularUCA.Views.ViewUsuario
             }
             else
             {
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "none", "confirm('Error, Formulario llenado de forma incorrecta');", true);
                 RegularExpressionValidator.GetValidationProperty(RequiredFieldValidator1);//sino esta validado me mostrara los campos a corregir y no mandara datos.
             }
+
+
 
         }
     }

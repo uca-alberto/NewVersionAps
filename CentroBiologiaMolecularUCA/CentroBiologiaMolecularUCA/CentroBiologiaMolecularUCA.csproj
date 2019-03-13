@@ -671,7 +671,9 @@
     <Content Include="Views\ViewResultadoMaria\ModificarResultadoOgm.aspx" />
     <Content Include="Views\ViewResultadoMaria\VerResultadoOgm.aspx" />
     <Content Include="Views\ViewUsuario\AgregarUsuario.aspx" />
+    <Content Include="Views\ViewUsuario\BuscarUsuario.aspx" />
     <Content Include="Views\ViewUsuario\EditarUsuario.aspx" />
+    <Content Include="Views\ViewUsuario\VerUsuario.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -993,12 +995,26 @@
     <Compile Include="Views\ViewUsuario\AgregarUsuario.aspx.designer.cs">
       <DependentUpon>AgregarUsuario.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Views\ViewUsuario\BuscarUsuario.aspx.cs">
+      <DependentUpon>BuscarUsuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\ViewUsuario\BuscarUsuario.aspx.designer.cs">
+      <DependentUpon>BuscarUsuario.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\ViewUsuario\EditarUsuario.aspx.cs">
       <DependentUpon>EditarUsuario.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Views\ViewUsuario\EditarUsuario.aspx.designer.cs">
       <DependentUpon>EditarUsuario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ViewUsuario\VerUsuario.aspx.cs">
+      <DependentUpon>VerUsuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\ViewUsuario\VerUsuario.aspx.designer.cs">
+      <DependentUpon>VerUsuario.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

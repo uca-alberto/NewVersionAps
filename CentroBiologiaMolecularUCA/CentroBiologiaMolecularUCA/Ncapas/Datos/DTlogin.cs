@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
 using System.Web;
 
 namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
@@ -47,7 +49,8 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
                 {
 
                     comando.Parameters.AddWithValue("@usuario", usuario);
-                    comando.Parameters.AddWithValue("@password", password);
+                    string hash = EncodePassword(string.Concat(usuario, password));
+                    comando.Parameters.AddWithValue("@password", hash);
 
                     int count = Convert.ToInt32(comando.ExecuteScalar());
 
@@ -115,7 +118,8 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
                 using (comando = new SqlCommand(sql, c))
                 {
                     comando.Parameters.AddWithValue("@usuario", usuario);
-                    comando.Parameters.AddWithValue("@password", password);
+                    string hash = EncodePassword(string.Concat(usuario, password));
+                    comando.Parameters.AddWithValue("@password", hash);
 
 
                     SqlDataAdapter dtAdaptador = new SqlDataAdapter(comando);
@@ -140,6 +144,21 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
             }
 
             return dtDatos;
+        }
+
+        public static string EncodePassword(string originalPassword)
+        {
+            //Clave para encriptar la contraseña
+            string clave = "7f9facc418f74439c5e9709832;0ab8a5:OCOdNSW1,q8SLIQz8i|8agmu¬s13Q7ZXyno/";
+            //Se instancia el objeto para luego calcular la matriz de BYTES
+            SHA512 sha512 = new SHA512CryptoServiceProvider();
+
+            //Se cre un arreglo donde la password, el usuario y la clave se vuelven en BYTES
+            byte[] inputBytes = (new UnicodeEncoding()).GetBytes(originalPassword + clave);
+            //Se calcula la matriz de bytes y se encripta 
+            byte[] hash = sha512.ComputeHash(inputBytes);
+            //Lo convertimos en cadena y se devuelve
+            return Convert.ToBase64String(hash);
         }
     }
 }

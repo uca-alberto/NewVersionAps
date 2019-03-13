@@ -12,7 +12,7 @@ namespace CentroBiologiaMolecularUCA
         {
             var settings = new FriendlyUrlSettings();
             routes.EnableFriendlyUrls(settings);
-            routes.MapPageRoute("Login", "", "~/Views/ViewLogin/Login.aspx");
+            routes.MapPageRoute("Login", "", "~/Login.aspx");
         }
     }
 }

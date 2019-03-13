@@ -1,8 +1,8 @@
-﻿function edit(nombre, contraseña, rol) {
+﻿function edit(nombre, rol) {
 
     document.getElementById('MainContent_Mnombre').value = nombre;
-    document.getElementById('MainContent_Mcontrasena').value = contraseña;
-    document.getElementById('MainContent_Mrol').value = rol;
+    document.getElementById('MainContent_Mrol1').value = rol;
+   
 
 }
 

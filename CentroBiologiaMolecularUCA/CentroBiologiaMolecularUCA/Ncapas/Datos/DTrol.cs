@@ -41,5 +41,16 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
             return this.registros;
             c.Close();
         }
+
+        public SqlDataReader getRolporid(int id)
+        {
+            c = Conexion.getInstance().ConexionDB();
+            String sql = "select Nombre_empleado from T_Usuario where Id_usuario='" + id + "';";
+
+            SqlCommand comando = new SqlCommand(sql, this.c);
+            this.registros = comando.ExecuteReader();
+            return this.registros;
+            c.Close();
+        }
     }
 }

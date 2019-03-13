@@ -1,6 +1,8 @@
-﻿using Microsoft.AspNet.SignalR.Messaging;
+﻿using CentroBiologiaMolecularUCA;
+using Microsoft.AspNet.SignalR.Messaging;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
@@ -52,8 +54,10 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
                 {
                     comando.CommandType = System.Data.CommandType.StoredProcedure;
                     comando.Parameters.AddWithValue("@id_rol", usuario.Id_rol);
+                    comando.Parameters.AddWithValue("@id_empleado", usuario.Id_rol);
                     comando.Parameters.AddWithValue("@nombre_usuario", usuario.Nombre);
-                    comando.Parameters.AddWithValue("@contrasena", usuario.Contrasena);
+                    string hash = DTlogin.EncodePassword(string.Concat(usuario.Nombre, usuario.Contrasena));
+                    comando.Parameters.AddWithValue("@contrasena", hash);
                     comando.Parameters.AddWithValue("activo", usuario.Activo);
                     //VALIDANDO SI LA CONEXIÓN ESTÁ ACTIVA O CERRADA
                     if (comando.Connection.State != System.Data.ConnectionState.Closed)
@@ -118,8 +122,10 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
                 using (comando = new SqlCommand(sql, c))
                 {
                     comando.Parameters.AddWithValue("@Mid", usuario.Id_usuario);
+                    comando.Parameters.AddWithValue("@id_empleado", usuario.Id_usuario);
                     comando.Parameters.AddWithValue("@MNombre", usuario.Nombre);
-                    comando.Parameters.AddWithValue("@MContrasena", usuario.Contrasena);
+                    string hash = DTlogin.EncodePassword(string.Concat(usuario.Nombre, usuario.Contrasena));
+                    comando.Parameters.AddWithValue("@contrasena", hash);
                     comando.Parameters.AddWithValue("@Mrol", usuario.Id_rol);
 
                     //VALIDANDO SI LA CONEXIÓN ESTÁ ACTIVA O CERRADA
@@ -253,7 +259,7 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
         public SqlDataReader getUsuarioporid(int id)
         {
             c = Conexion.getInstance().ConexionDB();
-            String sql = "select Nombre_Usuario,Contrasena,Id_rol from T_Usuario where Id_usuario='" + id + "';";
+            String sql = "select Nombre_Usuario,Contrasena,Id_rol, Id_empleado from T_Usuario where Id_usuario='" + id + "';";
 
             SqlCommand comando = new SqlCommand(sql, this.c);
             this.registros = comando.ExecuteReader();
@@ -296,9 +302,59 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
             return log;
         }
 
+        public IEnumerable<Usuario> GetData()
+        {
+            using (var connection = new SqlConnection(ConfigurationManager.ConnectionStrings["DataBase"].ConnectionString))
+            {
+                connection.Open();
+                using (SqlCommand command = new SqlCommand(@"SELECT  [Id_Usuario],[Nombre_Usuario] FROM T_Usuario where Activo=1", connection))
+                {
+                    // Make sure the command object does not already have
+                    // a notification object associated with it.
+                    command.Notification = null;
+                    SqlDependency.Start(ConfigurationManager.ConnectionStrings["DataBase"].ConnectionString);
+                    SqlDependency dependency = new SqlDependency(command);
+                    dependency.OnChange += new OnChangeEventHandler(dependency_OnChange);
+
+                    if (connection.State == ConnectionState.Closed)
+                        connection.Open();
+
+                    using (var reader = command.ExecuteReader())
+                        return reader.Cast<IDataRecord>()
+                            .Select(x => new Usuario()
+
+                            {
+                                Id_usuario = x.GetInt32(0),
+                                Nombre = x.GetString(1),
+
+                            }).ToList();
+
+                }
+            }
+        }
+
+        private static void dependency_OnChange(object sender, SqlNotificationEventArgs e)
+        {
+            MyHub.Show();
+
+        }
+
+
+
         List<Usuario> Igeneric<Usuario>.listarTodo()
         {
             throw new NotImplementedException();
+        }
+
+        public SqlDataReader acceso(int rol)
+        {
+            c = Conexion.getInstance().ConexionDB();
+
+            string sql = "SELECT T_Opciones.Opciones FROM T_Opciones INNER JOIN T_Rol_opciones ON T_Opciones.Id_opciones = T_Rol_opciones.Id_opciones INNER JOIN T_Rol ON T_Rol_opciones.Id_rol = T_Rol.Id_rol where T_Rol.Id_rol = '" + rol + "';";
+            SqlCommand comando = new SqlCommand(sql, c);
+            SqlDataReader leer = comando.ExecuteReader();
+            return leer;
+            c.Close();
         }
     }
 }
