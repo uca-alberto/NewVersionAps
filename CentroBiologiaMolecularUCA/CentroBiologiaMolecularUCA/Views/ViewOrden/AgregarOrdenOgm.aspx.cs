@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
@@ -17,8 +18,13 @@ namespace CentroBiologiaMolecularUCA.Views.ViewOrden
         private DTanalisis dtanalisis;
         private DTmuestra dtmuestra;
         private SqlDataReader registro;
+        //private SqlDataAdapter bcliente;
         private Conexion conexion;
-        private String valor = "";
+        private int Id;
+
+        //DataSet resultados = new DataSet();
+        //DataView filtro;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             this.tOrden = new TOrden();
@@ -27,8 +33,13 @@ namespace CentroBiologiaMolecularUCA.Views.ViewOrden
             this.conexion = new Conexion();
             this.registro = this.tOrden.listarTodo();
 
+
+
             //Generar el codigo
             Mcodigo.Text = tOrden.generarCodigo();
+            //Obtengo el Id
+            Id = tOrden.ultimoid();
+
 
             if (!IsPostBack)
             {
@@ -115,7 +126,9 @@ namespace CentroBiologiaMolecularUCA.Views.ViewOrden
             }
 
             String userid = (string)Session["Id_usuario"];
+
             ord.Id_usuario = userid;
+            ord.Id_orden = Id;
             return ord;
         }
 
@@ -130,8 +143,25 @@ namespace CentroBiologiaMolecularUCA.Views.ViewOrden
 
                 if (resp == true)
                 {
+                    //Recorro el CheckboxList y mando a guardar los que esten Checkeados(seleccionados)
+                    //A la tabla Orden Detalle
+
+                    for (int i = 0; i < Manalisis.Items.Count; i++)
+                    {
+                        if (Manalisis.Items[i].Selected)
+                        {
+                            ord.Id_analisis = Manalisis.Items[i].Value; ;
+                            bool respu = NGorden.getInstance().guardardetalle(ord);
+
+                        }
+                    }
+                    //Mostrar Notificacion
                     ClientScript.RegisterStartupScript(GetType(), "Javascript", "javascript: InsertarOrden(); ", true);
-                    //Response.Redirect("/Views/ViewOrdenMaria/BuscarOrdenAdn.aspx");
+
+
+
+
+
                 }
                 else
                 {
@@ -148,13 +178,12 @@ namespace CentroBiologiaMolecularUCA.Views.ViewOrden
         //COMBO BOX EXAMEN
         protected void Manalisis_SelectedIndexChanged(object sender, EventArgs e)
         {
-
-            for (int i = 0; i < Manalisis.Items.Count; i++)
+            if (Manalisis.SelectedIndex == 0)
             {
-                if (Manalisis.Items[i].Selected)
-                {
-                    valor = valor + " " + Manalisis.Items[i].Text;
-                }
+
+            }
+            else
+            {
             }
         }
         //COMBO BOX MUESTRA
@@ -168,6 +197,5 @@ namespace CentroBiologiaMolecularUCA.Views.ViewOrden
             {
             }
         }
-
     }
 }

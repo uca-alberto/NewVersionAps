@@ -17,7 +17,8 @@
 </asp:Content>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-
+    
+     <link href="../../assets/css_Editables/form-mouse.css" rel="stylesheet" />
      <!--Añadimos el Script-->
     <script src="../../assets/sweetalert.min.js"></script>
     
@@ -59,7 +60,7 @@
                 <div class="row form-group ">
                 <div class="col col-md-3 "><label for="text-input" class=" form-control-label">Codigo orden</label></div>
                 <div class="col-12 col-md-9">&nbsp; 
-                        <asp:TextBox ID="Mcodigo" runat="server" ReadOnly="true" ToolTip="Codigo Orden" CssClass="form-control"></asp:TextBox>&nbsp; 
+                        <asp:TextBox ID="Mcodigo" runat="server" ReadOnly="true" ToolTip="Codigo Orden" CssClass="formcursor"></asp:TextBox>&nbsp; 
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="Mcodigo" Display="Dynamic" ErrorMessage="Este Campo es requerido" ForeColor="Red" Font-Italic="true"></asp:RequiredFieldValidator>       
                 </div>
                     </div>

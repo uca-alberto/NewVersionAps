@@ -28,7 +28,6 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Negocio
         #endregion
         public bool guardarord(OrdenAdn ord)
         {
-
             return TOrdenAdn.getInstance().crear(ord);
         }
 

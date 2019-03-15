@@ -22,6 +22,10 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Entidades
         private String baucher;
         private String estado;
         private DateTime fecha;
+        private int id_orden_detalle;
+        private String id_analisis;
+        private String muestra_adn;
+
 
         public int Id_orden
         {
@@ -218,6 +222,45 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Entidades
             set
             {
                 id_usuario = value;
+            }
+        }
+
+        public int Id_orden_detalle
+        {
+            get
+            {
+                return id_orden_detalle;
+            }
+
+            set
+            {
+                id_orden_detalle = value;
+            }
+        }
+
+        public string Id_analisis
+        {
+            get
+            {
+                return id_analisis;
+            }
+
+            set
+            {
+                id_analisis = value;
+            }
+        }
+
+        public string Muestra_adn
+        {
+            get
+            {
+                return muestra_adn;
+            }
+
+            set
+            {
+                muestra_adn = value;
             }
         }
     }

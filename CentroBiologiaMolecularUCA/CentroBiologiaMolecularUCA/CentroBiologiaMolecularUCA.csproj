@@ -213,6 +213,7 @@
     <Content Include="assets\css\themify-icons.css" />
     <Content Include="assets\css\variables.css" />
     <Content Include="assets\css_Editables\CssCarrusel.css" />
+    <Content Include="assets\css_Editables\form-mouse.css" />
     <Content Include="assets\fonts\codropsicons\codropsicons.svg" />
     <Content Include="assets\fonts\codropsicons\index.html" />
     <Content Include="assets\fonts\codropsicons\license.txt" />

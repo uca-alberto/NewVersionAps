@@ -241,7 +241,20 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
 
             return guardado;
         }
+        /*
+        public SqlDataAdapter buscarCliente(ref DataSet principal, String Tabla)
+        {
+            c = Conexion.getInstance().ConexionDB();
+            String sql = "select * from T_Cliente";
 
+            SqlCommand comando = new SqlCommand(sql, this.c);
+            SqlDataAdapter da = new SqlDataAdapter(comando);
+            da.Fill(principal, Tabla);
+            da.Dispose();
+            return da;
+            c.Close();
+        }
+*/
         public SqlDataReader listarTodo()
         {
             c = Conexion.getInstance().ConexionDB();
@@ -257,7 +270,7 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
         public SqlDataReader getOrdenporid(int id)
         {
             c = Conexion.getInstance().ConexionDB();
-            String sql = "select Id_codigo,Fecha,Id_Examenes,Id_tipo_muestra,Observaciones,Baucher,Estado from T_Orden where Id_orden='" + id + "';";
+            String sql = "select Id_codigo,Fecha,Id_tipo_muestra,Observaciones,Baucher,Estado from T_Orden where Id_orden='" + id + "';";
 
             SqlCommand comando = new SqlCommand(sql, this.c);
             this.registros = comando.ExecuteReader();
@@ -318,17 +331,10 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
             String mes = date.Substring(0, 2);
             String anio = date.Substring(8, 2);
 
+            total = ultimoid();
+
             try
             {
-                SqlCommand cmd = new SqlCommand("Select count(*) as Id_orden from T_Orden", c);
-                SqlDataReader sd = cmd.ExecuteReader();
-
-                if (sd.Read())
-                {
-                    total = int.Parse(sd["Id_orden"].ToString()) + 1;
-                }
-                sd.Close();
-
                 if (total < 10)
                 {
                     codigo = "OGM" + mes + anio + "-0000" + total.ToString();
@@ -357,6 +363,211 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
 
         }
 
+        //Obtener El ultimo Id de la Tabla
+        public int ultimoid()
+        {
+            int id = 0;
+            try
+            {
+
+                SqlCommand cmd = new SqlCommand("Select count(*) as Id_orden from T_Orden", c);
+                SqlDataReader sd = cmd.ExecuteReader();
+
+                if (sd.Read())
+                {
+                    id = int.Parse(sd["Id_orden"].ToString()) + 1;
+                }
+                sd.Close();
+
+            }
+            catch (Exception)
+            {
+                c.Close();
+
+            }
+            return id;
+        }
+
+        //DETALLE ORDEN
+
+        public bool creardetalle(OrdenAdn e)
+        {
+            bool guardado = false;
+            try
+            {
+                //CONSULTA SQL
+                c = Conexion.getInstance().ConexionDB();
+
+                //Ejecutar Consulta Guardar
+                string sql = "insert into T_Orden_detalle (Id_orden,Id_analisis,Muestra_adn,Estado_orden) VALUES(@Id,@Tipoanalisis,NULL,@Mestado)";
+                //PASANDO PARÁMETROS A CONSULTA SQL
+                using (comando = new SqlCommand(sql, c))
+                {
+
+                    comando.Parameters.AddWithValue("@Id", e.Id_orden);
+                    comando.Parameters.AddWithValue("@Tipoanalisis", e.Id_analisis);
+                    comando.Parameters.AddWithValue("@Mestado", e.Estado);
+
+
+                    //VALIDANDO SI LA CONEXIÓN ESTÁ ACTIVA O CERRADA
+                    if (comando.Connection.State != System.Data.ConnectionState.Closed)
+                    {
+                        //EJECUTANDO SENTENCIA SQL CON EXECUTENONQUERY
+                        int result = comando.ExecuteNonQuery();
+
+                        if (result < 0)
+                        {
+                            guardado = false;
+                            Console.WriteLine("ERROR AL INSERTAR DATOS");
+                        }
+                        else
+                        {
+                            guardado = true;
+                        }
+                    }
+                    else
+                    {
+                        comando.Connection.Open();
+
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                comando.Connection.Close();
+                c.Close();
+                c = null;
+                throw;
+            }
+            finally
+            {
+                comando.Connection.Close();
+                c.Close();
+                c = null;
+            }
+
+            return guardado;
+        }
+
+        //Ver Orden Detalle
+        public SqlDataReader getAnalisisporId(int id)
+        {
+            c = Conexion.getInstance().ConexionDB();
+            String sql = "select Id_analisis from T_Orden_detalle where Id_orden='" + id + "';";
+            SqlCommand comando = new SqlCommand(sql, this.c);
+            this.registros = comando.ExecuteReader();
+            return this.registros;
+            c.Close();
+        }
+        //Modificar Orden Detalle
+        public bool modificardetalle(OrdenAdn e)
+        {
+            bool guardado = false;
+            try
+            {
+                //CONSULTA SQL
+                c = Conexion.getInstance().ConexionDB();
+                string sql = "update T_Orden_detalle set Id_analisis=@Tipoanalisis where Id_orden=(@mid)";
+
+                //PASANDO PARÁMETROS A CONSULTA SQL
+                using (comando = new SqlCommand(sql, c))
+                {
+                    comando.Parameters.AddWithValue("@mid", e.Id_orden);
+                    comando.Parameters.AddWithValue("@Tipoanalisis", e.Id_analisis);
+                    //VALIDANDO SI LA CONEXIÓN ESTÁ ACTIVA O CERRADA
+                    if (comando.Connection.State != System.Data.ConnectionState.Closed)
+                    {
+                        //EJECUTANDO SENTENCIA SQL CON EXECUTENONQUERY
+                        int result = comando.ExecuteNonQuery();
+                        if (result < 0)
+                        {
+                            guardado = false;
+                            Console.WriteLine("ERROR AL INSERTAR DATOS");
+                        }
+                        else
+                        {
+                            guardado = true;
+                        }
+                    }
+                    else
+                    {
+                        comando.Connection.Open();
+
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                comando.Connection.Close();
+                c.Close();
+                c = null;
+                throw;
+            }
+            finally
+            {
+                comando.Connection.Close();
+                c.Close();
+                c = null;
+            }
+
+            return guardado;
+        }
+        //ELIMINAR ORDEN DETALLE
+        public bool eliminardetalle(OrdenAdn e)
+        {
+            bool guardado = false;
+            try
+            {
+                //CONSULTA SQL
+                c = Conexion.getInstance().ConexionDB();
+                string sql = "delete from T_Orden_detalle where Id_analisis=@midanalisis and Id_orden=@mid";
+
+                //PASANDO PARÁMETROS A CONSULTA SQL
+                using (comando = new SqlCommand(sql, c))
+                {
+                    comando.Parameters.AddWithValue("@mid", e.Id_orden);
+                    comando.Parameters.AddWithValue("@midanalisis", e.Id_analisis);
+
+                    //VALIDANDO SI LA CONEXIÓN ESTÁ ACTIVA O CERRADA
+                    if (comando.Connection.State != System.Data.ConnectionState.Closed)
+                    {
+                        //EJECUTANDO SENTENCIA SQL CON EXECUTENONQUERY
+                        int result = comando.ExecuteNonQuery();
+
+                        if (result < 0)
+                        {
+                            guardado = false;
+                            Console.WriteLine("ERROR AL ELIMINAR DATOS");
+                        }
+                        else
+                        {
+                            guardado = true;
+                        }
+                    }
+                    else
+                    {
+                        comando.Connection.Open();
+
+                    }
+                }
+            }
+
+            catch (Exception)
+            {
+                comando.Connection.Close();
+                c.Close();
+                c = null;
+                throw;
+            }
+            finally
+            {
+                comando.Connection.Close();
+                c.Close();
+                c = null;
+            }
+
+            return guardado;
+        }
 
     }
 }

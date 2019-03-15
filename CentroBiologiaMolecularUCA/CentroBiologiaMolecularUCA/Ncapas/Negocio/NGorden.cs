@@ -26,9 +26,26 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Negocio
             return ord;
         }
         #endregion
+
+        //Orden Detalle
+        public bool guardardetalle(OrdenAdn ord)
+        {
+            return TOrden.getInstance().creardetalle(ord);
+        }
+        //Modificar Detalle
+        public bool modificardetalle(OrdenAdn ord)
+        {
+            return TOrden.getInstance().modificardetalle(ord);
+        }
+        //Eliminar Detalle
+        public bool eliminardetalle(OrdenAdn ord)
+        {
+            return TOrden.getInstance().eliminardetalle(ord);
+        }
+
+        //Agregar Orden
         public bool guardarord(OrdenAdn ord)
         {
-
             return TOrden.getInstance().crear(ord);
         }
 

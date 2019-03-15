@@ -17,7 +17,11 @@ namespace CentroBiologiaMolecularUCA.Views.ViewOrden
         private DTanalisis dtanalisis;
         private DTmuestra dtmuestra;
         private SqlDataReader registro;
+        private SqlDataReader analisis;
         public OrdenAdn ord;
+        private String[] array = new String[10];
+        private int index = 0;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             this.tOrden = new TOrden();
@@ -45,11 +49,33 @@ namespace CentroBiologiaMolecularUCA.Views.ViewOrden
             this.registro = tOrden.getOrdenporid(id);
             Id_orden.Value = valor;
 
+            //Llenar CheckBoxList
+            this.analisis = tOrden.getAnalisisporId(id);
+
+            while (analisis.Read())
+            {
+                array[index] = this.analisis["Id_analisis"].ToString();
+                index++;
+            }
+            analisis.Close();
+
+            //Recorro la cantidad de Items y comparo los id del areglo con los del checkbox si son iguales me checkea
+            for (int i = 0; i < Manalisis.Items.Count; i++)
+            {
+                int idcheck = i + 0;
+                for (int x = 0; x < array.Length; x++)
+                {
+                    if (array[x] == Manalisis.Items[idcheck].Value)
+                    {
+                        Manalisis.Items[i].Selected = true;
+                    }
+                }
+            }
+
             if (registro.Read())
             {
                 ord.Id_codigo = this.registro["Id_codigo"].ToString();
                 ord.Fecha = Convert.ToDateTime(this.registro["Fecha"].ToString());
-                ord.Tipo_examen = this.registro["Id_examenes"].ToString();
                 ord.Tipo_muestra = this.registro["Id_tipo_muestra"].ToString();
                 ord.Observaciones = this.registro["Observaciones"].ToString();
                 ord.Baucher = this.registro["Baucher"].ToString();
@@ -128,6 +154,31 @@ namespace CentroBiologiaMolecularUCA.Views.ViewOrden
 
                 if (resp == true)
                 {
+                    /*
+                                      //Eliminar Orden detalle que no esten checkeadas
+                                      for (int i = 0; i < Manalisis.Items.Count; i++)
+                                      {
+                                          if (Manalisis.Items[i].Selected == false)
+                                          {
+                                              ord.Id_analisis = Manalisis.Items[i].Value;
+                                              bool res = NGorden.getInstance().eliminardetalle(ord);
+                                          }
+
+                                      }
+
+                                      //Modificar Registro
+                                      for (int i = 0; i < Manalisis.Items.Count; i++)
+                                      {
+                                          int idcheck = i + 0;
+                                          for (int x = 0; x < array.Length; x++)
+                                          {
+                                              if (array[x] == Manalisis.Items[idcheck].Value)
+                                              {
+                                                  ord.Id_analisis = Manalisis.Items[idcheck].Value;
+                                                  bool respu = NGorden.getInstance().modificardetalle(ord);
+                                              }
+                                          }
+                                      }*/
                     ClientScript.RegisterStartupScript(GetType(), "Javascript", "javascript: ModificarOrden(); ", true);
 
                 }
@@ -141,9 +192,6 @@ namespace CentroBiologiaMolecularUCA.Views.ViewOrden
                 ClientScript.RegisterStartupScript(GetType(), "Javascript", "javascript: ADD(); ", true);
             }
         }
-
-
-
     }
 }
 

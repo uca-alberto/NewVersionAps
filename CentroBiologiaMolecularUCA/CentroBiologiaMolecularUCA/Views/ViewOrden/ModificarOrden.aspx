@@ -149,7 +149,7 @@
 
 <script  type="text/javascript">
 window.onload = function () {
-    edit( '<%=ord.Id_codigo%>','<%=ord.Fecha%>','<%=ord.Tipo_examen%>','<%=ord.Tipo_muestra%>','<%=ord.Observaciones%>','<%=ord.Baucher%>','<%=ord.Estado%>'
+    edit( '<%=ord.Id_codigo%>','<%=ord.Fecha%>','<%=ord.Id_analisis%>','<%=ord.Tipo_muestra%>','<%=ord.Observaciones%>','<%=ord.Baucher%>','<%=ord.Estado%>'
            )
 };
 </script> 
