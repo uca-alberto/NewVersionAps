@@ -22,8 +22,8 @@ function addRowDT(data) {
            data[i].Nombre_Empleado,
            data[i].Apellido,
            data[i].Cargo,
-           '<a title="Editar" href="SeeEmployee.aspx?id=' + data[i].Id_Empleado + '"><i class="fa ti-eye"></i>&nbsp;' +
-           '<a title="Editar" href="EditEmployee.aspx?id=' + data[i].Id_Empleado + '"><i class="fa fa-edit"></i>&nbsp;' +
+           '<a title="Editar" href="Seemp.aspx?id=' + data[i].Id_Empleado + '"><i class="fa ti-eye"></i>&nbsp;' +
+           '<a title="Editar" href="Updemp.aspx?id=' + data[i].Id_Empleado + '"><i class="fa fa-edit"></i>&nbsp;' +
            '<a value="Eliminarre" id="Eliminar"><i class="fa fa-trash-o"></i>'
 
         ]).draw(false);
@@ -33,7 +33,7 @@ function addRowDT(data) {
 function sendDataAjax() {
     $.ajax({
         type: "POST",
-        url: "SearchEmpleado.aspx/GetData",
+        url: "Searchemp.aspx/GetData",
         data: {},
         contentType: "application/json; charset=utf-8",
         error: function (xhr, ajaxOptions, thrownError) {
@@ -62,7 +62,7 @@ function deleteDataAjax(data) {
           });
           $.ajax({
               type: "POST",
-              url: "SearchEmpleado.aspx/EliminarEmp",
+              url: "Searchemp.aspx/EliminarEmp",
               data: obj,
               dataType: "json",
               contentType: "application/json; charset=utf-8",
@@ -74,7 +74,7 @@ function deleteDataAjax(data) {
           swal("Se Elimino Correctamente", {
               icon: "success",
           });
-          location.href = "SearchEmpleado.aspx"
+          location.href = "Searchemp.aspx"
       }
   });
 }

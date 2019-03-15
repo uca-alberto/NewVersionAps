@@ -8,7 +8,7 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
 {
     public class DTdepartamento
     {
-        private SqlDataReader registros;
+        public SqlDataReader registros;
         //PATRÓN SINGLETON
         #region "SINGLETON"
         private static DTdepartamento dte = null;

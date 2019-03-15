@@ -49,8 +49,8 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
                 {
 
                     comando.Parameters.AddWithValue("@usuario", usuario);
-                    string hash = EncodePassword(string.Concat(usuario, password));
-                    comando.Parameters.AddWithValue("@password", hash);
+                    //string hash = EncodePassword(string.Concat(usuario, password));
+                    comando.Parameters.AddWithValue("@password", password);//QUITE EL HASH
 
                     int count = Convert.ToInt32(comando.ExecuteScalar());
 
@@ -118,8 +118,8 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
                 using (comando = new SqlCommand(sql, c))
                 {
                     comando.Parameters.AddWithValue("@usuario", usuario);
-                    string hash = EncodePassword(string.Concat(usuario, password));
-                    comando.Parameters.AddWithValue("@password", hash);
+                    //string hash = EncodePassword(string.Concat(usuario, password));
+                    comando.Parameters.AddWithValue("@password", password); //QUITE EL HASH
 
 
                     SqlDataAdapter dtAdaptador = new SqlDataAdapter(comando);

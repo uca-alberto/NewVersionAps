@@ -50,23 +50,23 @@
                         </ul>
                     </li>
                   
-                    <!-- /Menu de control de Examenes -->
+                    <!-- /Menu de control de Empleados -->
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-male"></i>Control de Empleados</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-plus-circle"></i><a href="../../../Views/OpcionesConfigurables/Emp/AgregarEmpleado.aspx">Agregar Empleado</a></li>
-                            <li><i class="ti-search"></i><a href="../../../Views/OpcionesConfigurables/Emp/SearchEmpleado.aspx">Buscar Empleado</a></li>
+                            <li><i class="menu-icon fa fa-plus-circle"></i><a href="../../../Views/Opc/Emp/Addemp.aspx">Agregar Empleado</a></li>
+                            <li><i class="ti-search"></i><a href="../../../Views/Opc/Emp/Searchemp.aspx">Buscar Empleado</a></li>
                         </ul>
                     </li>
                     
 
-                    <!--/Segundo Menu, seccion de ordenes y resultados-->
+                    <!--/Segundo Menu, seccion de Examenes-->
                     <h3 class="menu-title">Variables Globales</h3><!-- /Titulo del Menu -->
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-list-ol"></i>Control De Exames</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-plus-circle"></i><a href="../../../Views/OpcionesConfigurables/AgregarExamenes.aspx">Crear Examen</a></li>
-                            
+                            <li><i class="menu-icon fa fa-plus-circle"></i><a href="../../../Views/Opc/Exa/Addexa.aspx">Crear Examen</a></li>
+                            <li><i class="ti-search"></i><a href="../../../Views/Opc/Exa/Searchexa.aspx">Buscar Examen</a></li>                            
                         </ul>
                     </li>
                     <li class="menu-item-has-children dropdown">

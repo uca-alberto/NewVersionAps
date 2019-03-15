@@ -24,6 +24,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -638,15 +639,15 @@
     <Content Include="TablesJS\TableEmpleado.js" />
     <Content Include="TablesJS\TableResultadoOgm.js" />
     <Content Include="ViewSwitcher.ascx" />
-    <Content Include="Views\OpcionesConfigurables\AgregarExamenes.aspx" />
-    <Content Include="Views\OpcionesConfigurables\BuscarExamenes.aspx" />
-    <Content Include="Views\OpcionesConfigurables\EditarExamenes.aspx" />
-    <Content Include="Views\OpcionesConfigurables\Emp\AgregarEmpleado.aspx" />
-    <Content Include="Views\OpcionesConfigurables\Emp\EditEmployee.aspx" />
-    <Content Include="Views\OpcionesConfigurables\Emp\SearchEmpleado.aspx" />
-    <Content Include="Views\OpcionesConfigurables\Emp\SeeEmployee.aspx" />
-    <Content Include="Views\OpcionesConfigurables\Index.aspx" />
-    <Content Include="Views\OpcionesConfigurables\VerExamen.aspx" />
+    <Content Include="Views\Opc\Exa\Addexa.aspx" />
+    <Content Include="Views\Opc\Exa\Searchexa.aspx" />
+    <Content Include="Views\Opc\Exa\Updexa.aspx" />
+    <Content Include="Views\Opc\Emp\Addemp.aspx" />
+    <Content Include="Views\Opc\Emp\Updemp.aspx" />
+    <Content Include="Views\Opc\Emp\Searchemp.aspx" />
+    <Content Include="Views\Opc\Emp\Seemp.aspx" />
+    <Content Include="Views\Opc\Index.aspx" />
+    <Content Include="Views\Opc\Exa\Seexa.aspx" />
     <Content Include="Views\ViewADN\AdnValidacion.aspx" />
     <Content Include="Views\ViewCliente\AgregarCliente.aspx" />
     <Content Include="Views\ViewCliente\BuscarCliente.aspx" />
@@ -702,7 +703,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="MyHub.cs" />
     <Compile Include="Ncapas\Datos\Conexion.cs" />
     <Compile Include="Ncapas\Datos\DTAdnPaternidad.cs" />
@@ -764,68 +764,68 @@
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
     </Compile>
-    <Compile Include="Views\OpcionesConfigurables\AgregarExamenes.aspx.cs">
-      <DependentUpon>AgregarExamenes.aspx</DependentUpon>
+    <Compile Include="Views\Opc\Exa\Addexa.aspx.cs">
+      <DependentUpon>Addexa.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\OpcionesConfigurables\AgregarExamenes.aspx.designer.cs">
-      <DependentUpon>AgregarExamenes.aspx</DependentUpon>
+    <Compile Include="Views\Opc\Exa\Addexa.aspx.designer.cs">
+      <DependentUpon>Addexa.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\OpcionesConfigurables\BuscarExamenes.aspx.cs">
-      <DependentUpon>BuscarExamenes.aspx</DependentUpon>
+    <Compile Include="Views\Opc\Exa\Searchexa.aspx.cs">
+      <DependentUpon>Searchexa.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\OpcionesConfigurables\BuscarExamenes.aspx.designer.cs">
-      <DependentUpon>BuscarExamenes.aspx</DependentUpon>
+    <Compile Include="Views\Opc\Exa\Searchexa.aspx.designer.cs">
+      <DependentUpon>Searchexa.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\OpcionesConfigurables\EditarExamenes.aspx.cs">
-      <DependentUpon>EditarExamenes.aspx</DependentUpon>
+    <Compile Include="Views\Opc\Exa\Updexa.aspx.cs">
+      <DependentUpon>Updexa.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\OpcionesConfigurables\EditarExamenes.aspx.designer.cs">
-      <DependentUpon>EditarExamenes.aspx</DependentUpon>
+    <Compile Include="Views\Opc\Exa\Updexa.aspx.designer.cs">
+      <DependentUpon>Updexa.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\OpcionesConfigurables\Emp\AgregarEmpleado.aspx.cs">
-      <DependentUpon>AgregarEmpleado.aspx</DependentUpon>
+    <Compile Include="Views\Opc\Emp\Addemp.aspx.cs">
+      <DependentUpon>Addemp.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\OpcionesConfigurables\Emp\AgregarEmpleado.aspx.designer.cs">
-      <DependentUpon>AgregarEmpleado.aspx</DependentUpon>
+    <Compile Include="Views\Opc\Emp\Addemp.aspx.designer.cs">
+      <DependentUpon>Addemp.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\OpcionesConfigurables\Emp\EditEmployee.aspx.cs">
-      <DependentUpon>EditEmployee.aspx</DependentUpon>
+    <Compile Include="Views\Opc\Emp\Updemp.aspx.cs">
+      <DependentUpon>Updemp.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\OpcionesConfigurables\Emp\EditEmployee.aspx.designer.cs">
-      <DependentUpon>EditEmployee.aspx</DependentUpon>
+    <Compile Include="Views\Opc\Emp\Updemp.aspx.designer.cs">
+      <DependentUpon>Updemp.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\OpcionesConfigurables\Emp\SearchEmpleado.aspx.cs">
-      <DependentUpon>SearchEmpleado.aspx</DependentUpon>
+    <Compile Include="Views\Opc\Emp\Searchemp.aspx.cs">
+      <DependentUpon>Searchemp.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\OpcionesConfigurables\Emp\SearchEmpleado.aspx.designer.cs">
-      <DependentUpon>SearchEmpleado.aspx</DependentUpon>
+    <Compile Include="Views\Opc\Emp\Searchemp.aspx.designer.cs">
+      <DependentUpon>Searchemp.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\OpcionesConfigurables\Emp\SeeEmployee.aspx.cs">
-      <DependentUpon>SeeEmployee.aspx</DependentUpon>
+    <Compile Include="Views\Opc\Emp\Seemp.aspx.cs">
+      <DependentUpon>Seemp.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\OpcionesConfigurables\Emp\SeeEmployee.aspx.designer.cs">
-      <DependentUpon>SeeEmployee.aspx</DependentUpon>
+    <Compile Include="Views\Opc\Emp\Seemp.aspx.designer.cs">
+      <DependentUpon>Seemp.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\OpcionesConfigurables\Index.aspx.cs">
+    <Compile Include="Views\Opc\Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\OpcionesConfigurables\Index.aspx.designer.cs">
+    <Compile Include="Views\Opc\Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\OpcionesConfigurables\VerExamen.aspx.cs">
-      <DependentUpon>VerExamen.aspx</DependentUpon>
+    <Compile Include="Views\Opc\Exa\Seexa.aspx.cs">
+      <DependentUpon>Seexa.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\OpcionesConfigurables\VerExamen.aspx.designer.cs">
-      <DependentUpon>VerExamen.aspx</DependentUpon>
+    <Compile Include="Views\Opc\Exa\Seexa.aspx.designer.cs">
+      <DependentUpon>Seexa.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\ViewADN\AdnValidacion.aspx.cs">
       <DependentUpon>AdnValidacion.aspx</DependentUpon>
@@ -1018,7 +1018,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="js\plugins\timepicker\" />
   </ItemGroup>
   <PropertyGroup>

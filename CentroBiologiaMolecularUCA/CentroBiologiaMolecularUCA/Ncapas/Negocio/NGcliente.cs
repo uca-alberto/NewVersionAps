@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos;
@@ -38,6 +39,18 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Negocio
         public bool Modificarcliente(Cliente cliente)
         {
             return DTcliente.getInstance().modificar(cliente);
+        }
+        public SqlDataReader ListarDepartamento()
+        {
+            return DTdepartamento.getInstance().listardepartamento();
+        }
+        public SqlDataReader ListarMunicipio()
+        {
+            return DTmunicipio.getInstance().listarmunicipio();
+        }
+        public SqlDataReader ListarMunicipioPorId(int id)
+        {
+            return DTmunicipio.getInstance().getmunicipioporid(id);
         }
     }
 }

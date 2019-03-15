@@ -13,22 +13,13 @@ namespace CentroBiologiaMolecularUCA.Views.ViewCliente
 {
     public partial class AgregarCliente : System.Web.UI.Page
     {
-        private DTcliente dtcliente;
-        private DTdepartamento dtdepartamento;
-        private DTmunicipio dtmunicipio;
-        
         protected void Page_Load(object sender, EventArgs e)
         {
-            this.dtcliente = new DTcliente();
-            this.dtdepartamento = new DTdepartamento();
-            this.dtmunicipio = new DTmunicipio();
             Mcedula.MaxLength = 16;
-           
-
             if (!IsPostBack)
             {
                 //en esta parte se carga el dropdownlist
-                Mdepartamento.DataSource = dtdepartamento.listardepartamento();//aqui le paso mi consulta que esta en la clase dtdepartamento
+                Mdepartamento.DataSource = NGcliente.getInstance().ListarDepartamento();//aqui le paso mi consulta que esta en la clase dtdepartamento
                 Mdepartamento.DataBind();
 
                 ListItem li = new ListItem("SELECCIONE", "0");//creamos una lista, para agregar el seleccione
@@ -37,8 +28,6 @@ namespace CentroBiologiaMolecularUCA.Views.ViewCliente
                 Mmunicipio.Enabled = false;
             }
         }
-
-       
 
         public Cliente GetEntity()
         {
@@ -157,7 +146,7 @@ namespace CentroBiologiaMolecularUCA.Views.ViewCliente
             else
             {
                 Mmunicipio.Enabled = true;
-                Mmunicipio.DataSource = dtmunicipio.getmunicipioporid(int.Parse(Mdepartamento.SelectedValue));
+                Mmunicipio.DataSource = NGcliente.getInstance().ListarMunicipioPorId(int.Parse(Mdepartamento.SelectedValue));
                 Mmunicipio.DataBind();
                 //tienes que resolver, el problema que recarga la pagina y se sale del formulario, resolverlo
                 //tratar de hacerlo con jqury https://www.youtube.com/watch?v=P_-zxQYPy5w Ese es eñ video
