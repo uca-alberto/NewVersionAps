@@ -9,6 +9,21 @@ namespace CentroBiologiaMolecularUCA.Ncapas.Negocio
 {
     public class NGAdnPaternidad
     {
+        public bool guardarord(OrdenAdn ord)
+        {
+
+            return DTAdnPaternidad.getInstance().crear(ord);
+        }
+
+        public bool eliminarord(OrdenAdn ord)
+        {
+            return DTAdnPaternidad.getInstance().eliminar(ord);
+        }
+
+        public bool modificarord(OrdenAdn ord)
+        {
+            return DTAdnPaternidad.getInstance().modificar(ord);
+        }
         //PATRÓN SINGLETON
         #region "SINGLETON"
         private static NGAdnPaternidad emp = null;

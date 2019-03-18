@@ -58,13 +58,49 @@ namespace CentroBiologiaMolecularUCA.Views.ViewOrdenMaria {
         protected global::System.Web.UI.WebControls.Button Button1;
         
         /// <summary>
-        /// Control Mnombrepadre.
+        /// Control Btnabuelidad.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Mnombrepadre;
+        protected global::System.Web.UI.WebControls.Button Btnabuelidad;
+        
+        /// <summary>
+        /// Control Btnalzheimer.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Btnalzheimer;
+        
+        /// <summary>
+        /// Control Mcodigo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Mcodigo;
+        
+        /// <summary>
+        /// Control RequiredFieldValidator31.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator31;
+        
+        /// <summary>
+        /// Control Mnombrepareja.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Mnombrepareja;
         
         /// <summary>
         /// Control RequiredFieldValidator6.
@@ -103,15 +139,6 @@ namespace CentroBiologiaMolecularUCA.Views.ViewOrdenMaria {
         protected global::System.Web.UI.WebControls.TextBox Mfecha;
         
         /// <summary>
-        /// Control RegularExpressionValidator1.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator1;
-        
-        /// <summary>
         /// Control RequiredFieldValidator4.
         /// </summary>
         /// <remarks>
@@ -128,15 +155,6 @@ namespace CentroBiologiaMolecularUCA.Views.ViewOrdenMaria {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList Mtipocaso;
-        
-        /// <summary>
-        /// Control Mtipoorden.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList Mtipoorden;
         
         /// <summary>
         /// Control Mobservaciones.
@@ -175,33 +193,6 @@ namespace CentroBiologiaMolecularUCA.Views.ViewOrdenMaria {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
         
         /// <summary>
-        /// Control Mnoorden.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Mnoorden;
-        
-        /// <summary>
-        /// Control RegularExpressionValidator3.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator3;
-        
-        /// <summary>
-        /// Control RequiredFieldValidator3.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator3;
-        
-        /// <summary>
         /// Control Mestado.
         /// </summary>
         /// <remarks>
@@ -238,31 +229,13 @@ namespace CentroBiologiaMolecularUCA.Views.ViewOrdenMaria {
         protected global::System.Web.UI.WebControls.View View1;
         
         /// <summary>
-        /// Control Btnbackpaternidad.
+        /// Control Mcodigomadre.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Btnbackpaternidad;
-        
-        /// <summary>
-        /// Control Btnabuelidad.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Btnabuelidad;
-        
-        /// <summary>
-        /// Control Mnombredelamadre.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Mnombredelamadre;
+        protected global::System.Web.UI.WebControls.TextBox Mcodigomadre;
         
         /// <summary>
         /// Control RequiredFieldValidator7.
@@ -272,6 +245,24 @@ namespace CentroBiologiaMolecularUCA.Views.ViewOrdenMaria {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator7;
+        
+        /// <summary>
+        /// Control Mnombremadre.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Mnombremadre;
+        
+        /// <summary>
+        /// Control RequiredFieldValidator3.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator3;
         
         /// <summary>
         /// Control Mnombrehijomadre.
@@ -301,15 +292,6 @@ namespace CentroBiologiaMolecularUCA.Views.ViewOrdenMaria {
         protected global::System.Web.UI.WebControls.TextBox Mfechamaternidad;
         
         /// <summary>
-        /// Control RegularExpressionValidator2.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator2;
-        
-        /// <summary>
         /// Control RequiredFieldValidator9.
         /// </summary>
         /// <remarks>
@@ -328,22 +310,13 @@ namespace CentroBiologiaMolecularUCA.Views.ViewOrdenMaria {
         protected global::System.Web.UI.WebControls.DropDownList Mtipocasomadre;
         
         /// <summary>
-        /// Control Mtipoexamenmaternidad.
+        /// Control Mobservacionesmadre.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList Mtipoexamenmaternidad;
-        
-        /// <summary>
-        /// Control Mobservacionesmater.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Mobservacionesmater;
+        protected global::System.Web.UI.WebControls.TextBox Mobservacionesmadre;
         
         /// <summary>
         /// Control RequiredFieldValidator11.
@@ -373,40 +346,13 @@ namespace CentroBiologiaMolecularUCA.Views.ViewOrdenMaria {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator12;
         
         /// <summary>
-        /// Control numeroordenmaternidad.
+        /// Control Mestadomaternidad.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox numeroordenmaternidad;
-        
-        /// <summary>
-        /// Control RegularExpressionValidator4.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator4;
-        
-        /// <summary>
-        /// Control RequiredFieldValidator13.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator13;
-        
-        /// <summary>
-        /// Control activomaternidad.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList activomaternidad;
+        protected global::System.Web.UI.WebControls.DropDownList Mestadomaternidad;
         
         /// <summary>
         /// Control idorden_maternidad.
@@ -427,6 +373,15 @@ namespace CentroBiologiaMolecularUCA.Views.ViewOrdenMaria {
         protected global::System.Web.UI.WebControls.Button insertarordenmaternidad;
         
         /// <summary>
+        /// Control Btnbackpaternidad.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Btnbackpaternidad;
+        
+        /// <summary>
         /// Control View2.
         /// </summary>
         /// <remarks>
@@ -434,24 +389,6 @@ namespace CentroBiologiaMolecularUCA.Views.ViewOrdenMaria {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.View View2;
-        
-        /// <summary>
-        /// Control Btnbackmaternidad.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Btnbackmaternidad;
-        
-        /// <summary>
-        /// Control Btnalzheimer.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Btnalzheimer;
         
         /// <summary>
         /// Control Mnombredelaabuela.
@@ -524,15 +461,6 @@ namespace CentroBiologiaMolecularUCA.Views.ViewOrdenMaria {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList Mtipocasoabuelidad;
-        
-        /// <summary>
-        /// Control Mtipoordenabuelidad.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList Mtipoordenabuelidad;
         
         /// <summary>
         /// Control Mobservacionesabuelidad.
@@ -625,6 +553,15 @@ namespace CentroBiologiaMolecularUCA.Views.ViewOrdenMaria {
         protected global::System.Web.UI.WebControls.Button insertarordenabuelidad;
         
         /// <summary>
+        /// Control Btnbackabuelidad.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Btnbackabuelidad;
+        
+        /// <summary>
         /// Control View3.
         /// </summary>
         /// <remarks>
@@ -632,24 +569,6 @@ namespace CentroBiologiaMolecularUCA.Views.ViewOrdenMaria {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.View View3;
-        
-        /// <summary>
-        /// Control Button3.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button3;
-        
-        /// <summary>
-        /// Control Btnpapiloma.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Btnpapiloma;
         
         /// <summary>
         /// Control Mnombredeldoctor.
@@ -722,15 +641,6 @@ namespace CentroBiologiaMolecularUCA.Views.ViewOrdenMaria {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList Mtipocasoalzheimer;
-        
-        /// <summary>
-        /// Control Mtipoordenalzheimer.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList Mtipoordenalzheimer;
         
         /// <summary>
         /// Control Mobservacionesalzheimer.
@@ -823,6 +733,15 @@ namespace CentroBiologiaMolecularUCA.Views.ViewOrdenMaria {
         protected global::System.Web.UI.WebControls.Button insertarordenalzheimer;
         
         /// <summary>
+        /// Control Btnbackmaternidad.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Btnbackmaternidad;
+        
+        /// <summary>
         /// Control View4.
         /// </summary>
         /// <remarks>
@@ -830,24 +749,6 @@ namespace CentroBiologiaMolecularUCA.Views.ViewOrdenMaria {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.View View4;
-        
-        /// <summary>
-        /// Control Btnbackalzheimer.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Btnbackalzheimer;
-        
-        /// <summary>
-        /// Control btnpaternidad.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnpaternidad;
         
         /// <summary>
         /// Control Mdoctorpapiloma.
@@ -920,15 +821,6 @@ namespace CentroBiologiaMolecularUCA.Views.ViewOrdenMaria {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList Mtipocasopapiloma;
-        
-        /// <summary>
-        /// Control Mtipoordenpapiloma.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList Mtipoordenpapiloma;
         
         /// <summary>
         /// Control Mobservacionespapiloma.
@@ -1019,5 +911,14 @@ namespace CentroBiologiaMolecularUCA.Views.ViewOrdenMaria {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button insertarordenpapiloma;
+        
+        /// <summary>
+        /// Control btnpaternidad.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnpaternidad;
     }
 }

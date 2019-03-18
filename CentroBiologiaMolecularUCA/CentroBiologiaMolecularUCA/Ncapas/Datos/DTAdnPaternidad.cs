@@ -46,14 +46,16 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
                 c = Conexion.getInstance().ConexionDB();
                 // string sql = "insert into T_Orden (Id_orden,Fecha,Entregado,Tipo_orden,Observaciones,Baucher,No_orden,Estado,Actividad) VALUES(2,@Mfecha,@Mentregado,@Mtipoorden,@Mobservaciones,@Mbaucher,@Mnoorden,@Mestado,1)";
 
-                string sql = "insert into T_Orden (id_Codigo,Tipo_caso,Id_examenes,Id_tipo_muestra,Id_cliente,Id_usuario,Id_empleado,Nombre_pareja,Nombre_menor,fec_nac,Observaciones,Baucher,Estado,Activo,Fecha) VALUES(@Mcodigo,@Mtipocaso,@Mtipoorden,NULL,1,@Midusuario,NULL,NULL,@Mnombrehijo,NULL,@Mobservaciones,@Mbaucher,@Mestado,1,@Mfecha)";
+                string sql = "insert into T_Orden (id_Codigo,Tipo_caso,Id_examenes,Id_tipo_muestra,Id_cliente,Id_usuario,Id_empleado,Nombre_pareja,Nombre_menor,fec_nac,Observaciones,Baucher,Estado,Activo,Fecha) VALUES(@Mcodigo,@Mtipocaso,NULL,NULL,1,@Midusuario,NULL,@Mnombrepareja,@Mnombrehijo,NULL,@Mobservaciones,@Mbaucher,@Mestado,1,@Mfecha)";
                 //PASANDO PARÁMETROS A CONSULTA SQL
                 using (comando = new SqlCommand(sql, c))
                 {
                     comando.Parameters.AddWithValue("@Mcodigo", e.Id_codigo);
                     comando.Parameters.AddWithValue("@Mtipocaso", e.Tipo_Caso);
-                    comando.Parameters.AddWithValue("@Mtipoorden", e.Tipo_examen);
+                    
                     comando.Parameters.AddWithValue("@Midusuario", e.Id_usuario);
+                    comando.Parameters.AddWithValue("@Mnombrepareja", e.Nombre_pareja);
+
                     comando.Parameters.AddWithValue("@Mnombrehijo", e.Nombre_menor);
                     comando.Parameters.AddWithValue("@Mobservaciones", e.Observaciones);
                     comando.Parameters.AddWithValue("@Mbaucher", e.Baucher);
@@ -115,14 +117,15 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
             {
                 //CONSULTA SQL
                 c = Conexion.getInstance().ConexionDB();
-                string sql = "update T_Orden set Tipo_caso=(@Mtipocaso),Id_examenes=(@Mtipoorden),Nombre_menor=(@Mnombrehijo),Observaciones=(@Mobservaciones),Baucher=(@Mbaucher),Estado=(@Mestado),Fecha=(@Mfecha) where Id_orden=(@mid)";
+                string sql = "update T_Orden set Tipo_caso=(@Mtipocaso),Nombre_pareja=(@Mnombrepareja),Nombre_menor=(@Mnombrehijo),Observaciones=(@Mobservaciones),Baucher=(@Mbaucher),Estado=(@Mestado),Fecha=(@Mfecha) where Id_orden=(@mid)";
 
                 //PASANDO PARÁMETROS A CONSULTA SQL
                 using (comando = new SqlCommand(sql, c))
                 {
                     comando.Parameters.AddWithValue("@mid", e.Id_orden);
                     comando.Parameters.AddWithValue("@Mtipocaso", e.Tipo_Caso);
-                    comando.Parameters.AddWithValue("@Mtipoorden", e.Tipo_examen);
+                    
+                    comando.Parameters.AddWithValue("@Mnombrepareja", e.Nombre_pareja);
                     comando.Parameters.AddWithValue("@Mnombrehijo", e.Nombre_menor);
                     comando.Parameters.AddWithValue("@Mobservaciones", e.Observaciones);
                     comando.Parameters.AddWithValue("@Mbaucher", e.Baucher);
@@ -254,7 +257,7 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
         public SqlDataReader getOrdenporid(int id)
         {
             c = Conexion.getInstance().ConexionDB();
-            String sql = "select Id_codigo,Fecha,Tipo_caso,Id_Examenes,Nombre_menor,Observaciones,Baucher,Estado from T_Orden where Id_orden='" + id + "';";
+            String sql = "select Id_codigo,Fecha,Tipo_caso,Nombre_pareja,Nombre_menor,Observaciones,Baucher,Estado from T_Orden where Id_orden='" + id + "';";
 
             SqlCommand comando = new SqlCommand(sql, this.c);
             this.registros = comando.ExecuteReader();
@@ -262,13 +265,12 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
             c.Close();
         }
 
-        //nuevo
-        public IEnumerable<OrdenAdn> GetData()
+        public List<OrdenAdn> GetData()
         {
             using (var connection = new SqlConnection(ConfigurationManager.ConnectionStrings["DataBase"].ConnectionString))
             {
                 connection.Open();
-                using (SqlCommand command = new SqlCommand(@"SELECT  [Id_orden],[Baucher] FROM T_Orden where Actividad=1", connection))
+                using (SqlCommand command = new SqlCommand(@"SELECT  [Id_orden],[Baucher],[Nombre_menor] FROM T_Orden where Activo=1", connection))
                 {
                     // Make sure the command object does not already have
                     // a notification object associated with it.
@@ -286,7 +288,40 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
 
                             {
                                 Id_orden = x.GetInt32(0),
-                                Baucher = x.GetString(1),
+                                Nombre_menor = x.GetString(1),
+                                Baucher = x.GetString(2),
+
+                            }).ToList();
+
+                }
+            }
+        }
+        //nuevo
+        public IEnumerable<OrdenAdn> GetDataDesactivados()
+        {
+            using (var connection = new SqlConnection(ConfigurationManager.ConnectionStrings["DataBase"].ConnectionString))
+            {
+                connection.Open();
+                using (SqlCommand command = new SqlCommand(@"SELECT  [Id_orden],[Baucher],[Nombre_menor] FROM T_Orden where Activo=1", connection))
+                {
+                    // Make sure the command object does not already have
+                    // a notification object associated with it.
+                    command.Notification = null;
+                    SqlDependency.Start(ConfigurationManager.ConnectionStrings["DataBase"].ConnectionString);
+                    SqlDependency dependency = new SqlDependency(command);
+                    dependency.OnChange += new OnChangeEventHandler(dependency_OnChange);
+
+                    if (connection.State == ConnectionState.Closed)
+                        connection.Open();
+
+                    using (var reader = command.ExecuteReader())
+                        return reader.Cast<IDataRecord>()
+                            .Select(x => new OrdenAdn()
+
+                            {
+                                Id_orden = x.GetInt32(0),
+                                Nombre_menor = x.GetString(1),
+                                Baucher = x.GetString(2),
 
                             }).ToList();
 

@@ -316,11 +316,15 @@
     <Content Include="Content\Global.js" />
     <Content Include="Content\listacliente.js" />
     <Content Include="Content\listaempleado.js" />
+    <Content Include="Content\ListaMaternidad.js" />
     <Content Include="Content\Listaorden.js" />
+    <Content Include="Content\ListaOrdenAdn.js" />
     <Content Include="Content\ListaOrdenOgm.js" />
     <Content Include="Content\listausuario.js" />
     <Content Include="Content\Vercliente.js" />
     <Content Include="Content\VerExamen.js" />
+    <Content Include="Content\VerMaternidad.js" />
+    <Content Include="Content\VerOrdenAdn.js" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -636,6 +640,7 @@
     <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxWebForms.js" />
     <Content Include="Site.Master" />
     <Content Include="TablesJS\new.js" />
+    <Content Include="TablesJS\TableAdnMulti.js" />
     <Content Include="TablesJS\TableCliente.js" />
     <Content Include="TablesJS\TableEmpleado.js" />
     <Content Include="TablesJS\TableResultadoOgm.js" />
@@ -659,10 +664,13 @@
     <Content Include="Login.aspx" />
     <Content Include="Views\ViewOrdenMaria\AgregarOrden.aspx" />
     <Content Include="Views\ViewOrdenMaria\AgregarOrdenAdnMulti.aspx" />
+    <Content Include="Views\ViewOrdenMaria\BuscarMultiAdnOrden.aspx" />
     <Content Include="Views\ViewOrdenMaria\BuscarOrdenAdn.aspx" />
+    <Content Include="Views\ViewOrdenMaria\deleteAdnOrdenMulti.aspx" />
     <Content Include="Views\ViewOrdenMaria\EliminarOrden.aspx" />
     <Content Include="Views\ViewOrdenMaria\ModificarOrden.aspx" />
     <Content Include="Views\ViewOrdenMaria\VerOrdenAdn.aspx" />
+    <Content Include="Views\ViewOrdenMaria\VerOrdenAdnMulti.aspx" />
     <Content Include="Views\ViewOrden\AgregarOrdenOgm.aspx" />
     <Content Include="Views\ViewOrden\EliminarOrden.aspx" />
     <Content Include="Views\ViewOrden\ModificarOrden.aspx" />
@@ -727,11 +735,6 @@
     <Compile Include="Ncapas\Entidades\Examen.cs" />
     <Compile Include="Ncapas\Entidades\Municipio.cs" />
     <Compile Include="Ncapas\Entidades\OrdenAdn.cs" />
-    <Compile Include="Ncapas\Entidades\OrdenAdnAbuelidad.cs" />
-    <Compile Include="Ncapas\Entidades\OrdenAdnAlzheimer.cs" />
-    <Compile Include="Ncapas\Entidades\OrdenAdnMaternidad.cs" />
-    <Compile Include="Ncapas\Entidades\OrdenAdnPapiloma.cs" />
-    <Compile Include="Ncapas\Entidades\OrdenAdnPaternidad.cs" />
     <Compile Include="Ncapas\Entidades\Resultado.cs" />
     <Compile Include="Ncapas\Entidades\Usuario.cs" />
     <Compile Include="Ncapas\Negocio\NGAdnPaternidad.cs" />
@@ -898,12 +901,26 @@
     <Compile Include="Views\ViewOrdenMaria\AgregarOrdenAdnMulti.aspx.designer.cs">
       <DependentUpon>AgregarOrdenAdnMulti.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Views\ViewOrdenMaria\BuscarMultiAdnOrden.aspx.cs">
+      <DependentUpon>BuscarMultiAdnOrden.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\ViewOrdenMaria\BuscarMultiAdnOrden.aspx.designer.cs">
+      <DependentUpon>BuscarMultiAdnOrden.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\ViewOrdenMaria\BuscarOrdenAdn.aspx.cs">
       <DependentUpon>BuscarOrdenAdn.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Views\ViewOrdenMaria\BuscarOrdenAdn.aspx.designer.cs">
       <DependentUpon>BuscarOrdenAdn.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ViewOrdenMaria\deleteAdnOrdenMulti.aspx.cs">
+      <DependentUpon>deleteAdnOrdenMulti.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\ViewOrdenMaria\deleteAdnOrdenMulti.aspx.designer.cs">
+      <DependentUpon>deleteAdnOrdenMulti.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\ViewOrdenMaria\EliminarOrden.aspx.cs">
       <DependentUpon>EliminarOrden.aspx</DependentUpon>
@@ -925,6 +942,13 @@
     </Compile>
     <Compile Include="Views\ViewOrdenMaria\VerOrdenAdn.aspx.designer.cs">
       <DependentUpon>VerOrdenAdn.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ViewOrdenMaria\VerOrdenAdnMulti.aspx.cs">
+      <DependentUpon>VerOrdenAdnMulti.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\ViewOrdenMaria\VerOrdenAdnMulti.aspx.designer.cs">
+      <DependentUpon>VerOrdenAdnMulti.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\ViewOrden\AgregarOrdenOgm.aspx.cs">
       <DependentUpon>AgregarOrdenOgm.aspx</DependentUpon>
