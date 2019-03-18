@@ -191,4 +191,6 @@ C:\Users\Bayardo\Documents\GitHub\NewVersionAps\CentroBiologiaMolecularUCA\Centr
 C:\Users\Bayardo\Documents\GitHub\NewVersionAps\CentroBiologiaMolecularUCA\CentroBiologiaMolecularUCA\obj\Debug\CentroBiologiaMolecularUCA.csprojResolveAssemblyReference.cache
 C:\Users\Bayardo\Documents\GitHub\NewVersionAps\CentroBiologiaMolecularUCA\CentroBiologiaMolecularUCA\obj\Debug\CentroBiologiaMolecularUCA.dll
 C:\Users\Bayardo\Documents\GitHub\NewVersionAps\CentroBiologiaMolecularUCA\CentroBiologiaMolecularUCA\obj\Debug\CentroBiologiaMolecularUCA.pdb
-C:\Users\pc\Documents\GitHub\NewVersionAps\CentroBiologiaMolecularUCA\CentroBiologiaMolecularUCA\obj\Debug\CentroBiologiaMolecularUCA.csprojResolveAssemblyReference.cache
+C:\Users\pc\Documents\GitHub\NewVersionAps\CentroBiologiaMolecularUCA\CentroBiologiaMolecularUCA\obj\Debug\CentroBiologiaMolecularUCA.csprojAssemblyReference.cache
+C:\Users\pc\Documents\GitHub\NewVersionAps\CentroBiologiaMolecularUCA\CentroBiologiaMolecularUCA\obj\Debug\CentroBiologiaMolecularUCA.csproj.CoreCompileInputs.cache
+C:\Users\pc\Documents\GitHub\NewVersionAps\CentroBiologiaMolecularUCA\CentroBiologiaMolecularUCA\obj\Debug\CentroBiologiaMolecularUCA.csproj.CopyComplete

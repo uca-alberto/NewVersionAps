@@ -317,6 +317,7 @@
     <Content Include="Content\listacliente.js" />
     <Content Include="Content\listaempleado.js" />
     <Content Include="Content\ListaMaternidad.js" />
+    <Content Include="Content\ListaMuestra.js" />
     <Content Include="Content\Listaorden.js" />
     <Content Include="Content\ListaOrdenAdn.js" />
     <Content Include="Content\ListaOrdenOgm.js" />
@@ -654,6 +655,7 @@
     <Content Include="Views\Opc\Emp\Seemp.aspx" />
     <Content Include="Views\Opc\Index.aspx" />
     <Content Include="Views\Opc\Exa\Seexa.aspx" />
+    <Content Include="Views\Opc\Mue\Searchmue.aspx" />
     <Content Include="Views\ViewADN\AdnValidacion.aspx" />
     <Content Include="Views\ViewCliente\AgregarCliente.aspx" />
     <Content Include="Views\ViewCliente\BuscarCliente.aspx" />
@@ -733,6 +735,7 @@
     <Compile Include="Ncapas\Entidades\Departamento.cs" />
     <Compile Include="Ncapas\Entidades\Empleado.cs" />
     <Compile Include="Ncapas\Entidades\Examen.cs" />
+    <Compile Include="Ncapas\Entidades\Muestra.cs" />
     <Compile Include="Ncapas\Entidades\Municipio.cs" />
     <Compile Include="Ncapas\Entidades\OrdenAdn.cs" />
     <Compile Include="Ncapas\Entidades\Resultado.cs" />
@@ -741,6 +744,7 @@
     <Compile Include="Ncapas\Negocio\NGcliente.cs" />
     <Compile Include="Ncapas\Negocio\NGEmpleado.cs" />
     <Compile Include="Ncapas\Negocio\NGExamen.cs" />
+    <Compile Include="Ncapas\Negocio\NGmuestra.cs" />
     <Compile Include="Ncapas\Negocio\NGorden.cs" />
     <Compile Include="Ncapas\Negocio\NGresultado.cs" />
     <Compile Include="Ncapas\Negocio\NGUsuario.cs" />
@@ -830,6 +834,13 @@
     </Compile>
     <Compile Include="Views\Opc\Exa\Seexa.aspx.designer.cs">
       <DependentUpon>Seexa.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Opc\Mue\Searchmue.aspx.cs">
+      <DependentUpon>Searchmue.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Opc\Mue\Searchmue.aspx.designer.cs">
+      <DependentUpon>Searchmue.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\ViewADN\AdnValidacion.aspx.cs">
       <DependentUpon>AdnValidacion.aspx</DependentUpon>
