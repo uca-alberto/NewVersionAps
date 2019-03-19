@@ -674,7 +674,6 @@
     <Content Include="Views\ViewOrdenMaria\VerOrdenAdn.aspx" />
     <Content Include="Views\ViewOrdenMaria\VerOrdenAdnMulti.aspx" />
     <Content Include="Views\ViewOrden\AgregarOrdenOgm.aspx" />
-    <Content Include="Views\ViewOrden\EliminarOrden.aspx" />
     <Content Include="Views\ViewOrden\ModificarOrden.aspx" />
     <Content Include="Views\ViewOrden\VerOrden.aspx" />
     <Content Include="Views\ViewResultadoMaria\AgregarResultadoOgm.aspx" />
@@ -967,13 +966,6 @@
     </Compile>
     <Compile Include="Views\ViewOrden\AgregarOrdenOgm.aspx.designer.cs">
       <DependentUpon>AgregarOrdenOgm.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Views\ViewOrden\EliminarOrden.aspx.cs">
-      <DependentUpon>EliminarOrden.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Views\ViewOrden\EliminarOrden.aspx.designer.cs">
-      <DependentUpon>EliminarOrden.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\ViewOrden\ModificarOrden.aspx.cs">
       <DependentUpon>ModificarOrden.aspx</DependentUpon>

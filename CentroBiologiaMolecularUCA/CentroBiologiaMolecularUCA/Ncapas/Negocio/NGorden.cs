@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos;
@@ -41,6 +42,15 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Negocio
         public bool eliminardetalle(OrdenAdn ord)
         {
             return TOrden.getInstance().eliminardetalle(ord);
+        }
+        //CARGAR COMBO BOX Y CHECKBOX
+        public SqlDataReader ListarMuestras()
+        {
+            return DTmuestra.getInstance().listarmuestras();
+        }
+        public SqlDataReader ListarAnalisis()
+        {
+            return DTanalisis.getInstance().listaranalisis();
         }
 
         //Agregar Orden

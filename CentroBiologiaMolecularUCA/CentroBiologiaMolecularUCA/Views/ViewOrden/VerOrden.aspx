@@ -30,7 +30,7 @@
                    
                 <div class="row form-group ">
                 <div class="col col-md-3 "><label for="select" class=" form-control-label">Tipo de Analisis</label></div>
-                <div class="col-12 col-md-9 ">&nbsp; 
+                <div class="checkbox">&nbsp; 
                         <asp:CheckBoxList ID="Manalisis" BackColor="White" Enabled="false" runat="server" ToolTip="Seleccione los Tipo de Analisis" AutoPostBack="false">
                          </asp:CheckBoxList>
                 </div>

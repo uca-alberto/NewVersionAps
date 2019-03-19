@@ -12,3 +12,12 @@
                 border-radius: .25rem;
                 transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;  
  }
+
+input[type="checkbox"]  {
+    display:inline-block;
+    width:19px;
+    height:19px;
+    margin:-1px 4px 0 0;
+    vertical-align:middle;
+    cursor:pointer;
+}

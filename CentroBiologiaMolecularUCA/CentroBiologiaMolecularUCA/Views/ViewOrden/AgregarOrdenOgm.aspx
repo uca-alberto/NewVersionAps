@@ -80,7 +80,7 @@
                    
                 <div class="row form-group ">
                 <div class="col col-md-3 "><label for="select" class=" form-control-label">Tipo de Analisis</label></div>
-                <div class="col-12 col-md-9 ">&nbsp; 
+                <div class="checkbox">&nbsp; 
                         <asp:CheckBoxList ID="Manalisis" runat="server" ToolTip="Seleccione los Tipo de Analisis"  OnSelectedIndexChanged="Manalisis_SelectedIndexChanged" AutoPostBack="false">
                          </asp:CheckBoxList>
                 </div>
