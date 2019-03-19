@@ -18,8 +18,6 @@
     <link href="/assets/sweetalert.css" rel="sweetalert"/>
     <script src="../../../assets/sweetalert.min.js"></script>
 
-  <link href="assets/css/bootstrap-datetimepicker.min.css" rel="stylesheet"/> 
-    <link href="assets/css/bootstrap-datetimepicker.css" rel="stylesheet"/> 
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>

@@ -50,15 +50,12 @@ namespace CentroBiologiaMolecularUCA.Views.ViewOrden
                 Manalisis.DataValueField = "Id_analisis";//le paso el id de cada items
                 Manalisis.DataBind();
 
-                ListItem li = new ListItem("SELECCIONE", "0");//creamos una lista, para agregar el seleccione
-                Manalisis.Items.Insert(0, li);//agregamis el seleccione en la posicion uno
-
-
                 //en esta parte se carga el dropdownlist de Muestra
                 Mmuestra.DataSource = NGorden.getInstance().ListarMuestras();
                 Mmuestra.DataTextField = "muestra";
                 Mmuestra.DataValueField = "Id_tipo_muestra";
                 Mmuestra.DataBind();
+                ListItem li = new ListItem("SELECCIONE", "0");//creamos una lista, para agregar el seleccione
                 Mmuestra.Items.Insert(0, li);
             }
         }

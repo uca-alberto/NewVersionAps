@@ -41,7 +41,7 @@
             })
           .then((willDelete) => {
               if (willDelete) {
-                  location.href = "../../Views/ViewOrdenMaria/BuscarOrdenAdn.aspx";
+                  location.href = "BuscarOrden.aspx";
               } 
           });
         }

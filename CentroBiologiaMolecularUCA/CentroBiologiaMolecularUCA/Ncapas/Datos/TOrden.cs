@@ -241,29 +241,29 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
 
             return guardado;
         }
-        /*
-        public SqlDataAdapter buscarCliente(ref DataSet principal, String Tabla)
-        {
-            c = Conexion.getInstance().ConexionDB();
-            String sql = "select * from T_Cliente";
 
-            SqlCommand comando = new SqlCommand(sql, this.c);
-            SqlDataAdapter da = new SqlDataAdapter(comando);
-            da.Fill(principal, Tabla);
-            da.Dispose();
-            return da;
-            c.Close();
-        }
-*/
         public SqlDataReader listarTodo()
         {
             c = Conexion.getInstance().ConexionDB();
             String sql = "select * from T_Orden where Activo = 1;";
 
-            SqlCommand comando = new SqlCommand(sql, this.c);
-            this.registros = comando.ExecuteReader();
-            return this.registros;
-            c.Close();
+            using (var connection = new SqlConnection(ConfigurationManager.ConnectionStrings["DataBase"].ConnectionString))
+            {
+                connection.Open();
+                using (SqlCommand comando = new SqlCommand(sql, this.c))
+                {
+                    // Make sure the command object does not already have
+                    // a notification object associated with it.
+                    comando.Notification = null;
+                    SqlDependency.Start(ConfigurationManager.ConnectionStrings["DataBase"].ConnectionString);
+                    SqlDependency dependency = new SqlDependency(comando);
+                    dependency.OnChange += new OnChangeEventHandler(dependency_OnChange);
+
+                    this.registros = comando.ExecuteReader();
+                    return this.registros;
+                    c.Close();
+                }
+            }
         }
 
 
@@ -278,13 +278,13 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
             c.Close();
         }
 
-        //nuevo
-        public IEnumerable<OrdenAdn> GetData()
+       //CARGAR LAS ORDENES QUE ESTAN ACTIVAS
+        public List<OrdenAdn> GetData()
         {
             using (var connection = new SqlConnection(ConfigurationManager.ConnectionStrings["DataBase"].ConnectionString))
             {
                 connection.Open();
-                using (SqlCommand command = new SqlCommand(@"SELECT  [Id_orden],[Baucher] FROM T_Orden where Actividad=1", connection))
+                using (SqlCommand command = new SqlCommand(@"SELECT  [Id_orden],[Id_codigo],[Baucher] FROM T_Orden where Activo=1", connection))
                 {
                     // Make sure the command object does not already have
                     // a notification object associated with it.
@@ -302,7 +302,8 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
 
                             {
                                 Id_orden = x.GetInt32(0),
-                                Baucher = x.GetString(1),
+                                Id_codigo = x.GetString(1),
+                                Baucher = x.GetString(2),
 
                             }).ToList();
 
@@ -388,7 +389,7 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
             return id;
         }
 
-        //DETALLE ORDEN
+        //DETALLE CREAR ORDEN
 
         public bool creardetalle(OrdenAdn e)
         {
@@ -512,62 +513,5 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
 
             return guardado;
         }
-        //ELIMINAR ORDEN DETALLE
-        public bool eliminardetalle(OrdenAdn e)
-        {
-            bool guardado = false;
-            try
-            {
-                //CONSULTA SQL
-                c = Conexion.getInstance().ConexionDB();
-                string sql = "delete from T_Orden_detalle where Id_analisis=@midanalisis and Id_orden=@mid";
-
-                //PASANDO PARÁMETROS A CONSULTA SQL
-                using (comando = new SqlCommand(sql, c))
-                {
-                    comando.Parameters.AddWithValue("@mid", e.Id_orden);
-                    comando.Parameters.AddWithValue("@midanalisis", e.Id_analisis);
-
-                    //VALIDANDO SI LA CONEXIÓN ESTÁ ACTIVA O CERRADA
-                    if (comando.Connection.State != System.Data.ConnectionState.Closed)
-                    {
-                        //EJECUTANDO SENTENCIA SQL CON EXECUTENONQUERY
-                        int result = comando.ExecuteNonQuery();
-
-                        if (result < 0)
-                        {
-                            guardado = false;
-                            Console.WriteLine("ERROR AL ELIMINAR DATOS");
-                        }
-                        else
-                        {
-                            guardado = true;
-                        }
-                    }
-                    else
-                    {
-                        comando.Connection.Open();
-
-                    }
-                }
-            }
-
-            catch (Exception)
-            {
-                comando.Connection.Close();
-                c.Close();
-                c = null;
-                throw;
-            }
-            finally
-            {
-                comando.Connection.Close();
-                c.Close();
-                c = null;
-            }
-
-            return guardado;
-        }
-
     }
 }

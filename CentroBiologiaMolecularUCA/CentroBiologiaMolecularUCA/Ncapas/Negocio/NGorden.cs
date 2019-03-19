@@ -38,11 +38,6 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Negocio
         {
             return TOrden.getInstance().modificardetalle(ord);
         }
-        //Eliminar Detalle
-        public bool eliminardetalle(OrdenAdn ord)
-        {
-            return TOrden.getInstance().eliminardetalle(ord);
-        }
         //CARGAR COMBO BOX Y CHECKBOX
         public SqlDataReader ListarMuestras()
         {

@@ -624,15 +624,12 @@
     <Content Include="assets\scss\_widgets.scss" />
     <Content Include="configuration.Master" />
     <None Include="Scripts\jquery-1.6.4-vsdoc.js" />
-    <Content Include="js\bootstrap-datetimepicker.es.js" />
-    <Content Include="js\bootstrap-datetimepicker.min.js" />
     <Content Include="js\bootstrap.js" />
     <Content Include="js\bootstrap.min.js" />
     <Content Include="js\fechas.js" />
     <Content Include="js\moment.min.js" />
     <Content Include="js\plugins\input-mask\jquery.inputmask.date.extensions.js" />
     <Content Include="js\plugins\moment\moment.min.js" />
-    <Content Include="js\bootstrap-timepicker.min.js" />
     <Content Include="Scripts\jquery-1.6.4.js" />
     <Content Include="Scripts\jquery-1.6.4.min.js" />
     <Content Include="Scripts\jquery.signalR-2.2.3.js" />
@@ -644,6 +641,7 @@
     <Content Include="TablesJS\TableAdnMulti.js" />
     <Content Include="TablesJS\TableCliente.js" />
     <Content Include="TablesJS\TableEmpleado.js" />
+    <Content Include="TablesJS\TableOrden.js" />
     <Content Include="TablesJS\TableResultadoOgm.js" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Views\Opc\Exa\Addexa.aspx" />
@@ -667,13 +665,13 @@
     <Content Include="Views\ViewOrdenMaria\AgregarOrden.aspx" />
     <Content Include="Views\ViewOrdenMaria\AgregarOrdenAdnMulti.aspx" />
     <Content Include="Views\ViewOrdenMaria\BuscarMultiAdnOrden.aspx" />
-    <Content Include="Views\ViewOrdenMaria\BuscarOrdenAdn.aspx" />
     <Content Include="Views\ViewOrdenMaria\deleteAdnOrdenMulti.aspx" />
     <Content Include="Views\ViewOrdenMaria\EliminarOrden.aspx" />
     <Content Include="Views\ViewOrdenMaria\ModificarOrden.aspx" />
     <Content Include="Views\ViewOrdenMaria\VerOrdenAdn.aspx" />
     <Content Include="Views\ViewOrdenMaria\VerOrdenAdnMulti.aspx" />
     <Content Include="Views\ViewOrden\AgregarOrdenOgm.aspx" />
+    <Content Include="Views\ViewOrden\BuscarOrden.aspx" />
     <Content Include="Views\ViewOrden\ModificarOrden.aspx" />
     <Content Include="Views\ViewOrden\VerOrden.aspx" />
     <Content Include="Views\ViewResultadoMaria\AgregarResultadoOgm.aspx" />
@@ -918,13 +916,6 @@
     <Compile Include="Views\ViewOrdenMaria\BuscarMultiAdnOrden.aspx.designer.cs">
       <DependentUpon>BuscarMultiAdnOrden.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\ViewOrdenMaria\BuscarOrdenAdn.aspx.cs">
-      <DependentUpon>BuscarOrdenAdn.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Views\ViewOrdenMaria\BuscarOrdenAdn.aspx.designer.cs">
-      <DependentUpon>BuscarOrdenAdn.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Views\ViewOrdenMaria\deleteAdnOrdenMulti.aspx.cs">
       <DependentUpon>deleteAdnOrdenMulti.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -966,6 +957,13 @@
     </Compile>
     <Compile Include="Views\ViewOrden\AgregarOrdenOgm.aspx.designer.cs">
       <DependentUpon>AgregarOrdenOgm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ViewOrden\BuscarOrden.aspx.cs">
+      <DependentUpon>BuscarOrden.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\ViewOrden\BuscarOrden.aspx.designer.cs">
+      <DependentUpon>BuscarOrden.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\ViewOrden\ModificarOrden.aspx.cs">
       <DependentUpon>ModificarOrden.aspx</DependentUpon>

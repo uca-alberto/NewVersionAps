@@ -20,11 +20,6 @@
     <link href="/assets/sweetalert.css" rel="sweetalert"/>
      <script src="../../assets/sweetalert.min.js"></script>
 
-  <link href="assets/css/bootstrap-datetimepicker.min.css" rel="stylesheet"> 
-    <link href="assets/css/bootstrap-datetimepicker.css" rel="stylesheet"> 
-
-    <asp:PlaceHolder runat="server">
-    </asp:PlaceHolder>
     <webopt:bundlereference runat="server" path="~/Content/css" />
  
 
@@ -77,7 +72,7 @@
                             <li><i class="menu-icon fa fa-plus-circle"></i><a href="../../Views/ViewOrden/AgregarOrdenOgm.aspx">Crear Orden OGM</a></li>
                             <li><i class="menu-icon fa fa-plus-circle"></i><a href="../../Views/ViewOrdenMaria/BuscarMultiAdnOrden.aspx">Buscar</a></li>
                              <li><i class="menu-icon fa fa-plus-circle"></i><a href="../../Views/ViewOrdenMaria/AgregarOrdenAdnMulti.aspx">Crear Orden ADN Multi</a></li>
-                            <li><i class="ti-search"></i><a href="../../Views/ViewOrdenMaria/BuscarOrdenAdn.aspx">Buscar Orden ADN</a></li>
+                            <li><i class="ti-search"></i><a href="../../Views/ViewOrden/BuscarOrden">Buscar Orden</a></li>
                             
 
                             
