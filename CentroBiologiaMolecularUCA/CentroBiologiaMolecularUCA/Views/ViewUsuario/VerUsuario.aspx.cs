@@ -21,28 +21,28 @@ namespace CentroBiologiaMolecularUCA.Views.ViewUsuario
         protected void Page_Load(object sender, EventArgs e)
         {
             this.dtusuario = new DTUsuario();
-            this.us = new Usuario();
+            us = new Usuario();
             this.dtrol = new DTrol();
             String valor = Request.QueryString["id"];
             int id = int.Parse(valor);
             us.Id_usuario = id;
-         
-            //en esta parte se carga el dropdownlist
-            Mrol1.DataSource = dtrol.listarRol();//aqui le paso mi consulta que esta en la clase dtdepartamento
-            Mrol1.DataTextField = "Rol";//le paso el texto del items
-            Mrol1.DataValueField = "Id_rol";//le paso el id de cada items
+
+            Mrol1.DataSource = dtrol.listarRol();
+            Mrol1.DataTextField = "Rol";
+            Mrol1.DataValueField = "Id_rol";
             Mrol1.DataBind();
 
             this.registro = dtusuario.getUsuarioporid(id);
-            id_usuario.Value = valor;
-         
+            Id_usuario.Value = valor;
+
 
             if (registro.Read())
             {
                 us.Nombre = this.registro["Nombre_Usuario"].ToString();
-                
+
+                us.Id_rol = Convert.ToInt32(this.registro["Id_rol"]);
             }
-           
+
         }
     }
 }

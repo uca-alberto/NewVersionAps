@@ -19,6 +19,7 @@ namespace CentroBiologiaMolecularUCA.Views.OpcionesConfigurables.Emp
 
         protected void Page_Load(object sender, EventArgs e)
         {
+
             //Creacion de los objetos
             this.dtemp = new DTEmpleados();
             emp = new Empleado();

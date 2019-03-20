@@ -1,6 +1,8 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/configuration.Master" AutoEventWireup="true" CodeBehind="BuscarUsuario.aspx.cs" Inherits="CentroBiologiaMolecularUCA.Views.ViewUsuario.BuscarUsuario" %>
+<asp:Content ID="Content2" ContentPlaceHolderID="head" runat="server">
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">      
 
-<asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div class="card-header">
        <strong class="card-title">Orden ADN</strong>
         </div> 
@@ -37,7 +39,7 @@
                                                                      <a title="Mostrar" onclick="mostrar" href="../../Views/ViewUsuario/VerUsuario.aspx?id=<%=getregistros()["Id_usuario"] %>">
                                                                        <i class="ti-eye"></i>
                                                                      </a>
-                                                                     <a title="Editar" onclick="editar" href="EditarUsuario.aspx?id=<%=getregistros()["Id_usuario"] %>">
+                                                                     <a title="Editar" onclick="editar" href="../../Views/ViewUsuario/EditarUsuario.aspx?id=<%=getregistros()["Id_usuario"] %>">
                                                                        <i class="ti-pencil-alt"></i>
                                                                     </a> 
                                                                       <a href="delete.aspx?id=<%=getregistros()["Id_usuario"] %>" onclick="Eliminar('EliminarUsuario.aspx?id=<%=getregistros()["Id_usuario"] %>');">
@@ -58,5 +60,6 @@
                         </div><!-- .animated -->
                     </div><!-- .content -->
     <script type="text/javascript" src="../../Content/listausuario.js"></script>
+    
     
 </asp:Content>

@@ -19,7 +19,7 @@ namespace CentroBiologiaMolecularUCA.Views.ViewUsuario
             this.dtusuario = new DTUsuario();
             this.registro = this.dtusuario.listarTodo();
             String rolid = (string)Session["Id_rol"];
-            string ubicacion = "../../Views/ViewUsuario/AgregarUsuario.aspx";
+            string ubicacion = HttpContext.Current.Request.Url.AbsolutePath;
 
             int rol = Convert.ToInt32(rolid);
 

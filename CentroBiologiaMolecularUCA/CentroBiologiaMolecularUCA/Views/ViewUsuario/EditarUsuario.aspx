@@ -1,6 +1,8 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="EditarUsuario.aspx.cs" Inherits="CentroBiologiaMolecularUCA.Views.ViewUsuario.EditarUsuario" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-     <div class="card-header">
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/configuration.Master" AutoEventWireup="true" CodeBehind="EditarUsuario.aspx.cs" Inherits="CentroBiologiaMolecularUCA.Views.ViewUsuario.EditarUsuario" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server"> 
+    <div class="card-header">
         <strong class="card-title">Editar Usuario</strong>
            </div>  
              <div class="card">
@@ -53,7 +55,7 @@
     <script type="text/javascript" src="../../Content/listausuario.js"></script>     
 <script  type="text/javascript">
        window.onload = function () {
-            edit('<%=us.Nombre%>','<%=us.Contrasena%>', '<%=us.Id_rol%>')
+            edit('<%=us.Nombre%>', '<%=us.Id_rol%>')
         };
     </script> 
 </asp:Content>

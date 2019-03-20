@@ -24,7 +24,7 @@ namespace CentroBiologiaMolecularUCA.Views.ViewUsuario
         {
             this.dtusuario = new DTUsuario();
             String rolid = (string)Session["Id_rol"];
-            string ubicacion = "../../Views/ViewUsuario/AgregarUsuario.aspx";
+            string ubicacion = HttpContext.Current.Request.Url.AbsolutePath;
 
             int rol = Convert.ToInt32(rolid);
 
@@ -72,12 +72,15 @@ namespace CentroBiologiaMolecularUCA.Views.ViewUsuario
             this.registro = this.dtusuario.listarTodo();
             this.conexion = new Conexion();
             this.dtrol = new DTrol();
-            //en esta parte se carga el dropdownlist
-            Mrol.DataSource = dtrol.listarRol();//aqui le paso mi consulta que esta en la clase dtdepartamento
-            Mrol.DataTextField = "Rol";//le paso el texto del items
-            Mrol.DataValueField = "Id_rol";//le paso el id de cada items
-            Mrol.DataBind();
 
+            if (!IsPostBack)
+            {
+                //en esta parte se carga el dropdownlist
+                Mrol.DataSource = dtrol.listarRol();//aqui le paso mi consulta que esta en la clase dtdepartamento
+                Mrol.DataTextField = "Rol";//le paso el texto del items
+                Mrol.DataValueField = "Id_rol";//le paso el id de cada items
+                Mrol.DataBind();
+            }
 
         }
 
