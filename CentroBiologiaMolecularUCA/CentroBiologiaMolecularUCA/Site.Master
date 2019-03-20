@@ -137,7 +137,7 @@
 
                         <div class="user-menu dropdown-menu">
                             <a class="nav-link" href="../../Views/Opc/Index.aspx"><i class="fa fa-wrench">&nbsp;&nbsp;</i>Configuraciones</a>
-                            <a class="nav-link" href="../../Views/ViewLogin/Login.aspx"><i class="fa fa-sign-in">&nbsp;&nbsp;</i>Cerrar Sesion</a>
+                            <a class="nav-link" href="../../Login.aspx"><i class="fa fa-sign-in">&nbsp;&nbsp;</i>Cerrar Sesion</a>
                         </div>
                     </div>
                 </div>

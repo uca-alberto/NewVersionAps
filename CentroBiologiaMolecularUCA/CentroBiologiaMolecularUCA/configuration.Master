@@ -123,7 +123,7 @@
 
                         <div class="user-menu dropdown-menu">
                             <a class="nav-link" href="../../../Views/ViewLogin/Index.aspx"><i class="fa fa-flask">&nbsp;&nbsp;</i>CBM Sistema</a>
-                            <a class="nav-link" href="../../../Views/ViewLogin/Login.aspx"><i class="fa fa-sign-in">&nbsp;&nbsp;</i>Cerrar Sesion</a>
+                            <a class="nav-link" href="../../Login.aspx"><i class="fa fa-sign-in">&nbsp;&nbsp;</i>Cerrar Sesion</a>
                         </div>
                     </div>
                 </div>

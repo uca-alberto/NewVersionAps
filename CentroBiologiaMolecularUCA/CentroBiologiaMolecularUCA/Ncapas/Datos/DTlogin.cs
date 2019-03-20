@@ -110,7 +110,7 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
 
         public DataTable prConsultaUsuario(string usuario, string password)
         {
-            string sql = @"SELECT Id_usuario FROM T_Usuario WHERE Nombre_Usuario = @usuario AND Contrasena = @password";
+            string sql = @"SELECT Id_usuario, Id_rol, Activo FROM T_Usuario WHERE Nombre_Usuario = @usuario AND Contrasena = @password";
             DataTable dtDatos = null;
             c = Conexion.getInstance().ConexionDB();
             try
