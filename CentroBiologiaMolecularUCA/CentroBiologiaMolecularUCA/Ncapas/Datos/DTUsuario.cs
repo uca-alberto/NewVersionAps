@@ -302,7 +302,7 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
             return log;
         }
 
-        public IEnumerable<Usuario> GetData()
+        public List<Usuario> GetData()
         {
             using (var connection = new SqlConnection(ConfigurationManager.ConnectionStrings["DataBase"].ConnectionString))
             {

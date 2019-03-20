@@ -28,6 +28,24 @@
         }
     </script>
 
+    <!-------- Alerta de permisos ------>
+     <script>
+        function Acceso(data) {
+            swal({
+                title: "Usted no tiene acceso",
+                text: "restricted access",
+                icon: "error",
+                
+            })
+          .then((willDelete) => {
+              if (willDelete) {
+                  location.href = "../../Views/ViewLogin/Index.aspx";
+              } 
+          });
+        }
+    </script>
+
+
 
     <!--script de alerta-->
     
