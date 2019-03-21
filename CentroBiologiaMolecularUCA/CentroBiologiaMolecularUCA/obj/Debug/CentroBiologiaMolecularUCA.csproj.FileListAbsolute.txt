@@ -194,9 +194,6 @@ C:\Users\Bayardo\Documents\GitHub\NewVersionAps\CentroBiologiaMolecularUCA\Centr
 C:\Users\pc\Documents\GitHub\NewVersionAps\CentroBiologiaMolecularUCA\CentroBiologiaMolecularUCA\obj\Debug\CentroBiologiaMolecularUCA.csprojAssemblyReference.cache
 C:\Users\pc\Documents\GitHub\NewVersionAps\CentroBiologiaMolecularUCA\CentroBiologiaMolecularUCA\obj\Debug\CentroBiologiaMolecularUCA.csproj.CoreCompileInputs.cache
 C:\Users\pc\Documents\GitHub\NewVersionAps\CentroBiologiaMolecularUCA\CentroBiologiaMolecularUCA\obj\Debug\CentroBiologiaMolecularUCA.csproj.CopyComplete
-C:\Users\Hacker\Documents\GitHub\NewVersionAps\CentroBiologiaMolecularUCA\CentroBiologiaMolecularUCA\obj\Debug\CentroBiologiaMolecularUCA.csprojResolveAssemblyReference.cache
-C:\Users\Hacker\Documents\GitHub\NewVersionAps\CentroBiologiaMolecularUCA\CentroBiologiaMolecularUCA\obj\Debug\CentroBiologiaMolecularUCA.dll
-C:\Users\Hacker\Documents\GitHub\NewVersionAps\CentroBiologiaMolecularUCA\CentroBiologiaMolecularUCA\obj\Debug\CentroBiologiaMolecularUCA.pdb
 C:\Users\Hacker\Documents\GitHub\NewVersionAps\CentroBiologiaMolecularUCA\CentroBiologiaMolecularUCA\bin\ApplicationInsights.config
 C:\Users\Hacker\Documents\GitHub\NewVersionAps\CentroBiologiaMolecularUCA\CentroBiologiaMolecularUCA\bin\roslyn\csc.exe
 C:\Users\Hacker\Documents\GitHub\NewVersionAps\CentroBiologiaMolecularUCA\CentroBiologiaMolecularUCA\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
@@ -291,3 +288,5 @@ C:\Users\Hacker\Documents\GitHub\NewVersionAps\CentroBiologiaMolecularUCA\Centro
 C:\Users\Hacker\Documents\GitHub\NewVersionAps\CentroBiologiaMolecularUCA\CentroBiologiaMolecularUCA\bin\es\Microsoft.Owin.Security.Google.resources.dll
 C:\Users\Hacker\Documents\GitHub\NewVersionAps\CentroBiologiaMolecularUCA\CentroBiologiaMolecularUCA\bin\es\Microsoft.Owin.Security.Twitter.resources.dll
 C:\Users\Hacker\Documents\GitHub\NewVersionAps\CentroBiologiaMolecularUCA\CentroBiologiaMolecularUCA\bin\es\Microsoft.Owin.Security.MicrosoftAccount.resources.dll
+C:\Users\Hacker\Documents\GitHub\NewVersionAps\CentroBiologiaMolecularUCA\CentroBiologiaMolecularUCA\obj\Debug\CentroBiologiaMolecularUCA.dll
+C:\Users\Hacker\Documents\GitHub\NewVersionAps\CentroBiologiaMolecularUCA\CentroBiologiaMolecularUCA\obj\Debug\CentroBiologiaMolecularUCA.pdb

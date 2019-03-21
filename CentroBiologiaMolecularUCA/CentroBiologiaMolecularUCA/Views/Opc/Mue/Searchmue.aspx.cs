@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos;
 
 namespace CentroBiologiaMolecularUCA.Views.Opc
 {
@@ -66,6 +67,24 @@ namespace CentroBiologiaMolecularUCA.Views.Opc
             {
                 ClientScript.RegisterStartupScript(GetType(), "Javascript", "javascript: ADD(); ", true);
             }
+
+        }
+        [WebMethod]
+        public static bool Eliminarmue(String id)
+        {
+            bool resp = false;
+            string data ="";
+            Muestra ep = new Muestra()
+            {
+                Id_muestra = Convert.ToInt32(id),
+                
+            };
+
+            data = ep.Id_muestra.ToString();
+            Console.Write(data);
+
+            resp = DTmuestra.getInstance().eliminar(ep);
+            return resp;
 
         }
 

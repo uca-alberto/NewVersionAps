@@ -41,7 +41,6 @@ namespace CentroBiologiaMolecularUCA.Views.Opc.Mue
         }
         public Muestra Modificar()
         {
-            Muestra mues = new Muestra();
 
             if (Mnombre.ToString() == null)
             {
@@ -49,10 +48,10 @@ namespace CentroBiologiaMolecularUCA.Views.Opc.Mue
             }
             else
             {
-                mues.muestra = Mnombre.Text;
+                exam.muestra = Mnombre.Text;
             }
 
-            return mues;
+            return exam;
         }
         public void EditarFormulario(object sender, EventArgs e)
         {

@@ -56,11 +56,11 @@ function deleteDataAjax(data) {
   .then((willDelete) => {
       if (willDelete) {
           var obj = JSON.stringify({
-              id: JSON.stringify(data)
+              Id_muestra: JSON.stringify(data)
           });
           $.ajax({
               type: "POST",
-              url: "BuscarCliente.aspx/EliminarCli",
+              url: "Searchmue.aspx/Eliminarmue",
               data: obj,
               dataType: "json",
               contentType: "application/json; charset=utf-8",
@@ -72,7 +72,7 @@ function deleteDataAjax(data) {
           swal("Se Elimino Correctamente", {
               icon: "success",
           });
-          location.href = "BuscarCliente.aspx"
+          location.href = "Searchmue.aspx"
       }
   });
 }
@@ -91,35 +91,6 @@ $(document).on('click', '#Eliminar', function (e) {
     tabla.clear().draw();
 });
 
-function updateDataAjax() {
-    var obj = JSON.stringify({
-        Id_muestra: JSON.stringify(data[0]), muestra: $("#Mmuestra").val()
-    });
-    $.ajax({
-        type: "POST",
-        url: "Searchmue.aspx/Actualizarmue",
-        data: obj,
-        dataType: "json",
-        contentType: "application/json; charset=utf-8",
-        error: function (xhr, ajaxOptions, thrownError) {
-            console.log(xhr.status + "\n" + xhr.responseText, thrownError);
-        },
-        success: function (response) {
-            if (response.d) {
-                alert('Registro actualizado de Manera Correcta');
-                $('#mediumModal .close').click();
-                $('body').removeClass('modal-open');
-                $('.modal-backdrop').remove();
-                tabla.clear().draw();
-                sendDataAjax();
-            }
-            else {
-                alert('No se pudo actualizar el registro');
-            }
-
-        }
-    });
-}
 
 $(document).on('click', '#Editar', function (e) {
     e.preventDefault();
@@ -131,12 +102,6 @@ $(document).on('click', '#Editar', function (e) {
 function fillModalData() {
     $("#ContentPlaceHolder1_Mmuestra").val(data[1]);
 }
-// ENVIAR AL SERVIDOR
-$('#Aceptar').click(function (e) {
-    e.preventDefault();
-    updateDataAjax();
-
-});
 
 //LLAMANDO A LA FUNCION AJAX AL CARGAR DOCUMENTO
 sendDataAjax();
