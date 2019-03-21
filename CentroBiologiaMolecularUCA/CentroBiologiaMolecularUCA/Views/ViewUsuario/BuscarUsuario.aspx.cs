@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
+using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos;
+using WebSistemaCentroBiologiaMolecularUCA.Ncapas.Entidades;
 
 namespace CentroBiologiaMolecularUCA.Views.ViewUsuario
 {
@@ -63,9 +65,27 @@ namespace CentroBiologiaMolecularUCA.Views.ViewUsuario
             }
 
         }
-        public SqlDataReader getregistros()
+        [WebMethod]
+        public static List<Usuario> GetData()
         {
-            return this.registro;
+            DTUsuario dtu = new DTUsuario();
+
+            return dtu.GetData();
+        }
+
+        [WebMethod]
+        public static bool EliminarUs(String id)
+        {
+            bool resp = false;
+
+            Usuario us = new Usuario
+            {
+                Id_usuario = Convert.ToInt32(id)
+            };
+            Console.Write(us);
+
+            resp = DTUsuario.getInstance().eliminar(us);
+            return resp;
         }
     }
 }

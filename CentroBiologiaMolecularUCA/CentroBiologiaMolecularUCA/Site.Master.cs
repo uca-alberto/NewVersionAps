@@ -71,11 +71,16 @@ namespace CentroBiologiaMolecularUCA
         {
             
             String userid = (string)Session["Id_usuario"];
+            String activo = (string)Session["Activo"];
             if (!IsPostBack)
             {
                 if (userid == "" || userid == null)
                 {
                     Response.Redirect("~/");
+                }
+                else if (activo != "1")
+                {
+                    Response.Redirect("~/Login.aspx");
                 }
             }
 

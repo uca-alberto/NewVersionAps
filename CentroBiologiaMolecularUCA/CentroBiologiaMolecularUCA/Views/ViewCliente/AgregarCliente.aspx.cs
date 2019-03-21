@@ -61,7 +61,8 @@ namespace CentroBiologiaMolecularUCA.Views.ViewCliente
             //Se redirecciona si no tiene permiso
             if (permiso == false)
             {
-                Response.Redirect("../../Views/ViewLogin/Index.aspx");
+
+                ClientScript.RegisterStartupScript(GetType(), "Javascript", "javascript: Acceso(); ", true);
             }
 
             Mcedula.MaxLength = 16;

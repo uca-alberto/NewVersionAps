@@ -64,8 +64,8 @@ namespace CentroBiologiaMolecularUCA.Views.ViewUsuario
 
              if(permiso == false)
              {
-                 Response.Redirect("../../Views/OpcionesConfigurables/Index.aspx");
-             }
+                ClientScript.RegisterStartupScript(GetType(), "Javascript", "javascript: Acceso(); ", true);
+            }
             
 
             this.dtusuario = new DTUsuario();

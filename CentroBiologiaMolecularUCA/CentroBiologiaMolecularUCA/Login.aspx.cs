@@ -14,6 +14,11 @@ namespace CentroBiologiaMolecularUCA.Views.ViewLogin
         protected void Page_Load(object sender, EventArgs e)
         {
 
+            if (!IsPostBack)
+            {
+                Session.Abandon();
+            }
+
         }
         protected void Iniciar_Sesion(object sender, EventArgs e)
         {
@@ -48,6 +53,8 @@ namespace CentroBiologiaMolecularUCA.Views.ViewLogin
                 //Se verifica en la BD el Id_usuario
                 DataTable tblUsuario = DTlogin.getInstance().prConsultaUsuario(usuario, contrasena);
                 Session["Id_usuario"] = tblUsuario.Rows[0]["Id_usuario"].ToString();
+                Session["Id_rol"] = tblUsuario.Rows[0]["Id_rol"].ToString();
+                Session["Activo"] = tblUsuario.Rows[0]["Activo"].ToString();
                 Response.Redirect("~/Views/ViewLogin/Index");
             }
             else
