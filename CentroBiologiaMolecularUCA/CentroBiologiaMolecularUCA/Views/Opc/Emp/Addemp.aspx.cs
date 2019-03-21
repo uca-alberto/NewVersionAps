@@ -27,7 +27,7 @@ namespace CentroBiologiaMolecularUCA.Views.OpcionesConfigurables.Emp
             int rol = Convert.ToInt32(rolid);
 
 
-            registro = DTUsuario.acceso(rol);
+           // registro = DTUsuario.acceso(rol);
 
             
             this.registro = dtusuario.acceso(rol);

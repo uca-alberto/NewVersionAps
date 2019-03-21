@@ -6,7 +6,7 @@
     <%--   <script src="../../Scripts/jquery.signalR-2.2.3.min.js"></script>--%>
             <script src="../../../Scripts/jquery.signalR-2.2.3.js"></script>
                      <script src="/signalr/hubs"></script>
-<%--     <div class="content mt-3">
+        <div class="content mt-3">
             <div class="animated">
     <div class="card">
                     <div class="card-header">
@@ -18,8 +18,8 @@
                    <i class="menu-icon fa fa-plus-circle"></i> Nueva Muestra </button>
    
                     </div>
-                </div>--%>
-    <%-- <div class="modal fade" id="mediumModal" tabindex="-1" role="dialog" aria-labelledby="mediumModalLabel" aria-hidden="true">
+                </div>
+    <div class="modal fade" id="mediumModal" tabindex="-1" role="dialog" aria-labelledby="mediumModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-lg" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -54,7 +54,7 @@
                     </div>
                         </div>
                     </div>
-                </div>--%>
+                </div>
                 <!--Tabla de Usuario-->                               
       <div class="content mt-3">
                         <div class="animated fadeIn">
@@ -86,11 +86,11 @@
                     </div><!-- .content -->
 
                     <%-- MODAL UTILIZADO PARA MODIFICAR DATOS --%>
- <div class="modal fade" id="mediumModal" tabindex="-1" role="dialog" aria-labelledby="mediumModalLabel" aria-hidden="true">
+ <div class="modal fade" id="mediumModal1" tabindex="-1" role="dialog" aria-labelledby="mediumModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-lg" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="mediumModalLabel">Datos De la Muestra</h5>
+                                <h5 class="modal-title" id="mediumModalLabel1">Datos De la Muestra</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -100,21 +100,18 @@
                                 <!--Aqui Comienza el formulario dentro del modal-->                                
                      <div class="card">
                       <div class="card-body card-block">
-                        <form method="post" enctype="multipart/form-data" class="form-horizontal" runat="server">
                               <!--nombre-->
                           <div class="row form-group">
                             <div class="col col-md-3"><label for="text-input" class=" form-control-label">Muestra</label></div>
                             <div class="col-12 col-md-9">
-                                 <asp:TextBox ID="Mmuestra" runat="server" Text="" ToolTip="Muestra" CssClass="form-control" ValidateRequestMode="Enabled"></asp:TextBox>
+                                <input id="Mmuestra1"/>
                             </div>
                           </div>
                          <div class="modal-footer">
                           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                              <asp:HiddenField runat="server" ID="id_usuario" />
-                              <asp:Button id="Aceptar" runat="server" Text="Aceptar" CssClass="btn btn-primary" />
+                           <button id="Aceptar1" text="Aceptar" class="btn btn-primary"></button>
                           </div>
                             
-                        </form>
                       </div>
                     </div>
                             <!--Botones del Modal-->                               

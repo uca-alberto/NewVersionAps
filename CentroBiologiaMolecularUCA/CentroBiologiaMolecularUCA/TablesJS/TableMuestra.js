@@ -20,7 +20,8 @@ function addRowDT(data) {
         tabla.row.add([
            data[i].Id_muestra,
            data[i].muestra,
-           '<a title="Editar" id="Editar" data-target="#mediumModal" data-toggle="modal"><i class="fa fa-edit"></i>&nbsp;' +
+           '<a title="Editar" id="Editar" data-target="#mediumModal" data-toggle="modal"><i class="fa ti-eye"></i>&nbsp;' +
+           '<a title="Editar" id="ver" href="Updmue.aspx?id=' + data[i].Id_muestra + '"><i class="fa fa-edit"></i>&nbsp;' +
            '<a value="Eliminarre" id="Eliminar"><i class="fa fa-trash-o"></i>'
 
         ]).draw(false);
@@ -92,7 +93,7 @@ $(document).on('click', '#Eliminar', function (e) {
 
 function updateDataAjax() {
     var obj = JSON.stringify({
-        id: JSON.stringify(data[0]), muestra: $("#Mmuestra").val()
+        Id_muestra: JSON.stringify(data[0]), muestra: $("#Mmuestra").val()
     });
     $.ajax({
         type: "POST",
@@ -131,7 +132,7 @@ function fillModalData() {
     $("#ContentPlaceHolder1_Mmuestra").val(data[1]);
 }
 // ENVIAR AL SERVIDOR
-$('#ContentPlaceHolder1_Aceptar').click(function (e) {
+$('#Aceptar').click(function (e) {
     e.preventDefault();
     updateDataAjax();
 

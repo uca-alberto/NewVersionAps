@@ -325,6 +325,7 @@
     <Content Include="Content\Vercliente.js" />
     <Content Include="Content\VerExamen.js" />
     <Content Include="Content\VerMaternidad.js" />
+    <Content Include="Content\Vermuestra.js" />
     <Content Include="Content\VerOrdenAdn.js" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -655,6 +656,7 @@
     <Content Include="Views\Opc\Index.aspx" />
     <Content Include="Views\Opc\Exa\Seexa.aspx" />
     <Content Include="Views\Opc\Mue\Searchmue.aspx" />
+    <Content Include="Views\Opc\Mue\Updmue.aspx" />
     <Content Include="Views\ViewADN\AdnValidacion.aspx" />
     <Content Include="Views\ViewCliente\AgregarCliente.aspx" />
     <Content Include="Views\ViewCliente\BuscarCliente.aspx" />
@@ -838,6 +840,13 @@
     </Compile>
     <Compile Include="Views\Opc\Mue\Searchmue.aspx.designer.cs">
       <DependentUpon>Searchmue.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Opc\Mue\Updmue.aspx.cs">
+      <DependentUpon>Updmue.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Opc\Mue\Updmue.aspx.designer.cs">
+      <DependentUpon>Updmue.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\ViewADN\AdnValidacion.aspx.cs">
       <DependentUpon>AdnValidacion.aspx</DependentUpon>

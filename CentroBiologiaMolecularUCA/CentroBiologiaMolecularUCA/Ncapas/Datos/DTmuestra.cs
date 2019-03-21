@@ -118,7 +118,7 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
             {
                 //CONSULTA SQL
                 c = Conexion.getInstance().ConexionDB();
-                string sql = "update T_Tipo_muestra set muestra=(@Muestra) where Id_empleado=(@mid)";
+                string sql = "update T_Tipo_muestra set muestra=(@Muestra) where Id_tipo_muestra=(@mid)";
                 //PASANDO PARÁMETROS A CONSULTA SQL
                 using (comando = new SqlCommand(sql, c))
                 {
@@ -273,6 +273,16 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
         public List<Muestra> listarTodo()
         {
             throw new NotImplementedException();
+        }
+        public SqlDataReader getmuestraporid(int id)
+        {
+            c = Conexion.getInstance().ConexionDB();
+            String sql = "select Id_tipo_muestra,muestra from T_Tipo_muestra where Id_tipo_muestra='" + id + "';";
+
+            SqlCommand comando = new SqlCommand(sql, this.c);
+            this.registros = comando.ExecuteReader();
+            return this.registros;
+            c.Close();
         }
     }
 }
