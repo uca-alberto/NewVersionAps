@@ -37,9 +37,9 @@ namespace CentroBiologiaMolecularUCA.Ncapas.Negocio
         {
             return DTmuestra.getInstance().modificar(muestra);
         }
-        public SqlDataReader ListarMuestra()
+        public List<Muestra> ListarMuestra()
         {
-            return DTmuestra.getInstance().listarmuestras();
+            return DTmuestra.getInstance().GetData();
         }
     }
 

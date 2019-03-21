@@ -1,6 +1,9 @@
-﻿using CentroBiologiaMolecularUCA.Ncapas.Entidades;
+﻿using CentroBiologiaMolecularUCA;
+using CentroBiologiaMolecularUCA.Ncapas.Entidades;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
@@ -233,6 +236,40 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
 
         }
 
+        public List<Muestra> GetData()
+        {
+            using (var connection = new SqlConnection(ConfigurationManager.ConnectionStrings["DataBase"].ConnectionString))
+            {
+                connection.Open();
+                using (SqlCommand command = new SqlCommand(@"SELECT  [Id_tipo_muestra],[muestra] FROM T_Tipo_muestra", connection))
+                {
+                    // Make sure the command object does not already have
+                    // a notification object associated with it.
+                    command.Notification = null;
+                    SqlDependency.Start(ConfigurationManager.ConnectionStrings["DataBase"].ConnectionString);
+                    SqlDependency dependency = new SqlDependency(command);
+                    dependency.OnChange += new OnChangeEventHandler(dependency_OnChange);
+
+                    if (connection.State == ConnectionState.Closed)
+                        connection.Open();
+
+                    using (var reader = command.ExecuteReader())
+                        return reader.Cast<IDataRecord>()
+                            .Select(x => new Muestra()
+                            {
+                                Id_muestra = x.GetInt32(0),
+                                muestra = x.GetString(1),
+                            }).ToList();
+
+                }
+            }
+        }
+
+        private static void dependency_OnChange(object sender, SqlNotificationEventArgs e)
+        {
+            MyHub.Show();
+
+        }
         public List<Muestra> listarTodo()
         {
             throw new NotImplementedException();

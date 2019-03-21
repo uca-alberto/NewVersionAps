@@ -641,6 +641,7 @@
     <Content Include="TablesJS\TableAdnMulti.js" />
     <Content Include="TablesJS\TableCliente.js" />
     <Content Include="TablesJS\TableEmpleado.js" />
+    <Content Include="TablesJS\TableMuestra.js" />
     <Content Include="TablesJS\TableOrden.js" />
     <Content Include="TablesJS\TableResultadoOgm.js" />
     <Content Include="ViewSwitcher.ascx" />
@@ -657,7 +658,6 @@
     <Content Include="Views\ViewADN\AdnValidacion.aspx" />
     <Content Include="Views\ViewCliente\AgregarCliente.aspx" />
     <Content Include="Views\ViewCliente\BuscarCliente.aspx" />
-    <Content Include="Views\ViewCliente\delete.aspx" />
     <Content Include="Views\ViewCliente\EditarCliente.aspx" />
     <Content Include="Views\ViewCliente\VerCliente.aspx" />
     <Content Include="Views\ViewLogin\Index.aspx" />
@@ -859,13 +859,6 @@
     </Compile>
     <Compile Include="Views\ViewCliente\BuscarCliente.aspx.designer.cs">
       <DependentUpon>BuscarCliente.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Views\ViewCliente\delete.aspx.cs">
-      <DependentUpon>delete.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Views\ViewCliente\delete.aspx.designer.cs">
-      <DependentUpon>delete.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\ViewCliente\EditarCliente.aspx.cs">
       <DependentUpon>EditarCliente.aspx</DependentUpon>

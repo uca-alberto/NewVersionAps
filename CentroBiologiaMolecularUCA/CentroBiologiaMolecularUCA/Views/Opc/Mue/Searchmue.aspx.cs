@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
+using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -16,56 +17,69 @@ namespace CentroBiologiaMolecularUCA.Views.Opc
         protected void Page_Load(object sender, EventArgs e)
         {
             
-            registros= NGmuestra.getInstance().ListarMuestra();
+            
 
         }
-        public SqlDataReader getregistros()
+        [WebMethod]
+        public static List<Muestra> GetData()
         {
-            //aqui se enlistan los examenes
-            return registros;
+            return NGmuestra.getInstance().ListarMuestra();   
         }
         public Muestra GetEntity()
         {
             Muestra muestra = new Muestra();
 
-            if (Mmuestra.ToString() == null)//todo esto se hace para todos los campos del formulario
-            {
+            //if (Mmuestra.ToString() == null)//todo esto se hace para todos los campos del formulario
+            //{
                
-            }
-            else
-            {
-                muestra.muestra = Mmuestra.Text;
-            }
+            //}
+            //else
+            //{
+            //    muestra.muestra = Mmuestra.Text;
+            //}
 
             return muestra;
         }
 
-        protected void Aceptar_Click(object sender, EventArgs e)
+        //protected void Aceptar_Click(object sender, EventArgs e)
+        //{
+        //    if (IsValid)//valido que si mi formulario esta correcto
+        //    {
+        //        //Registro del examen
+        //        Muestra mue = GetEntity();
+        //        //LLAMANDO A CAPA DE NEGOCIO
+        //        bool resp = NGmuestra.getInstance().guardarMuestra(mue);
+
+        //        if (resp == true)
+        //        {
+        //            ClientScript.RegisterStartupScript(GetType(), "Javascript", "javascript: InsertarExamen(); ", true);
+        //            Response.Redirect("Searchmue.aspx");
+
+        //        }
+        //        else
+        //        {
+        //            Response.Write("<script>alert('REGISTRO INCORRECTO.')</script)");
+        //        }
+
+        //    }
+        //    else
+        //    {
+        //        ClientScript.RegisterStartupScript(GetType(), "Javascript", "javascript: ADD(); ", true);
+        //    }
+
+        //}
+
+        [WebMethod]
+        public static bool Actualizarmue(String Muestra)
         {
-            if (IsValid)//valido que si mi formulario esta correcto
+            Muestra e = new Muestra()
             {
-                //Registro del examen
-                Muestra mue = GetEntity();
-                //LLAMANDO A CAPA DE NEGOCIO
-                bool resp = NGmuestra.getInstance().guardarMuestra(mue);
+                muestra = Muestra,
+            };
+            bool resp = NGmuestra.getInstance().ModificarMuestra(e);
 
-                if (resp == true)
-                {
-                    ClientScript.RegisterStartupScript(GetType(), "Javascript", "javascript: InsertarExamen(); ", true);
-                    Response.Redirect("Searchmue.aspx");
 
-                }
-                else
-                {
-                    Response.Write("<script>alert('REGISTRO INCORRECTO.')</script)");
-                }
-
-            }
-            else
-            {
-                ClientScript.RegisterStartupScript(GetType(), "Javascript", "javascript: ADD(); ", true);
-            }
-
+            return resp;
         }
     }
 }

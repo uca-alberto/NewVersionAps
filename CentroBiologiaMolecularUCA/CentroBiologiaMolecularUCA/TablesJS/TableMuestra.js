@@ -1,5 +1,4 @@
-﻿
-//$(function () {
+﻿//$(function () {
 
 //    // Proxy created on the fly
 //    var job = $.connection.myHub;
@@ -19,12 +18,9 @@ function addRowDT(data) {
     tabla = $("#bootstrap-data-table").DataTable();
     for (var i = 0; i < data.length; i++) {
         tabla.row.add([
-           data[i].Id_Cliente,
-           data[i].Nombres,
-           data[i].Apellidos,
-           data[i].Correo,
-           '<a title="Editar" href="VerCliente.aspx?id=' + data[i].Id_Cliente + '"><i class="fa ti-eye"></i>&nbsp;' +
-           '<a title="Editar" href="EditarCliente.aspx?id=' + data[i].Id_Cliente + '"><i class="fa fa-edit"></i>&nbsp;' +
+           data[i].Id_muestra,
+           data[i].muestra,
+           '<a title="Editar" id="Editar" data-target="#mediumModal" data-toggle="modal"><i class="fa fa-edit"></i>&nbsp;' +
            '<a value="Eliminarre" id="Eliminar"><i class="fa fa-trash-o"></i>'
 
         ]).draw(false);
@@ -34,7 +30,7 @@ function addRowDT(data) {
 function sendDataAjax() {
     $.ajax({
         type: "POST",
-        url: "BuscarCliente.aspx/GetData",
+        url: "Searchmue.aspx/GetData",
         data: {},
         contentType: "application/json; charset=utf-8",
         error: function (xhr, ajaxOptions, thrownError) {
@@ -92,6 +88,53 @@ $(document).on('click', '#Eliminar', function (e) {
 
     sendDataAjax();
     tabla.clear().draw();
+});
+
+function updateDataAjax() {
+    var obj = JSON.stringify({
+        id: JSON.stringify(data[0]), muestra: $("#Mmuestra").val()
+    });
+    $.ajax({
+        type: "POST",
+        url: "Searchmue.aspx/Actualizarmue",
+        data: obj,
+        dataType: "json",
+        contentType: "application/json; charset=utf-8",
+        error: function (xhr, ajaxOptions, thrownError) {
+            console.log(xhr.status + "\n" + xhr.responseText, thrownError);
+        },
+        success: function (response) {
+            if (response.d) {
+                alert('Registro actualizado de Manera Correcta');
+                $('#mediumModal .close').click();
+                $('body').removeClass('modal-open');
+                $('.modal-backdrop').remove();
+                tabla.clear().draw();
+                sendDataAjax();
+            }
+            else {
+                alert('No se pudo actualizar el registro');
+            }
+
+        }
+    });
+}
+
+$(document).on('click', '#Editar', function (e) {
+    e.preventDefault();
+    data = tabla.rows($(this).parents('tr')).data()[0];
+    fillModalData();
+});
+
+//cargar datos en el modal
+function fillModalData() {
+    $("#ContentPlaceHolder1_Mmuestra").val(data[1]);
+}
+// ENVIAR AL SERVIDOR
+$('#ContentPlaceHolder1_Aceptar').click(function (e) {
+    e.preventDefault();
+    updateDataAjax();
+
 });
 
 //LLAMANDO A LA FUNCION AJAX AL CARGAR DOCUMENTO
