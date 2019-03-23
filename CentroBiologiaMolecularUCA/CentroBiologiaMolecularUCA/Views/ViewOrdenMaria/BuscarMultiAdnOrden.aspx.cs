@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
+using System.Web.Services;
 using System.Web.UI.WebControls;
 using WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos;
 using WebSistemaCentroBiologiaMolecularUCA.Ncapas.Entidades;
-using System.Web.Services;
 using Microsoft.AspNet.SignalR;
 
 namespace CentroBiologiaMolecularUCA.Views.ViewOrdenMaria
@@ -18,6 +18,7 @@ namespace CentroBiologiaMolecularUCA.Views.ViewOrdenMaria
 
         }
         [WebMethod]
+
         public static List<OrdenAdn> GetData()
         {
             DTAdnPaternidad dtp = new DTAdnPaternidad();

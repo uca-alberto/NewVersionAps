@@ -1,4 +1,4 @@
-﻿function edit(codigo, padre, hijo, fecha, tipocaso, tipoorden, observaciones, boucher, estado) {
+﻿function edit(codigo, padre, hijo, fecha, tipocaso, observaciones, boucher, estado) {
     document.getElementById('head_Mcodigomadre').value = codigo;
     document.getElementById('head_Mnombremadre').value = padre;
     document.getElementById('head_Mnombrehijomadre').value = hijo;

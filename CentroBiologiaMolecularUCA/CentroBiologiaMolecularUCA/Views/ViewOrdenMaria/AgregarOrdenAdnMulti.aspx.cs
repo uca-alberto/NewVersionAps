@@ -17,17 +17,20 @@ namespace CentroBiologiaMolecularUCA.Views.ViewOrdenMaria
         private DTAdnPaternidad tpaternidad;
         private String valor = "";
         private TOrdenAdn tOrden;
-        private DTexamenes dtexamenes;
+        
         private SqlDataReader registro;
         private Conexion conexion;
         protected void Page_Load(object sender, EventArgs e)
         {
             this.tpaternidad = new DTAdnPaternidad();
-            this.dtexamenes = new DTexamenes();
+            
             this.conexion = new Conexion();
             //Generar el codigo
             Mcodigo.Text = tpaternidad.generarCodigo();
             Mcodigomadre.Text = tpaternidad.generarCodigo();
+            Mcodigoabuela.Text = tpaternidad.generarCodigo();
+            Mcodigoalzheimer.Text = tpaternidad.generarCodigo();
+            Mcodigopapiloma.Text = tpaternidad.generarCodigo();
 
           
         }
@@ -35,6 +38,232 @@ namespace CentroBiologiaMolecularUCA.Views.ViewOrdenMaria
         public SqlDataReader getregistros()
         {
             return this.registro;
+        }
+
+        public OrdenAdn GetPapiloma()
+        {
+            OrdenAdn ord = new OrdenAdn();
+            if (Mtipocasopapiloma.ToString() == null)
+            {
+                RegularExpressionValidator.GetValidationProperty(RequiredFieldValidator1);
+            }
+
+            else
+            {
+                ord.Tipo_Caso = Mtipocasopapiloma.SelectedValue;
+            }
+            if (Mdoctorpapiloma.ToString() == null)
+            {
+                RegularExpressionValidator.GetValidationProperty(RequiredFieldValidator1);
+            }
+            else
+            {
+                ord.Nombre_pareja = Mdoctorpapiloma.Text;
+            }
+            if (Mpacientepapiloma.ToString() == null)
+            {
+                RegularExpressionValidator.GetValidationProperty(RequiredFieldValidator1);
+            }
+            else
+            {
+                ord.Nombre_menor = Mpacientepapiloma.Text;
+            }
+            if (Mobservacionespapiloma.ToString() == null)
+            {
+                RegularExpressionValidator.GetValidationProperty(RequiredFieldValidator1);
+            }
+            else
+            {
+                ord.Observaciones = Mobservacionespapiloma.Text;
+            }
+            if (Mboucherpapiloma.ToString() == null)
+            {
+                RegularExpressionValidator.GetValidationProperty(RequiredFieldValidator1);
+            }
+            else
+            {
+                ord.Baucher = Mboucherpapiloma.Text;
+            }
+            if (Mcodigopapiloma.ToString() == null)
+            {
+                RegularExpressionValidator.GetValidationProperty(RequiredFieldValidator1);
+            }
+            else
+            {
+                ord.Id_codigo = Mcodigopapiloma.Text;
+            }
+            if (Mestadopapiloma.ToString() == null)
+            {
+                RegularExpressionValidator.GetValidationProperty(RequiredFieldValidator1);
+            }
+            else
+            {
+                ord.Estado = Mestadopapiloma.SelectedValue;
+            }
+            if (Mfechapapiloma.ToString() == null)
+            {
+                RegularExpressionValidator.GetValidationProperty(RequiredFieldValidator1);
+            }
+            else
+            {
+                ord.Fecha = Convert.ToDateTime(Mfechapapiloma.Text);
+            }
+
+
+            String useride = (string)Session["Id_usuario"];
+            ord.Id_usuario = useride;
+
+            return ord;
+        }
+        public OrdenAdn GetAlzheimer()
+        {
+            OrdenAdn ord = new OrdenAdn();
+            if (Mtipocasoalzheimer.ToString() == null)
+            {
+                RegularExpressionValidator.GetValidationProperty(RequiredFieldValidator1);
+            }
+
+            else
+            {
+                ord.Tipo_Caso = Mtipocasoalzheimer.SelectedValue;
+            }
+            if (Mnombredeldoctor.ToString() == null)
+            {
+                RegularExpressionValidator.GetValidationProperty(RequiredFieldValidator1);
+            }
+            else
+            {
+                ord.Nombre_pareja = Mnombredeldoctor.Text;
+            }
+            if (Mnombredelpaciente.ToString() == null)
+            {
+                RegularExpressionValidator.GetValidationProperty(RequiredFieldValidator1);
+            }
+            else
+            {
+                ord.Nombre_menor = Mnombredelpaciente.Text;
+            }
+            if (Mobservacionesalzheimer.ToString() == null)
+            {
+                RegularExpressionValidator.GetValidationProperty(RequiredFieldValidator1);
+            }
+            else
+            {
+                ord.Observaciones = Mobservacionesalzheimer.Text;
+            }
+            if (Mboucheralzheimer.ToString() == null)
+            {
+                RegularExpressionValidator.GetValidationProperty(RequiredFieldValidator1);
+            }
+            else
+            {
+                ord.Baucher = Mboucheralzheimer.Text;
+            }
+            if (Mcodigoalzheimer.ToString() == null)
+            {
+                RegularExpressionValidator.GetValidationProperty(RequiredFieldValidator1);
+            }
+            else
+            {
+                ord.Id_codigo = Mcodigoalzheimer.Text;
+            }
+            if (Mestadoalzheimer.ToString() == null)
+            {
+                RegularExpressionValidator.GetValidationProperty(RequiredFieldValidator1);
+            }
+            else
+            {
+                ord.Estado = Mestadoalzheimer.SelectedValue;
+            }
+            if (Mfechaalzheimer.ToString() == null)
+            {
+                RegularExpressionValidator.GetValidationProperty(RequiredFieldValidator1);
+            }
+            else
+            {
+                ord.Fecha = Convert.ToDateTime(Mfechaalzheimer.Text);
+            }
+
+            String useride = (string)Session["Id_usuario"];
+            ord.Id_usuario = useride;
+
+            return ord;
+        }
+
+        public OrdenAdn GetAbuelidad()
+        {
+            OrdenAdn ord = new OrdenAdn();
+            //abuelidad
+            if (Mtipocasoabuelidad.ToString() == null)
+            {
+                RegularExpressionValidator.GetValidationProperty(RequiredFieldValidator1);
+            }
+
+            else
+            {
+                ord.Tipo_Caso = Mtipocasoabuelidad.SelectedValue;
+            }
+            if (Mnombredelaabuela.ToString() == null)
+            {
+                RegularExpressionValidator.GetValidationProperty(RequiredFieldValidator1);
+            }
+            else
+            {
+                ord.Nombre_pareja = Mnombredelaabuela.Text;
+            }
+            if (Mnombrenieto.ToString() == null)
+            {
+                RegularExpressionValidator.GetValidationProperty(RequiredFieldValidator1);
+            }
+            else
+            {
+                ord.Nombre_menor = Mnombrenieto.Text;
+            }
+            if (Mobservacionesabuelidad.ToString() == null)
+            {
+                RegularExpressionValidator.GetValidationProperty(RequiredFieldValidator1);
+            }
+            else
+            {
+                ord.Observaciones = Mobservacionesabuelidad.Text;
+            }
+            if (Mboucherabuelidad.ToString() == null)
+            {
+                RegularExpressionValidator.GetValidationProperty(RequiredFieldValidator1);
+            }
+            else
+            {
+                ord.Baucher = Mboucherabuelidad.Text;
+            }
+            if (Mcodigoabuela.ToString() == null)
+            {
+                RegularExpressionValidator.GetValidationProperty(RequiredFieldValidator1);
+            }
+            else
+            {
+                ord.Id_codigo = Mcodigoabuela.Text;
+            }
+            if (Mestadoabuelidad.ToString() == null)
+            {
+                RegularExpressionValidator.GetValidationProperty(RequiredFieldValidator1);
+            }
+            else
+            {
+                ord.Estado = Mestadoabuelidad.SelectedValue;
+            }
+            if (Mfechaabuelidad.ToString() == null)
+            {
+                RegularExpressionValidator.GetValidationProperty(RequiredFieldValidator1);
+            }
+            else
+            {
+                ord.Fecha = Convert.ToDateTime(Mfechaabuelidad.Text);
+            }
+
+            String useride = (string)Session["Id_usuario"];
+            ord.Id_usuario = useride;
+
+            return ord;
         }
 
         public OrdenAdn Get()
@@ -310,17 +539,80 @@ namespace CentroBiologiaMolecularUCA.Views.ViewOrdenMaria
 
         protected void insertarordenabuelidad_Click(object sender, EventArgs e)
         {
+            if (IsValid)//valido que si mi formulario esta correcto
+            {
+                OrdenAdn ord = GetAbuelidad();
+                //LLAMANDO A CAPA DE NEGOCIO
+                bool resp = NGAdnPaternidad.getInstance().guardarord(ord);
 
+
+                if (resp == true)
+                {
+                    ClientScript.RegisterStartupScript(GetType(), "Javascript", "javascript: InsertarOrden(); ", true);
+                    //Response.Redirect("/Views/ViewOrdenMaria/BuscarOrdenAdn.aspx");
+                }
+                else
+                {
+                    Response.Write("<script>alert('REGISTRO INCORRECTO.')</script)");
+                }
+            }
+            else
+            {
+                ClientScript.RegisterStartupScript(GetType(), "Javascript", "javascript: ADD(); ", true);
+                // RegularExpressionValidator.GetValidationProperty(RequiredFieldValidator1);//sino esta validado me mostrara los campos a corregir y no mandara datos.
+            }
         }
 
         protected void insertarordenalzheimer_Click(object sender, EventArgs e)
         {
+            if (IsValid)//valido que si mi formulario esta correcto
+            {
+                OrdenAdn ord = GetAlzheimer();
+                //LLAMANDO A CAPA DE NEGOCIO
+                bool resp = NGAdnPaternidad.getInstance().guardarord(ord);
 
+
+                if (resp == true)
+                {
+                    ClientScript.RegisterStartupScript(GetType(), "Javascript", "javascript: InsertarOrden(); ", true);
+                    //Response.Redirect("/Views/ViewOrdenMaria/BuscarOrdenAdn.aspx");
+                }
+                else
+                {
+                    Response.Write("<script>alert('REGISTRO INCORRECTO.')</script)");
+                }
+            }
+            else
+            {
+                ClientScript.RegisterStartupScript(GetType(), "Javascript", "javascript: ADD(); ", true);
+                // RegularExpressionValidator.GetValidationProperty(RequiredFieldValidator1);//sino esta validado me mostrara los campos a corregir y no mandara datos.
+            }
         }
 
         protected void insertarordenpapiloma_Click(object sender, EventArgs e)
         {
+            if (IsValid)//valido que si mi formulario esta correcto
+            {
+                OrdenAdn ord = GetPapiloma();
+                //LLAMANDO A CAPA DE NEGOCIO
+                bool resp = NGAdnPaternidad.getInstance().guardarord(ord);
 
+
+                if (resp == true)
+                {
+                    ClientScript.RegisterStartupScript(GetType(), "Javascript", "javascript: InsertarOrden(); ", true);
+                    //Response.Redirect("/Views/ViewOrdenMaria/BuscarOrdenAdn.aspx");
+                }
+                else
+                {
+                    Response.Write("<script>alert('REGISTRO INCORRECTO.')</script)");
+                }
+            }
+            else
+            {
+                ClientScript.RegisterStartupScript(GetType(), "Javascript", "javascript: ADD(); ", true);
+                // RegularExpressionValidator.GetValidationProperty(RequiredFieldValidator1);//sino esta validado me mostrara los campos a corregir y no mandara datos.
+            }
         }
 
 

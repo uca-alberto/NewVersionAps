@@ -1,7 +1,10 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="BuscarMultiAdnOrden.aspx.cs" Inherits="CentroBiologiaMolecularUCA.Views.ViewOrdenMaria.BuscarMultiAdnOrden" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/configuration.Master" AutoEventWireup="true" CodeBehind="BuscarMultiAdnOrden.aspx.cs" Inherits="CentroBiologiaMolecularUCA.Views.ViewOrdenMaria.BuscarMultiAdnOrden" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
-     <div class="card-header">
+</asp:Content>
+
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+      <div class="card-header">
        <strong class="card-title">Orden ADN humano</strong>
         </div> 
    
@@ -23,7 +26,7 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
-                            <strong class="card-title">Ordenes ADN</strong>
+                            <strong class="card-title">Ordenes ADN Activas</strong>
                         </div>
                         <div class="card-body">
                   <table id="bootstrap-data-table" class="table table-striped table-bordered">
@@ -50,4 +53,3 @@
     </form>
     <script src="../../TablesJS/TableAdnMulti.js"></script>  
 </asp:Content>
-

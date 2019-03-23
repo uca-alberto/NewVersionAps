@@ -13,13 +13,13 @@ namespace CentroBiologiaMolecularUCA.Views.ViewOrdenMaria
     public partial class VerOrdenAdnMulti : System.Web.UI.Page
     {
         private DTAdnPaternidad dtadnpaternidad;
-        private DTexamenes dtexamen;
+   
         private SqlDataReader registro;
         public OrdenAdn ord;
         protected void Page_Load(object sender, EventArgs e)
         {
             this.dtadnpaternidad = new DTAdnPaternidad();
-            dtexamen = new DTexamenes();
+           
             ord = new OrdenAdn();
 
             //Obtener id del cliente
@@ -41,7 +41,7 @@ namespace CentroBiologiaMolecularUCA.Views.ViewOrdenMaria
                 ord.Nombre_menor = this.registro["Nombre_menor"].ToString();
                 ord.Fecha = Convert.ToDateTime(this.registro["Fecha"].ToString());
                 ord.Tipo_Caso = this.registro["Tipo_caso"].ToString();
-                ord.Tipo_examen = this.registro["Id_examenes"].ToString();
+               
 
                 ord.Observaciones = this.registro["Observaciones"].ToString();
                 ord.Baucher = this.registro["Baucher"].ToString();

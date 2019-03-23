@@ -30,6 +30,57 @@
 
     
  </script>
+
+         <script type="text/javascript">
+         $(document).ready(function () {
+             
+             $("input[id$='Mfechaabuelidad']").attr('readOnly', 'true').datepicker({
+              showOn: 'button',
+              buttonImageOnly: true,
+              buttonImage: '../../assets/imagenes/calendar.png',
+              maxDate: 'Today',
+              buttonText: 'Mostrar Calendario',
+              
+          });  
+      });
+
+    
+ </script>
+
+
+        <script type="text/javascript">
+         $(document).ready(function () {
+             
+             $("input[id$='Mfechaalzheimer']").attr('readOnly', 'true').datepicker({
+              showOn: 'button',
+              buttonImageOnly: true,
+              buttonImage: '../../assets/imagenes/calendar.png',
+              maxDate: 'Today',
+              buttonText: 'Mostrar Calendario',
+              
+          });  
+      });
+
+    
+ </script>
+
+        <script type="text/javascript">
+         $(document).ready(function () {
+             
+             $("input[id$='Mfechapapiloma']").attr('readOnly', 'true').datepicker({
+              showOn: 'button',
+              buttonImageOnly: true,
+              buttonImage: '../../assets/imagenes/calendar.png',
+              maxDate: 'Today',
+              buttonText: 'Mostrar Calendario',
+              
+          });  
+      });
+
+    
+ </script>
+
+
 </asp:Content>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
@@ -194,9 +245,9 @@
                             </div>  &nbsp;
                   <!--codigo de la madre-->  
                         <div class="row form-group ">
-                <div class="col col-md-3 "><label for="password-input" class=" form-control-label">Nombre de la madre</label></div>
+                <div class="col col-md-3 "><label for="password-input" class=" form-control-label">Codigo de la madre</label></div>
                 <div class="col-12 col-md-9">&nbsp;
-                <asp:TextBox ID="Mcodigomadre" runat="server" Text="" ToolTip="codigodelamadre" CssClass="form-control" placeholder="Ingrese el nombre de la madre"></asp:TextBox>
+                <asp:TextBox ID="Mcodigomadre" runat="server" Text="" ToolTip="codigodelamadre" CssClass="form-control" placeholder="Ingrese el codigo de la madre"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="Mcodigomadre" Display="Dynamic" ErrorMessage="Este Campo es requerido"></asp:RequiredFieldValidator>     
                     </div>
                 </div>
@@ -303,7 +354,16 @@
                   <div class="card-header">
                         <strong class="card-title">Datos de las personas de orden ADN </strong>
                             </div>  &nbsp;
-                <!-----------------------------------abuelidad----------------------------------------------------------> 
+                <!-----------------------------------abuelidad---------------------------------------------------------->
+                    <!--codigo de la abuela-->  
+                        <div class="row form-group ">
+                <div class="col col-md-3 "><label for="password-input" class=" form-control-label">Codigo de la abuela</label></div>
+                <div class="col-12 col-md-9">&nbsp;
+                <asp:TextBox ID="Mcodigoabuela" runat="server" Text="" ToolTip="codigodelamadre" CssClass="form-control" placeholder="Ingrese el codigo de la abuela"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator13" runat="server" ControlToValidate="Mcodigoabuela" Display="Dynamic" ErrorMessage="Este Campo es requerido"></asp:RequiredFieldValidator>     
+                    </div>
+                </div>
+                
                   <!--nombre de la abuela-->  
                         <div class="row form-group ">
                 <div class="col col-md-3 "><label for="password-input" class=" form-control-label">Nombre de la abuela</label></div>
@@ -312,33 +372,26 @@
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" ControlToValidate="Mnombredelaabuela" Display="Dynamic" ErrorMessage="Este Campo es requerido"></asp:RequiredFieldValidator>     
                     </div>
                 </div>
-
+               <!--nombre del nieto la abuela-->  
                     <div class="row form-group ">
                 <div class="col col-md-3 "><label for="password-input" class=" form-control-label">Nombre del nieto</label></div>
                 <div class="col-12 col-md-9">&nbsp;
-                <asp:TextBox ID="nombrenieto" runat="server" Text="" ToolTip="nombredelnieto" CssClass="form-control" placeholder="Ingrese el nombre del nieto"></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator14" runat="server" ControlToValidate="Mnombredelaabuela" Display="Dynamic" ErrorMessage="Este Campo es requerido"></asp:RequiredFieldValidator>     
+                <asp:TextBox ID="Mnombrenieto" runat="server" Text="" ToolTip="nombredelnieto" CssClass="form-control" placeholder="Ingrese el nombre del nieto"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator14" runat="server" ControlToValidate="Mnombrenieto" Display="Dynamic" ErrorMessage="Este Campo es requerido"></asp:RequiredFieldValidator>     
                     </div>
                 </div>
                 
                  <!--fecha-->
-                           <div class="row form-group ">
-                            <div class="col col-md-3 "><label for="text-input" class=" form-control-label">Fecha</label></div>
-                            <div class="col-12 col-md-9">&nbsp; 
-                                <div class="input-group">
-                                    <div class="input-group-addon">
-                                        <i class="fa fa-calendar"></i>
+                                  <div class="row form-group ">
+                          <div class="col col-md-3 "><label for="text-input" class=" form-control-label">Fecha</label></div>
+                <div class="col-12 col-md-9">&nbsp; 
+                    
+                      <asp:Textbox ID="Mfechaabuelidad" runat="server" ToolTip="fecha" placeholder="dd/mm/yyyy"></asp:Textbox>
+                    
+                      <asp:RequiredFieldValidator ID="RequiredFieldValidator19" runat="server" ControlToValidate="Mfechaabuelidad" Display="Dynamic" ErrorMessage="Ingrese La Fecha" ForeColor="Red" Font-Italic="true"></asp:RequiredFieldValidator>     
+                     </div>
                                     </div>
-                                
-
-                                 <asp:TextBox ID="Mfechaabuelidad" CssClass="form-control" BackColor="Wheat" Font-Bold="false" data-inputmask="'alias':'dd/mm/yyyy'"
-                                    data-mask="" runat="server"></asp:TextBox> 
-                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator5" runat="server" ControlToValidate="Mfecha" ErrorMessage="Siga este formato dd/mm/yyyy" ValidationExpression="^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$"></asp:RegularExpressionValidator>
-                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator19" runat="server" ControlToValidate="Mfecha" Display="Dynamic" ErrorMessage="Este Campo es requerido"></asp:RequiredFieldValidator> 
-                                     
-                          </div>
-                               </div>
-                                    </div>
+                          
                    <!--tipo caso-->
                     <div class="row form-group ">
                 <div class="col col-md-3 "><label for="select" class=" form-control-label">Caso</label></div>
@@ -381,15 +434,7 @@
                 </div>
                     </div>
 
-                 <!--no_orden-->
-                <div class="row form-group ">
-                <div class="col col-md-3 "><label for="text-input" class=" form-control-label">Número orden</label></div>
-                <div class="col-12 col-md-9">&nbsp; 
-                        <asp:TextBox ID="Mnumerorodenabuelidad" runat="server" Text="" ToolTip="noorden" CssClass="form-control" placeholder="Ingrese el número de orden"></asp:TextBox>
-                        <asp:RegularExpressionValidator ID="RegularExpressionValidator6" runat="server" ControlToValidate="Mnumerorodenabuelidad" ErrorMessage="Ingrese Solo numeros" ValidationExpression="^[0-9]*$" MaxLength="8"></asp:RegularExpressionValidator>   
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator22" runat="server" ControlToValidate="Mnumerorodenabuelidad" Display="Dynamic" ErrorMessage="Este Campo es requerido"></asp:RequiredFieldValidator>     
-                </div>
-                    </div>
+            
 
                    <!--Seleccion de estado-->
 
@@ -420,6 +465,15 @@
                   <div class="card-header">
                         <strong class="card-title">Datos de las personas de orden ADN </strong>
                             </div>  &nbsp;
+                   <!--codigo de alzheimer-->  
+                        <div class="row form-group ">
+                <div class="col col-md-3 "><label for="password-input" class=" form-control-label">Codigo Alzheimer</label></div>
+                <div class="col-12 col-md-9">&nbsp;
+                <asp:TextBox ID="Mcodigoalzheimer" runat="server" Text="" ToolTip="codigodelamadre" CssClass="form-control" placeholder="codigo doctor"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator22" runat="server" ControlToValidate="Mcodigoalzheimer" Display="Dynamic" ErrorMessage="Este Campo es requerido"></asp:RequiredFieldValidator>     
+                    </div>
+                </div>
+
                  <!--nombre del doctor-->  
                         <div class="row form-group ">
                 <div class="col col-md-3 "><label for="password-input" class=" form-control-label">Nombre del doctor</label></div>
@@ -438,23 +492,15 @@
                 </div>
 
                  <!--fecha-->
-                           <div class="row form-group ">
-                            <div class="col col-md-3 "><label for="text-input" class=" form-control-label">Fecha</label></div>
-                            <div class="col-12 col-md-9">&nbsp; 
-                                <div class="input-group">
-                                    <div class="input-group-addon">
-                                        <i class="fa fa-calendar"></i>
-                                    </div>
-                                
-
-                                 <asp:TextBox ID="Mfechaalzheimer" CssClass="form-control" BackColor="Wheat" Font-Bold="false" data-inputmask="'alias':'dd/mm/yyyy'"
-                                    data-mask="" runat="server"></asp:TextBox> 
-                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator7" runat="server" ControlToValidate="Mfechaalzheimer" ErrorMessage="Siga este formato dd/mm/yyyy" ValidationExpression="^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$"></asp:RegularExpressionValidator>
-                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator23" runat="server" ControlToValidate="Mfechaalzheimer" Display="Dynamic" ErrorMessage="Este Campo es requerido"></asp:RequiredFieldValidator> 
-                                     
-                          </div>
-                               </div>
-                                    </div>
+                          <div class="row form-group ">
+                          <div class="col col-md-3 "><label for="text-input" class=" form-control-label">Fecha</label></div>
+                <div class="col-12 col-md-9">&nbsp; 
+                    
+                      <asp:Textbox ID="Mfechaalzheimer" runat="server" ToolTip="fecha" placeholder="dd/mm/yyyy"></asp:Textbox>
+                    
+                      <asp:RequiredFieldValidator ID="RequiredFieldValidator23" runat="server" ControlToValidate="Mfechaalzheimer" Display="Dynamic" ErrorMessage="Ingrese La Fecha" ForeColor="Red" Font-Italic="true"></asp:RequiredFieldValidator>     
+                     </div>
+                                    </div>   
                    <!--tipo caso-->
                     <div class="row form-group ">
                 <div class="col col-md-3 "><label for="select" class=" form-control-label">Caso</label></div>
@@ -497,15 +543,7 @@
                 </div>
                     </div>
 
-                 <!--no_orden-->
-                <div class="row form-group ">
-                <div class="col col-md-3 "><label for="text-input" class=" form-control-label">Número orden</label></div>
-                <div class="col-12 col-md-9">&nbsp; 
-                        <asp:TextBox ID="Mnumeroordenalzheimer" runat="server" Text="" ToolTip="noorden" CssClass="form-control" placeholder="Ingrese el número de orden"></asp:TextBox>
-                        <asp:RegularExpressionValidator ID="RegularExpressionValidator8" runat="server" ControlToValidate="Mnumeroordenalzheimer" ErrorMessage="Ingrese Solo numeros" ValidationExpression="^[0-9]*$" MaxLength="8"></asp:RegularExpressionValidator>   
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator26" runat="server" ControlToValidate="Mnumeroordenalzheimer" Display="Dynamic" ErrorMessage="Este Campo es requerido"></asp:RequiredFieldValidator>     
-                </div>
-                    </div>
+              
 
                    <!--Seleccion de estado-->
 
@@ -534,6 +572,15 @@
                  <div class="card-header">
                         <strong class="card-title">Datos de las personas de orden ADN </strong>
                             </div>  &nbsp;
+                   <!--codigo de papiloma-->  
+                        <div class="row form-group ">
+                <div class="col col-md-3 "><label for="password-input" class=" form-control-label">Codigo papiloma</label></div>
+                <div class="col-12 col-md-9">&nbsp;
+                <asp:TextBox ID="Mcodigopapiloma" runat="server" Text="" ToolTip="codigodelamadre" CssClass="form-control" placeholder="codigo doctor"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator27" runat="server" ControlToValidate="Mcodigopapiloma" Display="Dynamic" ErrorMessage="Este Campo es requerido"></asp:RequiredFieldValidator>     
+                    </div>
+                </div>
+
                 <!--nombre del doctor-->  
                         <div class="row form-group ">
                 <div class="col col-md-3 "><label for="password-input" class=" form-control-label">Nombre del doctor</label></div>
@@ -552,23 +599,16 @@
                 </div>
 
                   <!--fecha-->
-                           <div class="row form-group ">
-                            <div class="col col-md-3 "><label for="text-input" class=" form-control-label">Fecha</label></div>
-                            <div class="col-12 col-md-9">&nbsp; 
-                                <div class="input-group">
-                                    <div class="input-group-addon">
-                                        <i class="fa fa-calendar"></i>
-                                    </div>
-                                
+                          <div class="row form-group ">
+                          <div class="col col-md-3 "><label for="text-input" class=" form-control-label">Fecha</label></div>
+                <div class="col-12 col-md-9">&nbsp; 
+                    
+                      <asp:Textbox ID="Mfechapapiloma" runat="server" ToolTip="fecha" placeholder="dd/mm/yyyy"></asp:Textbox>
+                    
+                      <asp:RequiredFieldValidator ID="RequiredFieldValidator26" runat="server" ControlToValidate="Mfechapapiloma" Display="Dynamic" ErrorMessage="Ingrese La Fecha" ForeColor="Red" Font-Italic="true"></asp:RequiredFieldValidator>     
+                     </div>
+                                    </div>       
 
-                                 <asp:TextBox ID="Mfechapapiloma" CssClass="form-control" BackColor="Wheat" Font-Bold="false" data-inputmask="'alias':'dd/mm/yyyy'"
-                                    data-mask="" runat="server"></asp:TextBox> 
-                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator9" runat="server" ControlToValidate="Mfechapapiloma" ErrorMessage="Siga este formato dd/mm/yyyy" ValidationExpression="^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$"></asp:RegularExpressionValidator>
-                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator27" runat="server" ControlToValidate="Mfechapapiloma" Display="Dynamic" ErrorMessage="Este Campo es requerido"></asp:RequiredFieldValidator> 
-                                     
-                          </div>
-                               </div>
-                                    </div>
                    <!--tipo caso-->
                     <div class="row form-group ">
                 <div class="col col-md-3 "><label for="select" class=" form-control-label">Caso</label></div>
@@ -611,15 +651,7 @@
                 </div>
                     </div>
 
-                 <!--no_orden-->
-                <div class="row form-group ">
-                <div class="col col-md-3 "><label for="text-input" class=" form-control-label">Número orden</label></div>
-                <div class="col-12 col-md-9">&nbsp; 
-                        <asp:TextBox ID="Mnumeroordenpapiloma" runat="server" Text="" ToolTip="noorden" CssClass="form-control" placeholder="Ingrese el número de orden"></asp:TextBox>
-                        <asp:RegularExpressionValidator ID="RegularExpressionValidator10" runat="server" ControlToValidate="Mnumeroordenpapiloma" ErrorMessage="Ingrese Solo numeros" ValidationExpression="^[0-9]*$" MaxLength="8"></asp:RegularExpressionValidator>   
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator30" runat="server" ControlToValidate="Mnumeroordenpapiloma" Display="Dynamic" ErrorMessage="Este Campo es requerido"></asp:RequiredFieldValidator>     
-                </div>
-                    </div>
+               
 
                    <!--Seleccion de estado-->
 
