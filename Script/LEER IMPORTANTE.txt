@@ -1,0 +1,19 @@
+Bueno Grupo aqui les paso un script que ya Contiene datos agregados
+les dare los paso de uso:
+
+1-Crean una nueva base de datos llamada CBM
+2-Ejecutan el Script en esa Base de Datos
+
+Las Tablas se Crearan con datos que pusimos, esto para que no rellenen datos cada vez
+que cambiamos de Script
+
+Como la Seguridad Cambio y no podran acceder creando un usuario desde el SQL(a menos
+que comenten el hash de la seguridad) por eso se creo un Usuario para que lo utilizemos todos
+y bueno si quieren crean su usuario tendran que correr el proyecto y darle en crear nuevo usuario
+que es la unica manera que te lo permita
+
+USER: UCA
+PASS: 1234
+
+Si tienen dudas pueden Consultar
+Gracias

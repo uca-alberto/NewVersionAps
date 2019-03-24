@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ModificarOrden.aspx.cs" Inherits="CentroBiologiaMolecularUCA.Views.ViewOrden.ModificarOrden" %>
 
-<asp:Content ID="Content2" ContentPlaceHolderID="head" runat="server">
+<%--<asp:Content ID="Content2" ContentPlaceHolderID="head" runat="server">
      <!-- Script Para el Date Picker -->
  <script type="text/javascript">
       $(document).ready( function() {
@@ -14,7 +14,7 @@
           });  
       });
  </script>
-</asp:Content>
+</asp:Content>--%>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 

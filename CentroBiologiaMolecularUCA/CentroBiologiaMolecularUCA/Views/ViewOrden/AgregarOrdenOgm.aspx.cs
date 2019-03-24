@@ -12,85 +12,31 @@ using WebSistemaCentroBiologiaMolecularUCA.Ncapas.Negocio;
 
 namespace CentroBiologiaMolecularUCA.Views.ViewOrden
 {
-
-   
     public partial class AgregarOrdenOgm : System.Web.UI.Page
     {
-        private SqlDataReader registro;
-        private DTUsuario dtusuario;
-
         private TOrden tOrden;
         private DTanalisis dtanalisis;
         private DTmuestra dtmuestra;
-       // private SqlDataReader registro;
-        //private SqlDataAdapter bcliente;
+        private SqlDataReader registro;
         private Conexion conexion;
         private int Id;
 
-        //DataSet resultados = new DataSet();
-        //DataView filtro;
+        //Para cargar la Tabla
+        private DTcliente tcliente;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            this.dtusuario = new DTUsuario();
-            String rolid = (string)Session["Id_rol"];
-            string ubicacion = HttpContext.Current.Request.Url.AbsolutePath;
-
-            int rol = Convert.ToInt32(rolid);
-
-            this.registro = dtusuario.acceso(rol);
-            bool permiso = false;
-            String[] array = new String[10];
-            int index = 0;
-
-            //Si es admin tiene acceso
-            if (rol == 1)
-            {
-                permiso = true;
-            }
-            else
-            {
-                //guardar los datos que se extraen de la BD
-                while (registro.Read())
-                {
-                    array[index] = registro["opciones"].ToString();
-                    index++;
-
-                }
-
-                for (int i = 0; i < array.Length; i++)
-                {
-
-                    if (array[i] == ubicacion)
-                    {
-                        permiso = true;
-                        break;
-                    }
-
-
-                }
-            }
-
-
-            //Se redirecciona si no tiene permiso
-            if (permiso == false)
-            {
-                Response.Redirect("../../Views/ViewLogin/Index.aspx");
-            }
-
             this.tOrden = new TOrden();
+            this.tcliente = new DTcliente();
             this.dtanalisis = new DTanalisis();
             this.dtmuestra = new DTmuestra();
             this.conexion = new Conexion();
-            this.registro = this.tOrden.listarTodo();
-
-
+            this.registro = this.tcliente.listarCliente();
 
             //Generar el codigo
             Mcodigo.Text = tOrden.generarCodigo();
             //Obtengo el Id
             Id = tOrden.ultimoid();
-
 
             if (!IsPostBack)
             {
@@ -108,6 +54,7 @@ namespace CentroBiologiaMolecularUCA.Views.ViewOrden
                 Mmuestra.DataBind();
                 ListItem li = new ListItem("SELECCIONE", "0");//creamos una lista, para agregar el seleccione
                 Mmuestra.Items.Insert(0, li);
+
             }
         }
 
@@ -121,15 +68,14 @@ namespace CentroBiologiaMolecularUCA.Views.ViewOrden
         {
             OrdenAdn ord = new OrdenAdn();
 
-            if (Manalisis.ToString() == null)
+            if (Manalisis.ToString()==null )
             {
-                RegularExpressionValidator.GetValidationProperty(RequiredFieldValidator1);
             }
             else
             {
                 ord.Tipo_examen = Manalisis.SelectedValue;
             }
-            if (Mmuestra.ToString() == null)
+            if (Mmuestra.SelectedValue.ToString() == "0")
             {
                 RegularExpressionValidator.GetValidationProperty(RequiredFieldValidator1);
             }
@@ -161,7 +107,7 @@ namespace CentroBiologiaMolecularUCA.Views.ViewOrden
             {
                 ord.Id_codigo = Mcodigo.Text;
             }
-            if (Mestado.ToString() == null)
+            if (Mestado.SelectedValue.ToString() == "0")
             {
                 RegularExpressionValidator.GetValidationProperty(RequiredFieldValidator1);
             }
@@ -177,9 +123,16 @@ namespace CentroBiologiaMolecularUCA.Views.ViewOrden
             {
                 ord.Fecha = Convert.ToDateTime(Mfecha.Text);
             }
+            if (Idcliente.ToString() == null)
+            {
+                RegularExpressionValidator.GetValidationProperty(RequiredFieldValidator1);
+            }
+            else
+            {
+                ord.Id_cliente = Idcliente.Text;
+            }
 
             String userid = (string)Session["Id_usuario"];
-
             ord.Id_usuario = userid;
             ord.Id_orden = Id;
             return ord;
@@ -205,16 +158,10 @@ namespace CentroBiologiaMolecularUCA.Views.ViewOrden
                         {
                             ord.Id_analisis = Manalisis.Items[i].Value; ;
                             bool respu = NGorden.getInstance().guardardetalle(ord);
-
                         }
                     }
                     //Mostrar Notificacion
                     ClientScript.RegisterStartupScript(GetType(), "Javascript", "javascript: InsertarOrden(); ", true);
-
-
-
-
-
                 }
                 else
                 {
@@ -224,7 +171,6 @@ namespace CentroBiologiaMolecularUCA.Views.ViewOrden
             else
             {
                 ClientScript.RegisterStartupScript(GetType(), "Javascript", "javascript: ADD(); ", true);
-                // RegularExpressionValidator.GetValidationProperty(RequiredFieldValidator1);//sino esta validado me mostrara los campos a corregir y no mandara datos.
             }
 
         }
@@ -250,5 +196,6 @@ namespace CentroBiologiaMolecularUCA.Views.ViewOrden
             {
             }
         }
+
     }
 }
