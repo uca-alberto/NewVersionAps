@@ -1,11 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Searchogm.aspx.cs" Inherits="CentroBiologiaMolecularUCA.Views.Vogm.Searchogm" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-
-    
-<script src="../../../assets/js/vendor/jquery-2.1.4.min.js"></script>
-    <%--   <script src="../../Scripts/jquery.signalR-2.2.3.min.js"></script>--%>
-            <script src="../../../Scripts/jquery.signalR-2.2.3.js"></script>
-                     <script src="/signalr/hubs"></script>
     <form runat="server">
           <asp:ScriptManager runat="server" ID="Update">
 

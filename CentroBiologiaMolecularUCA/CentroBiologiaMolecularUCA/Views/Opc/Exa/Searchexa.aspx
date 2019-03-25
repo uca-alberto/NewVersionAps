@@ -59,6 +59,4 @@
         </div>
     </div><!-- .animated -->
 </div><!-- .content -->
-
-    <script type="text/javascript" src="../../Content/ListaExamen.js"></script>
 </asp:Content>

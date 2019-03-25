@@ -1,17 +1,17 @@
-﻿$(function () {
+﻿//$(function () {
 
-    // Proxy created on the fly
-    var job = $.connection.myHub;
+//    // Proxy created on the fly
+//    var job = $.connection.myHub;
 
-    //     Declare a function on the job hub so the server can invoke it
-    job.client.displayStatus = function () {
-        addRowDT(data)
-    };
+//    //     Declare a function on the job hub so the server can invoke it
+//    job.client.displayStatus = function () {
+//        addRowDT(data)
+//    };
 
-    // Start the connection
-    $.connection.hub.start();
-    addRowDT(data)
-});
+//    // Start the connection
+//    $.connection.hub.start();
+//    addRowDT(data)
+//});
 
 var data, tabla;
 function addRowDT(data) {

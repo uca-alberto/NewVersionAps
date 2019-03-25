@@ -2,10 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <script src="../../../assets/js/vendor/jquery-2.1.4.min.js"></script>
-    <%--   <script src="../../Scripts/jquery.signalR-2.2.3.min.js"></script>--%>
-            <script src="../../../Scripts/jquery.signalR-2.2.3.js"></script>
-                     <script src="/signalr/hubs"></script>
+  
 
          <script>
         function ADD() {
