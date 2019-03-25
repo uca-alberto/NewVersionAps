@@ -9,5 +9,6 @@ namespace CentroBiologiaMolecularUCA.Ncapas.Entidades
     {
         public int Id_muestra { get; set; }
         public String muestra { get; set; }
+        public int Id_tipo_analisis { get; set; }
     }
 }

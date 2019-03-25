@@ -187,7 +187,7 @@ namespace CentroBiologiaMolecularUCA.Views.ViewCliente
 
         protected void cancelar_Click(object sender, EventArgs e)
         {
-            Response.Redirect("../ViewLogin/Index.aspx");
+            Response.Redirect("Searchcli.aspx");
         }
     }
 }

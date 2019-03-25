@@ -61,7 +61,7 @@ namespace CentroBiologiaMolecularUCA.Views.ViewOrden
             //Se redirecciona si no tiene permiso
             if (permiso == false)
             {
-                Response.Redirect("../../Views/ViewLogin/Index.aspx");
+                Response.Redirect("../../Views/Index.aspx");
             }
         }
         [WebMethod]

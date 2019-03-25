@@ -40,7 +40,7 @@ namespace CentroBiologiaMolecularUCA.Views.OpcionesConfigurables
             }
             else
             {
-                exam.Nombre = Mnombre.Text;
+                exam.nombre = Mnombre.Text;
             }
 
             if (Mprecio.ToString() == null)
@@ -49,7 +49,7 @@ namespace CentroBiologiaMolecularUCA.Views.OpcionesConfigurables
             }
             else
             {
-                exam.Precio_examen = int.Parse(Mprecio.Text);
+                exam.precio_examen = int.Parse(Mprecio.Text);
             }
 
             return exam;
@@ -67,9 +67,7 @@ namespace CentroBiologiaMolecularUCA.Views.OpcionesConfigurables
 
                 if (resp == true)
                 {
-                    ClientScript.RegisterStartupScript(GetType(), "Javascript", "javascript: InsertarExamen(); ", true);
-                    Response.Redirect("Searchexa.aspx");
-
+                    ClientScript.RegisterStartupScript(GetType(), "Javascript", "javascript: Insertarexa(); ", true);
                 }
                 else
                 {

@@ -1,6 +1,5 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="EditarCliente.aspx.cs" Inherits="CentroBiologiaMolecularUCA.Views.ViewCliente.EditarCliente" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Addcli.aspx.cs" Inherits="CentroBiologiaMolecularUCA.Views.ViewCliente.AgregarCliente" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-        
      <script>
         function ADD() {
             swal({
@@ -10,12 +9,12 @@
                 button: "OK",
             });
     }
-    </script>     
-    
-    <script>
-        function ModificarCliente(data) {
+    </script>
+   
+     <script>
+        function InsertarCliente(data) {
             swal({
-                title: "Cliente Modificado",
+                title: "Cliente Agregado",
                 text: "Correctamente",
                 icon: "success",
                // buttons: true,
@@ -23,13 +22,35 @@
             })
           .then((willDelete) => {
               if (willDelete) {
-                  location.href = "BuscarCliente.aspx";
+                  location.href = "Searchcli.aspx";
               } 
           });
         }
     </script>
- <div class="card-header">
-        <strong class="card-title">Edicion Cliente</strong>
+
+    <!-------- Alerta de permisos ------>
+     <script>
+        function Acceso(data) {
+            swal({
+                title: "Usted no tiene acceso",
+                text: "restricted access",
+                icon: "error",
+                
+            })
+          .then((willDelete) => {
+              if (willDelete) {
+                  location.href = "../../Views/Index.aspx";
+              } 
+          });
+        }
+    </script>
+
+
+
+    <!--script de alerta-->
+    
+    <div class="card-header">
+        <strong class="card-title">Nuevo Cliente</strong>
          </div>  
             <div class="card">
             <div class="card-body card-block">
@@ -119,21 +140,18 @@
                     <br />
                     <div class="modal-footer">
                         <asp:Button id="cancelar" runat="server" Text="Cancelar" CssClass="btn btn-secondary" OnClick="cancelar_Click" />
-                             <asp:HiddenField runat="server" ID="Id_cliente" />
-                        <asp:Button id="alert" runat="server" Text="Modificar" CssClass="btn btn-primary" OnClick="EditarFormulario"/>
+                        <asp:HiddenField runat="server" ID="id_cliente" />
+                        <asp:Button id="alert" runat="server" Text="Registrar" CssClass="btn btn-primary" OnClick="InsertarCliente"/>
                         
                     </div>
                 </form>
             </div>
          </div>   
-   
 
-    <script type="text/javascript" src="../../Content/listacliente.js"></script>    
-     
-    <script  type="text/javascript">
-        window.onload = function () {
-            edit('<%=cli.Cedula%>', '<%=cli.Nombres%>', '<%=cli.Apellidos%>', '<%=cli.Municipio%>','<%=cli.Departamento%>',
-                '<%=cli.Sexo%>','<%=cli.Telefono%>','<%=cli.Correo%>','<%=cli.Dirreccion %>')
-        };
-    </script>               
+                 
+
+
+                  
+   
+   
 </asp:Content>

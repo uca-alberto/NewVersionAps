@@ -40,13 +40,13 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
                 conexion = Conexion.getInstance().ConexionDB();
                 // string sql = "insert into T_Orden (Id_orden,Fecha,Entregado,Tipo_orden,Observaciones,Baucher,No_orden,Estado,Actividad) VALUES(2,@Mfecha,@Mentregado,@Mtipoorden,@Mobservaciones,@Mbaucher,@Mnoorden,@Mestado,1)";
 
-                string sql = "insert into T_Examenes (Nombre, Precio_examen) VALUES(@Mnombre, @Mprecio)";
+                string sql = "insert into T_Examenes (Nombre, Precio_examen,Estado) VALUES(@Mnombre, @Mprecio,1)";
                 //PASANDO PARÁMETROS A CONSULTA SQL
                 using (comando = new SqlCommand(sql, conexion))
                 {
 
-                    comando.Parameters.AddWithValue("@Mnombre", e.Nombre);
-                    comando.Parameters.AddWithValue("@Mprecio", e.Precio_examen);
+                    comando.Parameters.AddWithValue("@Mnombre", e.nombre);
+                    comando.Parameters.AddWithValue("@Mprecio", e.precio_examen);
 
                     //VALIDANDO SI LA CONEXIÓN ESTÁ ACTIVA O CERRADA
                     if (comando.Connection.State != System.Data.ConnectionState.Closed)
@@ -109,9 +109,9 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
                 //PASANDO PARÁMETROS A CONSULTA SQL
                 using (comando = new SqlCommand(sql, conexion))
                 {
-                    comando.Parameters.AddWithValue("@Mid_examenes", e.Id_examenes);
-                    comando.Parameters.AddWithValue("@Mnombre", e.Nombre);
-                    comando.Parameters.AddWithValue("@Mprecio_examenes", e.Precio_examen);
+                    comando.Parameters.AddWithValue("@Mid_examenes", e.id_examenes);
+                    comando.Parameters.AddWithValue("@Mnombre", e.nombre);
+                    comando.Parameters.AddWithValue("@Mprecio_examenes", e.precio_examen);
 
                     //VALIDANDO SI LA CONEXIÓN ESTÁ ACTIVA O CERRADA
                     if (comando.Connection.State != System.Data.ConnectionState.Closed)
@@ -164,7 +164,7 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
         public SqlDataReader listarexamenes()
         {
             conexion = Conexion.getInstance().ConexionDB();
-            String sql = "select Id_examenes , Nombre, Precio_examen from T_Examenes;";
+            String sql = "select Id_examenes , Nombre, Precio_examen from T_Examenes where Estado=1;";
 
             SqlCommand comando = new SqlCommand(sql, this.conexion);
             registros = comando.ExecuteReader();

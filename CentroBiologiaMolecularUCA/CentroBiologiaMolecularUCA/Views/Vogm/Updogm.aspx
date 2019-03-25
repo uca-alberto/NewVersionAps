@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ModificarOrden.aspx.cs" Inherits="CentroBiologiaMolecularUCA.Views.ViewOrden.ModificarOrden" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Updogm.aspx.cs" Inherits="CentroBiologiaMolecularUCA.Views.ViewOrden.ModificarOrden" %>
 
 <%--<asp:Content ID="Content2" ContentPlaceHolderID="head" runat="server">
      <!-- Script Para el Date Picker -->
@@ -48,7 +48,7 @@
             })
           .then((willDelete) => {
               if (willDelete) {
-                  location.href = "../../Views/ViewOrdenMaria/BuscarOrdenAdn.aspx";
+                  location.href = "Searchogm.aspx";
               } 
           });
         }

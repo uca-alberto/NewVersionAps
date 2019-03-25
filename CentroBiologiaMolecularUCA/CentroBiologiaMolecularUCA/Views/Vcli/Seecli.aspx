@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="VerCliente.aspx.cs" Inherits="CentroBiologiaMolecularUCA.Views.ViewCliente.VerCliente" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Seecli.aspx.cs" Inherits="CentroBiologiaMolecularUCA.Views.ViewCliente.VerCliente" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">    
      <div class="card-header">
         <strong class="card-title">Cliente</strong>
@@ -77,7 +77,7 @@
                     <br />
                     <div class="modal-footer">
                              <asp:HiddenField runat="server" ID="Id_cliente" />
-                                <a class="btn btn-outline-success btn-lg btn-block" href="../../Views/ViewCliente/BuscarCliente.aspx">Regresar</a>               
+                                <a class="btn btn-outline-success btn-lg btn-block" href="Searchcli.aspx">Regresar</a>               
                     </div>
                 </form>
             </div>

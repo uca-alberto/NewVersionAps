@@ -17,8 +17,16 @@ namespace CentroBiologiaMolecularUCA.Views.Opc
         private SqlDataReader registros;
         protected void Page_Load(object sender, EventArgs e)
         {
-            
-            
+
+            if (!IsPostBack)
+            {
+
+                Danalisis.DataSource = NGmuestra.getInstance().Listaranalisis();
+                Danalisis.DataBind();
+                
+
+            }
+
 
         }
         [WebMethod]
@@ -32,11 +40,19 @@ namespace CentroBiologiaMolecularUCA.Views.Opc
 
             if (Mmuestra.ToString() == null)//todo esto se hace para todos los campos del formulario
             {
-
+                RegularExpressionValidator.GetValidationProperty(RequiredFieldValidator2);
             }
             else
             {
                 muestra.muestra = Mmuestra.Text;
+            }
+            if (Danalisis.ToString() == null)//todo esto se hace para todos los campos del formulario
+            {
+                RegularExpressionValidator.GetValidationProperty(RequiredFieldValidator2);
+            }
+            else
+            {
+                muestra.Id_tipo_analisis = int.Parse(Danalisis.SelectedValue);
             }
 
             return muestra;
@@ -50,11 +66,11 @@ namespace CentroBiologiaMolecularUCA.Views.Opc
                 Muestra mue = GetEntity();
                 //LLAMANDO A CAPA DE NEGOCIO
                 bool resp = NGmuestra.getInstance().guardarMuestra(mue);
-
+                
                 if (resp == true)
                 {
-                    ClientScript.RegisterStartupScript(GetType(), "Javascript", "javascript: InsertarExamen(); ", true);
-                    Response.Redirect("Searchmue.aspx");
+                    ClientScript.RegisterStartupScript(GetType(), "Javascript", "javascript: Insertarmuestra(); ", true);
+            
 
                 }
                 else

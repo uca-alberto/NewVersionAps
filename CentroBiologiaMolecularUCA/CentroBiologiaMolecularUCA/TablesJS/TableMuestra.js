@@ -20,7 +20,6 @@ function addRowDT(data) {
         tabla.row.add([
            data[i].Id_muestra,
            data[i].muestra,
-           '<a title="Editar" id="Editar" data-target="#mediumModal" data-toggle="modal"><i class="fa ti-eye"></i>&nbsp;' +
            '<a title="Editar" id="ver" href="Updmue.aspx?id=' + data[i].Id_muestra + '"><i class="fa fa-edit"></i>&nbsp;' +
            '<a value="Eliminarre" id="Eliminar"><i class="fa fa-trash-o"></i>'
 
@@ -46,9 +45,10 @@ function sendDataAjax() {
 }
 
 function deleteDataAjax(data) {
+    var muestra = JSON.stringify(data);
     swal({
         title: "Esta Seguro?",
-        text: "Eliminar Cliente",
+        text: "Eliminar Muestra Numero: " + muestra,
         icon: "warning",
         buttons: true,
         dangerMode: true,
@@ -56,7 +56,7 @@ function deleteDataAjax(data) {
   .then((willDelete) => {
       if (willDelete) {
           var obj = JSON.stringify({
-              Id_muestra: JSON.stringify(data)
+              id: JSON.stringify(data)
           });
           $.ajax({
               type: "POST",
@@ -101,6 +101,7 @@ $(document).on('click', '#Editar', function (e) {
 //cargar datos en el modal
 function fillModalData() {
     $("#ContentPlaceHolder1_Mmuestra").val(data[1]);
+    $("#Danalisis").val(data[2]);
 }
 
 //LLAMANDO A LA FUNCION AJAX AL CARGAR DOCUMENTO

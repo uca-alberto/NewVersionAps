@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/configuration.Master" AutoEventWireup="true" CodeBehind="BuscarUsuario.aspx.cs" Inherits="CentroBiologiaMolecularUCA.Views.ViewUsuario.BuscarUsuario" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/configuration.Master" AutoEventWireup="true" CodeBehind="Searchuse.aspx.cs" Inherits="CentroBiologiaMolecularUCA.Views.ViewUsuario.BuscarUsuario" %>
 <asp:Content ID="Content2" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">      
@@ -7,7 +7,6 @@
     <%--   <script src="../../Scripts/jquery.signalR-2.2.3.min.js"></script>--%>
             <script src="../../../Scripts/jquery.signalR-2.2.3.js"></script>
                      <script src="/signalr/hubs"></script>
-        <script src="../../../assets/sweetalert.min.js"></script>
     <form runat="server">
           <asp:ScriptManager runat="server" ID="Update">
 
@@ -45,7 +44,7 @@
     </asp:UpdatePanel>
     </form>
  
-     <script src="../../Content/listausuario.js"></script> 
+     <script src="../../../Content/listausuario.js"></script> 
 
     
     

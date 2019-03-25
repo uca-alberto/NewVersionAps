@@ -1,13 +1,7 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/configuration.Master" AutoEventWireup="true" CodeBehind="AgregarUsuario.aspx.cs" Inherits="CentroBiologiaMolecularUCA.Views.ViewUsuario.AgregarUsuario" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/configuration.Master" AutoEventWireup="true" CodeBehind="Adduse.aspx.cs" Inherits="CentroBiologiaMolecularUCA.Views.ViewUsuario.AgregarUsuario" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">      
-
- 
-      <script src="../../assets/sweetalert.min.js"></script>
-          
-    <!--Añadimos el Script-->
-    <script src="../../assets/sweetalert.min.js"></script>
     
      <script>
         function ADD() {
@@ -28,7 +22,7 @@
             })
           .then((willDelete) => {
               if (willDelete) {
-                  location.href = "../../Views/ViewUsuario/BuscarUsuario.aspx";
+                  location.href = "Searchuse.aspx";
               } 
           });
         }
@@ -44,7 +38,7 @@
             })
           .then((willDelete) => {
               if (willDelete) {
-                  location.href = "../../Views/ViewLogin/Index.aspx";
+                  location.href = "../../../Views/Index.aspx";
               } 
           });
         }

@@ -1,7 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="AgregarOrdenAdnMulti.aspx.cs" Inherits="CentroBiologiaMolecularUCA.Views.ViewOrdenMaria.AgregarOrdenAdnMulti" %>
 
-<asp:Content ID="Content2" ContentPlaceHolderID="head" runat="server">
-     <!-- Script Para el Date Picker -->
+<asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+
+         <!-- Script Para el Date Picker -->
  <script type="text/javascript">
       $(document).ready( function() {
           $("input[id$='Mfecha']").attr('readOnly', 'true').datepicker({
@@ -79,11 +80,6 @@
 
     
  </script>
-
-
-</asp:Content>
-
-<asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
       <!--Añadimos el Script-->
     <script src="../../assets/sweetalert.min.js"></script>
     
@@ -162,7 +158,7 @@
                    <div class="col col-md-3 "><label for="text-input" class=" form-control-label">Fecha</label></div>
                 <div class="col-12 col-md-9">&nbsp; 
                     
-                      <asp:Textbox ID="Mfecha" runat="server" ToolTip="fecha" placeholder="dd/mm/yyyy"></asp:Textbox>
+                      <asp:Textbox ID="Mfecha" runat="server" ToolTip="fecha" placeholder="dd/mm/yyyy" type="date"></asp:Textbox>
                     
                       <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="Mfecha" Display="Dynamic" ErrorMessage="Ingrese La Fecha" ForeColor="Red" Font-Italic="true"></asp:RequiredFieldValidator>     
                      </div>

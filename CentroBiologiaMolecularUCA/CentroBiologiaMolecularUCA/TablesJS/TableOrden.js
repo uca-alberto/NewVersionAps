@@ -1,17 +1,17 @@
-﻿$(function () {
+﻿//$(function () {
 
-    // Proxy created on the fly
-    var job = $.connection.myHub;
+//    // Proxy created on the fly
+//    var job = $.connection.myHub;
 
-    //     Declare a function on the job hub so the server can invoke it
-    job.client.displayStatus = function () {
-        addRowDT(data)
-    };
+//    //     Declare a function on the job hub so the server can invoke it
+//    job.client.displayStatus = function () {
+//        addRowDT(data)
+//    };
 
-    // Start the connection
-    $.connection.hub.start();
-    addRowDT(data)
-});
+//    // Start the connection
+//    $.connection.hub.start();
+//    addRowDT(data)
+//});
 
 var data, tabla;
 function addRowDT(data) {
@@ -21,8 +21,8 @@ function addRowDT(data) {
            data[i].Id_orden,
            data[i].Id_codigo,
            data[i].Baucher,
-           '<a title="ver" href="VerOrden.aspx?id=' + data[i].Id_orden + '"><i class="fa ti-eye"></i>&nbsp;' +
-           '<a title="Editar" href="ModificarOrden.aspx?id=' + data[i].Id_orden + '"><i class="fa fa-edit"></i>&nbsp;' +
+           '<a title="ver" href="Seeogm.aspx?id=' + data[i].Id_orden + '"><i class="fa ti-eye"></i>&nbsp;' +
+           '<a title="Editar" href="Updogm.aspx?id=' + data[i].Id_orden + '"><i class="fa fa-edit"></i>&nbsp;' +
            '<a value="Eliminarre" id="Eliminar"><i class="fa fa-trash-o"></i>'
 
         ]).draw(false);
@@ -32,7 +32,7 @@ function addRowDT(data) {
 function sendDataAjax() {
     $.ajax({
         type: "POST",
-        url: "BuscarOrden.aspx/GetData",
+        url: "Searchogm.aspx/GetData",
         data: {},
         contentType: "application/json; charset=utf-8",
         error: function (xhr, ajaxOptions, thrownError) {
@@ -61,7 +61,7 @@ function deleteDataAjax(data) {
           });
           $.ajax({
               type: "POST",
-              url: "BuscarOrden.aspx/EliminarOrd",
+              url: "Searchogm.aspx/EliminarOrd",
               data: obj,
               dataType: "json",
               contentType: "application/json; charset=utf-8",

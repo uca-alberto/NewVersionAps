@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
+
 using WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos;
 using WebSistemaCentroBiologiaMolecularUCA.Ncapas.Entidades;
 
@@ -25,7 +21,7 @@ namespace CentroBiologiaMolecularUCA.Views.OpcionesConfigurables
             //OBTENCION DEL ID DE EXAMEN
             string valor = Request.QueryString["id"];
             int id = int.Parse(valor);
-            exam.Id_examenes = id;
+            exam.id_examenes = id;
 
             //INVOCAMOS EL METODO BUSCAR EXAMEN POR ID
             this.registro = dtExamen.getExamenporid(id);
@@ -34,9 +30,9 @@ namespace CentroBiologiaMolecularUCA.Views.OpcionesConfigurables
             if (registro.Read())
             {
                 //seteamos los datos de los campos de ese examen
-                exam.Nombre = registro["Nombre"].ToString();
-
-                exam.Precio_examen = int.Parse(this.registro["Precio_examen"].ToString());
+                exam.precio_examen = Convert.ToDecimal(registro["Precio_examen"].ToString()); ;
+                exam.nombre = registro["Nombre"].ToString();
+              
             }
         }
 

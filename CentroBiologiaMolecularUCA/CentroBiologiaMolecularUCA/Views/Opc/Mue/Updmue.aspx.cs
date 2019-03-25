@@ -15,43 +15,53 @@ namespace CentroBiologiaMolecularUCA.Views.Opc.Mue
 {
     public partial class Updmue : System.Web.UI.Page
     {
-
-        private DTmuestra dtmuestra;
         private SqlDataReader registro;
-        public Muestra exam;
         public NGmuestra nge;
+        public Muestra mue;
         protected void Page_Load(object sender, EventArgs e)
         {
-            dtmuestra = new DTmuestra();
-            exam = new Muestra();
+             mue = new Muestra();
 
             String valor = Request.QueryString["id"];//obtenemos el id que le pasamos a travez de la url
             int id = int.Parse(valor);//parseamos el valorm, para obtenerlo un int;
-            this.registro = dtmuestra.getmuestraporid(id);//usamos el metodo de la clase dtcliente para buscar el cliente por el id
-
+            registro = NGmuestra.getInstance().Listarmuestraporid(id);//usamos el metodo de la clase dtcliente para buscar el cliente por el id
+            if (!IsPostBack)
+            {
+                Danalisis.DataSource = NGmuestra.getInstance().Listaranalisis();
+                Danalisis.DataBind();
+            }
 
             if (registro.Read())//validamos 
             {
-                exam.Id_muestra = int.Parse(this.registro["Id_tipo_muestra"].ToString());
-                exam.muestra = this.registro["muestra"].ToString();
-
+                mue.Id_muestra = int.Parse(this.registro["Id_tipo_muestra"].ToString());
+                mue.Id_tipo_analisis = int.Parse(registro["Id_tipo_analisis"].ToString());
+                mue.muestra = this.registro["muestra"].ToString();
+             
             }
-            Id_cliente.Value = valor;
+            Id_muestra.Value = valor;
 
         }
         public Muestra Modificar()
         {
-
-            if (Mnombre.ToString() == null)
+         
+            if (Mmuestra.ToString() == null)
             {
-                BorderStyle.Solid.ToString();
+                RegularExpressionValidator.GetValidationProperty(RequiredFieldValidator2);
             }
             else
             {
-                exam.muestra = Mnombre.Text;
+                mue.muestra = Mmuestra.Text;
+            }
+            if (Danalisis.ToString() == null)
+            {
+                RegularExpressionValidator.GetValidationProperty(RequiredFieldValidator2);
+            }
+            else
+            {
+                mue.Id_tipo_analisis = int.Parse(Danalisis.SelectedValue);
             }
 
-            return exam;
+            return mue;
         }
         public void EditarFormulario(object sender, EventArgs e)
         {
@@ -61,22 +71,23 @@ namespace CentroBiologiaMolecularUCA.Views.Opc.Mue
                 bool resp = NGmuestra.getInstance().ModificarMuestra(mues);
                 if (resp == true)
                 {
-                    Response.Redirect("Searchmue.aspx");
+                   Response.Redirect("Searchmue.aspx");
+
                 }
                 else
                 {
-                    Response.Redirect("Updexa.aspx" + Id_cliente.Value);
+                    Response.Redirect("Updexa.aspx" + Id_muestra.Value);
                 }
             }
             else
             {
-               // RegularExpressionValidator.GetValidationProperty(RequiredFieldValidator3);
+                ClientScript.RegisterStartupScript(GetType(), "Javascript", "javascript: ADD(); ", true);
             }
         }
 
         protected void Cancelar_Click(object sender, EventArgs e)
         {
-            Response.Redirect("BuscarExamenes.aspx");
+            Response.Redirect("Searchmue.aspx");
         }
     }
 }

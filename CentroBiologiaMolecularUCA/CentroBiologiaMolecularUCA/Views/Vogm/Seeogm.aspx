@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="VerOrden.aspx.cs" Inherits="CentroBiologiaMolecularUCA.Views.ViewOrden.VerOrden" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Seeogm.aspx.cs" Inherits="CentroBiologiaMolecularUCA.Views.ViewOrden.VerOrden" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
  <link href="../../assets/css_Editables/form-mouse.css" rel="stylesheet" />
 

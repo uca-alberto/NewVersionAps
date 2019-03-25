@@ -55,7 +55,7 @@ namespace CentroBiologiaMolecularUCA.Views.ViewLogin
                 Session["Id_usuario"] = tblUsuario.Rows[0]["Id_usuario"].ToString();
                 Session["Id_rol"] = tblUsuario.Rows[0]["Id_rol"].ToString();
                 Session["Activo"] = tblUsuario.Rows[0]["Activo"].ToString();
-                Response.Redirect("~/Views/ViewLogin/Index");
+                Response.Redirect("~/Views/Index");
             }
             else
             {

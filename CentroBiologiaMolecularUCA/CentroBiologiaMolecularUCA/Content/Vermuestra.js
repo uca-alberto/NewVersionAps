@@ -1,4 +1,6 @@
-﻿function edit(nombre) {
-    document.getElementById('ContentPlaceHolder1_Mnombre').value = nombre;
+﻿function edit(nombre,analisis) {
+    document.getElementById('ContentPlaceHolder1_Mmuestra').value = nombre;
+    document.getElementById('ContentPlaceHolder1_Danalisis').value = analisis;
+
 
 }

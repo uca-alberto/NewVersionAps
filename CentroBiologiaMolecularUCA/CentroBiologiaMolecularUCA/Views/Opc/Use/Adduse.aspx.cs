@@ -135,7 +135,7 @@ namespace CentroBiologiaMolecularUCA.Views.ViewUsuario
                 bool resp = NGUsuario.getInstance().guardarUsuario(us);
                 if (resp == false)
                 {
-                    Response.Redirect("/Views/ViewUsuario/BuscarUsuario.aspx");
+                    Response.Redirect("Searchuse.aspx");
                 }
                 else
                 {

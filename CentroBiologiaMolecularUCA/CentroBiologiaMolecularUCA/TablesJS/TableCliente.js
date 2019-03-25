@@ -23,8 +23,8 @@ function addRowDT(data) {
            data[i].Nombres,
            data[i].Apellidos,
            data[i].Correo,
-           '<a title="Editar" href="VerCliente.aspx?id=' + data[i].Id_Cliente + '"><i class="fa ti-eye"></i>&nbsp;' +
-           '<a title="Editar" href="EditarCliente.aspx?id=' + data[i].Id_Cliente + '"><i class="fa fa-edit"></i>&nbsp;' +
+           '<a title="Editar" href="Seecli.aspx?id=' + data[i].Id_Cliente + '"><i class="fa ti-eye"></i>&nbsp;' +
+           '<a title="Editar" href="Updcli.aspx?id=' + data[i].Id_Cliente + '"><i class="fa fa-edit"></i>&nbsp;' +
            '<a value="Eliminarre" id="Eliminar"><i class="fa fa-trash-o"></i>'
 
         ]).draw(false);
@@ -34,7 +34,7 @@ function addRowDT(data) {
 function sendDataAjax() {
     $.ajax({
         type: "POST",
-        url: "BuscarCliente.aspx/GetData",
+        url: "Searchcli.aspx/GetData",
         data: {},
         contentType: "application/json; charset=utf-8",
         error: function (xhr, ajaxOptions, thrownError) {
@@ -49,9 +49,10 @@ function sendDataAjax() {
 }
 
 function deleteDataAjax(data) {
+    var muestra = JSON.stringify(data);
     swal({
         title: "Esta Seguro?",
-        text: "Eliminar Cliente",
+        text: "Eliminar Cliente : "+ muestra,
         icon: "warning",
         buttons: true,
         dangerMode: true,
@@ -63,7 +64,7 @@ function deleteDataAjax(data) {
           });
           $.ajax({
               type: "POST",
-              url: "BuscarCliente.aspx/EliminarCli",
+              url: "Searchcli.aspx/EliminarCli",
               data: obj,
               dataType: "json",
               contentType: "application/json; charset=utf-8",
@@ -75,7 +76,7 @@ function deleteDataAjax(data) {
           swal("Se Elimino Correctamente", {
               icon: "success",
           });
-          location.href = "BuscarCliente.aspx"
+          location.href = "Searchcli.aspx"
       }
   });
 }

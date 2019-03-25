@@ -76,11 +76,11 @@ namespace CentroBiologiaMolecularUCA.Views.ViewUsuario
             bool resp = NGUsuario.getInstance().ModificarUsuario(usuario);
             if (resp == true)
             {
-                Response.Redirect("AgregarUsuario.aspx");
+                Response.Redirect("Searchuse.aspx");
             }
             else
             {
-                Response.Redirect("EditarUsuario.aspx" + Id_usuario.Value);
+                Response.Redirect("Upduse.aspx" + Id_usuario.Value);
             }
         }
     }

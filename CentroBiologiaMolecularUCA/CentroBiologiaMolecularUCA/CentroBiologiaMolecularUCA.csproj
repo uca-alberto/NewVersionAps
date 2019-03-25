@@ -657,12 +657,11 @@
     <Content Include="Views\Opc\Exa\Seexa.aspx" />
     <Content Include="Views\Opc\Mue\Searchmue.aspx" />
     <Content Include="Views\Opc\Mue\Updmue.aspx" />
-    <Content Include="Views\ViewADN\AdnValidacion.aspx" />
-    <Content Include="Views\ViewCliente\AgregarCliente.aspx" />
-    <Content Include="Views\ViewCliente\BuscarCliente.aspx" />
-    <Content Include="Views\ViewCliente\EditarCliente.aspx" />
-    <Content Include="Views\ViewCliente\VerCliente.aspx" />
-    <Content Include="Views\ViewLogin\Index.aspx" />
+    <Content Include="Views\Vcli\Addcli.aspx" />
+    <Content Include="Views\Vcli\Searchcli.aspx" />
+    <Content Include="Views\Vcli\Updcli.aspx" />
+    <Content Include="Views\Vcli\Seecli.aspx" />
+    <Content Include="Views\Index.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Views\ViewOrdenMaria\AgregarOrden.aspx" />
     <Content Include="Views\ViewOrdenMaria\AgregarOrdenAdnMulti.aspx" />
@@ -672,19 +671,19 @@
     <Content Include="Views\ViewOrdenMaria\ModificarOrden.aspx" />
     <Content Include="Views\ViewOrdenMaria\VerOrdenAdn.aspx" />
     <Content Include="Views\ViewOrdenMaria\VerOrdenAdnMulti.aspx" />
-    <Content Include="Views\ViewOrden\AgregarOrdenOgm.aspx" />
-    <Content Include="Views\ViewOrden\BuscarOrden.aspx" />
-    <Content Include="Views\ViewOrden\ModificarOrden.aspx" />
-    <Content Include="Views\ViewOrden\VerOrden.aspx" />
+    <Content Include="Views\Vogm\Addogm.aspx" />
+    <Content Include="Views\Vogm\Searchogm.aspx" />
+    <Content Include="Views\Vogm\Updogm.aspx" />
+    <Content Include="Views\Vogm\Seeogm.aspx" />
     <Content Include="Views\ViewResultadoMaria\AgregarResultadoOgm.aspx" />
     <Content Include="Views\ViewResultadoMaria\BuscarResultadoOgm.aspx" />
     <Content Include="Views\ViewResultadoMaria\EliminarresultadoOgm.aspx" />
     <Content Include="Views\ViewResultadoMaria\ModificarResultadoOgm.aspx" />
     <Content Include="Views\ViewResultadoMaria\VerResultadoOgm.aspx" />
-    <Content Include="Views\ViewUsuario\AgregarUsuario.aspx" />
-    <Content Include="Views\ViewUsuario\BuscarUsuario.aspx" />
-    <Content Include="Views\ViewUsuario\EditarUsuario.aspx" />
-    <Content Include="Views\ViewUsuario\VerUsuario.aspx" />
+    <Content Include="Views\Opc\Use\Adduse.aspx" />
+    <Content Include="Views\Opc\Use\Searchuse.aspx" />
+    <Content Include="Views\Opc\Use\Upduse.aspx" />
+    <Content Include="Views\Opc\Use\Seeuse.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -848,46 +847,39 @@
     <Compile Include="Views\Opc\Mue\Updmue.aspx.designer.cs">
       <DependentUpon>Updmue.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\ViewADN\AdnValidacion.aspx.cs">
-      <DependentUpon>AdnValidacion.aspx</DependentUpon>
+    <Compile Include="Views\Vcli\Addcli.aspx.cs">
+      <DependentUpon>Addcli.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\ViewADN\AdnValidacion.aspx.designer.cs">
-      <DependentUpon>AdnValidacion.aspx</DependentUpon>
+    <Compile Include="Views\Vcli\Addcli.aspx.designer.cs">
+      <DependentUpon>Addcli.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\ViewCliente\AgregarCliente.aspx.cs">
-      <DependentUpon>AgregarCliente.aspx</DependentUpon>
+    <Compile Include="Views\Vcli\Searchcli.aspx.cs">
+      <DependentUpon>Searchcli.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\ViewCliente\AgregarCliente.aspx.designer.cs">
-      <DependentUpon>AgregarCliente.aspx</DependentUpon>
+    <Compile Include="Views\Vcli\Searchcli.aspx.designer.cs">
+      <DependentUpon>Searchcli.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\ViewCliente\BuscarCliente.aspx.cs">
-      <DependentUpon>BuscarCliente.aspx</DependentUpon>
+    <Compile Include="Views\Vcli\Updcli.aspx.cs">
+      <DependentUpon>Updcli.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\ViewCliente\BuscarCliente.aspx.designer.cs">
-      <DependentUpon>BuscarCliente.aspx</DependentUpon>
+    <Compile Include="Views\Vcli\Updcli.aspx.designer.cs">
+      <DependentUpon>Updcli.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\ViewCliente\EditarCliente.aspx.cs">
-      <DependentUpon>EditarCliente.aspx</DependentUpon>
+    <Compile Include="Views\Vcli\Seecli.aspx.cs">
+      <DependentUpon>Seecli.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\ViewCliente\EditarCliente.aspx.designer.cs">
-      <DependentUpon>EditarCliente.aspx</DependentUpon>
+    <Compile Include="Views\Vcli\Seecli.aspx.designer.cs">
+      <DependentUpon>Seecli.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\ViewCliente\VerCliente.aspx.cs">
-      <DependentUpon>VerCliente.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Views\ViewCliente\VerCliente.aspx.designer.cs">
-      <DependentUpon>VerCliente.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Views\ViewLogin\Index.aspx.cs">
+    <Compile Include="Views\Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\ViewLogin\Index.aspx.designer.cs">
+    <Compile Include="Views\Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
@@ -953,33 +945,33 @@
     <Compile Include="Views\ViewOrdenMaria\VerOrdenAdnMulti.aspx.designer.cs">
       <DependentUpon>VerOrdenAdnMulti.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\ViewOrden\AgregarOrdenOgm.aspx.cs">
-      <DependentUpon>AgregarOrdenOgm.aspx</DependentUpon>
+    <Compile Include="Views\Vogm\Addogm.aspx.cs">
+      <DependentUpon>Addogm.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\ViewOrden\AgregarOrdenOgm.aspx.designer.cs">
-      <DependentUpon>AgregarOrdenOgm.aspx</DependentUpon>
+    <Compile Include="Views\Vogm\Addogm.aspx.designer.cs">
+      <DependentUpon>Addogm.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\ViewOrden\BuscarOrden.aspx.cs">
-      <DependentUpon>BuscarOrden.aspx</DependentUpon>
+    <Compile Include="Views\Vogm\Searchogm.aspx.cs">
+      <DependentUpon>Searchogm.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\ViewOrden\BuscarOrden.aspx.designer.cs">
-      <DependentUpon>BuscarOrden.aspx</DependentUpon>
+    <Compile Include="Views\Vogm\Searchogm.aspx.designer.cs">
+      <DependentUpon>Searchogm.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\ViewOrden\ModificarOrden.aspx.cs">
-      <DependentUpon>ModificarOrden.aspx</DependentUpon>
+    <Compile Include="Views\Vogm\Updogm.aspx.cs">
+      <DependentUpon>Updogm.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\ViewOrden\ModificarOrden.aspx.designer.cs">
-      <DependentUpon>ModificarOrden.aspx</DependentUpon>
+    <Compile Include="Views\Vogm\Updogm.aspx.designer.cs">
+      <DependentUpon>Updogm.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\ViewOrden\VerOrden.aspx.cs">
-      <DependentUpon>VerOrden.aspx</DependentUpon>
+    <Compile Include="Views\Vogm\Seeogm.aspx.cs">
+      <DependentUpon>Seeogm.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\ViewOrden\VerOrden.aspx.designer.cs">
-      <DependentUpon>VerOrden.aspx</DependentUpon>
+    <Compile Include="Views\Vogm\Seeogm.aspx.designer.cs">
+      <DependentUpon>Seeogm.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\ViewResultadoMaria\AgregarResultadoOgm.aspx.cs">
       <DependentUpon>AgregarResultadoOgm.aspx</DependentUpon>
@@ -1016,33 +1008,33 @@
     <Compile Include="Views\ViewResultadoMaria\VerResultadoOgm.aspx.designer.cs">
       <DependentUpon>VerResultadoOgm.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\ViewUsuario\AgregarUsuario.aspx.cs">
-      <DependentUpon>AgregarUsuario.aspx</DependentUpon>
+    <Compile Include="Views\Opc\Use\Adduse.aspx.cs">
+      <DependentUpon>Adduse.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\ViewUsuario\AgregarUsuario.aspx.designer.cs">
-      <DependentUpon>AgregarUsuario.aspx</DependentUpon>
+    <Compile Include="Views\Opc\Use\Adduse.aspx.designer.cs">
+      <DependentUpon>Adduse.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\ViewUsuario\BuscarUsuario.aspx.cs">
-      <DependentUpon>BuscarUsuario.aspx</DependentUpon>
+    <Compile Include="Views\Opc\Use\Searchuse.aspx.cs">
+      <DependentUpon>Searchuse.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\ViewUsuario\BuscarUsuario.aspx.designer.cs">
-      <DependentUpon>BuscarUsuario.aspx</DependentUpon>
+    <Compile Include="Views\Opc\Use\Searchuse.aspx.designer.cs">
+      <DependentUpon>Searchuse.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\ViewUsuario\EditarUsuario.aspx.cs">
-      <DependentUpon>EditarUsuario.aspx</DependentUpon>
+    <Compile Include="Views\Opc\Use\Upduse.aspx.cs">
+      <DependentUpon>Upduse.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\ViewUsuario\EditarUsuario.aspx.designer.cs">
-      <DependentUpon>EditarUsuario.aspx</DependentUpon>
+    <Compile Include="Views\Opc\Use\Upduse.aspx.designer.cs">
+      <DependentUpon>Upduse.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\ViewUsuario\VerUsuario.aspx.cs">
-      <DependentUpon>VerUsuario.aspx</DependentUpon>
+    <Compile Include="Views\Opc\Use\Seeuse.aspx.cs">
+      <DependentUpon>Seeuse.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\ViewUsuario\VerUsuario.aspx.designer.cs">
-      <DependentUpon>VerUsuario.aspx</DependentUpon>
+    <Compile Include="Views\Opc\Use\Seeuse.aspx.designer.cs">
+      <DependentUpon>Seeuse.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

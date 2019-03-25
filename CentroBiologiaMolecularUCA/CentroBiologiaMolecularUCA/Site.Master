@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="assets/css/lib/datatable/dataTables.bootstrap.min.css">
     <link href="/assets/css/lib/vector-map/jqvmap.min.css" rel="stylesheet">
     <link href="/assets/sweetalert.css" rel="sweetalert"/>
-     <script src="../../assets/sweetalert.min.js"></script>
+     <script src="/assets/sweetalert.min.js"></script>
 
     <webopt:bundlereference runat="server" path="~/Content/css" />
  
@@ -45,48 +45,61 @@
                         <a href="../../Views/ViewLogin/Index.aspx"> <i class="menu-icon fa  fa-stethoscope"></i>CBM UCA  </a>
                     </li>
                     <h3 class="menu-title">Sistema CBM</h3><!-- /.menu-title -->
-                    
-                    <!-- /Menu de control de Usuarios -->
-<%--                    <li class="menu-item-has-children active dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-users"></i>Control de Usuarios</a>
-                        <ul class="sub-menu children dropdown-menu">
-                            <li><i class="ti-user"></i><a href="../../Views/ViewUsuario/AgregarUsuario.aspx">Crear Usuario</a></li>
-                                
-                        </ul>
-                    </li>--%>
                   
                     <!-- /Menu de control de Clientes -->
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-male"></i>Control de Cliente</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-plus-circle"></i><a href="../../Views/ViewCliente/AgregarCliente.aspx">Agregar Cliente</a></li>
-                            <li><i class="ti-search"></i><a href="../../Views/ViewCliente/BuscarCliente.aspx">Buscar Cliente</a></li>
+                            <li><i class="menu-icon fa fa-plus-circle"></i><a href="../../Views/Vcli/Addcli.aspx">Agregar Cliente</a></li>
+                            <li><i class="ti-search"></i><a href="../../Views/Vcli/Searchcli.aspx">Buscar Cliente</a></li>
                         </ul>
                     </li>
 
                     <!--/Segundo Menu, seccion de ordenes y resultados-->
                     <h3 class="menu-title">Control de Servicios</h3><!-- /Titulo del Menu -->
                     <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-list-ol"></i>Control De Orden</a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-list-ol"></i>Control De Orden OGM</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-plus-circle"></i><a href="../../Views/ViewOrden/AgregarOrdenOgm.aspx">Crear Orden OGM</a></li>
-                          <li><i class="menu-icon fa fa-plus-circle"></i><a href="../../Views/ViewOrdenMaria/AgregarOrdenAdnMulti.aspx">Crear Orden ADN Multi</a></li>
-                             <li><i class="ti-search"></i><a href="../../Views/ViewOrdenMaria/BuscarMultiAdnOrden.aspx">Buscar Orden ADN humano</a></li>
-                            <li><i class="ti-search"></i><a href="../../Views/ViewOrden/BuscarOrden">Buscar Orden</a></li>
+                            <li><i class="menu-icon fa fa-plus-circle"></i><a href="../../Views/Vogm/Addogm.aspx">Crear Orden OGM</a></li>
+                              <li><i class="ti-search"></i><a href="../../Views/Vogm/Searchogm">Buscar Orden</a></li>
                             
 
                             
                         </ul>
                     </li>
+                       <!--Resultados ADN-->
                     <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-area-chart"></i>Control de Resultados</a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-area-chart"></i>Control De Orden ADN</a>
                         <ul class="sub-menu children dropdown-menu">
-                             <li><i class="menu-icon fa fa-plus-circle"></i><a href="../../Views/ViewResultadoMaria/AgregarResultadoOgm.aspx">Crear Resultado OGM</a></li>
-                            <li><i class="ti-search"></i><a href="../../Views/ViewOrdenResultadoMaria/BuscarResultadoOgm.aspx">Buscar Resultado Ogm</a></li>
+                             <li><i class="menu-icon fa fa-plus-circle"></i><a href="../../Views/ViewOrdenMaria/AgregarOrdenAdnMulti.aspx">Crear Orden ADN Multi</a></li>
+                             <li><i class="ti-search"></i><a href="../../Views/ViewOrdenMaria/BuscarMultiAdnOrden.aspx">Buscar Orden ADN humano</a></li>
+                        
 
                             <li><i class="ti-eye"></i><a href="#">Visualizar Resultados</a></li>
                             <!--li><i class="ti-search"></i><a href="#">Buscar</a></!--li-->
                         </ul>
+                    </li>
+
+                      <!--/Tercer Menu, seccion de Resultados-->
+                    <h3 class="menu-title">CONTROL RESULTADOS</h3>
+                    <!-- /.Resultados OGM -->
+                    <li class="menu-item-has-children dropdown">
+                             <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-area-chart"></i>Control de Resultados OGM</a>
+                        <ul class="sub-menu children dropdown-menu">
+                             <li><i class="menu-icon fa fa-plus-circle"></i><a href="../../Views/ViewResultadoMaria/AgregarResultadoOgm.aspx">Crear Resultado OGM</a></li>
+                            <li><i class="ti-search"></i><a href="../../Views/ViewOrdenResultadoMaria/BuscarResultadoOgm.aspx">Buscar Resultado Ogm</a></li>
+                        </ul>
+                    </li>
+                        <!-- /.Resultado ADN -->
+                              <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-area-chart"></i>Control de Resultados ADN</a>
+                        <ul class="sub-menu children dropdown-menu">
+                             <li><i class="menu-icon fa fa-plus-circle"></i><a href="../../Views/ViewResultadoMaria/AgregarResultadoOgm.aspx">Crear Resultado OGM</a></li>
+                            <li><i class="ti-search"></i><a href="../../Views/ViewOrdenResultadoMaria/BuscarResultadoOgm.aspx">Buscar Resultado Ogm</a></li>
+                        </ul>
+                    </li>
+                       
                     </li>
 
                      <!--/Tercer Menu, seccion de reportes-->

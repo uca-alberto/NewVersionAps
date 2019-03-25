@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="BuscarOrden.aspx.cs" Inherits="CentroBiologiaMolecularUCA.Views.ViewOrden.BuscarOrden" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Searchogm.aspx.cs" Inherits="CentroBiologiaMolecularUCA.Views.ViewOrden.BuscarOrden" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
     
@@ -6,7 +6,6 @@
     <%--   <script src="../../Scripts/jquery.signalR-2.2.3.min.js"></script>--%>
             <script src="../../../Scripts/jquery.signalR-2.2.3.js"></script>
                      <script src="/signalr/hubs"></script>
-        <script src="../../../assets/sweetalert.min.js"></script>
     <form runat="server">
           <asp:ScriptManager runat="server" ID="Update">
 

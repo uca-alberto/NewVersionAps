@@ -5,7 +5,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title></title>
+
+     <title><%: Page.Title %>Configuraciónes CBM</title>
         <link rel="stylesheet" href="/assets/css/normalize.css"/>
     <link rel="stylesheet" href="/assets/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="/assets/css/font-awesome.min.css"/>
@@ -16,7 +17,7 @@
     <link rel="stylesheet" href="assets/css/lib/datatable/dataTables.bootstrap.min.css"/>
     <link href="/assets/css/lib/vector-map/jqvmap.min.css" rel="stylesheet"/>
     <link href="/assets/sweetalert.css" rel="sweetalert"/>
-    <script src="../../../assets/sweetalert.min.js"></script>
+    <script src="/assets/sweetalert.min.js"></script>
 
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
@@ -43,7 +44,9 @@
                     <li class="menu-item-has-children active dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-users"></i>Control de Usuarios</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="ti-user"></i><a href="../../Views/ViewUsuario/AgregarUsuario.aspx">Crear Usuario</a></li>
+                            <li><i class="ti-user"></i><a href="../../../Views/Opc/Use/Adduse.aspx">Crear Usuario</a></li>
+                            <li><i class="ti-search"></i><a href="../../../Views/Opc/Use/Searchuse.aspx">Buscar Usuario</a></li>
+
                                 
                         </ul>
                     </li>
@@ -122,7 +125,7 @@
                         </a>
 
                         <div class="user-menu dropdown-menu">
-                            <a class="nav-link" href="../../../Views/ViewLogin/Index.aspx"><i class="fa fa-flask">&nbsp;&nbsp;</i>CBM Sistema</a>
+                            <a class="nav-link" href="../../../Views/Index.aspx"><i class="fa fa-flask">&nbsp;&nbsp;</i>CBM Sistema</a>
                             <a class="nav-link" href="../../Login.aspx"><i class="fa fa-sign-in">&nbsp;&nbsp;</i>Cerrar Sesion</a>
                         </div>
                     </div>

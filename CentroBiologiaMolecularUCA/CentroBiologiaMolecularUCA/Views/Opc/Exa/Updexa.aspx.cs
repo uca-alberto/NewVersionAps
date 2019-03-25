@@ -30,9 +30,9 @@ namespace CentroBiologiaMolecularUCA.Views.OpcionesConfigurables
 
             if (registro.Read())//validamos 
             {
-                exam.Id_examenes = int.Parse(this.registro["Id_Examenes"].ToString());
-                this.exam.Nombre = this.registro["Nombre"].ToString();
-                exam.Precio_examen = int.Parse(this.registro["Precio_Examen"].ToString());
+                exam.id_examenes = int.Parse(registro["Id_Examenes"].ToString());
+                exam.nombre = registro["Nombre"].ToString();
+                exam.precio_examen = Convert.ToDecimal(registro["Precio_Examen"].ToString());
                 //le seteamos los valores que obtenemos del cliente;
 
             }
@@ -50,7 +50,7 @@ namespace CentroBiologiaMolecularUCA.Views.OpcionesConfigurables
             }
             else
             {
-                exam.Nombre = Mnombre.Text;
+                exam.nombre = Mnombre.Text;
             }
             if (Mprecio.ToString() == null)
             {
@@ -58,7 +58,7 @@ namespace CentroBiologiaMolecularUCA.Views.OpcionesConfigurables
             }
             else
             {
-                exam.Precio_examen = int.Parse(Mprecio.Text);
+                exam.precio_examen = Convert.ToDecimal(Mprecio.Text);
 
             }
 
@@ -72,11 +72,11 @@ namespace CentroBiologiaMolecularUCA.Views.OpcionesConfigurables
                 bool resp = NGExamen.getInstance().Modificarexamen(exa);
                 if (resp == true)
                 {
-                    Response.Redirect("Searchexa.aspx");
+                    ClientScript.RegisterStartupScript(GetType(), "Javascript", "javascript: ModificarExamen(); ", true);
                 }
                 else
                 {
-                    Response.Redirect("Updexa.aspx" + Id_cliente.Value);
+                    Response.Redirect("Updexa.aspx" + Id_Examen.Value);
                 }
             }
             else
@@ -87,7 +87,7 @@ namespace CentroBiologiaMolecularUCA.Views.OpcionesConfigurables
 
         protected void Cancelar_Click(object sender, EventArgs e)
         {
-            Response.Redirect("BuscarExamenes.aspx");
+            Response.Redirect("Searchexa.aspx");
         }
 
 

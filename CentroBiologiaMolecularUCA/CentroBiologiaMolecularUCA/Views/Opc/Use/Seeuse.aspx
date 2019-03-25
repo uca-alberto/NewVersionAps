@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Page Language="C#" MasterPageFile="~/configuration.Master" AutoEventWireup="true" CodeBehind="VerUsuario.aspx.cs" Inherits="CentroBiologiaMolecularUCA.Views.ViewUsuario.VerUsuario" %>
+﻿<%@ Page Title="" Page Language="C#" MasterPageFile="~/configuration.Master" AutoEventWireup="true" CodeBehind="Seeuse.aspx.cs" Inherits="CentroBiologiaMolecularUCA.Views.ViewUsuario.VerUsuario" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">      

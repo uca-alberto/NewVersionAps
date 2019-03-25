@@ -61,7 +61,7 @@ namespace CentroBiologiaMolecularUCA.Views.ViewUsuario
 
             if (permiso == false)
             {
-                Response.Redirect("../../Views/OpcionesConfigurables/Index.aspx");
+                Response.Redirect("../../Views/Opc/Index.aspx");
             }
 
         }

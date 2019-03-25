@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="AgregarOrdenOgm.aspx.cs" Inherits="CentroBiologiaMolecularUCA.Views.ViewOrden.AgregarOrdenOgm" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Addogm.aspx.cs" Inherits="CentroBiologiaMolecularUCA.Views.ViewOrden.AgregarOrdenOgm" %>
 <%-- 
 <asp:Content ID="Content2" ContentPlaceHolderID="head" runat="server">
      <!-- Script Para el Date Picker -->
@@ -41,7 +41,7 @@
             })
           .then((willDelete) => {
               if (willDelete) {
-                  location.href = "BuscarOrden.aspx";
+                  location.href = "Searchogm.aspx";
               } 
           });
         }
@@ -185,10 +185,11 @@
                    <div class="col col-md-3 "><label for="text-input" class=" form-control-label">Fecha</label></div>
                 <div class="col-12 col-md-9">&nbsp; 
                     
-                      <asp:Textbox ID="Mfecha" runat="server" ToolTip="fecha" placeholder="dd/mm/yyyy"></asp:Textbox>
+                      <asp:Textbox ID="Mfecha" runat="server" ToolTip="fecha" placeholder="dd/mm/yyyy" type="date"></asp:Textbox>
                       <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="Mfecha" Display="Dynamic" ErrorMessage="Ingrese La Fecha" ForeColor="Red" Font-Italic="true"></asp:RequiredFieldValidator>     
                      </div>
                    </div>
+                   
 
                     <!--Seleccion de Tipo de Analisis-->
                    

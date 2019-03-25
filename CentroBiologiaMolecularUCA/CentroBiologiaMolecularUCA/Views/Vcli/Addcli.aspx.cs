@@ -18,6 +18,7 @@ namespace CentroBiologiaMolecularUCA.Views.ViewCliente
         private DTUsuario dtusuario;
         protected void Page_Load(object sender, EventArgs e)
         {
+            Mtelefono.MaxLength = 8;
             this.dtusuario = new DTUsuario();
             String rolid = (string)Session["Id_rol"];
             string ubicacion = HttpContext.Current.Request.Url.AbsolutePath;
@@ -205,7 +206,7 @@ namespace CentroBiologiaMolecularUCA.Views.ViewCliente
 
         protected void cancelar_Click(object sender, EventArgs e)
         {
-            Response.Redirect("../ViewLogin/Index.aspx");
+            Response.Redirect("../Searchcli.aspx");
         }
     }
 }

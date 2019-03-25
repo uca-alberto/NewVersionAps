@@ -13,22 +13,13 @@ namespace CentroBiologiaMolecularUCA.Views.Opc.Mue {
     public partial class Updmue {
         
         /// <summary>
-        /// Control myfrom.
+        /// Control Mmuestra.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm myfrom;
-        
-        /// <summary>
-        /// Control Mnombre.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Mnombre;
+        protected global::System.Web.UI.WebControls.TextBox Mmuestra;
         
         /// <summary>
         /// Control RequiredFieldValidator2.
@@ -49,6 +40,15 @@ namespace CentroBiologiaMolecularUCA.Views.Opc.Mue {
         protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator2;
         
         /// <summary>
+        /// Control Danalisis.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList Danalisis;
+        
+        /// <summary>
         /// Control Cancelar.
         /// </summary>
         /// <remarks>
@@ -58,21 +58,21 @@ namespace CentroBiologiaMolecularUCA.Views.Opc.Mue {
         protected global::System.Web.UI.WebControls.Button Cancelar;
         
         /// <summary>
-        /// Control Id_cliente.
+        /// Control Id_muestra.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField Id_cliente;
+        protected global::System.Web.UI.WebControls.HiddenField Id_muestra;
         
         /// <summary>
-        /// Control enviar.
+        /// Control Aceptar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button enviar;
+        protected global::System.Web.UI.WebControls.Button Aceptar;
     }
 }
