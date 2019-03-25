@@ -7,10 +7,10 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace CentroBiologiaMolecularUCA.Views.ViewOrden {
+namespace CentroBiologiaMolecularUCA.Views.Vogm {
     
     
-    public partial class VerOrden {
+    public partial class Seeogm {
         
         /// <summary>
         /// Control myfrom.
@@ -20,6 +20,24 @@ namespace CentroBiologiaMolecularUCA.Views.ViewOrden {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlForm myfrom;
+        
+        /// <summary>
+        /// Control Mcliente.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Mcliente;
+        
+        /// <summary>
+        /// Control Mcedula.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Mcedula;
         
         /// <summary>
         /// Control Mcodigo.

@@ -9,9 +9,9 @@ using System.Web.UI.WebControls;
 using WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos;
 using WebSistemaCentroBiologiaMolecularUCA.Ncapas.Entidades;
 
-namespace CentroBiologiaMolecularUCA.Views.ViewOrden
+namespace CentroBiologiaMolecularUCA.Views.Vogm
 {
-    public partial class BuscarOrden : System.Web.UI.Page
+    public partial class Searchogm : System.Web.UI.Page
     {
         private SqlDataReader registro;
         private DTUsuario dtusuario;

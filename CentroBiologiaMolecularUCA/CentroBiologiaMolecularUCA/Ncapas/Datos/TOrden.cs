@@ -270,7 +270,7 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
         public SqlDataReader getOrdenporid(int id)
         {
             c = Conexion.getInstance().ConexionDB();
-            String sql = "select Id_codigo,Fecha,Id_tipo_muestra,Observaciones,Baucher,Estado from T_Orden where Id_orden='" + id + "';";
+            String sql = "select Id_codigo,Id_cliente,Fecha,Id_tipo_muestra,Observaciones,Baucher,Estado from T_Orden where Id_orden='" + id + "';";
 
             SqlCommand comando = new SqlCommand(sql, this.c);
             this.registros = comando.ExecuteReader();

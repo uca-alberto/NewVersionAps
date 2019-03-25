@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Searchogm.aspx.cs" Inherits="CentroBiologiaMolecularUCA.Views.ViewOrden.BuscarOrden" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Searchogm.aspx.cs" Inherits="CentroBiologiaMolecularUCA.Views.Vogm.Searchogm" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
     

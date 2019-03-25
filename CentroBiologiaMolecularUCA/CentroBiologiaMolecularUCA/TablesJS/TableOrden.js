@@ -21,9 +21,10 @@ function addRowDT(data) {
            data[i].Id_orden,
            data[i].Id_codigo,
            data[i].Baucher,
-           '<a title="ver" href="Seeogm.aspx?id=' + data[i].Id_orden + '"><i class="fa ti-eye"></i>&nbsp;' +
-           '<a title="Editar" href="Updogm.aspx?id=' + data[i].Id_orden + '"><i class="fa fa-edit"></i>&nbsp;' +
-           '<a value="Eliminarre" id="Eliminar"><i class="fa fa-trash-o"></i>'
+           '<a title="ver" href="Seeogm.aspx?id=' + data[i].Id_orden + '"><i class="fa ti-eye"></i>&nbsp;'+
+           '<a value="Eliminarre" id="Eliminar"><i class="fa fa-trash-o"></i>&nbsp;' +
+           '<a title="Generar Resultado" href="?id=' + data[i].Id_orden + '"><i class="fa fa-file-text-o"></i>&nbsp;'
+          
 
         ]).draw(false);
     }

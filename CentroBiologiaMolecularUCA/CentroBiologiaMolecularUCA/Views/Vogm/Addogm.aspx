@@ -120,7 +120,7 @@
                                                 <td><%=getregistros()["Cedula"] %></td>
 
                                                 <td>
-                                                        <button id="btn" type="button" class="btn btn-success"  data-dismiss="modal"> <i class="ti-user"></i> Seleccionar</button>
+                                                        <button id="btn" type="button" class="btn btn-success"  data-dismiss="modal"> <i class="fa fa-user-plus"></i> Seleccionar</button>
                                                 </td>
                                                                   
                                             </tr>
@@ -169,7 +169,7 @@
 
                     <div class="card-header">
                         <strong class="card-title">Datos Orden</strong>
-                            </div>  
+                            </div>&nbsp;
 
         <!--Codigo de la Orden-->
                 <div class="row form-group ">
@@ -185,7 +185,7 @@
                    <div class="col col-md-3 "><label for="text-input" class=" form-control-label">Fecha</label></div>
                 <div class="col-12 col-md-9">&nbsp; 
                     
-                      <asp:Textbox ID="Mfecha" runat="server" ToolTip="fecha" placeholder="dd/mm/yyyy" type="date"></asp:Textbox>
+                      <asp:Textbox ID="Mfecha" runat="server" ToolTip="fecha" CssClass="form-control" placeholder="dd/mm/yyyy" type="date"></asp:Textbox>
                       <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="Mfecha" Display="Dynamic" ErrorMessage="Ingrese La Fecha" ForeColor="Red" Font-Italic="true"></asp:RequiredFieldValidator>     
                      </div>
                    </div>

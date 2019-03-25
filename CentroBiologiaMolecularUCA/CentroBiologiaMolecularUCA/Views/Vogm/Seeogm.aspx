@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Seeogm.aspx.cs" Inherits="CentroBiologiaMolecularUCA.Views.ViewOrden.VerOrden" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Seeogm.aspx.cs" Inherits="CentroBiologiaMolecularUCA.Views.Vogm.Seeogm" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
  <link href="../../assets/css_Editables/form-mouse.css" rel="stylesheet" />
 
@@ -10,6 +10,28 @@
             <div class="card-body card-block">
                 <form id="myfrom" method="post" enctype="multipart/form-data" class="form-horizontal" runat="server">
                     
+            <div class="card-header">
+                        <strong class="card-title">Orden del Cliente</strong>
+                            </div>&nbsp;
+                     <!--Obtener el nombre del cliente que selecciono-->
+            <div class="row form-group ">
+                <div class="col col-md-3 "><label for="text-input" class=" form-control-label">Nombre Cliente</label></div>
+                <div class="col-12 col-md-9">
+                     <asp:TextBox ID="Mcliente" ReadOnly="true" runat="server" ToolTip="Nombre Cliente" CssClass="formcursor"></asp:TextBox>   
+                </div>
+             </div>
+                    <!--Obtener la cedula del cliente que selecciono-->
+           <div class="row form-group ">
+                <div class="col col-md-3 "><label for="text-input" class=" form-control-label">Cedula</label></div>
+                <div class="col-12 col-md-9">
+                     <asp:TextBox ID="Mcedula" ReadOnly="true" runat="server" ToolTip="Cedula Cliente" CssClass="formcursor"></asp:TextBox>      
+                     </div>
+             </div>
+
+                    <div class="card-header">
+                        <strong class="card-title">Datos Orden</strong>
+                            </div> &nbsp; 
+
                 <!--Codigo de la Orden-->
                 <div class="row form-group ">
                 <div class="col col-md-3 "><label for="text-input" class="form-control-label">Codigo orden</label></div>

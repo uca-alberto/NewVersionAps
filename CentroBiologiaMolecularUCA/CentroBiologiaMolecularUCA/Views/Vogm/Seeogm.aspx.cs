@@ -7,25 +7,35 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos;
 using WebSistemaCentroBiologiaMolecularUCA.Ncapas.Entidades;
+using WebSistemaCentroBiologiaMolecularUCA.Ncapas.Negocio;
 
-namespace CentroBiologiaMolecularUCA.Views.ViewOrden
+namespace CentroBiologiaMolecularUCA.Views.Vogm
 {
-    public partial class VerOrden : System.Web.UI.Page
+    public partial class Seeogm : System.Web.UI.Page
     {
         private TOrden tOrden;
         private DTanalisis dtanalisis;
         private DTmuestra dtmuestra;
+        //Cliente
+        private DTcliente dtcliente;
+        private SqlDataReader cliente;
+        private Cliente cli;
+        //Orden y analisis
         private SqlDataReader registro;
         private SqlDataReader analisis;
+
         public OrdenAdn ord;
         private String[] array = new String[10];
         private int index = 0;
 
+        //Guardar el id cliente
+        private int idcliente;
 
         protected void Page_Load(object sender, EventArgs e)
         {
 
             this.tOrden = new TOrden();
+            dtcliente = new DTcliente();
             ord = new OrdenAdn();
             this.dtanalisis = new DTanalisis();
             this.dtmuestra = new DTmuestra();
@@ -33,16 +43,16 @@ namespace CentroBiologiaMolecularUCA.Views.ViewOrden
             String valor = Request.QueryString["id"];
             int id = int.Parse(valor);
             ord.Id_orden = id;
+
             //Cargar los tipos de Analisis
 
-            Manalisis.DataSource = dtanalisis.listaranalisis();
+            Manalisis.DataSource = NGorden.getInstance().ListarAnalisis();
             Manalisis.DataTextField = "analisis";
             Manalisis.DataValueField = "Id_analisis";
             Manalisis.DataBind();
 
-
             //Cargar Tipos de Muestras
-            Mmuestra.DataSource = dtmuestra.listarmuestras();
+            Mmuestra.DataSource = NGorden.getInstance().ListarMuestras();
             Mmuestra.DataTextField = "muestra";
             Mmuestra.DataValueField = "Id_tipo_muestra";
             Mmuestra.DataBind();
@@ -82,7 +92,19 @@ namespace CentroBiologiaMolecularUCA.Views.ViewOrden
                 ord.Observaciones = this.registro["Observaciones"].ToString();
                 ord.Baucher = this.registro["Baucher"].ToString();
                 ord.Estado = this.registro["Estado"].ToString();
+
+                //Datos Cliente
+                idcliente = Convert.ToInt32(registro["Id_cliente"].ToString());
             }
+
+            //Mostrar datos en el textbox
+            this.cliente = dtcliente.getClienteporid(idcliente);
+            if (cliente.Read())
+            {
+                Mcliente.Text = cliente["Nombre"].ToString() + " " + cliente["Apellido"].ToString();
+                Mcedula.Text = cliente["Cedula"].ToString();
+            }
+
         }
     }
 }

@@ -7,10 +7,10 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace CentroBiologiaMolecularUCA.Views.ViewOrden {
+namespace CentroBiologiaMolecularUCA.Views.Vogm {
     
     
-    public partial class BuscarOrden {
+    public partial class Searchogm {
         
         /// <summary>
         /// Control Update.
