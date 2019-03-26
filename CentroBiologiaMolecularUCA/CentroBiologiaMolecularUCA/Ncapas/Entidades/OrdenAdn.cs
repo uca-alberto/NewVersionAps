@@ -12,7 +12,7 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Entidades
         private String tipo_Caso;
         private String tipo_examen;
         private String tipo_muestra;
-        private String id_cliente;
+        public int id_cliente { get; set; }
         private String id_usuario;
         private String id_empleado;
         private String nombre_pareja;
@@ -144,19 +144,6 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Entidades
             set
             {
                 tipo_Caso = value;
-            }
-        }
-
-        public string Id_cliente
-        {
-            get
-            {
-                return id_cliente;
-            }
-
-            set
-            {
-                id_cliente = value;
             }
         }
 

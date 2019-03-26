@@ -132,7 +132,7 @@
                             </div>&nbsp;
                     <!--Obtener el Id del cliente que selecciono-->
           
-           <asp:TextBox ID="Idcliente" Visible="false" runat="server"></asp:TextBox>    
+                   <asp:HiddenField runat="server" ID="Id_cliente" />
 
                      <!--Obtener el nombre del cliente que selecciono-->
             <div class="row form-group ">

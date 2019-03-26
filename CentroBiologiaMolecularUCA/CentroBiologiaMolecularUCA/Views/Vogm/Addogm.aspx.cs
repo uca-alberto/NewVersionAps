@@ -123,12 +123,12 @@ namespace CentroBiologiaMolecularUCA.Views.ViewOrden
             {
                 ord.Fecha = Convert.ToDateTime(Mfecha.Text);
             }
-
-
+           // int id1 =Convert.ToInt32( Id_cliente.ToString());
             String userid = (string)Session["Id_usuario"];
-            ord.Id_cliente = Idcliente.Text;
+            ord.id_cliente = int.Parse(Id_cliente.Value.ToString());
             ord.Id_usuario = userid;
             ord.Id_orden = Id;
+           // System.Diagnostics.Debug.WriteLine(ord.Id_cliente);
             return ord;
         }
 
