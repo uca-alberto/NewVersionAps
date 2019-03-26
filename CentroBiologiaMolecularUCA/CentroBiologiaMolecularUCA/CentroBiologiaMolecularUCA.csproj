@@ -685,6 +685,7 @@
     <Content Include="Views\Opc\Use\Upduse.aspx" />
     <Content Include="Views\Opc\Use\Seeuse.aspx" />
     <Content Include="Views\Vreogm\Addreogm.aspx" />
+    <Content Include="Views\Vreogm\Searchreogm.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -1043,6 +1044,13 @@
     </Compile>
     <Compile Include="Views\Vreogm\Addreogm.aspx.designer.cs">
       <DependentUpon>Addreogm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Vreogm\Searchreogm.aspx.cs">
+      <DependentUpon>Searchreogm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Vreogm\Searchreogm.aspx.designer.cs">
+      <DependentUpon>Searchreogm.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

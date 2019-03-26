@@ -8,13 +8,14 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Entidades
     public class Resultado
     {
         private int id_resultado;
+        private int id_orden;
         private String validacion;
         private DateTime fecha_procesamiento;
+        private DateTime hora;
         private String usuario_valida;
         private String usuario_procesa;
         private String estado;
-        private String analisis;
-        private String parametros;
+        private String observaciones;
 
         public int Id_resultado
         {
@@ -26,6 +27,19 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Entidades
             set
             {
                 id_resultado = value;
+            }
+        }
+
+        public int Id_orden
+        {
+            get
+            {
+                return id_orden;
+            }
+
+            set
+            {
+                id_orden = value;
             }
         }
 
@@ -42,7 +56,6 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Entidades
             }
         }
 
-        //
         public DateTime Fecha_procesamiento
         {
             get
@@ -53,6 +66,19 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Entidades
             set
             {
                 fecha_procesamiento = value;
+            }
+        }
+
+        public DateTime Hora
+        {
+            get
+            {
+                return hora;
+            }
+
+            set
+            {
+                hora = value;
             }
         }
 
@@ -95,32 +121,17 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Entidades
             }
         }
 
-        public string Analisis
+        public string Observaciones
         {
             get
             {
-                return analisis;
+                return observaciones;
             }
 
             set
             {
-                analisis = value;
+                observaciones = value;
             }
         }
-
-        public string Parametros
-        {
-            get
-            {
-                return parametros;
-            }
-
-            set
-            {
-                parametros = value;
-            }
-        }
-
-        
     }
 }

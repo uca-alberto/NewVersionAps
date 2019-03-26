@@ -1,6 +1,32 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Addreogm.aspx.cs" Inherits="CentroBiologiaMolecularUCA.Views.Vreogm.Addreogm" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
      <link href="../../assets/css_Editables/form-mouse.css" rel="stylesheet" />
+       <script src="../../assets/sweetalert.min.js"></script>
+
+    <script>
+        function ADD() {
+            swal({
+                title: "Error",
+                text: "Revisar Formulario",
+                icon: "warning",
+                button: "OK",
+            });
+    }</script>
+
+    <script>
+        function InsertarResultado(data) {
+            swal({
+                title: "Resultado Agregado",
+                text: "Correctamente",
+                icon: "success",
+            })
+          .then((willDelete) => {
+              if (willDelete) {
+                  location.href = "../Vogm/Searchogm.aspx";
+              } 
+          });
+        }
+    </script>
 
          <div class="card-header">
             <strong class="card-title" >REGISTRO DE ANALISIS DE DETECCION DE OGMs </strong>

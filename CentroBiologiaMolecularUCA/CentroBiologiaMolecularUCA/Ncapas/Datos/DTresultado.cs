@@ -47,17 +47,19 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
                 c = Conexion.getInstance().ConexionDB();
                 // string sql = "insert into T_Orden (Id_orden,Fecha,Entregado,Tipo_orden,Observaciones,Baucher,No_orden,Estado,Actividad) VALUES(2,@Mfecha,@Mentregado,@Mtipoorden,@Mobservaciones,@Mbaucher,@Mnoorden,@Mestado,1)";
 
-                string sql = "insert into T_Resultados (Validacion,Fecha_procesamiento,Usuario_valida,Usuario_procesa,Estado,Analisis,Resultado,Actividad) VALUES(@Mvalidacion,@Mfecha,@Musuariovalida,@Musuarioprocesa,@Mestado,@Manalisis,@Mresultado,1)";
+                string sql = "insert into T_Resultados (Id_Orden,Validacion,Fecha_procesamiento,Hora,Usuario_valida,Usuario_procesa,Estado,Observaciones,imagen,Activo) VALUES(@idorden,@Mvalidacion,@Mfecha,@Mhora,@Musuariovalida,@Musuarioprocesa,@Mestado,@Mobservaciones,NULL,1)";
                 //PASANDO PARÁMETROS A CONSULTA SQL
                 using (comando = new SqlCommand(sql, c))
                 {
+                    comando.Parameters.AddWithValue("@idorden", e.Id_orden);
                     comando.Parameters.AddWithValue("@Mvalidacion", e.Validacion);
                     comando.Parameters.AddWithValue("@Mfecha", e.Fecha_procesamiento);
+                    comando.Parameters.AddWithValue("@Mhora", e.Hora);
                     comando.Parameters.AddWithValue("@Musuariovalida", e.Usuario_valida);
                     comando.Parameters.AddWithValue("@Musuarioprocesa", e.Usuario_procesa);
                     comando.Parameters.AddWithValue("@Mestado", e.Estado);
-                    comando.Parameters.AddWithValue("@Manalisis", e.Analisis);
-                    comando.Parameters.AddWithValue("@Mresultado", e.Parametros);
+                    comando.Parameters.AddWithValue("@Mobservaciones", e.Observaciones);
+
                     //VALIDANDO SI LA CONEXIÓN ESTÁ ACTIVA O CERRADA
                     if (comando.Connection.State != System.Data.ConnectionState.Closed)
                     {
@@ -125,8 +127,7 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
                     comando.Parameters.AddWithValue("@Musuariovalida", e.Usuario_valida);
                     comando.Parameters.AddWithValue("@Musuarioprocesa", e.Usuario_procesa);
                     comando.Parameters.AddWithValue("@Mestado", e.Estado);
-                    comando.Parameters.AddWithValue("@Manalisis", e.Analisis);
-                    comando.Parameters.AddWithValue("@Mresultado", e.Parametros);
+
                     //VALIDANDO SI LA CONEXIÓN ESTÁ ACTIVA O CERRADA
                     if (comando.Connection.State != System.Data.ConnectionState.Closed)
                     {
@@ -274,13 +275,13 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
 
 
 
-        //nuevo cambio 20/02/2019
+  
         public List<Resultado> GetData()
         {
             using (var connection = new SqlConnection(ConfigurationManager.ConnectionStrings["DataBase"].ConnectionString))
             {
                 connection.Open();
-                using (SqlCommand command = new SqlCommand(@"SELECT  [Id_resultado],[Analisis] FROM T_Resultados where Actividad=1", connection))
+                using (SqlCommand command = new SqlCommand(@"SELECT  [Id_resultado],[Estado] FROM T_Resultados where Activo=1", connection))
                 {
                     // Make sure the command object does not already have
                     // a notification object associated with it.
@@ -298,8 +299,7 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
 
                             {
                                 Id_resultado = x.GetInt32(0),
-                                Analisis = x.GetString(1),
-
+                                Estado = x.GetString(1)
                             }).ToList();
 
                 }

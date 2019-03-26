@@ -37,7 +37,7 @@ namespace CentroBiologiaMolecularUCA.Views.ViewResultadoMaria
             }
             else
             {
-                re.Fecha_procesamiento = Convert.ToDateTime(Mfecha.Text);
+              //  re.Fecha_procesamiento = Convert.ToDateTime(Mfecha.Text);
             }
             if (Mvalidacion.ToString() == null)
             {
@@ -53,7 +53,7 @@ namespace CentroBiologiaMolecularUCA.Views.ViewResultadoMaria
             }
             else
             {
-                re.Parametros = Mresultado.SelectedValue;
+              
             }
             if (Mestado.ToString() == null)
             {
@@ -85,7 +85,7 @@ namespace CentroBiologiaMolecularUCA.Views.ViewResultadoMaria
             }
             else
             {
-                re.Analisis = Manalisis.Text;
+               
             }
 
             return re;

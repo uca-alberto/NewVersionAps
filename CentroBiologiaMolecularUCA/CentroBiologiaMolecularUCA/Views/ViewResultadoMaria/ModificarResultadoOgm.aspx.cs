@@ -29,14 +29,14 @@ namespace CentroBiologiaMolecularUCA.Views.ViewResultadoMaria
 
             if (registro.Read())
             {
-                this.re.Fecha_procesamiento = Convert.ToDateTime(this.registro["Fecha"].ToString());
+               // this.re.Fecha_procesamiento = Convert.ToDateTime(this.registro["Fecha"].ToString());
                 re.Validacion = this.registro["Validacion"].ToString();
-                re.Parametros = this.registro["Resultado"].ToString();
+               // re.Parametros = this.registro["Resultado"].ToString();
                 re.Estado = this.registro["Estado"].ToString();
                 re.Usuario_procesa = this.registro["Usuario_procesa"].ToString();
                 re.Usuario_valida = this.registro["Usuario_valida"].ToString();
 
-                this.re.Analisis = this.registro["Analisis"].ToString();
+               // this.re.Analisis = this.registro["Analisis"].ToString();
 
             }
 
@@ -56,7 +56,7 @@ namespace CentroBiologiaMolecularUCA.Views.ViewResultadoMaria
             }
             else
             {
-                re.Fecha_procesamiento = Convert.ToDateTime(Mfecha.Text);
+               // re.Fecha_procesamiento = Convert.ToDateTime(Mfecha.Text);
             }
             if (Mvalidacion.ToString() == null)
             {
@@ -72,7 +72,7 @@ namespace CentroBiologiaMolecularUCA.Views.ViewResultadoMaria
             }
             else
             {
-                re.Parametros = Mresultado.SelectedValue;
+               // re.Parametros = Mresultado.SelectedValue;
             }
             if (Mestado.ToString() == null)
             {
@@ -104,7 +104,7 @@ namespace CentroBiologiaMolecularUCA.Views.ViewResultadoMaria
             }
             else
             {
-                re.Analisis = Manalisis.Text;
+             //   re.Analisis = Manalisis.Text;
             }
             return re;
         }

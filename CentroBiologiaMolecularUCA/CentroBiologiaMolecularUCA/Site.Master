@@ -92,8 +92,7 @@
                              <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-area-chart"></i>Control de Resultados OGM</a>
                         <ul class="sub-menu children dropdown-menu">
-                             <li><i class="menu-icon fa fa-plus-circle"></i><a href="../../Views/ViewResultadoMaria/AgregarResultadoOgm.aspx">Crear Resultado OGM</a></li>
-                            <li><i class="ti-search"></i><a href="../../Views/ViewOrdenResultadoMaria/BuscarResultadoOgm.aspx">Buscar Resultado Ogm</a></li>
+                            <li><i class="ti-search"></i><a href="../../Views/Vreogm/Searchreogm.aspx">Buscar Resultado Ogm</a></li>
                         </ul>
                     </li>
                         <!-- /.Resultado ADN -->

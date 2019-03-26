@@ -1,29 +1,11 @@
-﻿$(function () {
-
-    // Proxy created on the fly
-    var job = $.connection.myHub;
-
-    //     Declare a function on the job hub so the server can invoke it
-    job.client.displayStatus = function () {
-        addRowDT(data)
-    };
-
-    // Start the connection
-    $.connection.hub.start();
-    addRowDT(data)
-});
-
-var data, tabla;
+﻿var data, tabla;
 function addRowDT(data) {
     tabla = $("#bootstrap-data-table").DataTable();
     for (var i = 0; i < data.length; i++) {
         tabla.row.add([
            data[i].Id_resultado,
-           data[i].Analisis,
-           
-           '<a title="Editar" href="ModificarResultadoOgm.aspx?id=' + data[i].Id_resultado + '"><i class="fa fa-edit"></i>&nbsp;' +
-           '<a value="Eliminarre" id="Eliminar"><i class="fa fa-trash-o"></i>'
-
+           data[i].Estado,
+           '<a title="Ver resultado"><i class="fa ti-eye"></i>&nbsp;'
         ]).draw(false);
     }
 }
@@ -31,7 +13,7 @@ function addRowDT(data) {
 function sendDataAjax() {
     $.ajax({
         type: "POST",
-        url: "BuscarResultadoOgm.aspx/GetData",
+        url: "Searchreogm.aspx/GetData",
         data: {},
         contentType: "application/json; charset=utf-8",
         error: function (xhr, ajaxOptions, thrownError) {
@@ -60,7 +42,7 @@ function deleteDataAjax(data) {
           });
           $.ajax({
               type: "POST",
-              url: "BuscarResultadoOgm.aspx/EliminarCli",
+              url: "Searchreogm.aspx/EliminarCli",
               data: obj,
               dataType: "json",
               contentType: "application/json; charset=utf-8",
@@ -72,7 +54,7 @@ function deleteDataAjax(data) {
           swal("Se Elimino Correctamente", {
               icon: "success",
           });
-          location.href = "BuscarResultadoOgm.aspx"
+          location.href = "Searchreogm.aspx"
       }
   });
 }

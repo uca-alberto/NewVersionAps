@@ -24,14 +24,14 @@ namespace CentroBiologiaMolecularUCA.Views.ViewResultadoMaria
             if (registro.Read())
             {
 
-                this.re.Fecha_procesamiento = Convert.ToDateTime(this.registro["Fecha"].ToString());
+               // this.re.Fecha_procesamiento = Convert.ToDateTime(this.registro["Fecha"].ToString());
                 re.Validacion = this.registro["Validacion"].ToString();
-                re.Parametros = this.registro["Resultado"].ToString();
+               // re.Parametros = this.registro["Resultado"].ToString();
                 re.Estado = this.registro["Estado"].ToString();
                 re.Usuario_procesa = this.registro["Usuario_procesa"].ToString();
                 re.Usuario_valida = this.registro["Usuario_valida"].ToString();
 
-                this.re.Analisis = this.registro["Analisis"].ToString();
+               // this.re.Analisis = this.registro["Analisis"].ToString();
 
             }
 

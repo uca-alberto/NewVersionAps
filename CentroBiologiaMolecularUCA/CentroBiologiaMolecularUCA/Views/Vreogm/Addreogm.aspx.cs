@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Globalization;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -22,6 +23,9 @@ namespace CentroBiologiaMolecularUCA.Views.Vreogm
 
         private String[] array = new String[10];
         private int index = 0;
+        private int id;
+
+        private string usuario_valida;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -32,7 +36,7 @@ namespace CentroBiologiaMolecularUCA.Views.Vreogm
 
             //Obtener el Id Orden
             String valor = Request.QueryString["id"];
-            int id = int.Parse(valor);
+            id = int.Parse(valor);
 
             //Cargar los tipos de Analisis
 
@@ -62,9 +66,12 @@ namespace CentroBiologiaMolecularUCA.Views.Vreogm
                 Minvestigador.Text = registro["Nombre_empleado"].ToString() + " (" + registro["Cargo"] + ")";
                 Mimportador.Text = registro["Nombre"].ToString() + " " + registro["Apellido"].ToString();
                 Mmuestra.SelectedValue = registro["Id_tipo_muestra"].ToString();
+
+                //Usuario que valida
+                usuario_valida = registro["Id_usuario"].ToString();
             }
             //Cargar Fecha y hora 
-            Mfecha.Text = DateTime.Now.ToString("MM/dd/yyyy");
+            Mfecha.Text = DateTime.Now.ToString("dd/MM/yyyy");
             Mhora.Text = DateTime.Now.ToString("hh:mm");
 
         }
@@ -102,7 +109,7 @@ namespace CentroBiologiaMolecularUCA.Views.Vreogm
             }
             else
             {
-
+                res.Observaciones = Mobservaciones.Text;
             }
             if (Mresultado.SelectedValue.ToString() == "0")
             {
@@ -112,16 +119,40 @@ namespace CentroBiologiaMolecularUCA.Views.Vreogm
             {
                 res.Validacion = Mresultado.SelectedValue;
             }
-
+            res.Id_orden = id;
+            res.Fecha_procesamiento = Convert.ToDateTime(Mfecha.Text);
+            res.Hora = Convert.ToDateTime(Mhora.Text);
+            res.Usuario_valida = usuario_valida;
+            //Obtener el usuario actual
+            String userprocesa = (string)Session["Id_usuario"];
+            res.Usuario_procesa = userprocesa;
+            //estado para mientras
+            res.Estado = "Procesada";
             return res;
         }
 
         public void InsertarResultado(object sender, EventArgs e)
         {
+            if (IsValid)//valido que si mi formulario esta correcto
+            {
+                Resultado res = GetEntity();
+                //LLAMANDO A CAPA DE NEGOCIO
+                bool resp = NGresultado.getInstance().guardarresultado(res);
 
+                if (resp == true)
+                {
+                    //Mostrar Notificacion
+                    ClientScript.RegisterStartupScript(GetType(), "Javascript", "javascript: InsertarResultado(); ", true);
+                }
+                else
+                {
+                    Response.Write("<script>alert('REGISTRO INCORRECTO.')</script)");
+                }
+            }
+            else
+            {
+                ClientScript.RegisterStartupScript(GetType(), "Javascript", "javascript: ADD(); ", true);
+            }
         }
-
-
-
     }
 }
