@@ -1,21 +1,4 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Addogm.aspx.cs" Inherits="CentroBiologiaMolecularUCA.Views.ViewOrden.AgregarOrdenOgm" %>
-<%-- 
-<asp:Content ID="Content2" ContentPlaceHolderID="head" runat="server">
-     <!-- Script Para el Date Picker -->
- <script type="text/javascript">
-      $(document).ready( function() {
-          $("input[id$='Mfecha']").attr('readOnly', 'true').datepicker({
-              showOn: 'button',
-              buttonImageOnly: true,
-              buttonImage: '../../assets/imagenes/calendar.png',
-              maxDate: 'Today',
-              buttonText: 'Mostrar Calendario',
-              
-          });  
-      });
- </script>
-</asp:Content>
---%>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <link href="../../assets/css_Editables/form-mouse.css" rel="stylesheet" />
     <!-- Añadir Script-->

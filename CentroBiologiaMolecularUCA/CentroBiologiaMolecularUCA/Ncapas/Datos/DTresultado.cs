@@ -260,6 +260,20 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
             c.Close();
         }
 
+        public SqlDataReader cargardatosporid(int id)
+        {
+            c = Conexion.getInstance().ConexionDB();
+            String sql = "SELECT clientes.Nombre, clientes.Apellido,orden.Id_codigo,orden.Id_tipo_muestra,orden.Id_usuario,emp.Nombre_empleado, emp.Apellido,emp.Cargo FROM T_Orden orden INNER JOIN T_Clientes clientes ON orden.Id_cliente=clientes.Id_cliente INNER JOIN T_Usuario usuario ON usuario.Id_usuario=orden.Id_usuario INNER JOIN T_Empleados emp ON usuario.Id_empleado=emp.Id_empleado where Id_orden ='" + id + "';";
+
+            SqlCommand comando = new SqlCommand(sql, this.c);
+            this.registros = comando.ExecuteReader();
+            return this.registros;
+            c.Close();
+        }
+
+
+
+
         //nuevo cambio 20/02/2019
         public List<Resultado> GetData()
         {
