@@ -2,85 +2,16 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
-         <!-- Script Para el Date Picker -->
- <script type="text/javascript">
-      $(document).ready( function() {
-          $("input[id$='Mfecha']").attr('readOnly', 'true').datepicker({
-              showOn: 'button',
-              buttonImageOnly: true,
-              buttonImage: '../../assets/imagenes/calendar.png',
-              maxDate: 'Today',
-              buttonText: 'Mostrar Calendario',
-              
-          });  
-      });
- </script>
-
-      <script type="text/javascript">
-         $(document).ready(function () {
-             
-          $("input[id$='Mfechamaternidad']").attr('readOnly', 'true').datepicker({
-              showOn: 'button',
-              buttonImageOnly: true,
-              buttonImage: '../../assets/imagenes/calendar.png',
-              maxDate: 'Today',
-              buttonText: 'Mostrar Calendario',
-              
-          });  
-      });
-
-    
- </script>
-
-         <script type="text/javascript">
-         $(document).ready(function () {
-             
-             $("input[id$='Mfechaabuelidad']").attr('readOnly', 'true').datepicker({
-              showOn: 'button',
-              buttonImageOnly: true,
-              buttonImage: '../../assets/imagenes/calendar.png',
-              maxDate: 'Today',
-              buttonText: 'Mostrar Calendario',
-              
-          });  
-      });
-
-    
- </script>
+ 
 
 
-        <script type="text/javascript">
-         $(document).ready(function () {
-             
-             $("input[id$='Mfechaalzheimer']").attr('readOnly', 'true').datepicker({
-              showOn: 'button',
-              buttonImageOnly: true,
-              buttonImage: '../../assets/imagenes/calendar.png',
-              maxDate: 'Today',
-              buttonText: 'Mostrar Calendario',
-              
-          });  
-      });
+     
 
-    
- </script>
 
-        <script type="text/javascript">
-         $(document).ready(function () {
-             
-             $("input[id$='Mfechapapiloma']").attr('readOnly', 'true').datepicker({
-              showOn: 'button',
-              buttonImageOnly: true,
-              buttonImage: '../../assets/imagenes/calendar.png',
-              maxDate: 'Today',
-              buttonText: 'Mostrar Calendario',
-              
-          });  
-      });
+ 
 
-    
- </script>
       <!--Añadimos el Script-->
+    <script src="../../../assets/js/vendor/jquery-2.1.4.min.js"></script>
     <script src="../../assets/sweetalert.min.js"></script>
     
      <script>
@@ -107,12 +38,110 @@
           });
         }
     </script>
+
+
+   <%-- <div class="content mt-3">
+            <div class="animated">
+    <div class="card">
+                    <div class="card-header">      
+                        <strong class="mr-2 fa fa-align-justify"> Orden del Cliente</strong>
+                            </div>
+                    <div class="card-body">
+                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#mediumModal">
+                   <i class="fa fa-search"></i> Seleccionar Cliente</button>
+   
+                    </div>
+                </div>
+
+                 <div class="modal fade" id="mediumModal" tabindex="-1" role="dialog" aria-labelledby="mediumModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="mediumModalLabel">Clientes Activos</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                           <!--Buscar Cliente de la Orden-->
+                    <div class="card-header">
+                        <strong class="card-title">Buscar Cliente</strong>
+                            </div> 
+                
+                    <div class="card-body">
+                        <table id="bootstrap-data-table" class="table table-striped table-bordered" >
+                            <thead>
+                                <tr>
+                                    <th>Id</th>                   
+                                    <th>Nombre</th>
+                                    <th>Apellido</th>
+                                    <th>Cedula</th>
+                                    <th>Seleccionar</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                    <%
+                                    while(getregistros().Read())
+                                    {
+                                        %>
+                                            <tr><td><%=getregistros()["Id_cliente"] %></td>
+                                                                  
+                                                <td><%=getregistros()["Nombre"] %></td>
+
+                                                <td><%=getregistros()["Apellido"] %></td>
+
+                                                <td><%=getregistros()["Cedula"] %></td>
+
+                                                <td>
+                                                        <button id="btn" type="button" class="btn btn-success"  data-dismiss="modal"> <i class="ti-user"></i> Seleccionar</button>
+                                                </td>
+                                                                  
+                                            </tr>
+                                        <%
+                                    }
+                                %>                                                                              
+                            </tbody>
+                        </table>
+                    </div>
+
+
+
+                    </div>
+                 </div>
+                        </div>
+                     </div>
+                </div>
+    </div>--%>
+
      <div class="card-header">
             <strong class="card-title" v-if="headerText">Crear Orden ADN</strong>
         </div>
     <div class="card">
     <div class="card-body card-block">
     <form id="form1" runat="server">
+
+             <div class="card-header">
+                        <strong class="card-title">Orden del Cliente</strong>
+                            </div>&nbsp;
+                   <!--Obtener el Id del cliente que selecciono-->
+          
+<%--                   <asp:HiddenField runat="server" ID="Id_cliente" /> 
+
+                     <!--Obtener el nombre del cliente que selecciono-->
+            <div class="row form-group ">
+                <div class="col col-md-3 "><label for="text-input" class=" form-control-label">Nombre Cliente</label></div>
+                <div class="col-12 col-md-9">
+                     <asp:TextBox ID="Mcliente" ReadOnly="true" runat="server" ToolTip="Nombre Cliente" CssClass="form-control"></asp:TextBox>   
+                </div>
+             </div>
+                    <!--Obtener la cedula del cliente que selecciono-->
+           <div class="row form-group ">
+                <div class="col col-md-3 "><label for="text-input" class=" form-control-label">Cedula</label></div>
+                <div class="col-12 col-md-9">
+                     <asp:TextBox ID="Mcedula" ReadOnly="true" runat="server" ToolTip="Cedula Cliente" CssClass="form-control"></asp:TextBox>      
+                     </div>
+             </div>--%>
         
         <asp:MultiView ID="MultiView1" runat="server" ActiveViewIndex="0">
             <!-- index of view =0-->
@@ -154,16 +183,14 @@
                     </div>
                 </div>              
                     <!--fecha-->
-                         <div class="row form-group ">
+                      <div class="row form-group ">
                    <div class="col col-md-3 "><label for="text-input" class=" form-control-label">Fecha</label></div>
                 <div class="col-12 col-md-9">&nbsp; 
                     
-                      <asp:Textbox ID="Mfecha" runat="server" ToolTip="fecha" placeholder="dd/mm/yyyy" type="date"></asp:Textbox>
-                    
+                      <asp:Textbox ID="Mfecha" runat="server" ToolTip="fecha" CssClass="form-control" placeholder="dd/mm/yyyy" type="date"></asp:Textbox>
                       <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="Mfecha" Display="Dynamic" ErrorMessage="Ingrese La Fecha" ForeColor="Red" Font-Italic="true"></asp:RequiredFieldValidator>     
                      </div>
                    </div>
-
                    <!--tipo caso-->
                     <div class="row form-group ">
                 <div class="col col-md-3 "><label for="select" class=" form-control-label">Caso</label></div>
@@ -268,7 +295,7 @@
 
 
                    <!--fecha-->
-                           <div class="row form-group ">
+                          <%-- <div class="row form-group ">
                           <div class="col col-md-3 "><label for="text-input" class=" form-control-label">Fecha</label></div>
                 <div class="col-12 col-md-9">&nbsp; 
                     
@@ -276,7 +303,17 @@
                     
                       <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ControlToValidate="Mfechamaternidad" Display="Dynamic" ErrorMessage="Ingrese La Fecha" ForeColor="Red" Font-Italic="true"></asp:RequiredFieldValidator>     
                      </div>
-                                    </div>
+                                    </div>--%>
+
+                      <div class="row form-group ">
+                   <div class="col col-md-3 "><label for="text-input" class=" form-control-label">Fecha</label></div>
+                <div class="col-12 col-md-9">&nbsp; 
+                    
+                      <asp:Textbox ID="Mfechamaternidad" runat="server" ToolTip="fecha" CssClass="form-control" placeholder="dd/mm/yyyy" type="date"></asp:Textbox>
+                      <asp:RequiredFieldValidator ID="RequiredFieldValidator30" runat="server" ControlToValidate="Mfechamaternidad" Display="Dynamic" ErrorMessage="Ingrese La Fecha" ForeColor="Red" Font-Italic="true"></asp:RequiredFieldValidator>     
+                     </div>
+                   </div>
+
                    <!--tipo caso-->
                     <div class="row form-group ">
                 <div class="col col-md-3 "><label for="select" class=" form-control-label">Caso</label></div>
@@ -378,15 +415,17 @@
                 </div>
                 
                  <!--fecha-->
-                                  <div class="row form-group ">
-                          <div class="col col-md-3 "><label for="text-input" class=" form-control-label">Fecha</label></div>
+                      
+
+
+                    <div class="row form-group ">
+                   <div class="col col-md-3 "><label for="text-input" class=" form-control-label">Fecha</label></div>
                 <div class="col-12 col-md-9">&nbsp; 
                     
-                      <asp:Textbox ID="Mfechaabuelidad" runat="server" ToolTip="fecha" placeholder="dd/mm/yyyy"></asp:Textbox>
-                    
-                      <asp:RequiredFieldValidator ID="RequiredFieldValidator19" runat="server" ControlToValidate="Mfechaabuelidad" Display="Dynamic" ErrorMessage="Ingrese La Fecha" ForeColor="Red" Font-Italic="true"></asp:RequiredFieldValidator>     
+                      <asp:Textbox ID="Mfechaabuelidad" runat="server" ToolTip="fecha" CssClass="form-control" placeholder="dd/mm/yyyy" type="date"></asp:Textbox>
+                      <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ControlToValidate="Mfechaabuelidad" Display="Dynamic" ErrorMessage="Ingrese La Fecha" ForeColor="Red" Font-Italic="true"></asp:RequiredFieldValidator>     
                      </div>
-                                    </div>
+                   </div>
                           
                    <!--tipo caso-->
                     <div class="row form-group ">
@@ -488,15 +527,17 @@
                 </div>
 
                  <!--fecha-->
-                          <div class="row form-group ">
-                          <div class="col col-md-3 "><label for="text-input" class=" form-control-label">Fecha</label></div>
+                    
+
+                   <div class="row form-group ">
+                   <div class="col col-md-3 "><label for="text-input" class=" form-control-label">Fecha</label></div>
                 <div class="col-12 col-md-9">&nbsp; 
                     
-                      <asp:Textbox ID="Mfechaalzheimer" runat="server" ToolTip="fecha" placeholder="dd/mm/yyyy"></asp:Textbox>
-                    
-                      <asp:RequiredFieldValidator ID="RequiredFieldValidator23" runat="server" ControlToValidate="Mfechaalzheimer" Display="Dynamic" ErrorMessage="Ingrese La Fecha" ForeColor="Red" Font-Italic="true"></asp:RequiredFieldValidator>     
+                      <asp:Textbox ID="Mfechaalzheimer" runat="server" ToolTip="fecha" CssClass="form-control" placeholder="dd/mm/yyyy" type="date"></asp:Textbox>
+                      <asp:RequiredFieldValidator ID="RequiredFieldValidator19" runat="server" ControlToValidate="Mfechaalzheimer" Display="Dynamic" ErrorMessage="Ingrese La Fecha" ForeColor="Red" Font-Italic="true"></asp:RequiredFieldValidator>     
                      </div>
-                                    </div>   
+                   </div>
+
                    <!--tipo caso-->
                     <div class="row form-group ">
                 <div class="col col-md-3 "><label for="select" class=" form-control-label">Caso</label></div>
@@ -595,15 +636,16 @@
                 </div>
 
                   <!--fecha-->
-                          <div class="row form-group ">
-                          <div class="col col-md-3 "><label for="text-input" class=" form-control-label">Fecha</label></div>
+                      
+                
+                   <div class="row form-group ">
+                   <div class="col col-md-3 "><label for="text-input" class=" form-control-label">Fecha</label></div>
                 <div class="col-12 col-md-9">&nbsp; 
                     
-                      <asp:Textbox ID="Mfechapapiloma" runat="server" ToolTip="fecha" placeholder="dd/mm/yyyy"></asp:Textbox>
-                    
-                      <asp:RequiredFieldValidator ID="RequiredFieldValidator26" runat="server" ControlToValidate="Mfechapapiloma" Display="Dynamic" ErrorMessage="Ingrese La Fecha" ForeColor="Red" Font-Italic="true"></asp:RequiredFieldValidator>     
+                      <asp:Textbox ID="Mfechapapiloma" runat="server" ToolTip="fecha" CssClass="form-control" placeholder="dd/mm/yyyy" type="date"></asp:Textbox>
+                      <asp:RequiredFieldValidator ID="RequiredFieldValidator23" runat="server" ControlToValidate="Mfechapapiloma" Display="Dynamic" ErrorMessage="Ingrese La Fecha" ForeColor="Red" Font-Italic="true"></asp:RequiredFieldValidator>     
                      </div>
-                                    </div>       
+                   </div>   
 
                    <!--tipo caso-->
                     <div class="row form-group ">
@@ -676,5 +718,5 @@
         </div>
         </div>
 
-    
+    <script type="text/javascript" src="../../Content/ListaordenAdn.js"></script>
 </asp:Content>

@@ -17,14 +17,18 @@ namespace CentroBiologiaMolecularUCA.Views.ViewOrdenMaria
         private DTAdnPaternidad tpaternidad;
         private String valor = "";
         private TOrdenAdn tOrden;
-        
         private SqlDataReader registro;
+
+        //Para cargar la Tabla
+        private DTcliente tcliente;
         private Conexion conexion;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             this.tpaternidad = new DTAdnPaternidad();
-            
+            this.tcliente = new DTcliente();
             this.conexion = new Conexion();
+            this.registro = this.tcliente.listarCliente();
             //Generar el codigo
             Mcodigo.Text = tpaternidad.generarCodigo();
             Mcodigomadre.Text = tpaternidad.generarCodigo();
@@ -110,9 +114,10 @@ namespace CentroBiologiaMolecularUCA.Views.ViewOrdenMaria
             }
 
 
-            String useride = (string)Session["Id_usuario"];
-            ord.Id_usuario = useride;
-
+            String userid = (string)Session["Id_usuario"];
+         //   ord.id_cliente = int.Parse(Id_cliente.Value.ToString());
+            ord.Id_usuario = userid;
+            
             return ord;
         }
         public OrdenAdn GetAlzheimer()
@@ -184,8 +189,9 @@ namespace CentroBiologiaMolecularUCA.Views.ViewOrdenMaria
                 ord.Fecha = Convert.ToDateTime(Mfechaalzheimer.Text);
             }
 
-            String useride = (string)Session["Id_usuario"];
-            ord.Id_usuario = useride;
+            String userid = (string)Session["Id_usuario"];
+         //   ord.id_cliente = int.Parse(Id_cliente.Value.ToString());
+            ord.Id_usuario = userid;
 
             return ord;
         }
@@ -260,8 +266,9 @@ namespace CentroBiologiaMolecularUCA.Views.ViewOrdenMaria
                 ord.Fecha = Convert.ToDateTime(Mfechaabuelidad.Text);
             }
 
-            String useride = (string)Session["Id_usuario"];
-            ord.Id_usuario = useride;
+            String userid = (string)Session["Id_usuario"];
+           // ord.id_cliente = int.Parse(Id_cliente.Value.ToString());
+            ord.Id_usuario = userid;
 
             return ord;
         }
@@ -338,8 +345,9 @@ namespace CentroBiologiaMolecularUCA.Views.ViewOrdenMaria
                 ord.Fecha = Convert.ToDateTime(Mfechamaternidad.Text);
             }
 
-            String useride = (string)Session["Id_usuario"];
-            ord.Id_usuario = useride;
+            String userid = (string)Session["Id_usuario"];
+           // ord.id_cliente = int.Parse(Id_cliente.Value.ToString());
+            ord.Id_usuario = userid;
 
             return ord;
 
@@ -415,10 +423,10 @@ namespace CentroBiologiaMolecularUCA.Views.ViewOrdenMaria
             {
                 ord.Fecha = Convert.ToDateTime(Mfecha.Text);
             }
+            String userid = (string)Session["Id_usuario"];
+            //ord.id_cliente = int.Parse(Id_cliente.Value.ToString());
+            ord.Id_usuario = userid;
 
-
-            String useride = (string)Session["Id_usuario"];
-            ord.Id_usuario = useride;
 
             return ord;
         }

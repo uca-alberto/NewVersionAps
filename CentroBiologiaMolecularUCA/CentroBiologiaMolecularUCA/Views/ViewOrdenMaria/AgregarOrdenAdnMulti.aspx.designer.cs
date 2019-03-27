@@ -292,13 +292,13 @@ namespace CentroBiologiaMolecularUCA.Views.ViewOrdenMaria {
         protected global::System.Web.UI.WebControls.TextBox Mfechamaternidad;
         
         /// <summary>
-        /// Control RequiredFieldValidator9.
+        /// Control RequiredFieldValidator30.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator9;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator30;
         
         /// <summary>
         /// Control Mtipocasomadre.
@@ -454,13 +454,13 @@ namespace CentroBiologiaMolecularUCA.Views.ViewOrdenMaria {
         protected global::System.Web.UI.WebControls.TextBox Mfechaabuelidad;
         
         /// <summary>
-        /// Control RequiredFieldValidator19.
+        /// Control RequiredFieldValidator9.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator19;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator9;
         
         /// <summary>
         /// Control Mtipocasoabuelidad.
@@ -616,13 +616,13 @@ namespace CentroBiologiaMolecularUCA.Views.ViewOrdenMaria {
         protected global::System.Web.UI.WebControls.TextBox Mfechaalzheimer;
         
         /// <summary>
-        /// Control RequiredFieldValidator23.
+        /// Control RequiredFieldValidator19.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator23;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator19;
         
         /// <summary>
         /// Control Mtipocasoalzheimer.
@@ -778,13 +778,13 @@ namespace CentroBiologiaMolecularUCA.Views.ViewOrdenMaria {
         protected global::System.Web.UI.WebControls.TextBox Mfechapapiloma;
         
         /// <summary>
-        /// Control RequiredFieldValidator26.
+        /// Control RequiredFieldValidator23.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator26;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator23;
         
         /// <summary>
         /// Control Mtipocasopapiloma.
