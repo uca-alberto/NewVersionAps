@@ -50,6 +50,7 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
                 //PASANDO PARÁMETROS A CONSULTA SQL
                 using (comando = new SqlCommand(sql, c))
                 {
+                   // comando.Parameters.AddWithValue("@Midcliente", e.id_cliente);
                     comando.Parameters.AddWithValue("@Mcodigo", e.Id_codigo);
                     comando.Parameters.AddWithValue("@Mtipocaso", e.Tipo_Caso);
                     

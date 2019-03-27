@@ -1,13 +1,13 @@
 ﻿function edit(codigo, padre, hijo, fecha, tipocaso, observaciones, boucher, estado) {
-    document.getElementById('head_Mcodigo').value = codigo;
-    document.getElementById('head_Mnombrepareja').value = padre;
-    document.getElementById('head_Mnombrehijo').value = hijo;
-    document.getElementById('head_Mfecha').value = fecha;
-    document.getElementById('head_Mtipocaso').value = tipocaso;
+    document.getElementById('MainContent_Mcodigo').value = codigo;
+    document.getElementById('MainContent_Mnombrepareja').value = padre;
+    document.getElementById('MainContent_Mnombrehijo').value = hijo;
+    document.getElementById('MainContent_Mfecha').value = fecha;
+    document.getElementById('MainContent_Mtipocaso').value = tipocaso;
    
-    document.getElementById('head_Mobservaciones').value = observaciones;
-    document.getElementById('head_Mbaucher').value = boucher;
-    document.getElementById('head_Mestado').value = estado;
+    document.getElementById('MainContent_Mobservaciones').value = observaciones;
+    document.getElementById('MainContent_Mbaucher').value = boucher;
+    document.getElementById('MainContent_Mestado').value = estado;
 }
  
 function eliminar(url) {
