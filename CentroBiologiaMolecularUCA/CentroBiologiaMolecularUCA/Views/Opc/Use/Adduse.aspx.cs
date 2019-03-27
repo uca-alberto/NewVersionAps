@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CentroBiologiaMolecularUCA.Ncapas.Datos;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -15,6 +16,8 @@ namespace CentroBiologiaMolecularUCA.Views.ViewUsuario
     {
         private DTUsuario dtusuario;
         private SqlDataReader registro;
+        private SqlDataReader empleado;
+        private DTEmpleados dte;
         private Conexion conexion;
         private String Rol;
         private DTrol dtrol;
@@ -22,6 +25,8 @@ namespace CentroBiologiaMolecularUCA.Views.ViewUsuario
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            this.dte = new DTEmpleados();
+            this.empleado = this.dte.listarempleado();
             this.dtusuario = new DTUsuario();
             String rolid = (string)Session["Id_rol"];
             string ubicacion = HttpContext.Current.Request.Url.AbsolutePath;
@@ -33,40 +38,40 @@ namespace CentroBiologiaMolecularUCA.Views.ViewUsuario
             String[] array = new String[10];
             int index = 0;
 
-             if (rolid == "1")
-             {
-                 permiso = true;
-             }
-             else
-             {
-                 //guardar los datos que se extraen de la BD
-                 while (registro.Read())
-                 {
-                     array[index] = registro["opciones"].ToString();
-                     index++;
+            if (rolid == "1")
+            {
+                permiso = true;
+            }
+            else
+            {
+                //guardar los datos que se extraen de la BD
+                while (registro.Read())
+                {
+                    array[index] = registro["opciones"].ToString();
+                    index++;
 
-                 }
+                }
 
-                 for (int i = 0; i < array.Length; i++)
-                 {
+                for (int i = 0; i < array.Length; i++)
+                {
 
-                     if (array[i] == ubicacion)
-                     {
-                         permiso = true;
-                         break;
-                     }
-
-
-                 }
-             }
+                    if (array[i] == ubicacion)
+                    {
+                        permiso = true;
+                        break;
+                    }
 
 
+                }
+            }
 
-             if(permiso == false)
-             {
+
+
+            if (permiso == false)
+            {
                 ClientScript.RegisterStartupScript(GetType(), "Javascript", "javascript: Acceso(); ", true);
             }
-            
+
 
             this.dtusuario = new DTUsuario();
             this.registro = this.dtusuario.listarTodo();
@@ -84,7 +89,11 @@ namespace CentroBiologiaMolecularUCA.Views.ViewUsuario
 
         }
 
+        public SqlDataReader getregistros()
+        {
+            return this.empleado;
 
+        }
 
 
 
@@ -121,6 +130,7 @@ namespace CentroBiologiaMolecularUCA.Views.ViewUsuario
                 Rol = Mrol.SelectedValue;
                 us.Id_rol = Convert.ToInt32(Rol);
             }
+            us.Id_empleado = int.Parse(Idempleado.Value.ToString());
             us.Activo = 1;
 
             return us;

@@ -13,6 +13,33 @@ namespace CentroBiologiaMolecularUCA.Views.ViewUsuario {
     public partial class AgregarUsuario {
         
         /// <summary>
+        /// Control Idempleado.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField Idempleado;
+        
+        /// <summary>
+        /// Control Musuario.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Musuario;
+        
+        /// <summary>
+        /// Control Mcedula.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Mcedula;
+        
+        /// <summary>
         /// Control Mnombre.
         /// </summary>
         /// <remarks>

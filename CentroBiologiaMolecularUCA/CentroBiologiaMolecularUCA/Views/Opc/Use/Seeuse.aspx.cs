@@ -8,15 +8,14 @@ using System.Web.UI.WebControls;
 using WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos;
 using WebSistemaCentroBiologiaMolecularUCA.Ncapas.Entidades;
 
-namespace CentroBiologiaMolecularUCA.Views.ViewUsuario
+namespace CentroBiologiaMolecularUCA.Views.Opc.Use
 {
-    public partial class VerUsuario : System.Web.UI.Page
+    public partial class Seeuse : System.Web.UI.Page
     {
         private DTUsuario dtusuario;
         private DTrol dtrol;
         public Usuario us;
         private SqlDataReader registro;
-        private SqlDataReader rol;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -27,10 +26,10 @@ namespace CentroBiologiaMolecularUCA.Views.ViewUsuario
             int id = int.Parse(valor);
             us.Id_usuario = id;
 
-            Mrol1.DataSource = dtrol.listarRol();
-            Mrol1.DataTextField = "Rol";
-            Mrol1.DataValueField = "Id_rol";
-            Mrol1.DataBind();
+            Mrol.DataSource = dtrol.listarRol();
+            Mrol.DataTextField = "Rol";
+            Mrol.DataValueField = "Id_rol";
+            Mrol.DataBind();
 
             this.registro = dtusuario.getUsuarioporid(id);
             Id_usuario.Value = valor;
@@ -44,5 +43,6 @@ namespace CentroBiologiaMolecularUCA.Views.ViewUsuario
             }
 
         }
+
     }
 }

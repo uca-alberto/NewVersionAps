@@ -1,7 +1,7 @@
 ﻿function edit(nombre, rol) {
 
-    document.getElementById('MainContent_Mnombre').value = nombre;
-    document.getElementById('MainContent_Mrol1').value = rol;
+    document.getElementById('ContentPlaceHolder1_Mnombre').value = nombre;
+    document.getElementById('ContentPlaceHolder1_Mrol').value = rol;
    
 
 }

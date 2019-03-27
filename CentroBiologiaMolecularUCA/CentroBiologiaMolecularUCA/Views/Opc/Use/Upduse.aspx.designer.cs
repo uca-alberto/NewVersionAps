@@ -7,10 +7,10 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace CentroBiologiaMolecularUCA.Views.ViewUsuario {
+namespace CentroBiologiaMolecularUCA.Views.Opc.Use {
     
     
-    public partial class EditarUsuario {
+    public partial class Upduse {
         
         /// <summary>
         /// Control Mnombre.

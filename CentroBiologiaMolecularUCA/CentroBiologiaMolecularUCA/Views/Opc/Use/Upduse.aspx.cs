@@ -9,9 +9,9 @@ using WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos;
 using WebSistemaCentroBiologiaMolecularUCA.Ncapas.Entidades;
 using WebSistemaCentroBiologiaMolecularUCA.Ncapas.Negocio;
 
-namespace CentroBiologiaMolecularUCA.Views.ViewUsuario
+namespace CentroBiologiaMolecularUCA.Views.Opc.Use
 {
-    public partial class EditarUsuario : System.Web.UI.Page
+    public partial class Upduse : System.Web.UI.Page
     {
         private DTUsuario dtusuario;
         private DTrol dtrol;

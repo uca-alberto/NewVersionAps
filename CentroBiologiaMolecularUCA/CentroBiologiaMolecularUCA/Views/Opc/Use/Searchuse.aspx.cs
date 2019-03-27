@@ -19,7 +19,7 @@ namespace CentroBiologiaMolecularUCA.Views.ViewUsuario
         protected void Page_Load(object sender, EventArgs e)
         {
             this.dtusuario = new DTUsuario();
-            this.registro = this.dtusuario.listarTodo();
+
             String rolid = (string)Session["Id_rol"];
             string ubicacion = HttpContext.Current.Request.Url.AbsolutePath;
 

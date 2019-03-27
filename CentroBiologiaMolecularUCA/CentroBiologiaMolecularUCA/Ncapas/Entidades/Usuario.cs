@@ -9,9 +9,11 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Entidades
     {
         private int id_usuario;
         private int id_rol;
+        private int id_empleado;
         private String nombre;
         private String contrasena;
         private int activo;
+        public String nombre_rol { get; set; }
 
         public int Id_usuario
         {
@@ -67,6 +69,19 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Entidades
             set
             {
                 activo = value;
+            }
+        }
+
+        public int Id_empleado
+        {
+            get
+            {
+                return id_empleado;
+            }
+
+            set
+            {
+                id_empleado = value;
             }
         }
     }
