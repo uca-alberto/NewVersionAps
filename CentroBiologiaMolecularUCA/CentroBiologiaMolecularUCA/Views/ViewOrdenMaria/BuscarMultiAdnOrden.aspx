@@ -5,12 +5,7 @@
       <div class="card-header">
        <strong class="card-title">Orden ADN humano</strong>
         </div> 
-   
-     <script src="../../assets/js/vendor/jquery-2.1.4.min.js"></script>
-    <%--   <script src="../../Scripts/jquery.signalR-2.2.3.min.js"></script>--%>
-            <script src="../../Scripts/jquery.signalR-2.2.3.js"></script>
-                     <script src="/signalr/hubs"></script>
-        <script src="../../assets/sweetalert.min.js"></script>
+  
     <form runat="server">
           <asp:ScriptManager runat="server" ID="Update">
 

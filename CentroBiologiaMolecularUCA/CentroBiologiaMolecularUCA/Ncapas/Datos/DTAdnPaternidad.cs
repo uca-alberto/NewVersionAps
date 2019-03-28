@@ -271,7 +271,7 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
             using (var connection = new SqlConnection(ConfigurationManager.ConnectionStrings["DataBase"].ConnectionString))
             {
                 connection.Open();
-                using (SqlCommand command = new SqlCommand(@"SELECT  [Id_orden],[Baucher],[Nombre_menor] FROM T_Orden where Activo=1", connection))
+                using (SqlCommand command = new SqlCommand(@"SELECT  [Id_orden],[Nombre_menor],[Baucher] FROM T_Orden where Activo=1 and Nombre_menor is not null", connection))
                 {
                     // Make sure the command object does not already have
                     // a notification object associated with it.
