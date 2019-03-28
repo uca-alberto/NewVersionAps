@@ -24,7 +24,17 @@
                                  <asp:TextBox ID="Mnombre" runat="server" ReadOnly="true" Text="" ToolTip="Nombre de usuario" CssClass="form-control" ValidateRequestMode="Enabled"></asp:TextBox>
                                
                                </div>
-                          </div>                   
+                          </div>   
+                            
+                               <!--Empleado-->
+                          <div class="row form-group">
+                            <div class="col col-md-3"><label for="email-input" class=" form-control-label">Nombre Empleado</label></div>
+                            <div class="col-12 col-md-9">
+                                 <asp:TextBox ID="Mempleado" runat="server" ReadOnly="true" Text="" ToolTip="Nombre Empleado" CssClass="form-control" ValidateRequestMode="Enabled"></asp:TextBox>                                              
+                              
+                                
+                            </div>
+                          </div>                
                             <!--Seleccion de Rol-->
                            <div class="row form-group">
                             <div class="col col-md-3"><label for="select" class=" form-control-label">Rol</label></div>

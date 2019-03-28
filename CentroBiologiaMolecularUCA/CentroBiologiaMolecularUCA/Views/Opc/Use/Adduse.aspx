@@ -48,7 +48,7 @@
             <div class="animated">
     <div class="card">
                     <div class="card-header">      
-                        <strong class="mr-2 fa fa-align-justify"> Orden del Usuario</strong>
+                        <strong class="mr-2 fa fa-align-justify"> Usuario del Empleado</strong>
                             </div>
                     <div class="card-body">
                          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#mediumModal">
@@ -67,9 +67,9 @@
                                 </button>
                             </div>
                             <div class="modal-body">
-                                           <!--Buscar Usuario de la Orden-->
+                                           <!--Buscar Empleado-->
                     <div class="card-header">
-                        <strong class="card-title">Buscar Usuario</strong>
+                        <strong class="card-title">Buscar Empleado</strong>
                             </div> 
                 
                     <div class="card-body">
@@ -143,14 +143,14 @@
             <div class="row form-group ">
                 <div class="col col-md-3 "><label for="text-input" class=" form-control-label">Nombre Empleado</label></div>
                 <div class="col-12 col-md-9">
-                     <asp:TextBox ID="Musuario" ReadOnly="true" runat="server" ToolTip="Nombre Empleado" CssClass="formcursor"></asp:TextBox>   
+                     <asp:TextBox ID="Musuario" ReadOnly="true" runat="server" ToolTip="Nombre Empleado" CssClass="form-control"></asp:TextBox>   
                 </div>
              </div>
                     <!--Obtener la cedula del Empleado que selecciono-->
            <div class="row form-group ">
                 <div class="col col-md-3 "><label for="text-input" class=" form-control-label">Cedula</label></div>
                 <div class="col-12 col-md-9">
-                     <asp:TextBox ID="Mcedula" ReadOnly="true" runat="server" ToolTip="Cedula Empleado" CssClass="formcursor"></asp:TextBox>      
+                     <asp:TextBox ID="Mcedula" ReadOnly="true" runat="server" ToolTip="Cedula Empleado" CssClass="form-control"></asp:TextBox>      
                      </div>
              </div>
 

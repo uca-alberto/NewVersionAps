@@ -686,6 +686,7 @@
     <Content Include="Views\ViewResultadoMaria\VerResultadoOgm.aspx" />
     <Content Include="Views\Opc\Use\Adduse.aspx" />
     <Content Include="Views\Opc\Use\Searchuse.aspx" />
+    <Content Include="Views\Vreadn\addreadn.aspx" />
     <Content Include="Views\Vreogm\Addreogm.aspx" />
     <Content Include="Views\Vreogm\Searchreogm.aspx" />
     <Content Include="Web.config">
@@ -1039,6 +1040,13 @@
     </Compile>
     <Compile Include="Views\Opc\Use\Searchuse.aspx.designer.cs">
       <DependentUpon>Searchuse.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Vreadn\addreadn.aspx.cs">
+      <DependentUpon>addreadn.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Vreadn\addreadn.aspx.designer.cs">
+      <DependentUpon>addreadn.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Vreogm\Addreogm.aspx.cs">
       <DependentUpon>Addreogm.aspx</DependentUpon>

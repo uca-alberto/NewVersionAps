@@ -2,7 +2,82 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="card-header">
+     <!--script de alerta-->
+            <div class="content mt-3">
+            <div class="animated">
+    <div class="card">
+                    <div class="card-header">      
+                        <strong class="mr-2 fa fa-align-justify">Usuario del empleado</strong>
+                            </div>
+                    <div class="card-body">
+                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#mediumModal">
+                   <i class="fa fa-search"></i> Seleccionar Usuario</button>
+   
+                    </div>
+                </div>
+
+                 <div class="modal fade" id="mediumModal" tabindex="-1" role="dialog" aria-labelledby="mediumModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="mediumModalLabel">Usuarios Activos</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                           <!--Buscar Empleado-->
+                    <div class="card-header">
+                        <strong class="card-title">Buscar Empleado</strong>
+                            </div> 
+                
+                    <div class="card-body">
+                        <table id="bootstrap-data-table" class="table table-striped table-bordered" >
+                            <thead>
+                                <tr>
+                                    <th>Id</th>                   
+                                    <th>Nombre</th>
+                                    <th>Apellido</th>
+                                    <th>Cedula</th>
+                                    <th>Seleccionar</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                    <%
+                                    while(getregistros().Read())
+                                    {
+                                        %>
+                                            <tr><td><%=getregistros()["Id_empleado"] %></td>
+                                                                  
+                                                <td><%=getregistros()["Nombre_empleado"] %></td>
+
+                                                <td><%=getregistros()["Apellido"] %></td>
+
+                                                <td><%=getregistros()["Cedula"] %></td>
+
+                                                <td>
+                                                        <button id="btn" type="button" class="btn btn-success"  data-dismiss="modal"> <i class="fa fa-user-plus"></i> Seleccionar</button>
+                                                </td>
+                                                                  
+                                            </tr>
+                                        <%
+                                    }
+                                %>                                                                              
+                            </tbody>
+                        </table>
+                    </div>
+
+
+
+                    </div>
+                 </div>
+                        </div>
+                     </div>
+                </div>
+    </div>
+      
+
         <strong class="card-title">Editar Usuario</strong>
            </div>  
              <div class="card">
@@ -11,7 +86,31 @@
                             
                                 <!--Aqui Comienza el formulario dentro del modal-->                                
                      
+                          <!--Obtener el Id del Empleado que selecciono-->
+          
+        <asp:HiddenField runat="server" ID="Idempleado" />
 
+                     <!--Obtener el nombre del Empleado que selecciono-->
+            <div class="row form-group ">
+                <div class="col col-md-3 "><label for="text-input" class=" form-control-label">Nombre Empleado</label></div>
+                <div class="col-12 col-md-9">
+                     <asp:TextBox ID="Musuario" ReadOnly="true" runat="server" ToolTip="Nombre Empleado" CssClass="form-control"></asp:TextBox>   
+                </div>
+             </div>
+                    <!--Obtener la cedula del Empleado que selecciono-->
+           <div class="row form-group ">
+                <div class="col col-md-3 "><label for="text-input" class=" form-control-label">Cedula</label></div>
+                <div class="col-12 col-md-9">
+                     <asp:TextBox ID="Mcedula" ReadOnly="true" runat="server" ToolTip="Cedula Empleado" CssClass="form-control"></asp:TextBox>      
+                     </div>
+             </div>
+
+
+                    <div class="card-header">
+                        <strong class="card-title">Datos Usuario</strong>
+                            </div>&nbsp;
+
+      
                              <!--Comienzo de los formulario-->
                           
                               <!--nombre-->
@@ -51,11 +150,13 @@
                       </div>
                     </div>
                                                         
-                    
+  <script type="text/javascript" src="../../../Content/ListarUsuario.js"></script>
+
     <script type="text/javascript" src="../../../Content/listausuario.js"></script>     
 <script  type="text/javascript">
        window.onload = function () {
             edit('<%=us.Nombre%>', '<%=us.Id_rol%>')
         };
     </script> 
+
 </asp:Content>

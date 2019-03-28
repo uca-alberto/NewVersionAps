@@ -272,6 +272,17 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
             c.Close();
         }
 
+        public SqlDataReader cargardatosadnporid(int id)
+        {
+            c = Conexion.getInstance().ConexionDB();
+            String sql = "SELECT clientes.Nombre, clientes.Apellido,orden.Id_codigo,orden.Nombre_pareja, orden.Nombre_menor FROM T_Orden orden INNER JOIN T_Clientes clientes ON orden.Id_cliente=clientes.Id_cliente where Id_orden ='" + id + "';";
+
+            SqlCommand comando = new SqlCommand(sql, this.c);
+            this.registros = comando.ExecuteReader();
+            return this.registros;
+            c.Close();
+        }
+
 
 
 

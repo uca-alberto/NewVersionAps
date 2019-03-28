@@ -54,7 +54,7 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
                 {
                     comando.CommandType = System.Data.CommandType.StoredProcedure;
                     comando.Parameters.AddWithValue("@id_rol", usuario.Id_rol);
-                    comando.Parameters.AddWithValue("@id_empleado", usuario.Id_rol);
+                    comando.Parameters.AddWithValue("@id_empleado", usuario.Id_empleado);
                     comando.Parameters.AddWithValue("@nombre_usuario", usuario.Nombre);
                     string hash = DTlogin.EncodePassword(string.Concat(usuario.Nombre, usuario.Contrasena));
                     comando.Parameters.AddWithValue("@contrasena", hash);
@@ -122,7 +122,7 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
                 using (comando = new SqlCommand(sql, c))
                 {
                     comando.Parameters.AddWithValue("@Mid", usuario.Id_usuario);
-                    comando.Parameters.AddWithValue("@id_empleado", usuario.Id_usuario);
+                    comando.Parameters.AddWithValue("@id_empleado", usuario.Id_empleado);
                     comando.Parameters.AddWithValue("@MNombre", usuario.Nombre);
                     string hash = DTlogin.EncodePassword(string.Concat(usuario.Nombre, usuario.Contrasena));
                     comando.Parameters.AddWithValue("@contrasena", hash);
@@ -307,8 +307,7 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
             using (var connection = new SqlConnection(ConfigurationManager.ConnectionStrings["DataBase"].ConnectionString))
             {
                 connection.Open();
-                string coms = "";
-                using (SqlCommand command = new SqlCommand(@"SELECT [Id_usuario],[Nombre_Usuario],[Rol] FROM T_Usuario us INNER JOIN T_Rol rol on us.Id_rol = rol.Id_rol where Activo=1", connection))
+                using (SqlCommand command = new SqlCommand(@"SELECT  [Id_usuario],[Nombre_Usuario],[Id_rol] FROM T_Usuario where Activo=1", connection))
                 {
                     // Make sure the command object does not already have
                     // a notification object associated with it.
@@ -327,14 +326,13 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
                             {
                                 Id_usuario = x.GetInt32(0),
                                 Nombre = x.GetString(1),
-                                nombre_rol = x.GetString(2),
+                                Id_rol = x.GetInt32(2),
 
                             }).ToList();
 
                 }
             }
         }
-
         private static void dependency_OnChange(object sender, SqlNotificationEventArgs e)
         {
             MyHub.Show();

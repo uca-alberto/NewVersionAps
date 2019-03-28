@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CentroBiologiaMolecularUCA.Ncapas.Datos;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -15,10 +16,15 @@ namespace CentroBiologiaMolecularUCA.Views.Opc.Use
     {
         private DTUsuario dtusuario;
         private DTrol dtrol;
+        private SqlDataReader empleado;
+        private DTEmpleados dte;
         private SqlDataReader registro;
         public Usuario us;
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            this.dte = new DTEmpleados();
+            this.empleado = this.dte.listarempleado();
             this.dtusuario = new DTUsuario();
             us = new Usuario();
             this.dtrol = new DTrol();
@@ -38,10 +44,16 @@ namespace CentroBiologiaMolecularUCA.Views.Opc.Use
             if (registro.Read())
             {
                 us.Nombre = this.registro["Nombre_Usuario"].ToString();
-                us.Contrasena = this.registro["Contrasena"].ToString();
+                //us.Contrasena = this.registro["Contrasena"].ToString();
                 us.Id_rol = Convert.ToInt32(this.registro["Id_rol"]);
             }
 
+
+        }
+
+        public SqlDataReader getregistros()
+        {
+            return this.empleado;
 
         }
 
