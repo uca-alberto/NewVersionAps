@@ -6,7 +6,12 @@
             <div class="card">
             <div class="card-body card-block">
                 <form id="Form1" method="post" enctype="multipart/form-data" class="form-horizontal" runat="server">
-                    <!--Comienzo de los formulario-->                       
+                    <!--Comienzo de los formulario-->  
+					<!--imagen -->
+					  <div>
+                        <div class="col col-sm-3"><label for="disabled-input" class=" form-control-label">Correo:</label></div>
+                         <asp:Image ID="Image1" runat="server" ImageUrl="../../ImagesClientes/User-placeholder.jpg" style="height:100px;width:100px;margin-left: -174px;"/>
+					  </div>
                     <!--cedula-->
                 <div>
                     <div class="col col-sm-3"><label for="password-input" class=" form-control-label">Cedula:</label></div>
@@ -89,7 +94,7 @@
     <script  type="text/javascript">
         window.onload = function () {
             edit('<%=cli.Cedula%>', '<%=cli.Nombres%>', '<%=cli.Apellidos%>', '<%=cli.Municipio%>','<%=cli.Departamento%>',
-                '<%=cli.Sexo%>','<%=cli.Telefono%>','<%=cli.Correo%>','<%=cli.Dirreccion %>')
+                '<%=cli.Sexo%>','<%=cli.Telefono%>','<%=cli.Correo%>','<%=cli.Dirreccion %>','<%=cli.imagen%>')
         };
     </script>    
 </asp:Content>

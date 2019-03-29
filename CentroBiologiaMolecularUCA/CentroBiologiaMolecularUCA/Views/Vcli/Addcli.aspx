@@ -10,6 +10,17 @@
             });
     }
     </script>
+
+	     <script>
+        function Advertenciaimg() {
+            swal({
+                title: "Error",
+                text: "Imagen Demasiado Grande",
+                icon: "warning",
+                button: "OK",
+            });
+    }
+    </script>
    
      <script>
         function InsertarCliente(data) {
@@ -55,7 +66,13 @@
             <div class="card">
             <div class="card-body card-block">
                 <form id="myfrom" method="post" enctype="multipart/form-data" class="form-horizontal" runat="server">
-                    <!--Comienzo de los formulario-->                       
+                    <!--Comienzo de los formulario-->   
+						<div>
+                        <div class="col col-sm-3"><label for="disabled-input" class=" form-control-label">Imagen:</label></div>
+						  <asp:FileUpload ID="FileUpload1" runat="server" />
+						  <asp:label runat="server" ID="Urlimagen"/>
+						  </div>
+					<br />
                     <!--cedula-->
                 <div>
                     <div class="col col-sm-3"><label for="password-input" class=" form-control-label">Cedula:</label></div>

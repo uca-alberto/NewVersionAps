@@ -8,6 +8,9 @@
     document.getElementById('MainContent_Msexo').value = sexo;
     document.getElementById('MainContent_Mtelefono').value = telefono;
     document.getElementById('MainContent_Mcorreo').value = correo;
+
+
+ 
 }
 
 function eliminar(url)

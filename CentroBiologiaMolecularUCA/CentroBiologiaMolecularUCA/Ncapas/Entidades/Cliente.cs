@@ -17,8 +17,9 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Entidades
         private String sexo;
         private String correo;
         private string dirreccion;
+		public string imagen { get; set; }
 
-        public int Id_Cliente
+		public int Id_Cliente
         {
             get
             {

@@ -31,8 +31,8 @@ namespace CentroBiologiaMolecularUCA.Views.ViewCliente
             int id = int.Parse(valor);
             cli.Id_Cliente = id;
 
-            //Cargar el Combobox de departamento
-            Mdepartamento.DataSource = dtdepartamento.listardepartamento();//aqui le paso mi consulta que esta en la clase dtdepartamento
+			//Cargar el Combobox de departamento
+			Mdepartamento.DataSource = dtdepartamento.listardepartamento();//aqui le paso mi consulta que esta en la clase dtdepartamento
             Mdepartamento.DataBind();
 
             //Cargar el Combobox de municipio
@@ -55,8 +55,10 @@ namespace CentroBiologiaMolecularUCA.Views.ViewCliente
                 cli.Municipio = this.registro["Id_Municipio"].ToString();
                 cli.Sexo = this.registro["Sexo"].ToString();
                 cli.Telefono = int.Parse(this.registro["Num_Telefono"].ToString());
-                this.cli.Correo = this.registro["Email"].ToString();
-            }
+                cli.Correo = this.registro["Email"].ToString();
+				Image1.ImageUrl = "../../"+registro["Imagen"].ToString();
+
+			}
 
         }
     }
