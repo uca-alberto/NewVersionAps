@@ -125,7 +125,7 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
                     comando.Parameters.AddWithValue("@id_empleado", usuario.Id_empleado);
                     comando.Parameters.AddWithValue("@MNombre", usuario.Nombre);
                     string hash = DTlogin.EncodePassword(string.Concat(usuario.Nombre, usuario.Contrasena));
-                    comando.Parameters.AddWithValue("@contrasena", hash);
+                    comando.Parameters.AddWithValue("@Mcontrasena", hash);
                     comando.Parameters.AddWithValue("@Mrol", usuario.Id_rol);
 
                     //VALIDANDO SI LA CONEXIÓN ESTÁ ACTIVA O CERRADA
@@ -300,6 +300,147 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
                 Console.WriteLine(e.Message);
             }
             return log;
+        }
+        // Listar los empleados sin usuario
+        public SqlDataReader ListarEmpleados()
+         {
+            c = Conexion.getInstance().ConexionDB();
+            String sql = "Select T_Empleados.Id_empleado, T_Empleados.Nombre_empleado, T_Empleados.Apellido, T_Empleados.Cedula  from T_Empleados  WHERE NOT EXISTS (Select T_empleados.Id_empleado from T_Usuario Where T_Empleados.Id_empleado = T_Usuario.Id_empleado)";
+
+            SqlCommand comando = new SqlCommand(sql, this.c);
+            this.registros = comando.ExecuteReader();
+            return this.registros;
+            c.Close();
+        }
+
+        public int Sicrear()
+        {
+            
+
+                string sql = @"SELECT COUNT(*)
+                         FROM T_Usuario
+                         WHERE activo=1";
+              
+
+            int count;
+
+            c = Conexion.getInstance().ConexionDB();
+                try
+                {
+
+                    using (comando = new SqlCommand(sql, c))
+                    {
+
+                        count = Convert.ToInt32(comando.ExecuteScalar());
+
+                        if (comando.Connection.State != System.Data.ConnectionState.Closed)
+                        {
+                            //EJECUTANDO SENTENCIA SQL CON EXECUTENONQUERY
+                            int result = comando.ExecuteNonQuery();
+
+                            /* 
+                             * EL BLOQUE IF SIRVE PARA HACER UNA VALIDACIÓN DEL EXECUTENONQUERY
+                             * DICHO MÉTODO DEVUELVE UN ENTERO, DONDE 0 ES QUE NO AFECTO NINGUNA FILA
+                             * SI ES MAYOR A 0 (POSITIVO)
+                             * QUIERE DECIR QUE SE GUARDARON DATOS EN LA BASE DE DATOS
+                             */
+
+
+                            if (result < 0)
+                            {
+
+                                Console.WriteLine("ERROR AL INSERTAR DATOS");
+                            }
+                            else
+                            {
+                                comando.Connection.Open();
+                            }
+                        }
+
+                    }
+
+
+
+                }
+                catch
+                {
+                    comando.Connection.Close();
+                    c.Close();
+                    c = null;
+                    throw;
+                }
+                finally
+                {
+                    comando.Connection.Close();
+                    c.Close();
+                    c = null;
+                }
+
+
+            return count;
+        }
+
+        public int SicrearE()
+        {
+              string sql2 = @"SELECT COUNT(*)
+                                FROM T_Empleados
+                                WHERE activo=1";
+
+        int count2;
+
+        c = Conexion.getInstance().ConexionDB();
+            try
+            {
+
+                using (comando = new SqlCommand(sql2, c))
+                {
+
+                    count2 = Convert.ToInt32(comando.ExecuteScalar());
+
+                    if (comando.Connection.State != System.Data.ConnectionState.Closed)
+                    {
+                        //EJECUTANDO SENTENCIA SQL CON EXECUTENONQUERY
+                        int result = comando.ExecuteNonQuery();
+
+                        /* 
+                         * EL BLOQUE IF SIRVE PARA HACER UNA VALIDACIÓN DEL EXECUTENONQUERY
+                         * DICHO MÉTODO DEVUELVE UN ENTERO, DONDE 0 ES QUE NO AFECTO NINGUNA FILA
+                         * SI ES MAYOR A 0 (POSITIVO)
+                         * QUIERE DECIR QUE SE GUARDARON DATOS EN LA BASE DE DATOS
+                         */
+
+
+                        if (result < 0)
+                        {
+
+                            Console.WriteLine("ERROR AL INSERTAR DATOS");
+                        }
+                        else
+                        {
+                            comando.Connection.Open();
+                        }
+                    }
+
+                }
+
+
+
+            }
+            catch
+            {
+                comando.Connection.Close();
+                c.Close();
+                c = null;
+                throw;
+            }
+            finally
+            {
+                comando.Connection.Close();
+                c.Close();
+                c = null;
+            }
+
+            return count2;
         }
 
         public List<Usuario> GetData()

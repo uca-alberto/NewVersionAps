@@ -17,7 +17,7 @@ namespace CentroBiologiaMolecularUCA.Views.ViewUsuario
         private DTUsuario dtusuario;
         private SqlDataReader registro;
         private SqlDataReader empleado;
-        private DTEmpleados dte;
+       
         private Conexion conexion;
         private String Rol;
         private DTrol dtrol;
@@ -25,8 +25,8 @@ namespace CentroBiologiaMolecularUCA.Views.ViewUsuario
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            this.dte = new DTEmpleados();
-            this.empleado = this.dte.listarempleado();
+           
+           
             this.dtusuario = new DTUsuario();
             String rolid = (string)Session["Id_rol"];
             string ubicacion = HttpContext.Current.Request.Url.AbsolutePath;
@@ -65,6 +65,7 @@ namespace CentroBiologiaMolecularUCA.Views.ViewUsuario
                 }
             }
 
+            
 
 
             if (permiso == false)
@@ -72,9 +73,15 @@ namespace CentroBiologiaMolecularUCA.Views.ViewUsuario
                 ClientScript.RegisterStartupScript(GetType(), "Javascript", "javascript: Acceso(); ", true);
             }
 
+            if(dtusuario.Sicrear() >= dtusuario.SicrearE())
+            {
+                ClientScript.RegisterStartupScript(GetType(), "Javascript", "javascript: Emleado(); ", true);
+
+            }
+
 
             this.dtusuario = new DTUsuario();
-            this.registro = this.dtusuario.listarTodo();
+            this.empleado = dtusuario.ListarEmpleados();
             this.conexion = new Conexion();
             this.dtrol = new DTrol();
 

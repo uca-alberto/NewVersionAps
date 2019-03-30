@@ -660,6 +660,7 @@
     <Content Include="Views\Opc\Exa\Seexa.aspx" />
     <Content Include="Views\Opc\Mue\Searchmue.aspx" />
     <Content Include="Views\Opc\Mue\Updmue.aspx" />
+    <Content Include="Views\Opc\Use\Peruser.aspx" />
     <Content Include="Views\Opc\Use\Seeuse.aspx" />
     <Content Include="Views\Opc\Use\Upduse.aspx" />
     <Content Include="Views\Vcli\Addcli.aspx" />
@@ -852,6 +853,13 @@
     </Compile>
     <Compile Include="Views\Opc\Mue\Updmue.aspx.designer.cs">
       <DependentUpon>Updmue.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Opc\Use\Peruser.aspx.cs">
+      <DependentUpon>Peruser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Opc\Use\Peruser.aspx.designer.cs">
+      <DependentUpon>Peruser.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Opc\Use\Seeuse.aspx.cs">
       <DependentUpon>Seeuse.aspx</DependentUpon>

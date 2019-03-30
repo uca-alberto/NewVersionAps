@@ -50,20 +50,25 @@ namespace CentroBiologiaMolecularUCA.Views.Vreadn
                 Mpareja.Text = registro["Nombre_pareja"].ToString();
                 Mmenor.Text = registro["Nombre_menor"].ToString();
             }
-
-            usuario = dtusuario.getUsuarioporid(usuario_procesa);
-            if (usuario.Read())
-            {
-                
-                id_empleado = Convert.ToInt32(this.registro["Id_empleado"]);
-            }
             //Mostrar datos en el textbox
-            this.empleados = dte.getEmpleadoporid(id_empleado);
-            if (empleados.Read())
+            usuario = result.datousuario(usuario_procesa);
+            if (usuario.Read())
             {
                 Minvestigador.Text = empleados["Nombre_empleado"].ToString() + " " + empleados["Apellido"].ToString();
             }
+            /* usuario = dtusuario.getUsuarioporid(usuario_procesa);
+             if (usuario.Read())
+             {
 
+                 id_empleado = Convert.ToInt32(this.registro["Id_empleado"]);
+             }
+             //Mostrar datos en el textbox
+             this.empleados = dte.getEmpleadoporid(id_empleado);
+             if (empleados.Read())
+             {
+                 Minvestigador.Text = empleados["Nombre_empleado"].ToString() + " " + empleados["Apellido"].ToString();
+             }
+             */
 
 
             //Cargar Fecha y hora 

@@ -42,17 +42,32 @@
           });
         }
     </script>
+
+     <script>
+        function Empleado(data) {
+            swal({
+                title: "Primero debe agregar a un empleado",
+                text: "restricted access",
+                icon: "error",
+            })
+          .then((willDelete) => {
+              if (willDelete) {
+                  location.href = "../../../Views/Index.aspx";
+              } 
+          });
+        }
+    </script>
                    
  <!--script de alerta-->
             <div class="content mt-3">
             <div class="animated">
     <div class="card">
                     <div class="card-header">      
-                        <strong class="mr-2 fa fa-align-justify"> Usuario del Empleado</strong>
+                        <strong class="mr-2 fa fa-align-justify">Empleados</strong>
                             </div>
                     <div class="card-body">
                          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#mediumModal">
-                   <i class="fa fa-search"></i> Seleccionar Usuario</button>
+                   <i class="fa fa-search"></i> Seleccionar Empleado</button>
    
                     </div>
                 </div>
@@ -61,7 +76,7 @@
                     <div class="modal-dialog modal-lg" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="mediumModalLabel">Usuarios Activos</h5>
+                                <h5 class="modal-title" id="mediumModalLabel">Empleados Activos</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -133,7 +148,7 @@
                         <form  method="post" enctype="multipart/form-data" class="form-horizontal" runat="server">
 
                             <div class="card-header">
-                        <strong class="card-title">Orden del Usuario</strong>
+                        <strong class="card-title">Datos del Empleado</strong>
                             </div>&nbsp;
                     <!--Obtener el Id del Empleado que selecciono-->
           

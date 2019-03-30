@@ -49,13 +49,13 @@ namespace CentroBiologiaMolecularUCA.Views.Opc.Use {
         protected global::System.Web.UI.WebControls.TextBox Mnombre;
         
         /// <summary>
-        /// Control RegularExpressionValidator1.
+        /// Control RequiredFieldValidator1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator1;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
         
         /// <summary>
         /// Control Mcontrasena.
@@ -67,13 +67,13 @@ namespace CentroBiologiaMolecularUCA.Views.Opc.Use {
         protected global::System.Web.UI.WebControls.TextBox Mcontrasena;
         
         /// <summary>
-        /// Control RegularExpressionValidator2.
+        /// Control RequiredFieldValidator.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator2;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator;
         
         /// <summary>
         /// Control Mrol.
