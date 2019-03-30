@@ -14,7 +14,6 @@ namespace CentroBiologiaMolecularUCA.Views.OpcionesConfigurables.Emp
 {
     public partial class AgregarEmpleado : System.Web.UI.Page
     {
-        private DTEmpleados dtempleado;
         private DTUsuario dtusuario;
         private SqlDataReader registro;
 
@@ -69,7 +68,6 @@ namespace CentroBiologiaMolecularUCA.Views.OpcionesConfigurables.Emp
             {
                 Response.Redirect("../../Views/OpcionesConfigurables/Index.aspx");
             }
-            this.dtempleado = new DTEmpleados();
             Mcedula.MaxLength = 16;
 
         }
@@ -147,9 +145,6 @@ namespace CentroBiologiaMolecularUCA.Views.OpcionesConfigurables.Emp
 
         }
 
-        protected void cancelar_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("../ViewLogin/Index.aspx");
-        }
+        
     }
 }

@@ -81,7 +81,7 @@
 
                      <!--Botones Cancelar y Registrar -->
                    <div class="modal-footer">
-                       <asp:Button id="cancelar" runat="server" Text="Cancelar" CssClass="btn btn-secondary" OnClick="cancelar_Click" />
+					   <a class="btn btn-secondary" href="Searchemp.aspx">Cancelar</a>  
                         <asp:HiddenField runat="server" ID="id_empleado" />
                         <asp:Button id="alert" runat="server" Text="Registrar" CssClass="btn btn-primary" OnClick="InsertarEmpleado"/>
                         

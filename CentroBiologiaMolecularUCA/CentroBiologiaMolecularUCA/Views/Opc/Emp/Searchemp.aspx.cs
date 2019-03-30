@@ -1,5 +1,6 @@
 ﻿using CentroBiologiaMolecularUCA.Ncapas.Datos;
 using CentroBiologiaMolecularUCA.Ncapas.Entidades;
+using CentroBiologiaMolecularUCA.Ncapas.Negocio;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -72,9 +73,9 @@ namespace CentroBiologiaMolecularUCA.Views.OpcionesConfigurables.Emp
         [WebMethod]
         public static List<Empleado> GetData()
         {
-            DTEmpleados dtp = new DTEmpleados();
+            NGEmpleado dtp = new NGEmpleado();
 
-            return dtp.GetData();
+            return dtp.Data();
         }
 
         [WebMethod]
@@ -88,7 +89,7 @@ namespace CentroBiologiaMolecularUCA.Views.OpcionesConfigurables.Emp
             };
             Console.Write(ep);
 
-            resp = DTEmpleados.getInstance().eliminar(ep);
+            resp = NGEmpleado.getInstance().Eliminarempleado(ep);
             return resp;
 
         }

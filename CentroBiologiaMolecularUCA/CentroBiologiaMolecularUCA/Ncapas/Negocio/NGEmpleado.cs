@@ -2,6 +2,7 @@
 using CentroBiologiaMolecularUCA.Ncapas.Entidades;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos;
@@ -14,7 +15,7 @@ namespace CentroBiologiaMolecularUCA.Ncapas.Negocio
         //PATRÓN SINGLETON
         #region "SINGLETON"
         private static NGEmpleado emp = null;
-        private NGEmpleado()
+        public NGEmpleado()
         {
 
         }
@@ -41,5 +42,14 @@ namespace CentroBiologiaMolecularUCA.Ncapas.Negocio
         {
             return DTEmpleados.getInstance().modificar(empleado);
         }
-    }
+		public List<Empleado> Data()
+		{
+			return DTEmpleados.getInstance().GetData();
+		}
+
+		public SqlDataReader ListarEmpleadoPorId(int id)
+		{
+			return DTEmpleados.getInstance().getEmpleadoporid(id);
+		}
+	}
 }

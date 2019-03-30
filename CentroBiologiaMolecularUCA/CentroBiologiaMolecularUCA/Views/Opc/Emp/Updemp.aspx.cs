@@ -119,7 +119,7 @@ namespace CentroBiologiaMolecularUCA.Views.OpcionesConfigurables.Emp
 
         protected void cancelar_Click(object sender, EventArgs e)
         {
-            Response.Redirect("../ViewEmpleado/Searchemp.aspx");
+            Response.Redirect("Searchemp.aspx");
         }
     }
 }

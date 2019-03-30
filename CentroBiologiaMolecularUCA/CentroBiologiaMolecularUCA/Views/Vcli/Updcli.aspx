@@ -11,6 +11,16 @@
             });
     }
     </script>     
+    <script>
+        function Advertenciaimg() {
+            swal({
+                title: "Error",
+                text: "Imagen Demasiado Grande",
+                icon: "warning",
+                button: "OK",
+            });
+    }
+    </script>
     
     <script>
         function ModificarCliente(data) {
@@ -34,24 +44,35 @@
             <div class="card">
             <div class="card-body card-block">
                 <form id="myfrom" method="post" enctype="multipart/form-data" class="form-horizontal" runat="server">
-                    <!--Comienzo de los formulario-->                       
+                    <!--Comienzo de los formulario--> 
+					<!--imagen -->
+					<div>
+						  <asp:Image ID="Image1" CssClass="user-avatar rounded-circle" runat="server" ImageUrl="../../ImagesClientes/User-placeholder.jpg" style="height:100px;width:100px;margin-top:auto; margin-left:auto;"/>
+						   <asp:FileUpload ID="FileUpload1" runat="server" CssClass="btn btn-outline-info" style="margin-left:auto;"  /> 
+					
+					  <div>
+                        <div class="col col-sm-10"><h2 class="text-center" style="margin-left:70px;">Centro de Biología Molecular UCA</h2></div>
+						   <asp:Image ID="Image2" CssClass="user-avatar rounded-circle" runat="server" ImageUrl="../../ImagesClientes/User-placeholder.jpg" style="height:100px;width:100px;"/>
+						          <asp:label runat="server" ID="Urlimagen"/>
+						   </div>
+						</div> 
                     <!--cedula-->
                 <div>
                     <div class="col col-sm-3"><label for="password-input" class=" form-control-label">Cedula:</label></div>
-                        <asp:TextBox ID="Mcedula" runat="server" Text="" ToolTip="Cedula Identidad" CssClass="form-control" ValidateRequestMode="Enabled"></asp:TextBox>       
+                        <asp:TextBox ID="Mcedula" runat="server" Text="" placeholder="000-000000-0000A" ToolTip="Cedula Identidad" CssClass="form-control" ValidateRequestMode="Enabled"></asp:TextBox>       
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="Mcedula" Display="Dynamic" ErrorMessage="Este Campo es requerido" ForeColor="#FF3300"></asp:RequiredFieldValidator>                                            
                         <asp:RegularExpressionValidator ID="RegularExpressionValidator6" runat="server" ControlToValidate="Mcedula" ErrorMessage="Datos Incorrectos" ValidationExpression="^[0-99\-]+[0-999999\-]+[0-999A-Z]*$" BorderColor="#FF3300" ForeColor="#FF3300"></asp:RegularExpressionValidator>
                 </div>
                 <div>                      
                     <!--nombre-->
                     <div class="col col-sm-3"><label for="text-input" class=" form-control-label">Nombres:</label></div>
-                        <asp:TextBox ID="Mnombre" runat="server" Text="" ToolTip="Nombres" CssClass="form-control" ></asp:TextBox>
+                        <asp:TextBox ID="Mnombre" runat="server" Text="" ToolTip="Nombres" CssClass="form-control" MaxLength="25" ></asp:TextBox>
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="Mnombre" Display="Dynamic" ErrorMessage="Este Campo es requerido" BorderColor="#FF5050" BorderStyle="None" CssClass="form_hint" ForeColor="Red"></asp:RequiredFieldValidator>
                         <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="Mnombre" ErrorMessage="Datos Incorrectos" ValidationExpression="^[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]*$" BackColor="White" BorderColor="#FF5050" BorderStyle="None" Font-Bold="False" Font-Italic="False" ForeColor="Red"></asp:RegularExpressionValidator>
                 </div> 
                     <!--apelldio-->
-                    <div class="col col-sm-3"><label for="email-input" class=" form-control-label">Apellidos:</label></div>
-                        <asp:TextBox ID="Mapellido" runat="server" Text="" ToolTip="Apellidos" CssClass="form-control" ></asp:TextBox>
+                    <div class="col col-sm-3"><label for="email-input" class=" form-control-label" >Apellidos:</label></div>
+                        <asp:TextBox ID="Mapellido" runat="server" Text="" ToolTip="Apellidos" CssClass="form-control" MaxLength="25" ></asp:TextBox>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="Mapellido" Display="Dynamic" ErrorMessage="Este Campo es requerido" ForeColor="#FF3300"></asp:RequiredFieldValidator>
                         <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="Mapellido" ErrorMessage="Datos Incorrectos" ValidationExpression="^[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]*$" ForeColor="#FF3300"></asp:RegularExpressionValidator>              
                     <div class="card-header">
@@ -74,6 +95,8 @@
                  <div class="col col-sm-3"><label>Departamento</label>
                       <asp:DropDownList ID="Mdepartamento" runat="server" required=""  ToolTip="Departamento" CssClass="form-control" OnSelectedIndexChanged="Mdepartamento_SelectedIndexChanged" AutoPostBack="true" DataTextField="Departamento" DataValueField="Id_departamento">
                          </asp:DropDownList>
+                                   <asp:RequiredFieldValidator ID="RequiredFieldValidator7" InitialValue="0" runat="server" ControlToValidate="Mdepartamento" Display="Dynamic" ErrorMessage="Debe Seleccionar Un Departamento" ForeColor="Red" Font-Italic="true"></asp:RequiredFieldValidator>     
+
 
                  </div>
                 </div>
@@ -81,6 +104,8 @@
                       <div class="col col-sm-3"><label>Municipio:</label>
                          <asp:DropDownList ID="Mmunicipio" runat="server" ToolTip="Municipio" required=""  CssClass="form-control" DataTextField="Municipio" DataValueField="Id_Municipio">
                          </asp:DropDownList>
+                                   <asp:RequiredFieldValidator ID="RequiredFieldValidator8" InitialValue="0" runat="server" ControlToValidate="Mmunicipio" Display="Dynamic" ErrorMessage="Debe Seleccionar " ForeColor="Red" Font-Italic="true"></asp:RequiredFieldValidator>     
+
                       </div>
                   </div> 
                               </ContentTemplate>
@@ -89,7 +114,7 @@
                         <!--Direccion-->     
                     <div>
                      <div class="col col-sm-3"><label>Dirrección:</label>
-                          <asp:TextBox ID="Mdireccion" runat="server" Text="" ToolTip="Direccion" CssClass="form-control" ></asp:TextBox>
+                          <asp:TextBox ID="Mdireccion" runat="server" Text="" ToolTip="Direccion" CssClass="form-control" MaxLength="25" ></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="Mdireccion" Display="Dynamic" ErrorMessage="Este Campo es requerido" ForeColor="#FF3300">
                                 </asp:RequiredFieldValidator>
                                 <asp:RegularExpressionValidator ID="RegularExpressionValidator5" runat="server" ControlToValidate="Mdireccion" ErrorMessage="Datos Incorrectos" ValidationExpression="^[a-z &amp; A-Z]*$" ForeColor="#FF3300">
@@ -103,8 +128,8 @@
                             </div>  &nbsp;
                     <!--telefono-->                            
                     <div >
-                    <div class="col col-md-1"><label for="Ntelefono" class=" form-control-label">Telefono:</label></div>
-                        <asp:TextBox ID="Mtelefono" runat="server" type="text" ToolTip="Telefono" CssClass="form-control" placeholder="505 0000-0000"></asp:TextBox>
+                    <div class="col col-md-1"><label for="Ntelefono" class=" form-control-label" >Telefono:</label></div>
+                        <asp:TextBox ID="Mtelefono" runat="server" type="text" ToolTip="Telefono" CssClass="form-control" placeholder="0000-0000" MaxLength="8"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="Mtelefono" Display="Dynamic" ErrorMessage="Este Campo es requerido" ForeColor="#FF3300"></asp:RequiredFieldValidator>
                         <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ControlToValidate="Mtelefono" ErrorMessage="Datos Incorrectos" ValidationExpression="^[0-9]*$" MaxLength="8" ForeColor="#FF3300"></asp:RegularExpressionValidator>                                                   
                 </div>

@@ -13,7 +13,7 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Negocio
         //PATRÓN SINGLETON
         #region "SINGLETON"
         private static NGcliente emp = null;
-        private NGcliente()
+        public NGcliente()
         {
 
         }
@@ -52,5 +52,13 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Negocio
         {
             return DTmunicipio.getInstance().getmunicipioporid(id);
         }
-    }
+		public List<Cliente> Data()
+		{
+			return DTcliente.getInstance().GetData();
+		}
+		public SqlDataReader ListarClientePorId(int id)
+		{
+			return DTcliente.getInstance().getClienteporid(id);
+		}
+	}
 }

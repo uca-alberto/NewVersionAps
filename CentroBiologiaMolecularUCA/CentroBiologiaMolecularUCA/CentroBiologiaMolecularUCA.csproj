@@ -626,7 +626,6 @@
     <Content Include="assets\scss\_widgets.scss" />
     <Content Include="configuration.Master" />
     <None Include="Scripts\jquery-1.6.4-vsdoc.js" />
-    <Content Include="ImagesClientes\89169705.jpg" />
     <Content Include="ImagesClientes\User-placeholder.jpg" />
     <Content Include="js\bootstrap.js" />
     <Content Include="js\bootstrap.min.js" />

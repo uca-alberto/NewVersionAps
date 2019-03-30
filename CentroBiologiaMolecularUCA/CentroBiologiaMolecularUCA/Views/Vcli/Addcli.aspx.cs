@@ -188,19 +188,18 @@ namespace CentroBiologiaMolecularUCA.Views.ViewCliente
 						}
 						else
 						{
-							string path = Server.MapPath("../../ImagesClientes\\");
-							Urlimagen.Text = path;
-							FileUpload1.SaveAs(path + cli.Cedula + extension);
-							//guardar en bd 
-							url = "ImagesClientes\\" + cli.Cedula + extension;
-							cli.imagen = url;
-							bool resp = NGcliente.getInstance().guardarcliente(cli);
+								string path = Server.MapPath("../../ImagesClientes\\");
+								Urlimagen.Text = path;
+								FileUpload1.SaveAs(path + cli.Cedula + extension);
+								//guardar en bd 
+								url = "ImagesClientes\\" + cli.Cedula + extension;
+								cli.imagen = url;
+								bool resp = NGcliente.getInstance().guardarcliente(cli);
 
-							if (resp == true)
-							{
-								ClientScript.RegisterStartupScript(GetType(), "Javascript", "javascript: InsertarCliente(); ", true);
-							}
-
+								if (resp == true)
+								{
+									ClientScript.RegisterStartupScript(GetType(), "Javascript", "javascript: InsertarCliente(); ", true);
+								}
 						}
 							
 					}
@@ -208,6 +207,18 @@ namespace CentroBiologiaMolecularUCA.Views.ViewCliente
 					Urlimagen.Text = "Imagen no corresponde a un formato correcto";
 					ClientScript.RegisterStartupScript(GetType(), "Javascript", "javascript: ADD(); ", true);
 
+				}
+				else
+				{
+					url = "ImagesClientes/User-placeholder.jpg";
+					cli.imagen = url;
+
+					bool resp1 = NGcliente.getInstance().guardarcliente(cli);
+
+					if (resp1 == true)
+					{
+						ClientScript.RegisterStartupScript(GetType(), "Javascript", "javascript: InsertarCliente(); ", true);
+					}
 				}
 
 
@@ -235,9 +246,6 @@ namespace CentroBiologiaMolecularUCA.Views.ViewCliente
 				}
 			}
 
-			protected void cancelar_Click(object sender, EventArgs e)
-			{
-				Response.Redirect("../Searchcli.aspx");
-			}
+			
 	   }
 	}

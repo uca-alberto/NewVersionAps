@@ -13,19 +13,19 @@ namespace CentroBiologiaMolecularUCA.Views.OpcionesConfigurables
 {
     public partial class EditarExamenes : System.Web.UI.Page
     {
-        private DTexamenes dtexamenes;
         private SqlDataReader registro;
         public Examen exam;
         public NGExamen nge;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            dtexamenes = new DTexamenes();
+			nge = new NGExamen();
+           
             exam = new Examen();
 
             String valor = Request.QueryString["id"];//obtenemos el id que le pasamos a travez de la url
             int id = int.Parse(valor);//parseamos el valorm, para obtenerlo un int;
-            this.registro = dtexamenes.getExamenporid(id);//usamos el metodo de la clase dtcliente para buscar el cliente por el id
+            this.registro = nge.ListarExamenPorId(id);//usamos el metodo de la clase dtcliente para buscar el cliente por el id
 
 
             if (registro.Read())//validamos 

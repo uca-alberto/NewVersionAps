@@ -13,21 +13,10 @@ namespace CentroBiologiaMolecularUCA.Views.OpcionesConfigurables
 {
     public partial class AgregarExamenes : System.Web.UI.Page
     {
-        private DTexamenes dtExamenes;
-        private SqlDataReader registro;
-        private Conexion conexion;
+     
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            this.dtExamenes = new DTexamenes();
-            this.conexion = new Conexion();
-            this.registro = this.dtExamenes.listarexamenes();
-
-
-        }
-        public SqlDataReader getregistros()
-        {
-            return this.registro;
         }
 
         public Examen GetEntity()

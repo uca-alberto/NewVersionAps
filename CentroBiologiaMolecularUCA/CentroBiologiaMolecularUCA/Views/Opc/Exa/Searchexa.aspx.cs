@@ -6,17 +6,17 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos;
+using WebSistemaCentroBiologiaMolecularUCA.Ncapas.Negocio;
 
 namespace CentroBiologiaMolecularUCA.Views.OpcionesConfigurables
 {
         public partial class BuscarExamenes : System.Web.UI.Page
         {
             private SqlDataReader registros;
-            private DTexamenes dtexamenes;
             protected void Page_Load(object sender, EventArgs e)
             {
-                this.dtexamenes = new DTexamenes();
-                this.registros = this.dtexamenes.listarexamenes();
+			NGExamen ng = new NGExamen();
+             registros = ng.ListarExamenes();
 
             }
             public SqlDataReader getregistros()

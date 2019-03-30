@@ -13,33 +13,30 @@ namespace CentroBiologiaMolecularUCA.Views.ViewCliente
 {
     public partial class EditarCliente : System.Web.UI.Page
     {
-        private DTcliente dtcliente;
-        private DTdepartamento dtdepartamento;
-        private DTmunicipio dtmunicipio;
         private SqlDataReader registro;
         public Cliente cli;
+		NGcliente ng;
+		string url = "";
 
-        protected void Page_Load(object sender, EventArgs e)
+		protected void Page_Load(object sender, EventArgs e)
         {
+			 ng = new NGcliente();
             //creamos los objetos de la biblioteca de datos;
-            this.dtcliente = new DTcliente();
-            dtdepartamento = new DTdepartamento();
-            this.dtmunicipio = new DTmunicipio();
             cli = new Cliente();
             Mcedula.MaxLength = 16;
 
             String valor = Request.QueryString["id"];//obtenemos el id que le pasamos a travez de la url
             int id = int.Parse(valor);//parseamos el valorm, para obtenerlo un int;
             cli.Id_Cliente = id;//le asignamos ese id a la propiedad id_cliente;
-            this.registro = dtcliente.getClienteporid(id);//usamos el metodo de la clase dtcliente para buscar el cliente por el id
+            this.registro = ng.ListarClientePorId(id);//usamos el metodo de la clase dtcliente para buscar el cliente por el id
 
             if (!IsPostBack)
             {
                 //en esta parte se carga el dropdownlist
-                Mdepartamento.DataSource = dtdepartamento.listardepartamento();//aqui le paso mi consulta que esta en la clase dtdepartamento                                                                   
+                Mdepartamento.DataSource = ng.ListarDepartamento();//aqui le paso mi consulta que esta en la clase dtdepartamento                                                                   
                 Mdepartamento.DataBind();
 
-                Mmunicipio.DataSource = dtmunicipio.listarmunicipio();
+                Mmunicipio.DataSource = ng.ListarMunicipio();
                 Mmunicipio.DataBind();
 
                 ListItem li = new ListItem("SELECCIONE", "0");//creamos una lista, para agregar el seleccione
@@ -60,9 +57,17 @@ namespace CentroBiologiaMolecularUCA.Views.ViewCliente
                 cli.Sexo = this.registro["sexo"].ToString();
                 cli.Telefono = int.Parse(this.registro["Num_Telefono"].ToString());
                 this.cli.Correo = this.registro["Email"].ToString();
-                //le seteamos los valores que obtenemos del cliente;
+				if (registro["Imagen"].ToString() == "")
+				{
+					Image1.ImageUrl = "../../ImagesClientes/User-placeholder.jpg";
+				}
+				else
+				{
+					Image1.ImageUrl = "../../" + registro["Imagen"].ToString();
+				}
+				//le seteamos los valores que obtenemos del cliente;
 
-            }
+			}
 
         }
 
@@ -149,17 +154,58 @@ namespace CentroBiologiaMolecularUCA.Views.ViewCliente
         {
             if (IsValid)
             {
-                Cliente cli = Modificar();
-                bool resp = NGcliente.getInstance().Modificarcliente(cli);
-                if (resp == true)
-                {
-                    ClientScript.RegisterStartupScript(GetType(), "Javascript", "javascript: ModificarCliente(); ", true);
-                }
-                else
-                {
-                    Response.Redirect("EditarCliente.aspx?id=" + Id_cliente.Value);
-                }
+				Cliente cli = Modificar();
+				if (FileUpload1.HasFile)
+				{
+					string extension = System.IO.Path.GetExtension(FileUpload1.FileName);
+					if (extension == ".jpg" || extension == ".png")
+					{
+						if (FileUpload1.PostedFile.ContentLength > 30000)
+						{
+							ClientScript.RegisterStartupScript(GetType(), "Javascript", "javascript: Advertenciaimg(); ", true);
+						}
+						else
+						{
+							string path = Server.MapPath("../../ImagesClientes\\");
+							Urlimagen.Text = path;
+							FileUpload1.SaveAs(path + cli.Cedula + extension);
+							//guardar en bd 
+							url = "ImagesClientes\\" + cli.Cedula + extension;
+							cli.imagen = url;
+							bool resp = NGcliente.getInstance().Modificarcliente(cli);
+							if (resp == true)
+							{
+								ClientScript.RegisterStartupScript(GetType(), "Javascript", "javascript: ModificarCliente(); ", true);
+							}
+							else
+							{
+								Response.Redirect("EditarCliente.aspx?id=" + Id_cliente.Value);
+							}
+						}
 
+					}
+					else
+					{
+						Urlimagen.Text = "Imagen no corresponde a un formato correcto";
+						ClientScript.RegisterStartupScript(GetType(), "Javascript", "javascript: ADD(); ", true);
+					}
+				}
+				else
+				{
+					url = Image1.ImageUrl;
+					cli.imagen = url;
+
+					bool resp = NGcliente.getInstance().Modificarcliente(cli);
+					if (resp == true)
+					{
+						ClientScript.RegisterStartupScript(GetType(), "Javascript", "javascript: ModificarCliente(); ", true);
+					}
+					else
+					{
+						Response.Redirect("EditarCliente.aspx?id=" + Id_cliente.Value);
+					}
+
+				}
             }
             else
             {
@@ -176,7 +222,7 @@ namespace CentroBiologiaMolecularUCA.Views.ViewCliente
             else
             {
                 Mmunicipio.Enabled = true;
-                Mmunicipio.DataSource = dtmunicipio.getmunicipioporid(int.Parse(Mdepartamento.SelectedValue));
+                Mmunicipio.DataSource = ng.ListarMunicipioPorId(int.Parse(Mdepartamento.SelectedValue));
                 // Mmunicipio.DataTextField = "Municipio";
                 // Mmunicipio.DataValueField = "Id_Municipio";
                 Mmunicipio.DataBind();
@@ -185,9 +231,9 @@ namespace CentroBiologiaMolecularUCA.Views.ViewCliente
             }
         }
 
-        protected void cancelar_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("Searchcli.aspx");
-        }
-    }
+		protected void cancelar_Click(object sender, EventArgs e)
+		{
+			Response.Redirect("Searchcli.aspx");
+		}
+	}
 }

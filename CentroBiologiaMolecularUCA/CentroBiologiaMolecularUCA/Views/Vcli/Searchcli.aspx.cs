@@ -9,6 +9,7 @@ using WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos;
 using WebSistemaCentroBiologiaMolecularUCA.Ncapas.Entidades;
 using Microsoft.AspNet.SignalR;
 using System.Data.SqlClient;
+using WebSistemaCentroBiologiaMolecularUCA.Ncapas.Negocio;
 
 namespace CentroBiologiaMolecularUCA.Views.ViewCliente
 {
@@ -67,9 +68,9 @@ namespace CentroBiologiaMolecularUCA.Views.ViewCliente
         [WebMethod]
         public static List<Cliente> GetData()
         {
-            DTcliente dtp = new DTcliente();
+			NGcliente ng = new NGcliente();
 
-            return dtp.GetData();
+            return ng.Data();
         }
 
         [WebMethod]
@@ -83,7 +84,7 @@ namespace CentroBiologiaMolecularUCA.Views.ViewCliente
             };
             Console.Write(ep);
 
-            resp = DTcliente.getInstance().eliminar(ep);  
+            resp = NGcliente.getInstance().Eliminarcliente(ep);  
             return resp;
          
         }

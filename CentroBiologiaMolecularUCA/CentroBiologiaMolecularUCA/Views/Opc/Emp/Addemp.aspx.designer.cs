@@ -139,15 +139,6 @@ namespace CentroBiologiaMolecularUCA.Views.OpcionesConfigurables.Emp {
         protected global::System.Web.UI.ScriptManager scriptmanager1;
         
         /// <summary>
-        /// Control cancelar.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button cancelar;
-        
-        /// <summary>
         /// Control id_empleado.
         /// </summary>
         /// <remarks>

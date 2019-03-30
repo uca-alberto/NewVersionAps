@@ -3,19 +3,19 @@ using System.Data.SqlClient;
 
 using WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos;
 using WebSistemaCentroBiologiaMolecularUCA.Ncapas.Entidades;
+using WebSistemaCentroBiologiaMolecularUCA.Ncapas.Negocio;
 
 namespace CentroBiologiaMolecularUCA.Views.OpcionesConfigurables
 {
     public partial class VerExamen : System.Web.UI.Page
     {
-        public DTexamenes dtExamen;
         public Examen exam;
         public SqlDataReader registro;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //CRECION DE LOS OBJETOS
-            this.dtExamen = new DTexamenes();
+			//CRECION DE LOS OBJETOS
+			NGExamen ng = new NGExamen();
             exam = new Examen();
 
             //OBTENCION DEL ID DE EXAMEN
@@ -24,7 +24,7 @@ namespace CentroBiologiaMolecularUCA.Views.OpcionesConfigurables
             exam.id_examenes = id;
 
             //INVOCAMOS EL METODO BUSCAR EXAMEN POR ID
-            this.registro = dtExamen.getExamenporid(id);
+            this.registro = ng.ListarExamenPorId(id);
             Id_Examen.Value = valor;
 
             if (registro.Read())

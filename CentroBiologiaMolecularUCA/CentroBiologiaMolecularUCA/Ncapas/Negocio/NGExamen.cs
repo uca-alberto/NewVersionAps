@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos;
@@ -12,7 +13,7 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Negocio
         //PATRÓN SINGLETON
         #region "SINGLETON"
         private static NGExamen emp = null;
-        private NGExamen()
+        public NGExamen()
         {
 
         }
@@ -35,5 +36,13 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Negocio
         {
             return DTexamenes.getInstance().modificar(examen);
         }
-    }
+		public SqlDataReader ListarExamenes()
+		{
+			return DTexamenes.getInstance().listarexamenes();
+		}
+		public SqlDataReader ListarExamenPorId(int id)
+		{
+			return DTexamenes.getInstance().getExamenporid(id);
+		}
+	}
 }

@@ -1,5 +1,6 @@
 ﻿using CentroBiologiaMolecularUCA.Ncapas.Datos;
 using CentroBiologiaMolecularUCA.Ncapas.Entidades;
+using CentroBiologiaMolecularUCA.Ncapas.Negocio;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -7,12 +8,12 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using WebSistemaCentroBiologiaMolecularUCA.Ncapas.Negocio;
 
 namespace CentroBiologiaMolecularUCA.Views.OpcionesConfigurables.Emp
 {
     public partial class SeeEmployee : System.Web.UI.Page
     {
-        private DTEmpleados dtemp;
         private SqlDataReader registro;
         public Empleado emp;
 
@@ -21,7 +22,6 @@ namespace CentroBiologiaMolecularUCA.Views.OpcionesConfigurables.Emp
         {
 
             //Creacion de los objetos
-            this.dtemp = new DTEmpleados();
             emp = new Empleado();
 
             //Obtener id del empleado
@@ -30,7 +30,7 @@ namespace CentroBiologiaMolecularUCA.Views.OpcionesConfigurables.Emp
             emp.Id_Empleado = id;
 
             //Lamamos al metodo buscar empleado por id
-            this.registro = dtemp.getEmpleadoporid(id);
+            this.registro = NGEmpleado.getInstance().ListarEmpleadoPorId(id);
             Id_Emp.Value = valor;
 
             //Comenzamos a recorer el sqldatareader

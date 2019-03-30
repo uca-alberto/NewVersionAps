@@ -112,7 +112,7 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
             {
                 //CONSULTA SQL
                 c = Conexion.getInstance().ConexionDB();
-                string sql = "update T_Clientes set Nombre=(@Mnombre),Apellido=(@Mapellido),Cedula=(@Mcedula) ,Id_Departamento=(@Mdepartamento),Direccion=(@Mdireccion), Id_Municipio=(@Mmunicipio), Sexo=(@Msexo), Num_telefono=(@Mtelefono), Email=(@Mcorreo) where Id_Cliente=(@mid)";
+                string sql = "update T_Clientes set Nombre=(@Mnombre),Apellido=(@Mapellido),Cedula=(@Mcedula) ,Id_Departamento=(@Mdepartamento),Direccion=(@Mdireccion), Id_Municipio=(@Mmunicipio), Sexo=(@Msexo), Num_telefono=(@Mtelefono), Email=(@Mcorreo),Imagen=(@Mimagen) where Id_Cliente=(@mid)";
                 //PASANDO PARÁMETROS A CONSULTA SQL
                 using (comando = new SqlCommand(sql, c))
                 {
@@ -126,6 +126,7 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
                     comando.Parameters.AddWithValue("@Msexo", cliente.Sexo);
                     comando.Parameters.AddWithValue("@Mtelefono", cliente.Telefono);
                     comando.Parameters.AddWithValue("@Mcorreo", cliente.Correo);
+					comando.Parameters.AddWithValue("Mimagen",cliente.imagen);
 
                     //VALIDANDO SI LA CONEXIÓN ESTÁ ACTIVA O CERRADA
                     if (comando.Connection.State != System.Data.ConnectionState.Closed)
