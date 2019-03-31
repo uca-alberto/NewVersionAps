@@ -1,9 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="VerOrdenAdnMulti.aspx.cs" Inherits="CentroBiologiaMolecularUCA.Views.ViewOrdenMaria.VerOrdenAdnMulti" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-</asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="head" runat="server">
-    <div class="card-header">
-        <strong class="card-title">ADN</strong>
+
+<div class="card-header">
+        <strong class="card-title">Visualizar ADN</strong>
          </div>  
             <div class="card">
             <div class="card-body card-block">
@@ -11,7 +10,7 @@
                     <!--Comienzo de los formulario-->    
                       <!--Codigo-->  
                      <div class="row form-group ">
-                <div class="col col-md-3 "><label for="text-input" class=" form-control-label">Codigo orden</label></div>
+                <div class="col col-md-3 "><label for="text-input" class=" form-control-label">Código orden</label></div>
                 <div class="col-12 col-md-9">&nbsp; 
                         <asp:TextBox ID="Mcodigo" runat="server" ReadOnly="true" ToolTip="Codigo Orden" CssClass="form-control"></asp:TextBox>&nbsp; 
                 </div>
@@ -19,7 +18,7 @@
 
                      <!--nombre del padre-->  
                         <div class="row form-group ">
-                <div class="col col-md-3 "><label for="password-input" class=" form-control-label">Nombre del padre</label></div>
+                <div class="col col-md-3 "><label for="password-input" class=" form-control-label">Nombre del presunto padre</label></div>
                 <div class="col-12 col-md-9">&nbsp;
                 <asp:TextBox ID="Mnombrepareja" runat="server" Text="" ToolTip="nombrepareja" CssClass="form-control" placeholder="Ingrese el nombre del padre"></asp:TextBox>
                            
@@ -27,7 +26,7 @@
                 </div>
                        <!--nombre del hijo-->    
                        <div class="row form-group ">
-                <div class="col col-md-3 "><label for="password-input" class=" form-control-label">Nombre del hijo</label></div>
+                <div class="col col-md-3 "><label for="password-input" class=" form-control-label">Nombre del presunto hijo</label></div>
                 <div class="col-12 col-md-9">&nbsp;
                 <asp:TextBox ID="Mnombrehijo" runat="server" Text="" ToolTip="nombrehijo" CssClass="form-control" placeholder="Ingrese el nombre del hijo"></asp:TextBox>
                          
@@ -55,16 +54,14 @@
                             </div>
                           </div>
 
-                    <div class="card-header">
-                        <strong class="card-title">Datos para el investigador </strong>
-                            </div>  &nbsp;  
+                    
 
                    
 
-                     <div class="card-header">
-                        <strong class="card-title">Datos secundarios de orden adn </strong>
-                            </div>  &nbsp;
-
+                    
+                    <div class="card-header">
+                        <strong class="card-title">Datos para el investigador </strong>
+                            </div>  &nbsp;  
                     <!--observaciones -->
                 <div class="row form-group ">
                 <div class="col col-md-3 "><label for="password-input" class=" form-control-label">observaciones</label></div>
@@ -73,7 +70,9 @@
                          
                     </div>
                 </div>  
-
+                     <div class="card-header">
+                        <strong class="card-title">Datos secundarios de orden adn </strong>
+                            </div>  &nbsp;
                       <!--boucher -->
                 
                  <div class="row form-group ">
@@ -114,5 +113,6 @@
 };
 </script> 
 
+    
 
 </asp:Content>

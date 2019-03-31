@@ -25,8 +25,9 @@
                   <table id="bootstrap-data-table" class="table table-striped table-bordered">
                     <thead>
                         <th>Codigo</th>
+                        <th>Nombre</th>
                         <th>Boucher</th>
-                        <th>Hijo</th>
+                        
                         
                        
                         <th>Opciones</th>

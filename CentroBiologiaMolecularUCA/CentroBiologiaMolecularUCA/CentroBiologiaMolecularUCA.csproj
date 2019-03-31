@@ -314,6 +314,8 @@
     <Content Include="assets\sweetalert.css" />
     <Content Include="assets\sweetalert.min.js" />
     <Content Include="Content\Global.js" />
+    <Content Include="Content\Listaabuelidad.js" />
+    <Content Include="Content\ListaAlzheimer.js" />
     <Content Include="Content\listacliente.js" />
     <Content Include="Content\listaempleado.js" />
     <Content Include="Content\ListaMaternidad.js" />
@@ -321,6 +323,7 @@
     <Content Include="Content\Listaorden.js" />
     <Content Include="Content\ListaOrdenAdn.js" />
     <Content Include="Content\ListaOrdenOgm.js" />
+    <Content Include="Content\ListaPapiloma.js" />
     <Content Include="Content\ListarUsuario.js" />
     <Content Include="Content\listausuario.js" />
     <Content Include="Content\Vercliente.js" />
@@ -675,8 +678,12 @@
     <Content Include="Views\ViewOrdenMaria\deleteAdnOrdenMulti.aspx" />
     <Content Include="Views\ViewOrdenMaria\EliminarOrden.aspx" />
     <Content Include="Views\ViewOrdenMaria\ModificarOrden.aspx" />
+    <Content Include="Views\ViewOrdenMaria\VerAbuelidadMulti.aspx" />
+    <Content Include="Views\ViewOrdenMaria\VerAlzheimerMulti.aspx" />
+    <Content Include="Views\ViewOrdenMaria\VerMaternidadMulti.aspx" />
     <Content Include="Views\ViewOrdenMaria\VerOrdenAdn.aspx" />
     <Content Include="Views\ViewOrdenMaria\VerOrdenAdnMulti.aspx" />
+    <Content Include="Views\ViewOrdenMaria\VerPapilomaMulti.aspx" />
     <Content Include="Views\Vogm\Addogm.aspx" />
     <Content Include="Views\Vogm\Searchogm.aspx" />
     <Content Include="Views\Vogm\Updogm.aspx" />
@@ -959,6 +966,27 @@
     <Compile Include="Views\ViewOrdenMaria\ModificarOrden.aspx.designer.cs">
       <DependentUpon>ModificarOrden.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Views\ViewOrdenMaria\VerAbuelidadMulti.aspx.cs">
+      <DependentUpon>VerAbuelidadMulti.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\ViewOrdenMaria\VerAbuelidadMulti.aspx.designer.cs">
+      <DependentUpon>VerAbuelidadMulti.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ViewOrdenMaria\VerAlzheimerMulti.aspx.cs">
+      <DependentUpon>VerAlzheimerMulti.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\ViewOrdenMaria\VerAlzheimerMulti.aspx.designer.cs">
+      <DependentUpon>VerAlzheimerMulti.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ViewOrdenMaria\VerMaternidadMulti.aspx.cs">
+      <DependentUpon>VerMaternidadMulti.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\ViewOrdenMaria\VerMaternidadMulti.aspx.designer.cs">
+      <DependentUpon>VerMaternidadMulti.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\ViewOrdenMaria\VerOrdenAdn.aspx.cs">
       <DependentUpon>VerOrdenAdn.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -972,6 +1000,13 @@
     </Compile>
     <Compile Include="Views\ViewOrdenMaria\VerOrdenAdnMulti.aspx.designer.cs">
       <DependentUpon>VerOrdenAdnMulti.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ViewOrdenMaria\VerPapilomaMulti.aspx.cs">
+      <DependentUpon>VerPapilomaMulti.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\ViewOrdenMaria\VerPapilomaMulti.aspx.designer.cs">
+      <DependentUpon>VerPapilomaMulti.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Vogm\Addogm.aspx.cs">
       <DependentUpon>Addogm.aspx</DependentUpon>

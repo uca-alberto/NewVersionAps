@@ -23,8 +23,8 @@ function addRowDT(data) {
            data[i].Baucher,
 
 
-           '<a title="Ver" href="VerOrdenAdnMulti.aspx?id=' + data[i].Id_orden + '"><i class="fa ti-eye"></i>&nbsp;' +
-
+          // '<a title="Ver" href="VerOrdenAdnMulti.aspx?id=' + data[i].Id_orden + '"><i class="fa ti-eye"></i>&nbsp;' +
+          '<a title="Ver" href="VerAlzheimerMulti.aspx?id=' + data[i].Id_orden + '"><i class="fa ti-eye"></i>&nbsp;' +
            '<a value="Eliminarre" id="Eliminar"><i class="fa fa-trash-o"></i>'
 
         ]).draw(false);
