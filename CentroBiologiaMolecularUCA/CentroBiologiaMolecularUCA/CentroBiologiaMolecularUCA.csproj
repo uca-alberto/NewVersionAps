@@ -326,6 +326,7 @@
     <Content Include="Content\ListaPapiloma.js" />
     <Content Include="Content\ListarUsuario.js" />
     <Content Include="Content\listausuario.js" />
+    <Content Include="Content\ResultadoOgm.js" />
     <Content Include="Content\Vercliente.js" />
     <Content Include="Content\VerExamen.js" />
     <Content Include="Content\VerMaternidad.js" />

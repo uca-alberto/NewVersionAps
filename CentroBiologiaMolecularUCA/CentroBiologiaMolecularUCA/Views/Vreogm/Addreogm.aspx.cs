@@ -18,6 +18,7 @@ namespace CentroBiologiaMolecularUCA.Views.Vreogm
         private TOrden tOrden;
         private DTanalisis dtanalisis;
         private DTmuestra dtmuestra;
+        private SqlDataReader tablaresultado;
         private SqlDataReader analisis;//Cargar tipo examen
         private SqlDataReader registro;//Data resultado
 
@@ -54,11 +55,14 @@ namespace CentroBiologiaMolecularUCA.Views.Vreogm
             Mmuestra.Items.Insert(0, li);
 
             //Llenar CheckBoxList
-            this.analisis = tOrden.getAnalisisporId(id);
+            this.analisis = NGorden.getInstance().Listarexamenes(id);
             llenarcheckbox();
 
+            //data para la tabla de resultados
+            tablaresultado = NGresultado.getInstance().Resultadostabla(id);
+
             //Registros
-            registro = result.cargardatosporid(id);
+            registro = NGresultado.getInstance().ListardatosResultados(id);
 
             if (registro.Read())
             {
@@ -97,7 +101,11 @@ namespace CentroBiologiaMolecularUCA.Views.Vreogm
                 }
             }
         }
-
+        //cargar datos en la tabla 
+        public SqlDataReader getregistros()
+        {
+            return tablaresultado;
+        }
 
         public Resultado GetEntity()
         {
@@ -111,14 +119,7 @@ namespace CentroBiologiaMolecularUCA.Views.Vreogm
             {
                 res.Observaciones = Mobservaciones.Text;
             }
-            if (Mresultado.SelectedValue.ToString() == "0")
-            {
-                RegularExpressionValidator.GetValidationProperty(RequiredFieldValidator2);
-            }
-            else
-            {
-                res.Validacion = Mresultado.SelectedValue;
-            }
+            
             res.Id_orden = id;
             res.Fecha_procesamiento = Convert.ToDateTime(Mfecha.Text);
             res.Hora = Convert.ToDateTime(Mhora.Text);
@@ -130,6 +131,9 @@ namespace CentroBiologiaMolecularUCA.Views.Vreogm
             res.Estado = "Procesada";
             return res;
         }
+
+
+
 
         public void InsertarResultado(object sender, EventArgs e)
         {

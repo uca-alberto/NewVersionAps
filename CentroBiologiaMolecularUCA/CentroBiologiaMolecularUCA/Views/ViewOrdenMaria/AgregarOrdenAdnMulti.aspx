@@ -40,7 +40,7 @@
     </script>
 
 
-   <%-- <div class="content mt-3">
+    <div class="content mt-3">
             <div class="animated">
     <div class="card">
                     <div class="card-header">      
@@ -112,7 +112,7 @@
                         </div>
                      </div>
                 </div>
-    </div>--%>
+    </div>
 
      <div class="card-header">
             <strong class="card-title" v-if="headerText">Crear Orden ADN</strong>
@@ -126,7 +126,7 @@
                             </div>&nbsp;
                    <!--Obtener el Id del cliente que selecciono-->
           
-<%--                   <asp:HiddenField runat="server" ID="Id_cliente" /> 
+                   <asp:HiddenField runat="server" ID="Id_cliente" /> 
 
                      <!--Obtener el nombre del cliente que selecciono-->
             <div class="row form-group ">
@@ -141,7 +141,7 @@
                 <div class="col-12 col-md-9">
                      <asp:TextBox ID="Mcedula" ReadOnly="true" runat="server" ToolTip="Cedula Cliente" CssClass="form-control"></asp:TextBox>      
                      </div>
-             </div>--%>
+             </div>
         
         <asp:MultiView ID="MultiView1" runat="server" ActiveViewIndex="0">
             <!-- index of view =0-->

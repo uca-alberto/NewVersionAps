@@ -76,7 +76,7 @@ namespace CentroBiologiaMolecularUCA.Views.ViewOrden
             {
                 ord.Id_codigo = this.registro["Id_codigo"].ToString();
                 ord.Fecha = Convert.ToDateTime(this.registro["Fecha"].ToString());
-                ord.Tipo_muestra = this.registro["Id_tipo_muestra"].ToString();
+                ord.Tipo_muestra = Convert.ToInt32(this.registro["Id_tipo_muestra"].ToString());
                 ord.Observaciones = this.registro["Observaciones"].ToString();
                 ord.Baucher = this.registro["Baucher"].ToString();
                 ord.Estado = this.registro["Estado"].ToString();
@@ -96,7 +96,7 @@ namespace CentroBiologiaMolecularUCA.Views.ViewOrden
             }
             else
             {
-                ord.Tipo_examen = Manalisis.SelectedValue;
+                ord.Tipo_examen = Convert.ToInt32(Manalisis.SelectedValue);
             }
             if (Mmuestra.ToString() == null)
             {
@@ -104,7 +104,7 @@ namespace CentroBiologiaMolecularUCA.Views.ViewOrden
             }
             else
             {
-                ord.Tipo_muestra = Mmuestra.SelectedValue;
+                ord.Tipo_muestra = Convert.ToInt32(Mmuestra.SelectedValue);
             }
             if (Mobservaciones.ToString() == null)
             {

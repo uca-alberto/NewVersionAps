@@ -10,11 +10,11 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Entidades
         private int id_orden;
         private String id_codigo;
         private String tipo_Caso;
-        private String tipo_examen;
-        private String tipo_muestra;
+        private int tipo_examen;
+        private int tipo_muestra;
         public int id_cliente { get; set; }
-        private String id_usuario;
-        private String id_empleado;
+        private int id_usuario;
+        private int id_empleado;
         private String nombre_pareja;
         private String nombre_menor;
         private DateTime fec_nac;
@@ -23,7 +23,7 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Entidades
         private String estado;
         private DateTime fecha;
         private int id_orden_detalle;
-        private String id_analisis;
+        private int id_analisis;
         private String muestra_adn;
 
 
@@ -43,7 +43,7 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Entidades
 
 
 
-        public string Tipo_examen
+        public int Tipo_examen
         {
             get
             {
@@ -56,7 +56,7 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Entidades
             }
         }
 
-        public string Tipo_muestra
+        public int Tipo_muestra
         {
             get
             {
@@ -147,7 +147,7 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Entidades
             }
         }
 
-        public string Id_empleado
+        public int Id_empleado
         {
             get
             {
@@ -199,7 +199,7 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Entidades
             }
         }
 
-        public string Id_usuario
+        public int Id_usuario
         {
             get
             {
@@ -225,7 +225,7 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Entidades
             }
         }
 
-        public string Id_analisis
+        public int Id_analisis
         {
             get
             {

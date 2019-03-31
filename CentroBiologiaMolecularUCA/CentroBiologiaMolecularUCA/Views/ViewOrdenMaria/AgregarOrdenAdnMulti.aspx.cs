@@ -115,8 +115,8 @@ namespace CentroBiologiaMolecularUCA.Views.ViewOrdenMaria
 
 
             String userid = (string)Session["Id_usuario"];
-         //   ord.id_cliente = int.Parse(Id_cliente.Value.ToString());
-            ord.Id_usuario = userid;
+         
+            ord.Id_usuario = Convert.ToInt32(userid);
             
             return ord;
         }
@@ -190,8 +190,8 @@ namespace CentroBiologiaMolecularUCA.Views.ViewOrdenMaria
             }
 
             String userid = (string)Session["Id_usuario"];
-         //   ord.id_cliente = int.Parse(Id_cliente.Value.ToString());
-            ord.Id_usuario = userid;
+            ord.id_cliente = int.Parse(Id_cliente.Value.ToString());
+            ord.Id_usuario = Convert.ToInt32(userid);
 
             return ord;
         }
@@ -268,7 +268,7 @@ namespace CentroBiologiaMolecularUCA.Views.ViewOrdenMaria
 
             String userid = (string)Session["Id_usuario"];
            // ord.id_cliente = int.Parse(Id_cliente.Value.ToString());
-            ord.Id_usuario = userid;
+            ord.Id_usuario = Convert.ToInt32(userid);
 
             return ord;
         }
@@ -346,8 +346,8 @@ namespace CentroBiologiaMolecularUCA.Views.ViewOrdenMaria
             }
 
             String userid = (string)Session["Id_usuario"];
-           // ord.id_cliente = int.Parse(Id_cliente.Value.ToString());
-            ord.Id_usuario = userid;
+           ord.id_cliente = int.Parse(Id_cliente.Value.ToString());
+            ord.Id_usuario = Convert.ToInt32(userid);
 
             return ord;
 
@@ -424,8 +424,8 @@ namespace CentroBiologiaMolecularUCA.Views.ViewOrdenMaria
                 ord.Fecha = Convert.ToDateTime(Mfecha.Text);
             }
             String userid = (string)Session["Id_usuario"];
-            //ord.id_cliente = int.Parse(Id_cliente.Value.ToString());
-            ord.Id_usuario = userid;
+            ord.id_cliente = int.Parse(Id_cliente.Value.ToString());
+            ord.Id_usuario = Convert.ToInt32(userid);
 
 
             return ord;

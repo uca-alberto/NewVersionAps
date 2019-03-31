@@ -106,6 +106,35 @@
             <strong class="card-title" >Resultado Examen</strong>
         </div>&nbsp;
 
+           <!--TABLA PARA RESULTADO DETALLE-->
+
+                    <div class="card-body">
+                        <table id="table" class="table table-striped table-bordered" >
+                            <thead>
+                                <tr>
+                                    <th>Tipo de Analisis</th>  
+                                    <th>Resultado</th>
+                                    
+                                </tr>
+                            </thead>
+                            <tbody> 
+<%
+                                    while(getregistros().Read())
+                                    {
+                                        %>
+                                            <tr>
+                                                <td><%=getregistros()["analisis"] %></td>
+                                                <td>
+                                                </td>
+                                             
+                                            </tr>
+                                        <%
+                                    }
+                                %>                                                                                                             
+                            </tbody>
+                        </table>
+                    </div>
+
              <!--observaciones-->                            
                     <div class="row form-group ">
                 <div class="col col-md-3 "><label for="text-input" class=" form-control-label">Observaciones</label></div>
@@ -115,19 +144,7 @@
                     </div>
                 </div> 
 
-           
-              <!--Seleccion de estado-->
-                    <div class="row form-group ">
-                <div class="col col-md-3 "><label for="select" class=" form-control-label">Resultado</label></div>
-                <div class="col-12 col-md-9 ">&nbsp; 
-                    <asp:DropDownList ID="Mresultado" runat="server" ToolTip="estado" CssClass="form-control">
-                    <asp:ListItem Value="0">Seleccione</asp:ListItem>
-                    <asp:ListItem Value="1">Positivo</asp:ListItem>
-                    <asp:ListItem Value="2">Negativo</asp:ListItem>
-                    </asp:DropDownList>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator6" InitialValue="0" runat="server" ControlToValidate="Mresultado" Display="Dynamic" ErrorMessage="Seleccione el Resultado del Examen" ForeColor="Red" Font-Italic="true"></asp:RequiredFieldValidator>
-                </div>
-                </div>
+
                                      
              <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" onclick="location.href='../Vogm/Searchogm.aspx'">Cancelar</button>
@@ -138,4 +155,6 @@
             </form>
             </div>
         </div>
+
+       <script type="text/javascript" src="../../Content/ResultadoOgm.js"></script>
 </asp:Content>

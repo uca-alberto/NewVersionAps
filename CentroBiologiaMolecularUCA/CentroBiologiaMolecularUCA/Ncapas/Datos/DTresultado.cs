@@ -45,14 +45,13 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
             {
                 //CONSULTA SQL
                 c = Conexion.getInstance().ConexionDB();
-                // string sql = "insert into T_Orden (Id_orden,Fecha,Entregado,Tipo_orden,Observaciones,Baucher,No_orden,Estado,Actividad) VALUES(2,@Mfecha,@Mentregado,@Mtipoorden,@Mobservaciones,@Mbaucher,@Mnoorden,@Mestado,1)";
 
-                string sql = "insert into T_Resultados (Id_Orden,Validacion,Fecha_procesamiento,Hora,Usuario_valida,Usuario_procesa,Estado,Observaciones,imagen,Activo) VALUES(@idorden,@Mvalidacion,@Mfecha,@Mhora,@Musuariovalida,@Musuarioprocesa,@Mestado,@Mobservaciones,NULL,1)";
+                string sql = "insert into T_Resultados (Id_Orden,Fecha_procesamiento,Hora,Usuario_valida,Usuario_procesa,Estado,Observaciones,imagen,Activo) VALUES(@idorden,@Mfecha,@Mhora,@Musuariovalida,@Musuarioprocesa,@Mestado,@Mobservaciones,NULL,1)";
                 //PASANDO PARÁMETROS A CONSULTA SQL
                 using (comando = new SqlCommand(sql, c))
                 {
                     comando.Parameters.AddWithValue("@idorden", e.Id_orden);
-                    comando.Parameters.AddWithValue("@Mvalidacion", e.Validacion);
+                   // comando.Parameters.AddWithValue("@Mvalidacion", e.Validacion);
                     comando.Parameters.AddWithValue("@Mfecha", e.Fecha_procesamiento);
                     comando.Parameters.AddWithValue("@Mhora", e.Hora);
                     comando.Parameters.AddWithValue("@Musuariovalida", e.Usuario_valida);
@@ -261,6 +260,16 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
             c.Close();
         }
 
+        //Para cargar los tipos de analisis a la tabla
+        public SqlDataReader getAnalisisporId(int id)
+        {
+            c = Conexion.getInstance().ConexionDB();
+            String sql = "SELECT detalle.Id_analisis, analisis.analisis From T_Tipo_Analisis analisis INNER JOIN T_Orden_detalle detalle on analisis.Id_analisis=detalle.Id_analisis where detalle.Id_orden='" + id + "';";
+            SqlCommand comando = new SqlCommand(sql, this.c);
+            this.registros = comando.ExecuteReader();
+            return this.registros;
+            c.Close();
+        }
         public SqlDataReader cargardatosporid(int id)
         {
             c = Conexion.getInstance().ConexionDB();

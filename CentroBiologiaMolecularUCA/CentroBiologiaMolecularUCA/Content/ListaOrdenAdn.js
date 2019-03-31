@@ -28,7 +28,7 @@ $(document).ready(function () {
             nombre = data[1] + " " + data[2],
             cedula = data[3];
         $("input[id$='Mcliente']").val(nombre),
-        $("input[id$='Idcliente']").val(id);
+        $("input[id$='Id_cliente']").val(id);
         $("input[id$='Mcedula']").val(cedula);
         swal({
             title: "Cliente Agregado a la Orden",

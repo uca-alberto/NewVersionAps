@@ -46,14 +46,14 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
                 c = Conexion.getInstance().ConexionDB();
                 // string sql = "insert into T_Orden (Id_orden,Fecha,Entregado,Tipo_orden,Observaciones,Baucher,No_orden,Estado,Actividad) VALUES(2,@Mfecha,@Mentregado,@Mtipoorden,@Mobservaciones,@Mbaucher,@Mnoorden,@Mestado,1)";
 
-                string sql = "insert into T_Orden (id_Codigo,Tipo_caso,Id_examenes,Id_tipo_muestra,Id_cliente,Id_usuario,Id_empleado,Nombre_pareja,Nombre_menor,fec_nac,Observaciones,Baucher,Estado,Activo,Fecha) VALUES(@Mcodigo,@Mtipocaso,NULL,NULL,1,@Midusuario,NULL,@Mnombrepareja,@Mnombrehijo,NULL,@Mobservaciones,@Mbaucher,@Mestado,1,@Mfecha)";
+                string sql = "insert into T_Orden (id_Codigo,Tipo_caso,Id_examenes,Id_tipo_muestra,Id_cliente,Id_usuario,Id_empleado,Nombre_pareja,Nombre_menor,fec_nac,Observaciones,Baucher,Estado,Activo,Fecha) VALUES(@Mcodigo,@Mtipocaso,NULL,NULL,@Mcliente,@Midusuario,NULL,@Mnombrepareja,@Mnombrehijo,NULL,@Mobservaciones,@Mbaucher,@Mestado,1,@Mfecha)";
                 //PASANDO PARÁMETROS A CONSULTA SQL
                 using (comando = new SqlCommand(sql, c))
                 {
                    // comando.Parameters.AddWithValue("@Midcliente", e.id_cliente);
                     comando.Parameters.AddWithValue("@Mcodigo", e.Id_codigo);
                     comando.Parameters.AddWithValue("@Mtipocaso", e.Tipo_Caso);
-                    
+                    comando.Parameters.AddWithValue("@Mcliente", e.id_cliente);
                     comando.Parameters.AddWithValue("@Midusuario", e.Id_usuario);
                     comando.Parameters.AddWithValue("@Mnombrepareja", e.Nombre_pareja);
 

@@ -1,4 +1,5 @@
-﻿using WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos;
+﻿using System.Data.SqlClient;
+using WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos;
 using WebSistemaCentroBiologiaMolecularUCA.Ncapas.Entidades;
 
 namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Negocio
@@ -37,6 +38,17 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Negocio
         public bool Modificarresultado(Resultado resultado)
         {
             return DTresultado.getInstance().modificar(resultado);
+        }
+
+        //Datos resultado
+        public SqlDataReader ListardatosResultados(int id)
+        {
+            return DTresultado.getInstance().cargardatosporid(id);
+        }
+        //Datos Tabla
+        public SqlDataReader Resultadostabla(int id)
+        {
+            return DTresultado.getInstance().getAnalisisporId(id);
         }
     }
 }

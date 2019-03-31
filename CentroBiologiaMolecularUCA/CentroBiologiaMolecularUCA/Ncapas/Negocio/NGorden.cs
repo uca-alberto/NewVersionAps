@@ -63,5 +63,10 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Negocio
         {
             return TOrden.getInstance().modificar(ord);
         }
+        //Llenar Checkbox
+        public SqlDataReader Listarexamenes(int id)
+        {
+            return TOrden.getInstance().getAnalisisporId(id);
+        }
     }
 }

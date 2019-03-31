@@ -73,7 +73,7 @@ namespace CentroBiologiaMolecularUCA.Views.ViewOrden
             }
             else
             {
-                ord.Tipo_examen = Manalisis.SelectedValue;
+                ord.Tipo_examen = Convert.ToInt32(Manalisis.SelectedValue);
             }
             if (Mmuestra.SelectedValue.ToString() == "0")
             {
@@ -81,7 +81,7 @@ namespace CentroBiologiaMolecularUCA.Views.ViewOrden
             }
             else
             {
-                ord.Tipo_muestra = Mmuestra.SelectedValue;
+                ord.Tipo_muestra = Convert.ToInt32(Mmuestra.SelectedValue);
             }
             if (Mobservaciones.ToString() == null)
             {
@@ -123,12 +123,10 @@ namespace CentroBiologiaMolecularUCA.Views.ViewOrden
             {
                 ord.Fecha = Convert.ToDateTime(Mfecha.Text);
             }
-           // int id1 =Convert.ToInt32( Id_cliente.ToString());
             String userid = (string)Session["Id_usuario"];
             ord.id_cliente = int.Parse(Id_cliente.Value.ToString());
-            ord.Id_usuario = userid;
+            ord.Id_usuario = Convert.ToInt32(userid);
             ord.Id_orden = Id;
-           // System.Diagnostics.Debug.WriteLine(ord.Id_cliente);
             return ord;
         }
 
@@ -150,7 +148,7 @@ namespace CentroBiologiaMolecularUCA.Views.ViewOrden
                     {
                         if (Manalisis.Items[i].Selected)
                         {
-                            ord.Id_analisis = Manalisis.Items[i].Value; ;
+                            ord.Id_analisis = Convert.ToInt32(Manalisis.Items[i].Value);
                             bool respu = NGorden.getInstance().guardardetalle(ord);
                         }
                     }
