@@ -46,7 +46,7 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
                 c = Conexion.getInstance().ConexionDB();
                 // string sql = "insert into T_Orden (Id_orden,Fecha,Entregado,Tipo_orden,Observaciones,Baucher,No_orden,Estado,Actividad) VALUES(2,@Mfecha,@Mentregado,@Mtipoorden,@Mobservaciones,@Mbaucher,@Mnoorden,@Mestado,1)";
 
-                string sql = "insert into T_Orden (id_Codigo,Tipo_caso,Id_examenes,Id_tipo_muestra,Id_cliente,Id_usuario,Id_empleado,Nombre_pareja,Nombre_menor,fec_nac,Observaciones,Baucher,Estado,Activo,Fecha) VALUES(@Mcodigo,@Mtipocaso,NULL,NULL,@Mcliente,@Midusuario,NULL,@Mnombrepareja,@Mnombrehijo,NULL,@Mobservaciones,@Mbaucher,@Mestado,1,@Mfecha)";
+                string sql = "insert into T_Orden (id_Codigo,Tipo_caso,Id_examenes,Id_tipo_muestra,Id_cliente,Id_usuario,Id_empleado,Nombre_pareja,Nombre_menor,fec_nac,Observaciones,Baucher,Estado,Activo,Fecha,Tipo_examen) VALUES(@Mcodigo,@Mtipocaso,NULL,NULL,@Mcliente,@Midusuario,NULL,@Mnombrepareja,@Mnombrehijo,NULL,@Mobservaciones,@Mbaucher,@Mestado,1,@Mfecha,'Paternidad')";
                 //PASANDO PARÁMETROS A CONSULTA SQL
                 using (comando = new SqlCommand(sql, c))
                 {

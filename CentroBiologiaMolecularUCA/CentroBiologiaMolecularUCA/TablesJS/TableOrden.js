@@ -21,8 +21,9 @@ function addRowDT(data) {
            data[i].Id_orden,
            data[i].Id_codigo,
            data[i].Baucher,
-           '<a title="ver" href="Seeogm.aspx?id=' + data[i].Id_orden + '"><i class="fa ti-eye"></i>&nbsp;' +
-           '<a value="Eliminarre" id="Eliminar"><i class="fa fa-trash-o"></i>&nbsp;' +
+           data[i].Examen,
+           '<a title="visualizar" id="ver"><i class="fa ti-eye"></i>&nbsp;' +
+           '<a title="Eliminar" value="Eliminarre" id="Eliminar"><i class="fa fa-trash-o"></i>&nbsp;' +
            '<a title="Generar Resultado" href="../../Views/Vreogm/Addreogm?id=' + data[i].Id_orden + '"><i class="fa fa-file-text-o"></i>&nbsp;'
 
 
@@ -97,3 +98,33 @@ $(document).on('click', '#Eliminar', function (e) {
 
 //LLAMANDO A LA FUNCION AJAX AL CARGAR DOCUMENTO
 sendDataAjax();
+
+//Probando el Visualizar
+$('#bootstrap-data-table tbody').on('click', '#ver', function () {
+    var table = $('#bootstrap-data-table').DataTable();
+    var data = table.row($(this).parents("tr")).data();
+    var id = data[0];
+   
+    var redict = data[3];
+    //Granos
+    if (redict == "OGM") {
+         location.href = 'Seeogm.aspx?id=' + id + ''
+    }
+    //ADN
+    if (redict == "Paternidad") {
+        location.href = '../ViewOrdenMaria/VerOrdenAdnMulti.aspx?id=' + id + ''
+    }
+    if (redict == "Maternidad") {
+        location.href = '../ViewOrdenMaria/VerMaternidadMulti.aspx?id=' + id + ''
+    }
+    if (redict == "Abuelidad") {
+        location.href = '../ViewOrdenMaria/VerAbuelidadMulti.aspx?id=' + id + ''
+    }
+    //HUMANO
+    if (redict == "Alzhaimer") {
+        location.href = '../ViewOrdenMaria/VerAlzheimerMulti.aspx?id=' + id + ''
+    }
+    if (redict == "Papiloma") {
+        location.href = '../ViewOrdenMaria/VerPapilomaMulti.aspx?id=' + id + ''
+    }
+});

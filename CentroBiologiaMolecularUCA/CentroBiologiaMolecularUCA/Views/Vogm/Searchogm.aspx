@@ -22,6 +22,7 @@
                         <th>Id Orden</th>
                         <th>Codigo</th>
                         <th>Baucher</th>
+                        <th>Tipo_Examen</th>
                         <th>Opciones</th>
                     </thead>
                     <tbody>

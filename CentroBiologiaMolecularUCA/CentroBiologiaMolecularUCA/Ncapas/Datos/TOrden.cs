@@ -66,7 +66,7 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
                     comando.Parameters.AddWithValue("@Mbaucher", e.Baucher);
                     comando.Parameters.AddWithValue("@Mestado", e.Estado);
                     comando.Parameters.AddWithValue("@Mfecha", e.Fecha);
-                    comando.Parameters.AddWithValue("@Tipoexamen", e.Tipo_examen);
+                    comando.Parameters.AddWithValue("@Tipoexamen", e.Examen);
 
                     //VALIDANDO SI LA CONEXIÓN ESTÁ ACTIVA O CERRADA
                     if (comando.Connection.State != System.Data.ConnectionState.Closed)
@@ -286,7 +286,7 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
             using (var connection = new SqlConnection(ConfigurationManager.ConnectionStrings["DataBase"].ConnectionString))
             {
                 connection.Open();
-                using (SqlCommand command = new SqlCommand(@"SELECT  [Id_orden],[Id_codigo],[Baucher] FROM T_Orden where Activo=1", connection))
+                using (SqlCommand command = new SqlCommand(@"SELECT  [Id_orden],[Id_codigo],[Baucher],[Tipo_examen] FROM T_Orden where Activo=1", connection))
                 {
                     // Make sure the command object does not already have
                     // a notification object associated with it.
@@ -306,7 +306,7 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
                                 Id_orden = x.GetInt32(0),
                                 Id_codigo = x.GetString(1),
                                 Baucher = x.GetString(2),
-
+                                Examen=x.GetString(3),
                             }).ToList();
 
                 }

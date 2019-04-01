@@ -72,7 +72,26 @@ namespace CentroBiologiaMolecularUCA.Views.Vogm
             return dtp.GetData();
         }
 
-        [WebMethod]
+        //[WebMethod]
+        //public static string visualizarOrden(String id)
+        //{
+        //    String redict ="";
+        //    String ver = id;
+        //    if (ver == "OGM"){
+        //        redict = "OGM";
+        //    }
+        //    if (ver == "Paternidad")
+        //    {
+        //        redict = "Paternidad";
+        //    }
+
+
+
+
+        //    return redict;
+        //}
+   
+    [WebMethod]
         public static bool EliminarOrd(String id)
         {
             bool resp = false;
@@ -86,5 +105,12 @@ namespace CentroBiologiaMolecularUCA.Views.Vogm
             resp = TOrden.getInstance().eliminar(ord);
             return resp;
         }
+
+        public void redireccionesOrden()
+        {
+
+        }
+
+
     }
 }
