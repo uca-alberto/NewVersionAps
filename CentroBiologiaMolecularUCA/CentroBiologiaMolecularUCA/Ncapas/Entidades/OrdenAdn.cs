@@ -12,7 +12,7 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Entidades
         private String tipo_Caso;
         private int tipo_examen;
         private int tipo_muestra;
-        public int id_cliente { get; set; }
+        private int id_cliente;
         private int id_usuario;
         private int id_empleado;
         private String nombre_pareja;
@@ -25,6 +25,7 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Entidades
         private int id_orden_detalle;
         private int id_analisis;
         private String muestra_adn;
+        private String examen;
 
 
         public int Id_orden
@@ -248,6 +249,32 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Entidades
             set
             {
                 muestra_adn = value;
+            }
+        }
+
+        public int Id_cliente
+        {
+            get
+            {
+                return id_cliente;
+            }
+
+            set
+            {
+                id_cliente = value;
+            }
+        }
+
+        public string Examen
+        {
+            get
+            {
+                return examen;
+            }
+
+            set
+            {
+                examen = value;
             }
         }
     }

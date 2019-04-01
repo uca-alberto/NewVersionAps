@@ -5,7 +5,7 @@ function addRowDT(data) {
         tabla.row.add([
            data[i].Id_resultado,
            data[i].Estado,
-           '<a title="Ver resultado"><i class="fa ti-eye"></i>&nbsp;'
+          '<a title="ver" href="Seereogm.aspx?id=' + data[i].Id_resultado + '"><i class="fa ti-eye"></i>&nbsp;'
         ]).draw(false);
     }
 }

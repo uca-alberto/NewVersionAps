@@ -54,11 +54,11 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
                 c = Conexion.getInstance().ConexionDB();
                 // string sql = "insert into T_Orden (Id_orden,Fecha,Entregado,Tipo_orden,Observaciones,Baucher,No_orden,Estado,Actividad) VALUES(2,@Mfecha,@Mentregado,@Mtipoorden,@Mobservaciones,@Mbaucher,@Mnoorden,@Mestado,1)";
 
-                string sql = "insert into T_Orden (id_Codigo,Tipo_caso,Id_examenes,Id_tipo_muestra,Id_cliente,Id_usuario,Id_empleado,Nombre_pareja,Nombre_menor,fec_nac,Observaciones,Baucher,Estado,Activo,Fecha) VALUES(@Mcodigo,NULL,NULL,@Mtipomuestra,@Midcliente,@Midusuario,NULL,NULL,NULL,NULL,@Mobservaciones,@Mbaucher,@Mestado,1,@Mfecha)";
+                string sql = "insert into T_Orden (id_Codigo,Tipo_caso,Id_examenes,Id_tipo_muestra,Id_cliente,Id_usuario,Id_empleado,Nombre_pareja,Nombre_menor,fec_nac,Observaciones,Baucher,Estado,Activo,Fecha,Tipo_examen) VALUES(@Mcodigo,NULL,NULL,@Mtipomuestra,@Midcliente,@Midusuario,NULL,NULL,NULL,NULL,@Mobservaciones,@Mbaucher,@Mestado,1,@Mfecha,@Tipoexamen)";
                 //PASANDO PARÁMETROS A CONSULTA SQL
                 using (comando = new SqlCommand(sql, c))
                 {
-                    comando.Parameters.AddWithValue("@Midcliente", e.id_cliente);
+                    comando.Parameters.AddWithValue("@Midcliente", e.Id_cliente);
                     comando.Parameters.AddWithValue("@Mcodigo", e.Id_codigo);
                     comando.Parameters.AddWithValue("@Mtipomuestra", e.Tipo_muestra);
                     comando.Parameters.AddWithValue("@Midusuario", e.Id_usuario);
@@ -66,6 +66,7 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
                     comando.Parameters.AddWithValue("@Mbaucher", e.Baucher);
                     comando.Parameters.AddWithValue("@Mestado", e.Estado);
                     comando.Parameters.AddWithValue("@Mfecha", e.Fecha);
+                    comando.Parameters.AddWithValue("@Tipoexamen", e.Tipo_examen);
 
                     //VALIDANDO SI LA CONEXIÓN ESTÁ ACTIVA O CERRADA
                     if (comando.Connection.State != System.Data.ConnectionState.Closed)

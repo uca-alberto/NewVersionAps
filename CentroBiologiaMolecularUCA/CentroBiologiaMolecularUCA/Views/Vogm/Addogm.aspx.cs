@@ -124,8 +124,9 @@ namespace CentroBiologiaMolecularUCA.Views.ViewOrden
                 ord.Fecha = Convert.ToDateTime(Mfecha.Text);
             }
             String userid = (string)Session["Id_usuario"];
-            ord.id_cliente = int.Parse(Id_cliente.Value.ToString());
+            ord.Id_cliente = int.Parse(Id_cliente.Value.ToString());
             ord.Id_usuario = Convert.ToInt32(userid);
+            ord.Examen = "OGM";
             ord.Id_orden = Id;
             return ord;
         }

@@ -21,12 +21,10 @@ namespace CentroBiologiaMolecularUCA.Views.Vreogm
         private SqlDataReader tablaresultado;
         private SqlDataReader analisis;//Cargar tipo examen
         private SqlDataReader registro;//Data resultado
-
+        private SqlDataReader usuario;
         private String[] array = new String[10];
         private int index = 0;
         private int id;
-
-        private string usuario_valida;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -67,13 +65,19 @@ namespace CentroBiologiaMolecularUCA.Views.Vreogm
             if (registro.Read())
             {
                 Mcodigo.Text = registro["Id_codigo"].ToString();
-                Minvestigador.Text = registro["Nombre_empleado"].ToString() + " (" + registro["Cargo"] + ")";
                 Mimportador.Text = registro["Nombre"].ToString() + " " + registro["Apellido"].ToString();
                 Mmuestra.SelectedValue = registro["Id_tipo_muestra"].ToString();
-
-                //Usuario que valida
-                usuario_valida = registro["Id_usuario"].ToString();
             }
+
+            //Obtener el usuario actual
+            String userprocesa = (string)Session["Id_usuario"];
+            usuario = NGresultado.getInstance().datosusuario(Convert.ToInt32(userprocesa));
+            if (usuario.Read())
+            {
+                Minvestigador.Text = usuario["Nombre_empleado"].ToString() + " " + usuario["Apellido"].ToString();
+            }
+            
+
             //Cargar Fecha y hora 
             Mfecha.Text = DateTime.Now.ToString("dd/MM/yyyy");
             Mhora.Text = DateTime.Now.ToString("hh:mm");
@@ -123,10 +127,8 @@ namespace CentroBiologiaMolecularUCA.Views.Vreogm
             res.Id_orden = id;
             res.Fecha_procesamiento = Convert.ToDateTime(Mfecha.Text);
             res.Hora = Convert.ToDateTime(Mhora.Text);
-            res.Usuario_valida = usuario_valida;
-            //Obtener el usuario actual
-            String userprocesa = (string)Session["Id_usuario"];
-            res.Usuario_procesa = userprocesa;
+            res.Usuario_procesa = Minvestigador.Text;
+
             //estado para mientras
             res.Estado = "Procesada";
             return res;

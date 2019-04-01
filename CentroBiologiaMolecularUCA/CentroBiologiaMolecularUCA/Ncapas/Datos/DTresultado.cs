@@ -46,15 +46,14 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
                 //CONSULTA SQL
                 c = Conexion.getInstance().ConexionDB();
 
-                string sql = "insert into T_Resultados (Id_Orden,Fecha_procesamiento,Hora,Usuario_valida,Usuario_procesa,Estado,Observaciones,imagen,Activo) VALUES(@idorden,@Mfecha,@Mhora,@Musuariovalida,@Musuarioprocesa,@Mestado,@Mobservaciones,NULL,1)";
+                string sql = "insert into T_Resultados (Id_Orden,Validacion,Fecha_procesamiento,Hora,Usuario_valida,Usuario_procesa,Estado,Observaciones,imagen,Activo) VALUES(@idorden,NULL,@Mfecha,@Mhora,NULL,@Musuarioprocesa,@Mestado,@Mobservaciones,NULL,1)";
                 //PASANDO PARÁMETROS A CONSULTA SQL
                 using (comando = new SqlCommand(sql, c))
                 {
                     comando.Parameters.AddWithValue("@idorden", e.Id_orden);
-                   // comando.Parameters.AddWithValue("@Mvalidacion", e.Validacion);
                     comando.Parameters.AddWithValue("@Mfecha", e.Fecha_procesamiento);
                     comando.Parameters.AddWithValue("@Mhora", e.Hora);
-                    comando.Parameters.AddWithValue("@Musuariovalida", e.Usuario_valida);
+                    //comando.Parameters.AddWithValue("@Musuariovalida", e.Usuario_valida);
                     comando.Parameters.AddWithValue("@Musuarioprocesa", e.Usuario_procesa);
                     comando.Parameters.AddWithValue("@Mestado", e.Estado);
                     comando.Parameters.AddWithValue("@Mobservaciones", e.Observaciones);
@@ -248,11 +247,11 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
             return this.registros;
             c.Close();
         }
-
+        //Cargar datos del resultado
         public SqlDataReader getresultadoporid(int id)
         {
             c = Conexion.getInstance().ConexionDB();
-            String sql = "select  Validacion, Fecha_procesamiento, Usuario_valida, Usuario_procesa, Estado, Analisis, Resultado from T_Resultados where Id_resultado='" + id + "';";
+            String sql = "SELECT Usuario_procesa,Fecha_procesamiento,Hora,Observaciones FROM T_Resultados where Id_resultado='" + id + "';";
 
             SqlCommand comando = new SqlCommand(sql, this.c);
             this.registros = comando.ExecuteReader();
@@ -270,10 +269,11 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
             return this.registros;
             c.Close();
         }
+        //Obtener data para generar el resultado
         public SqlDataReader cargardatosporid(int id)
         {
             c = Conexion.getInstance().ConexionDB();
-            String sql = "SELECT clientes.Nombre, clientes.Apellido,orden.Id_codigo,orden.Id_tipo_muestra,orden.Id_usuario,emp.Nombre_empleado, emp.Apellido,emp.Cargo FROM T_Orden orden INNER JOIN T_Clientes clientes ON orden.Id_cliente=clientes.Id_cliente INNER JOIN T_Usuario usuario ON usuario.Id_usuario=orden.Id_usuario INNER JOIN T_Empleados emp ON usuario.Id_empleado=emp.Id_empleado where Id_orden ='" + id + "';";
+            String sql = "SELECT clientes.Nombre,clientes.Apellido,orden.Id_codigo,orden.Id_tipo_muestra FROM T_Orden orden INNER JOIN T_Clientes clientes ON orden.Id_cliente=clientes.Id_cliente where Id_orden ='" + id + "';";
 
             SqlCommand comando = new SqlCommand(sql, this.c);
             this.registros = comando.ExecuteReader();
@@ -291,7 +291,7 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
             return this.registros;
             c.Close();
         }
-
+        //data del Usuario que procesa el resultado
         public SqlDataReader datousuario(int id)
         {
             c = Conexion.getInstance().ConexionDB();
@@ -303,9 +303,21 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
             c.Close();
         }
 
+        //Llenar tabla visualiza
+        public SqlDataReader visualizartabla(int id)
+        {
+            c = Conexion.getInstance().ConexionDB();
+            String sql = "SELECT ta.analisis,op.Resultado FROM T_Tipo_Analisis ta INNER JOIN T_Resultado_Detalle detalle ON ta.Id_analisis=detalle.Id_analisis INNER JOIN T_Opcion_resultado op ON op.Id_opcion=detalle.Resultado where detalle.Id_resultado='" + id + "';";
+
+            SqlCommand comando = new SqlCommand(sql, this.c);
+            this.registros = comando.ExecuteReader();
+            return this.registros;
+            c.Close();
+        }
 
 
-  
+
+
         public List<Resultado> GetData()
         {
             using (var connection = new SqlConnection(ConfigurationManager.ConnectionStrings["DataBase"].ConnectionString))

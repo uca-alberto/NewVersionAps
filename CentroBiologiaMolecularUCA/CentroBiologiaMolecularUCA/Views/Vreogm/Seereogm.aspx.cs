@@ -9,43 +9,31 @@ using WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos;
 using WebSistemaCentroBiologiaMolecularUCA.Ncapas.Entidades;
 using WebSistemaCentroBiologiaMolecularUCA.Ncapas.Negocio;
 
-namespace CentroBiologiaMolecularUCA.Views.Vogm
+namespace CentroBiologiaMolecularUCA.Views.Vreogm
 {
-    public partial class Seeogm : System.Web.UI.Page
+    public partial class Seereogm : System.Web.UI.Page
     {
         private TOrden tOrden;
+        //combo box
         private DTanalisis dtanalisis;
         private DTmuestra dtmuestra;
-        //Cliente
-        private DTcliente dtcliente;
-        private SqlDataReader cliente;
-
-        //Orden y analisis
+        public Resultado res;
+        //datos resultados
         private SqlDataReader registro;
+        private SqlDataReader datos;
         private SqlDataReader analisis;
-
-        public OrdenAdn ord;
+        private SqlDataReader tabla;
         private String[] array = new String[10];
         private int index = 0;
 
-        //Guardar el id cliente
-        private int idcliente;
-
         protected void Page_Load(object sender, EventArgs e)
         {
-
-            this.tOrden = new TOrden();
-            dtcliente = new DTcliente();
-            ord = new OrdenAdn();
+            tOrden = new TOrden();
             this.dtanalisis = new DTanalisis();
             this.dtmuestra = new DTmuestra();
-
-            String valor = Request.QueryString["id"];
-            int id = int.Parse(valor);
-            ord.Id_orden = id;
+            this.res = new Resultado();
 
             //Cargar los tipos de Analisis
-
             Manalisis.DataSource = NGorden.getInstance().ListarAnalisis();
             Manalisis.DataTextField = "analisis";
             Manalisis.DataValueField = "Id_analisis";
@@ -57,9 +45,9 @@ namespace CentroBiologiaMolecularUCA.Views.Vogm
             Mmuestra.DataValueField = "Id_tipo_muestra";
             Mmuestra.DataBind();
 
-            this.registro = tOrden.getOrdenporid(id);
-            Id_orden.Value = valor;
-
+            String valor = Request.QueryString["id"];
+            int id = int.Parse(valor);
+            tabla = NGresultado.getInstance().visualizartabla(id);
             //Llenar CheckBoxList
             this.analisis = tOrden.getAnalisisporId(id);
 
@@ -83,28 +71,32 @@ namespace CentroBiologiaMolecularUCA.Views.Vogm
                 }
             }
 
+            //Registros
+            datos = NGresultado.getInstance().ListardatosResultados(id);
+
+            if (datos.Read())
+            {
+                Mcodigo.Text = datos["Id_codigo"].ToString();
+                Mimportador.Text = datos["Nombre"].ToString() + " " + datos["Apellido"].ToString();
+                Mmuestra.SelectedValue = datos["Id_tipo_muestra"].ToString();
+            }
+
+            registro = NGresultado.getInstance().resultados(id);
             if (registro.Read())
             {
+                res.Usuario_procesa = registro["Usuario_procesa"].ToString();
+                res.Fecha_procesamiento= Convert.ToDateTime(registro["Fecha_procesamiento"].ToString());
+                res.Observaciones = registro["Observaciones"].ToString();
 
-                ord.Id_codigo = this.registro["Id_codigo"].ToString();
-                ord.Fecha = Convert.ToDateTime(this.registro["Fecha"].ToString());
-                ord.Tipo_muestra = Convert.ToInt32(this.registro["Id_tipo_muestra"].ToString());
-                ord.Observaciones = this.registro["Observaciones"].ToString();
-                ord.Baucher = this.registro["Baucher"].ToString();
-                ord.Estado = this.registro["Estado"].ToString();
-
-                //Datos Cliente
-                idcliente = Convert.ToInt32(registro["Id_cliente"].ToString());
+                Mhora.Text = registro["Hora"].ToString();
             }
-
-            //Mostrar datos en el textbox
-            this.cliente = dtcliente.getClienteporid(idcliente);
-            if (cliente.Read())
-            {
-                Mcliente.Text = cliente["Nombre"].ToString() + " " + cliente["Apellido"].ToString();
-                Mcedula.Text = cliente["Cedula"].ToString();
-            }
-
+    }
+        //cargar datos en la tabla 
+        public SqlDataReader getregistros()
+        {
+            return tabla;
         }
+
+
     }
 }
