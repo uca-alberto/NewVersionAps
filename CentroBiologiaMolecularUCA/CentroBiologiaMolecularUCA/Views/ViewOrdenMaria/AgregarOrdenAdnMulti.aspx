@@ -146,115 +146,15 @@
         <asp:MultiView ID="MultiView1" runat="server" ActiveViewIndex="0">
             <!-- index of view =0-->
             <asp:View ID="PaternidadView" runat="server">
-                <h1>Paternidad</h1>
+                <h1>Escoja su orden</h1>
                  <asp:Button ID="Button2" runat="server" Text="Papiloma" CssClass="btn btn-primary" OnClick="Button2_Click" />&nbsp;
                 <asp:Button ID="Button1" runat="server" Text="Maternidad" CssClass="btn btn-primary" OnClick="Button1_Click"/>&nbsp;
                 <asp:Button ID="Btnabuelidad" runat="server" Text="Abuelidad" CssClass="btn btn-primary" OnClick="Btnabuelidad_Click"/>&nbsp;
                 <asp:Button ID="Btnalzheimer" runat="server" Text="Alzheimer" CssClass="btn btn-primary" OnClick="Btnalzheimer_Click"/>
+                 <asp:Button ID="Btnpaternidadn" runat="server" Text="Paternidad" CssClass="btn btn-primary" OnClick="Btnpaternidadn_Click"/>
                
                 <!--Comienzo de los formularios-->  
-                <div class="card-header">
-                        <strong class="card-title">Datos de las personas de orden ADN </strong>
-                            </div>  &nbsp;
-                 <!----------------------------------------paternidad-----------------------------------------------------> 
-                <!--Codigo de la Orden-->
-                <div class="row form-group ">
-                <div class="col col-md-3 "><label for="text-input" class=" form-control-label">Codigo orden</label></div>
-                <div class="col-12 col-md-9">&nbsp; 
-                        <asp:TextBox ID="Mcodigo" runat="server" ReadOnly="true" ToolTip="Codigo Orden" CssClass="form-control"></asp:TextBox>&nbsp; 
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator31" runat="server" ControlToValidate="Mcodigo" Display="Dynamic" ErrorMessage="Este Campo es requerido" ForeColor="Red" Font-Italic="true"></asp:RequiredFieldValidator>       
-                </div>
-                    </div>
-
-                  <!--nombre del padre-->  
-                        <div class="row form-group ">
-                <div class="col col-md-3 "><label for="password-input" class=" form-control-label">Nombre del padre</label></div>
-                <div class="col-12 col-md-9">&nbsp;
-                <asp:TextBox ID="Mnombrepareja" runat="server" Text="" ToolTip="nombrepareja" CssClass="form-control" placeholder="Ingrese el nombre del padre"></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="Mnombrepareja" Display="Dynamic" ErrorMessage="Este Campo es requerido"></asp:RequiredFieldValidator>     
-                    </div>
-                </div>
-                    <!--nombre del hijo-->    
-                       <div class="row form-group ">
-                <div class="col col-md-3 "><label for="password-input" class=" form-control-label">Nombre del hijo</label></div>
-                <div class="col-12 col-md-9">&nbsp;
-                <asp:TextBox ID="Mnombrehijo" runat="server" Text="" ToolTip="nombrehijo" CssClass="form-control" placeholder="Ingrese el nombre del hijo"></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="Mnombrehijo" Display="Dynamic" ErrorMessage="Este Campo es requerido"></asp:RequiredFieldValidator>     
-                    </div>
-                </div>              
-                    <!--fecha-->
-                      <div class="row form-group ">
-                   <div class="col col-md-3 "><label for="text-input" class=" form-control-label">Fecha</label></div>
-                <div class="col-12 col-md-9">&nbsp; 
-                    
-                      <asp:Textbox ID="Mfecha" runat="server" ToolTip="fecha" CssClass="form-control" placeholder="dd/mm/yyyy" type="date"></asp:Textbox>
-                      <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="Mfecha" Display="Dynamic" ErrorMessage="Ingrese La Fecha" ForeColor="Red" Font-Italic="true"></asp:RequiredFieldValidator>     
-                     </div>
-                   </div>
-                   <!--tipo caso-->
-                    <div class="row form-group ">
-                <div class="col col-md-3 "><label for="select" class=" form-control-label">Caso</label></div>
-                <div class="col-12 col-md-9 ">&nbsp; 
-                    <asp:DropDownList ID="Mtipocaso" runat="server" ToolTip="caso" CssClass="form-control">
-                    <asp:ListItem Value="0">SELECCIONE</asp:ListItem>
-                    <asp:ListItem Value="1">Publico</asp:ListItem>
-                    <asp:ListItem Value="2">Privado</asp:ListItem>
-                        <asp:ListItem Value="3">No necesita</asp:ListItem>
-                    </asp:DropDownList>
-                </div>
-                </div>
-
-                 <div class="card-header">
-                        <strong class="card-title">Datos para el investigador </strong>
-                            </div>  &nbsp;  
-
-                
-              
-                 <!--observaciones-->                            
-                    <div class="row form-group ">
-                <div class="col col-md-3 "><label for="password-input" class=" form-control-label">Observaciones</label></div>
-                <div class="col-12 col-md-9">&nbsp;
-                <asp:TextBox ID="Mobservaciones" runat="server" Text="" ToolTip="observaciones" CssClass="form-control" placeholder="Ingrese las observaciones"></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="Mobservaciones" Display="Dynamic" ErrorMessage="Este Campo es requerido"></asp:RequiredFieldValidator>     
-                    </div>
-                </div>
-                            <div class="card-header">
-                        <strong class="card-title">Datos secundarios de orden ADN </strong>
-                            </div>  &nbsp;
-
-                 <!--bouvher -->
-                <div class="row form-group ">
-                <div class="col col-md-3 "><label for="text-input" class=" form-control-label">Boucher</label></div>
-                <div class="col-12 col-md-9">&nbsp; 
-                        <asp:TextBox ID="Mbaucher" runat="server" Text="" ToolTip="baucher" CssClass="form-control" placeholder="Ingrese el baucher"></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="Mbaucher" Display="Dynamic" ErrorMessage="Este Campo es requerido"></asp:RequiredFieldValidator>     
-                </div>
-                    </div>
-
-
                
-  <!--Seleccion de estado-->
-
-                    <div class="row form-group ">
-                <div class="col col-md-3 "><label for="select" class=" form-control-label">Estado</label></div>
-                <div class="col-12 col-md-9 ">&nbsp; 
-                    <asp:DropDownList ID="Mestado" runat="server" ToolTip="estado" CssClass="form-control">
-                    <asp:ListItem Value="0">SELECCIONE</asp:ListItem>
-                    <asp:ListItem Value="1">Activo</asp:ListItem>
-                    <asp:ListItem Value="2">En espera</asp:ListItem>
-                    </asp:DropDownList>
-                </div>
-                </div>
-                 <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                <asp:HiddenField runat="server" ID="id_orden" />
-                <asp:Button id="enviar" runat="server" Text="enviar" CssClass="btn btn-primary" OnClick="InsertarOrden"/>
-            </div>
-
-                <div class="modal-footer">
-                 
-                    
-                </div>
                
                     
             </asp:View>
@@ -268,26 +168,26 @@
                             </div>  &nbsp;
                   <!--codigo de la madre-->  
                         <div class="row form-group ">
-                <div class="col col-md-3 "><label for="password-input" class=" form-control-label">Codigo de la madre</label></div>
+                <div class="col col-md-3 "><label for="password-input" class=" form-control-label">Código ADN</label></div>
                 <div class="col-12 col-md-9">&nbsp;
                 <asp:TextBox ID="Mcodigomadre" runat="server" Text="" ToolTip="codigodelamadre" CssClass="form-control" placeholder="Ingrese el codigo de la madre"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="Mcodigomadre" Display="Dynamic" ErrorMessage="Este Campo es requerido"></asp:RequiredFieldValidator>     
                     </div>
                 </div>
 
-                      <!--nombre del hijo de la madre-->    
+                      <!--nombre  de la madre-->    
                        <div class="row form-group ">
-                <div class="col col-md-3 "><label for="password-input" class=" form-control-label">Nombre del hijo</label></div>
+                <div class="col col-md-3 "><label for="password-input" class=" form-control-label">Nombre de la supuesta madre</label></div>
                 <div class="col-12 col-md-9">&nbsp;
-                <asp:TextBox ID="Mnombremadre" runat="server" Text="" ToolTip="nombremadre" CssClass="form-control" placeholder="Ingrese el nombre del hijo"></asp:TextBox>
+                <asp:TextBox ID="Mnombremadre" runat="server" Text="" ToolTip="nombremadre" CssClass="form-control" placeholder="Ingrese el nombre de la supuesta madre"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="Mnombremadre" Display="Dynamic" ErrorMessage="Este Campo es requerido"></asp:RequiredFieldValidator>     
                     </div>
                 </div> 
                     <!--nombre del hijo de la madre-->    
                        <div class="row form-group ">
-                <div class="col col-md-3 "><label for="password-input" class=" form-control-label">Nombre del hijo</label></div>
+                <div class="col col-md-3 "><label for="password-input" class=" form-control-label">Nombre del supuesto hijo</label></div>
                 <div class="col-12 col-md-9">&nbsp;
-                <asp:TextBox ID="Mnombrehijomadre" runat="server" Text="" ToolTip="nombrehijomadre" CssClass="form-control" placeholder="Ingrese el nombre del hijo"></asp:TextBox>
+                <asp:TextBox ID="Mnombrehijomadre" runat="server" Text="" ToolTip="nombrehijomadre" CssClass="form-control" placeholder="Ingrese el nombre del supuesto hijo"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ControlToValidate="Mnombrehijomadre" Display="Dynamic" ErrorMessage="Este Campo es requerido"></asp:RequiredFieldValidator>     
                     </div>
                 </div>    
@@ -323,7 +223,9 @@
                     <asp:ListItem Value="1">Publico</asp:ListItem>
                     <asp:ListItem Value="2">Privado</asp:ListItem>
                         <asp:ListItem Value="3">No necesita</asp:ListItem>
+                        
                     </asp:DropDownList>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator36" InitialValue="0" runat="server" ControlToValidate="Mtipocasomadre" Display="Dynamic" ErrorMessage="Debe Seleccionar el tipo caso" ForeColor="Red" Font-Italic="true"></asp:RequiredFieldValidator>
                 </div>
                 </div>
                    <div class="card-header">
@@ -349,7 +251,7 @@
                 
                    <!--bouvher -->
                 <div class="row form-group ">
-                <div class="col col-md-3 "><label for="text-input" class=" form-control-label">Boucher</label></div>
+                <div class="col col-md-3 "><label for="text-input" class=" form-control-label">Baucher</label></div>
                 <div class="col-12 col-md-9">&nbsp; 
                         <asp:TextBox ID="baouchermaternidad" runat="server" Text="" ToolTip="baucher" CssClass="form-control" placeholder="Ingrese el baucher"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" ControlToValidate="baouchermaternidad" Display="Dynamic" ErrorMessage="Este Campo es requerido"></asp:RequiredFieldValidator>     
@@ -368,6 +270,7 @@
                     <asp:ListItem Value="1">Activo</asp:ListItem>
                     <asp:ListItem Value="2">En espera</asp:ListItem>
                     </asp:DropDownList>
+                     <asp:RequiredFieldValidator ID="RequiredFieldValidator26" InitialValue="0" runat="server" ControlToValidate="Mestadomaternidad" Display="Dynamic" ErrorMessage="Debe Seleccionar el estado de la Orden" ForeColor="Red" Font-Italic="true"></asp:RequiredFieldValidator> 
                 </div>
                 </div>
                  <div class="modal-footer">
@@ -390,7 +293,7 @@
                 <!-----------------------------------abuelidad---------------------------------------------------------->
                     <!--codigo de la abuela-->  
                         <div class="row form-group ">
-                <div class="col col-md-3 "><label for="password-input" class=" form-control-label">Codigo de la abuela</label></div>
+                <div class="col col-md-3 "><label for="password-input" class=" form-control-label">Código ADN</label></div>
                 <div class="col-12 col-md-9">&nbsp;
                 <asp:TextBox ID="Mcodigoabuela" runat="server" Text="" ToolTip="codigodelamadre" CssClass="form-control" placeholder="Ingrese el codigo de la abuela"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator13" runat="server" ControlToValidate="Mcodigoabuela" Display="Dynamic" ErrorMessage="Este Campo es requerido"></asp:RequiredFieldValidator>     
@@ -399,17 +302,17 @@
                 
                   <!--nombre de la abuela-->  
                         <div class="row form-group ">
-                <div class="col col-md-3 "><label for="password-input" class=" form-control-label">Nombre de la abuela</label></div>
+                <div class="col col-md-3 "><label for="password-input" class=" form-control-label">Nombre de la supuesta abuela</label></div>
                 <div class="col-12 col-md-9">&nbsp;
-                <asp:TextBox ID="Mnombredelaabuela" runat="server" Text="" ToolTip="nombredelaabuela" CssClass="form-control" placeholder="Ingrese el nombre de la abuela"></asp:TextBox>
+                <asp:TextBox ID="Mnombredelaabuela" runat="server" Text="" ToolTip="nombredelaabuela" CssClass="form-control" placeholder="Ingrese el nombre de la supuesta abuela"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" ControlToValidate="Mnombredelaabuela" Display="Dynamic" ErrorMessage="Este Campo es requerido"></asp:RequiredFieldValidator>     
                     </div>
                 </div>
                <!--nombre del nieto la abuela-->  
                     <div class="row form-group ">
-                <div class="col col-md-3 "><label for="password-input" class=" form-control-label">Nombre del nieto</label></div>
+                <div class="col col-md-3 "><label for="password-input" class=" form-control-label">Nombre del supuesto nieto</label></div>
                 <div class="col-12 col-md-9">&nbsp;
-                <asp:TextBox ID="Mnombrenieto" runat="server" Text="" ToolTip="nombredelnieto" CssClass="form-control" placeholder="Ingrese el nombre del nieto"></asp:TextBox>
+                <asp:TextBox ID="Mnombrenieto" runat="server" Text="" ToolTip="nombredelnieto" CssClass="form-control" placeholder="Ingrese el nombre del supuesto nieto"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator14" runat="server" ControlToValidate="Mnombrenieto" Display="Dynamic" ErrorMessage="Este Campo es requerido"></asp:RequiredFieldValidator>     
                     </div>
                 </div>
@@ -437,6 +340,7 @@
                     <asp:ListItem Value="2">Privado</asp:ListItem>
                         <asp:ListItem Value="3">No necesita</asp:ListItem>
                     </asp:DropDownList>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator37" InitialValue="0" runat="server" ControlToValidate="Mtipocasoabuelidad" Display="Dynamic" ErrorMessage="Debe Seleccionar el tipo caso" ForeColor="Red" Font-Italic="true"></asp:RequiredFieldValidator>
                 </div>
                 </div>
                    <div class="card-header">
@@ -480,7 +384,9 @@
                     <asp:ListItem Value="0">SELECCIONE</asp:ListItem>
                     <asp:ListItem Value="1">Activo</asp:ListItem>
                     <asp:ListItem Value="2">En espera</asp:ListItem>
+                         
                     </asp:DropDownList>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator32" InitialValue="0" runat="server" ControlToValidate="Mestadoabuelidad" Display="Dynamic" ErrorMessage="Debe Seleccionar el estado de la Orden" ForeColor="Red" Font-Italic="true"></asp:RequiredFieldValidator>
                 </div>
                 </div>
                  <div class="modal-footer">
@@ -502,7 +408,7 @@
                             </div>  &nbsp;
                    <!--codigo de alzheimer-->  
                         <div class="row form-group ">
-                <div class="col col-md-3 "><label for="password-input" class=" form-control-label">Codigo Alzheimer</label></div>
+                <div class="col col-md-3 "><label for="password-input" class=" form-control-label">Código ADN</label></div>
                 <div class="col-12 col-md-9">&nbsp;
                 <asp:TextBox ID="Mcodigoalzheimer" runat="server" Text="" ToolTip="codigodelamadre" CssClass="form-control" placeholder="codigo doctor"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator22" runat="server" ControlToValidate="Mcodigoalzheimer" Display="Dynamic" ErrorMessage="Este Campo es requerido"></asp:RequiredFieldValidator>     
@@ -548,6 +454,7 @@
                     <asp:ListItem Value="2">Privado</asp:ListItem>
                         <asp:ListItem Value="3">No necesita</asp:ListItem>
                     </asp:DropDownList>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator38" InitialValue="0" runat="server" ControlToValidate="Mtipocasoalzheimer" Display="Dynamic" ErrorMessage="Debe Seleccionar el tipo caso" ForeColor="Red" Font-Italic="true"></asp:RequiredFieldValidator>
                 </div>
                 </div>
                    <div class="card-header">
@@ -592,6 +499,7 @@
                     <asp:ListItem Value="1">Activo</asp:ListItem>
                     <asp:ListItem Value="2">En espera</asp:ListItem>
                     </asp:DropDownList>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator33" InitialValue="0" runat="server" ControlToValidate="Mestadoalzheimer" Display="Dynamic" ErrorMessage="Debe Seleccionar el estado de la Orden" ForeColor="Red" Font-Italic="true"></asp:RequiredFieldValidator>
                 </div>
                 </div>
                  <div class="modal-footer">
@@ -611,7 +519,7 @@
                             </div>  &nbsp;
                    <!--codigo de papiloma-->  
                         <div class="row form-group ">
-                <div class="col col-md-3 "><label for="password-input" class=" form-control-label">Codigo papiloma</label></div>
+                <div class="col col-md-3 "><label for="password-input" class=" form-control-label">Código ADN</label></div>
                 <div class="col-12 col-md-9">&nbsp;
                 <asp:TextBox ID="Mcodigopapiloma" runat="server" Text="" ToolTip="codigodelamadre" CssClass="form-control" placeholder="codigo doctor"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator27" runat="server" ControlToValidate="Mcodigopapiloma" Display="Dynamic" ErrorMessage="Este Campo es requerido"></asp:RequiredFieldValidator>     
@@ -657,6 +565,7 @@
                     <asp:ListItem Value="2">Privado</asp:ListItem>
                         <asp:ListItem Value="3">No necesita</asp:ListItem>
                     </asp:DropDownList>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator39" InitialValue="0" runat="server" ControlToValidate="Mtipocasopapiloma" Display="Dynamic" ErrorMessage="Debe Seleccionar el tipo caso" ForeColor="Red" Font-Italic="true"></asp:RequiredFieldValidator>
                 </div>
                 </div>
                    <div class="card-header">
@@ -701,6 +610,7 @@
                     <asp:ListItem Value="1">Activo</asp:ListItem>
                     <asp:ListItem Value="2">En espera</asp:ListItem>
                     </asp:DropDownList>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator34" InitialValue="0" runat="server" ControlToValidate="Mestadopapiloma" Display="Dynamic" ErrorMessage="Debe Seleccionar el estado de la Orden" ForeColor="Red" Font-Italic="true"></asp:RequiredFieldValidator>
                 </div>
                 </div>
                  <div class="modal-footer">
@@ -711,8 +621,113 @@
                 <asp:Button class="btn btn-outline-success btn-lg btn-block" ID="btnpaternidad" runat="server" Text="Paternidad" OnClick="btnpaternidad_Click"/>
 
                 </asp:View>
+            <asp:View ID="View5" runat="server">
+                 <div class="card-header">
+                        <strong class="card-title">Datos de las personas de orden ADN </strong>
+                            </div>  &nbsp;
+                 <!----------------------------------------paternidad-----------------------------------------------------> 
+                <!--Codigo de la Orden-->
+                <div class="row form-group ">
+                <div class="col col-md-3 "><label for="text-input" class=" form-control-label">Código orden</label></div>
+                <div class="col-12 col-md-9">&nbsp; 
+                        <asp:TextBox ID="Mcodigo" runat="server" ReadOnly="true" ToolTip="Codigo Orden" CssClass="form-control"></asp:TextBox>&nbsp; 
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator31" runat="server" ControlToValidate="Mcodigo" Display="Dynamic" ErrorMessage="Este Campo es requerido" ForeColor="Red" Font-Italic="true"></asp:RequiredFieldValidator>       
+                </div>
+                    </div>
+
+                  <!--nombre del padre-->  
+                        <div class="row form-group ">
+                <div class="col col-md-3 "><label for="password-input" class=" form-control-label">Nombre del padre</label></div>
+                <div class="col-12 col-md-9">&nbsp;
+                <asp:TextBox ID="Mnombrepareja" runat="server" Text="" ToolTip="nombrepareja" CssClass="form-control" placeholder="Ingrese el nombre del supuesto padre"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="Mnombrepareja" Display="Dynamic" ErrorMessage="Este Campo es requerido"></asp:RequiredFieldValidator>     
+                    </div>
+                </div>
+                    <!--nombre del hijo-->    
+                       <div class="row form-group ">
+                <div class="col col-md-3 "><label for="password-input" class=" form-control-label">Nombre del hijo</label></div>
+                <div class="col-12 col-md-9">&nbsp;
+                <asp:TextBox ID="Mnombrehijo" runat="server" Text="" ToolTip="nombrehijo" CssClass="form-control" placeholder="Ingrese el nombre del supuesto hijo"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="Mnombrehijo" Display="Dynamic" ErrorMessage="Este Campo es requerido"></asp:RequiredFieldValidator>     
+                    </div>
+                </div>              
+                    <!--fecha-->
+                      <div class="row form-group ">
+                   <div class="col col-md-3 "><label for="text-input" class=" form-control-label">Fecha</label></div>
+                <div class="col-12 col-md-9">&nbsp; 
+                    
+                      <asp:Textbox ID="Mfecha" runat="server" ToolTip="fecha" CssClass="form-control" placeholder="dd/mm/yyyy" type="date"></asp:Textbox>
+                      <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="Mfecha" Display="Dynamic" ErrorMessage="Ingrese La Fecha" ForeColor="Red" Font-Italic="true"></asp:RequiredFieldValidator>     
+                     </div>
+                   </div>
+                   <!--tipo caso-->
+                    <div class="row form-group ">
+                <div class="col col-md-3 "><label for="select" class=" form-control-label">Caso</label></div>
+                <div class="col-12 col-md-9 ">&nbsp; 
+                    <asp:DropDownList ID="Mtipocaso" runat="server" ToolTip="caso" CssClass="form-control">
+                    <asp:ListItem Value="0">SELECCIONE</asp:ListItem>
+                    <asp:ListItem Value="1">Publico</asp:ListItem>
+                    <asp:ListItem Value="2">Privado</asp:ListItem>
+                        <asp:ListItem Value="3">No necesita</asp:ListItem>
+                    </asp:DropDownList>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator40" InitialValue="0" runat="server" ControlToValidate="Mtipocaso" Display="Dynamic" ErrorMessage="Debe Seleccionar el tipo caso" ForeColor="Red" Font-Italic="true"></asp:RequiredFieldValidator>
+                </div>
+                </div>
+
+                 <div class="card-header">
+                        <strong class="card-title">Datos para el investigador </strong>
+                            </div>  &nbsp;  
+
+                
+              
+                 <!--observaciones-->                            
+                    <div class="row form-group ">
+                <div class="col col-md-3 "><label for="password-input" class=" form-control-label">Observaciones</label></div>
+                <div class="col-12 col-md-9">&nbsp;
+                <asp:TextBox ID="Mobservaciones" runat="server" Text="" ToolTip="observaciones" CssClass="form-control" placeholder="Ingrese las observaciones"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="Mobservaciones" Display="Dynamic" ErrorMessage="Este Campo es requerido"></asp:RequiredFieldValidator>     
+                    </div>
+                </div>
+                            <div class="card-header">
+                        <strong class="card-title">Datos secundarios de orden ADN </strong>
+                            </div>  &nbsp;
+
+                 <!--bouvher -->
+                <div class="row form-group ">
+                <div class="col col-md-3 "><label for="text-input" class=" form-control-label">Boucher</label></div>
+                <div class="col-12 col-md-9">&nbsp; 
+                        <asp:TextBox ID="Mbaucher" runat="server" Text="" ToolTip="baucher" CssClass="form-control" placeholder="Ingrese el baucher"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="Mbaucher" Display="Dynamic" ErrorMessage="Este Campo es requerido"></asp:RequiredFieldValidator>     
+                </div>
+                    </div>
 
 
+               
+  <!--Seleccion de estado-->
+
+                    <div class="row form-group ">
+                <div class="col col-md-3 "><label for="select" class=" form-control-label">Estado</label></div>
+                <div class="col-12 col-md-9 ">&nbsp; 
+                    <asp:DropDownList ID="Mestado" runat="server" ToolTip="estado" CssClass="form-control">
+                    <asp:ListItem Value="0">SELECCIONE</asp:ListItem>
+                    <asp:ListItem Value="1">Activo</asp:ListItem>
+                    <asp:ListItem Value="2">En espera</asp:ListItem>
+                    </asp:DropDownList>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator35" InitialValue="0" runat="server" ControlToValidate="Mestado" Display="Dynamic" ErrorMessage="Debe Seleccionar el estado de la Orden" ForeColor="Red" Font-Italic="true"></asp:RequiredFieldValidator>
+                </div>
+                </div>
+                 <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <asp:HiddenField runat="server" ID="id_orden" />
+                <asp:Button id="enviar" runat="server" Text="enviar" CssClass="btn btn-primary" OnClick="InsertarOrden"/>
+            </div>
+
+                <div class="modal-footer">
+                 
+                    
+                </div>
+                 <asp:Button class="btn btn-outline-success btn-lg btn-block" ID="btnvolverpaternidadnuevo" runat="server" Text="Paternidad" OnClick="btnvolverpaternidadnuevo_Click"/>
+                 </asp:View>
         </asp:MultiView>
     </form>
         </div>

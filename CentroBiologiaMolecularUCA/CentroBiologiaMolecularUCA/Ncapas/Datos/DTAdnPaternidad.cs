@@ -363,19 +363,19 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
 
                 if (total < 10)
                 {
-                    codigo = "PAT" + mes + anio + "-0000" + total.ToString();
+                    codigo = "ADN" + mes + anio + "-0000" + total.ToString();
                 }
                 else if (total < 100)
                 {
-                    codigo = "PAT" + mes + anio + "-000" + total.ToString();
+                    codigo = "ADN" + mes + anio + "-000" + total.ToString();
                 }
                 else if (total < 1000)
                 {
-                    codigo = "PAT" + mes + anio + "-00" + total.ToString();
+                    codigo = "ADN" + mes + anio + "-00" + total.ToString();
                 }
                 else if (total < 10000)
                 {
-                    codigo = "PAT" + mes + anio + "-0" + total.ToString();
+                    codigo = "ADN" + mes + anio + "-0" + total.ToString();
                 }
 
             }

@@ -47,7 +47,7 @@ namespace CentroBiologiaMolecularUCA.Views.ViewOrdenMaria
         public OrdenAdn GetPapiloma()
         {
             OrdenAdn ord = new OrdenAdn();
-            if (Mtipocasopapiloma.ToString() == null)
+            if (Mtipocasopapiloma.ToString() == "0")
             {
                 RegularExpressionValidator.GetValidationProperty(RequiredFieldValidator1);
             }
@@ -96,7 +96,7 @@ namespace CentroBiologiaMolecularUCA.Views.ViewOrdenMaria
             {
                 ord.Id_codigo = Mcodigopapiloma.Text;
             }
-            if (Mestadopapiloma.ToString() == null)
+            if (Mestadopapiloma.ToString() == "0")
             {
                 RegularExpressionValidator.GetValidationProperty(RequiredFieldValidator1);
             }
@@ -115,7 +115,7 @@ namespace CentroBiologiaMolecularUCA.Views.ViewOrdenMaria
 
 
             String userid = (string)Session["Id_usuario"];
-         
+            ord.Id_cliente = int.Parse(Id_cliente.Value.ToString());
             ord.Id_usuario = Convert.ToInt32(userid);
             
             return ord;
@@ -123,7 +123,7 @@ namespace CentroBiologiaMolecularUCA.Views.ViewOrdenMaria
         public OrdenAdn GetAlzheimer()
         {
             OrdenAdn ord = new OrdenAdn();
-            if (Mtipocasoalzheimer.ToString() == null)
+            if (Mtipocasoalzheimer.ToString() == "0")
             {
                 RegularExpressionValidator.GetValidationProperty(RequiredFieldValidator1);
             }
@@ -172,7 +172,7 @@ namespace CentroBiologiaMolecularUCA.Views.ViewOrdenMaria
             {
                 ord.Id_codigo = Mcodigoalzheimer.Text;
             }
-            if (Mestadoalzheimer.ToString() == null)
+            if (Mestadoalzheimer.ToString() == "0")
             {
                 RegularExpressionValidator.GetValidationProperty(RequiredFieldValidator1);
             }
@@ -200,7 +200,7 @@ namespace CentroBiologiaMolecularUCA.Views.ViewOrdenMaria
         {
             OrdenAdn ord = new OrdenAdn();
             //abuelidad
-            if (Mtipocasoabuelidad.ToString() == null)
+            if (Mtipocasoabuelidad.ToString() == "0")
             {
                 RegularExpressionValidator.GetValidationProperty(RequiredFieldValidator1);
             }
@@ -249,7 +249,7 @@ namespace CentroBiologiaMolecularUCA.Views.ViewOrdenMaria
             {
                 ord.Id_codigo = Mcodigoabuela.Text;
             }
-            if (Mestadoabuelidad.ToString() == null)
+            if (Mestadoabuelidad.ToString() == "0")
             {
                 RegularExpressionValidator.GetValidationProperty(RequiredFieldValidator1);
             }
@@ -267,7 +267,8 @@ namespace CentroBiologiaMolecularUCA.Views.ViewOrdenMaria
             }
 
             String userid = (string)Session["Id_usuario"];
-           // ord.id_cliente = int.Parse(Id_cliente.Value.ToString());
+            ord.Id_cliente = int.Parse(Id_cliente.Value.ToString());
+            // ord.id_cliente = int.Parse(Id_cliente.Value.ToString());
             ord.Id_usuario = Convert.ToInt32(userid);
 
             return ord;
@@ -278,7 +279,7 @@ namespace CentroBiologiaMolecularUCA.Views.ViewOrdenMaria
             OrdenAdn ord = new OrdenAdn();
 
             //maternidad
-            if (Mtipocasomadre.ToString() == null)
+            if (Mtipocasomadre.ToString() == "0")
             {
                 RegularExpressionValidator.GetValidationProperty(RequiredFieldValidator1);
             }
@@ -328,9 +329,10 @@ namespace CentroBiologiaMolecularUCA.Views.ViewOrdenMaria
             {
                 ord.Id_codigo = Mcodigomadre.Text;
             }
-            if (Mestadomaternidad.ToString() == null)
+            if (Mestadomaternidad.ToString() == "0")
             {
                 RegularExpressionValidator.GetValidationProperty(RequiredFieldValidator1);
+                
             }
             else
             {
@@ -358,7 +360,7 @@ namespace CentroBiologiaMolecularUCA.Views.ViewOrdenMaria
 
 
             OrdenAdn ord = new OrdenAdn();
-            if (Mtipocaso.ToString() == null)
+            if (Mtipocaso.ToString() == "0")
             {
                 RegularExpressionValidator.GetValidationProperty(RequiredFieldValidator1);
             }
@@ -407,7 +409,7 @@ namespace CentroBiologiaMolecularUCA.Views.ViewOrdenMaria
             {
                 ord.Id_codigo = Mcodigo.Text;
             }
-            if (Mestado.ToString() == null)
+            if (Mestado.ToString() == "0")
             {
                 RegularExpressionValidator.GetValidationProperty(RequiredFieldValidator1);
             }
@@ -623,7 +625,15 @@ namespace CentroBiologiaMolecularUCA.Views.ViewOrdenMaria
             }
         }
 
+        protected void Btnpaternidadn_Click(object sender, EventArgs e)
+        {
+            MultiView1.ActiveViewIndex = 5;
+        }
 
+        protected void btnvolverpaternidadnuevo_Click(object sender, EventArgs e)
+        {
+            MultiView1.ActiveViewIndex = 0;
+        }
     }
 
 
