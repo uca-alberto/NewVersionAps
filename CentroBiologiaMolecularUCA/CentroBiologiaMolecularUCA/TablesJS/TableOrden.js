@@ -24,7 +24,8 @@ function addRowDT(data) {
            data[i].Examen,
            '<a title="visualizar" id="ver"><i class="fa ti-eye"></i>&nbsp;' +
            '<a title="Eliminar" value="Eliminarre" id="Eliminar"><i class="fa fa-trash-o"></i>&nbsp;' +
-           '<a title="Generar Resultado" href="../../Views/Vreogm/Addreogm?id=' + data[i].Id_orden + '"><i class="fa fa-file-text-o"></i>&nbsp;'
+           '<a title="Generar Resultado" href="../../Views/Vreogm/Addreogm?id=' + data[i].Id_orden + '"><i class="fa fa-file-text-o"></i>&nbsp;'+
+           '<a title="Generar Resultado" href="../../Views/Rpt/Recibo?id=' + data[i].Id_orden + '"><i class="fa fa-download"></i>&nbsp;'
 
 
         ]).draw(false);

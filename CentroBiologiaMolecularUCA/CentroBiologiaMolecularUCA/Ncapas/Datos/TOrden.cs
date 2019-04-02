@@ -54,7 +54,7 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
                 c = Conexion.getInstance().ConexionDB();
                 // string sql = "insert into T_Orden (Id_orden,Fecha,Entregado,Tipo_orden,Observaciones,Baucher,No_orden,Estado,Actividad) VALUES(2,@Mfecha,@Mentregado,@Mtipoorden,@Mobservaciones,@Mbaucher,@Mnoorden,@Mestado,1)";
 
-                string sql = "insert into T_Orden (id_Codigo,Tipo_caso,Id_examenes,Id_tipo_muestra,Id_cliente,Id_usuario,Id_empleado,Nombre_pareja,Nombre_menor,fec_nac,Observaciones,Baucher,Estado,Activo,Fecha,Tipo_examen) VALUES(@Mcodigo,NULL,NULL,@Mtipomuestra,@Midcliente,@Midusuario,NULL,NULL,NULL,NULL,@Mobservaciones,@Mbaucher,@Mestado,1,@Mfecha,@Tipoexamen)";
+                string sql = "insert into T_Orden (id_Codigo,Tipo_caso,Id_examenes,Id_tipo_muestra,Id_cliente,Id_usuario,Id_empleado,Nombre_pareja,Nombre_menor,fec_nac,Observaciones,Baucher,Estado,Activo,Fecha) VALUES(@Mcodigo,NULL,1,@Mtipomuestra,@Midcliente,@Midusuario,NULL,NULL,NULL,NULL,@Mobservaciones,@Mbaucher,@Mestado,1,@Mfecha)";
                 //PASANDO PARÁMETROS A CONSULTA SQL
                 using (comando = new SqlCommand(sql, c))
                 {
@@ -66,7 +66,6 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
                     comando.Parameters.AddWithValue("@Mbaucher", e.Baucher);
                     comando.Parameters.AddWithValue("@Mestado", e.Estado);
                     comando.Parameters.AddWithValue("@Mfecha", e.Fecha);
-                    comando.Parameters.AddWithValue("@Tipoexamen", e.Examen);
 
                     //VALIDANDO SI LA CONEXIÓN ESTÁ ACTIVA O CERRADA
                     if (comando.Connection.State != System.Data.ConnectionState.Closed)
@@ -286,7 +285,7 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
             using (var connection = new SqlConnection(ConfigurationManager.ConnectionStrings["DataBase"].ConnectionString))
             {
                 connection.Open();
-                using (SqlCommand command = new SqlCommand(@"SELECT  [Id_orden],[Id_codigo],[Baucher],[Tipo_examen] FROM T_Orden where Activo=1", connection))
+                using (SqlCommand command = new SqlCommand(@"SELECT  [Id_orden],[Id_codigo],[Baucher] FROM T_Orden where Activo=1", connection))
                 {
                     // Make sure the command object does not already have
                     // a notification object associated with it.
@@ -306,7 +305,7 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
                                 Id_orden = x.GetInt32(0),
                                 Id_codigo = x.GetString(1),
                                 Baucher = x.GetString(2),
-                                Examen=x.GetString(3),
+                               // Examen=x.GetString(3),
                             }).ToList();
 
                 }

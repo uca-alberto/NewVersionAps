@@ -19,7 +19,7 @@
     <link href="/assets/css/lib/vector-map/jqvmap.min.css" rel="stylesheet">
     <link href="/assets/sweetalert.css" rel="sweetalert"/>
      <script src="/assets/sweetalert.min.js"></script>
-
+	<script type="text/javascript" src="/crystalreportviewers13/js/crviewer/crv.js"></script>
      <script src="/assets/js/vendor/jquery-2.1.4.min.js"></script>
     <script src="/Scripts/jquery.signalR-2.2.3.min.js"></script>
     <script src="/Scripts/jquery.signalR-2.2.3.js"></script>

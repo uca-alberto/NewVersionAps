@@ -10,10 +10,3 @@
     document.getElementById('MainContent_Mestado').value = estado;
 }
  
-function eliminar(url) {
-
-    if (window.confirm()) {
-        window.Location = url;
-    }
-
-}
