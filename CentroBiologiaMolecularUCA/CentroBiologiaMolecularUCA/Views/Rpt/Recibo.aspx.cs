@@ -23,9 +23,8 @@ namespace CentroBiologiaMolecularUCA.Views.Rpt
 			String valor = Request.QueryString["id"];
 			int id = int.Parse(valor);
 			ReciboOrden re = new ReciboOrden();
-			re.SetParameterValue("@id", 1);
-			re.FileName = CrystalReportSource1.Report.FileName;
-			CrystalReportViewer1.ReportSource = CrystalReportSource1;
+			re.SetParameterValue("@id", id);
+			CrystalReportViewer1.ReportSource =re;
 
 		}
 	}
