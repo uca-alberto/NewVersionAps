@@ -1,4 +1,5 @@
-﻿using System.Data.SqlClient;
+﻿using System.Collections.Generic;
+using System.Data.SqlClient;
 using WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos;
 using WebSistemaCentroBiologiaMolecularUCA.Ncapas.Entidades;
 
@@ -30,7 +31,7 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Negocio
             return DTresultado.getInstance().crear(resultado);
         }
 
-        public bool Eliminarresultado(Resultado resultado)
+        public bool Eliminar(Resultado resultado)
         {
             return DTresultado.getInstance().eliminar(resultado);
         }
@@ -64,5 +65,8 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Negocio
         {
             return DTresultado.getInstance().visualizartabla(id);
         }
+        public List<Resultado> getData(){
+            return DTresultado.getInstance().GetData();
+            }
     }
 }

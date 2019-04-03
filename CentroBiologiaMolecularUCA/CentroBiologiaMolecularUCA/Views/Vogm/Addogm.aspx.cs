@@ -14,29 +14,20 @@ namespace CentroBiologiaMolecularUCA.Views.ViewOrden
 {
     public partial class AgregarOrdenOgm : System.Web.UI.Page
     {
-        private TOrden tOrden;
-        private DTanalisis dtanalisis;
-        private DTmuestra dtmuestra;
         private SqlDataReader registro;
         private Conexion conexion;
         private int Id;
 
-        //Para cargar la Tabla
-        private DTcliente tcliente;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            this.tOrden = new TOrden();
-            this.tcliente = new DTcliente();
-            this.dtanalisis = new DTanalisis();
-            this.dtmuestra = new DTmuestra();
             this.conexion = new Conexion();
-            this.registro = this.tcliente.listarCliente();
+            this.registro = NGcliente.getInstance().ListarClientes();
 
             //Generar el codigo
-            Mcodigo.Text = tOrden.generarCodigo();
+            Mcodigo.Text = NGorden.getInstance().GenerarCodigo();
             //Obtengo el Id
-            Id = tOrden.ultimoid();
+            Id = NGorden.getInstance().UltimoId();
 
             if (!IsPostBack)
             {
@@ -126,7 +117,7 @@ namespace CentroBiologiaMolecularUCA.Views.ViewOrden
             String userid = (string)Session["Id_usuario"];
             ord.Id_cliente = int.Parse(Id_cliente.Value.ToString());
             ord.Id_usuario = Convert.ToInt32(userid);
-            ord.Examen = "OGM";
+            ord.Tipo_examen = 7;
             ord.Id_orden = Id;
             return ord;
         }

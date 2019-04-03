@@ -14,10 +14,7 @@ namespace CentroBiologiaMolecularUCA.Views.Vreogm
 {
     public partial class Addreogm : System.Web.UI.Page
     {
-        private DTresultado result;
-        private TOrden tOrden;
-        private DTanalisis dtanalisis;
-        private DTmuestra dtmuestra;
+
         private SqlDataReader tablaresultado;
         private SqlDataReader analisis;//Cargar tipo examen
         private SqlDataReader registro;//Data resultado
@@ -28,11 +25,6 @@ namespace CentroBiologiaMolecularUCA.Views.Vreogm
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            this.result = new DTresultado();
-            this.tOrden = new TOrden();
-            this.dtanalisis = new DTanalisis();
-            this.dtmuestra = new DTmuestra();
-
             //Obtener el Id Orden
             String valor = Request.QueryString["id"];
             id = int.Parse(valor);
@@ -53,7 +45,7 @@ namespace CentroBiologiaMolecularUCA.Views.Vreogm
             Mmuestra.Items.Insert(0, li);
 
             //Llenar CheckBoxList
-            this.analisis = NGorden.getInstance().Listarexamenes(id);
+            this.analisis = NGorden.getInstance().Listarexamen(id);
             llenarcheckbox();
 
             //data para la tabla de resultados
@@ -104,11 +96,6 @@ namespace CentroBiologiaMolecularUCA.Views.Vreogm
                     }
                 }
             }
-        }
-        //cargar datos en la tabla 
-        public SqlDataReader getregistros()
-        {
-            return tablaresultado;
         }
 
         public Resultado GetEntity()

@@ -7,6 +7,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos;
 using WebSistemaCentroBiologiaMolecularUCA.Ncapas.Entidades;
+using WebSistemaCentroBiologiaMolecularUCA.Ncapas.Negocio;
 
 namespace CentroBiologiaMolecularUCA.Views.Vreogm
 {
@@ -20,9 +21,7 @@ namespace CentroBiologiaMolecularUCA.Views.Vreogm
         [WebMethod]
         public static List<Resultado> GetData()
         {
-            DTresultado dtp = new DTresultado();
-
-            return dtp.GetData();
+            return NGresultado.getInstance().getData();
         }
 
         [WebMethod]
@@ -35,7 +34,7 @@ namespace CentroBiologiaMolecularUCA.Views.Vreogm
                 Id_orden = Convert.ToInt32(id)
             };
 
-            resp = DTresultado.getInstance().eliminar(res);
+            resp = NGresultado.getInstance().Eliminar(res);
             return resp;
         }
 

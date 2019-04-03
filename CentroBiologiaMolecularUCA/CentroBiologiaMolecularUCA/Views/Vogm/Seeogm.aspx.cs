@@ -13,9 +13,7 @@ namespace CentroBiologiaMolecularUCA.Views.Vogm
 {
     public partial class Seeogm : System.Web.UI.Page
     {
-        private TOrden tOrden;
-        private DTanalisis dtanalisis;
-        private DTmuestra dtmuestra;
+
         //Cliente
         private DTcliente dtcliente;
         private SqlDataReader cliente;
@@ -34,12 +32,8 @@ namespace CentroBiologiaMolecularUCA.Views.Vogm
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            this.tOrden = new TOrden();
             dtcliente = new DTcliente();
             ord = new OrdenAdn();
-            this.dtanalisis = new DTanalisis();
-            this.dtmuestra = new DTmuestra();
-
             String valor = Request.QueryString["id"];
             int id = int.Parse(valor);
             ord.Id_orden = id;
@@ -57,11 +51,11 @@ namespace CentroBiologiaMolecularUCA.Views.Vogm
             Mmuestra.DataValueField = "Id_tipo_muestra";
             Mmuestra.DataBind();
 
-            this.registro = tOrden.getOrdenporid(id);
+            this.registro = NGorden.getInstance().Ordenporid(id);
             Id_orden.Value = valor;
 
             //Llenar CheckBoxList
-            this.analisis = tOrden.getAnalisisporId(id);
+            this.analisis = NGorden.getInstance().Listarexamen(id);
 
             while (analisis.Read())
             {

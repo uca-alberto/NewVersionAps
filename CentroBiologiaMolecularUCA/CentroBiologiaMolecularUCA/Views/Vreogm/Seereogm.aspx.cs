@@ -13,10 +13,6 @@ namespace CentroBiologiaMolecularUCA.Views.Vreogm
 {
     public partial class Seereogm : System.Web.UI.Page
     {
-        private TOrden tOrden;
-        //combo box
-        private DTanalisis dtanalisis;
-        private DTmuestra dtmuestra;
         public Resultado res;
         //datos resultados
         private SqlDataReader registro;
@@ -28,9 +24,6 @@ namespace CentroBiologiaMolecularUCA.Views.Vreogm
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            tOrden = new TOrden();
-            this.dtanalisis = new DTanalisis();
-            this.dtmuestra = new DTmuestra();
             this.res = new Resultado();
 
             //Cargar los tipos de Analisis
@@ -49,7 +42,7 @@ namespace CentroBiologiaMolecularUCA.Views.Vreogm
             int id = int.Parse(valor);
             tabla = NGresultado.getInstance().visualizartabla(id);
             //Llenar CheckBoxList
-            this.analisis = tOrden.getAnalisisporId(id);
+            this.analisis = NGorden.getInstance().Listarexamen(id);
 
             while (analisis.Read())
             {

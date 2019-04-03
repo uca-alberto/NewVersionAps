@@ -60,5 +60,9 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Negocio
 		{
 			return DTcliente.getInstance().getClienteporid(id);
 		}
-	}
+        public SqlDataReader ListarClientes()
+        {
+            return DTcliente.getInstance().listarCliente();
+        }
+    }
 }

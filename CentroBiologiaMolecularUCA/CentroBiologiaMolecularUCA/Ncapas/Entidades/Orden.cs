@@ -265,7 +265,7 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Entidades
             }
         }
 
-        public string Examen
+        public String Examen
         {
             get
             {

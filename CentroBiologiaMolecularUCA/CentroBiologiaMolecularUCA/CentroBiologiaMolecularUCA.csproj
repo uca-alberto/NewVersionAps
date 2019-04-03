@@ -1316,7 +1316,7 @@
     <Compile Include="Ncapas\Datos\DTrol.cs" />
     <Compile Include="Ncapas\Datos\DTUsuario.cs" />
     <Compile Include="Ncapas\Datos\Igeneric.cs" />
-    <Compile Include="Ncapas\Datos\TOrden.cs" />
+    <Compile Include="Ncapas\Datos\DTOrden.cs" />
     <Compile Include="Ncapas\Datos\TOrdenAdn.cs" />
     <Compile Include="Ncapas\Entidades\Cliente.cs" />
     <Compile Include="Ncapas\Entidades\Departamento.cs" />
@@ -1324,7 +1324,7 @@
     <Compile Include="Ncapas\Entidades\Examen.cs" />
     <Compile Include="Ncapas\Entidades\Muestra.cs" />
     <Compile Include="Ncapas\Entidades\Municipio.cs" />
-    <Compile Include="Ncapas\Entidades\OrdenAdn.cs" />
+    <Compile Include="Ncapas\Entidades\Orden.cs" />
     <Compile Include="Ncapas\Entidades\Resultado.cs" />
     <Compile Include="Ncapas\Entidades\Usuario.cs" />
     <Compile Include="Ncapas\Negocio\NGAdnPaternidad.cs" />

@@ -8,6 +8,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos;
 using WebSistemaCentroBiologiaMolecularUCA.Ncapas.Entidades;
+using WebSistemaCentroBiologiaMolecularUCA.Ncapas.Negocio;
 
 namespace CentroBiologiaMolecularUCA.Views.Vogm
 {
@@ -67,30 +68,9 @@ namespace CentroBiologiaMolecularUCA.Views.Vogm
         [WebMethod]
         public static List<OrdenAdn> GetData()
         {
-            TOrden dtp = new TOrden();
-
-            return dtp.GetData();
+            return NGorden.getInstance().getData(); 
         }
 
-        //[WebMethod]
-        //public static string visualizarOrden(String id)
-        //{
-        //    String redict ="";
-        //    String ver = id;
-        //    if (ver == "OGM"){
-        //        redict = "OGM";
-        //    }
-        //    if (ver == "Paternidad")
-        //    {
-        //        redict = "Paternidad";
-        //    }
-
-
-
-
-        //    return redict;
-        //}
-   
     [WebMethod]
         public static bool EliminarOrd(String id)
         {
@@ -102,7 +82,7 @@ namespace CentroBiologiaMolecularUCA.Views.Vogm
             };
             Console.Write(ord);
 
-            resp = TOrden.getInstance().eliminar(ord);
+            resp = NGorden.getInstance().eliminarord(ord);
             return resp;
         }
 

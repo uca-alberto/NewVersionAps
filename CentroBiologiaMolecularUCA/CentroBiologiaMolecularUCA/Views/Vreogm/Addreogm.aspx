@@ -117,20 +117,7 @@
                                     
                                 </tr>
                             </thead>
-                            <tbody> 
-<%
-                                    while(getregistros().Read())
-                                    {
-                                        %>
-                                            <tr>
-                                                <td><%=getregistros()["analisis"] %></td>
-                                                <td>
-                                                </td>
-                                             
-                                            </tr>
-                                        <%
-                                    }
-                                %>                                                                                                             
+                            <tbody>                                                                                                           
                             </tbody>
                         </table>
                     </div>
