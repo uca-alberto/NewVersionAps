@@ -32,7 +32,19 @@ namespace CentroBiologiaMolecularUCA.Views.Rpt
 			String valor = Request.QueryString["id"];
 			id = int.Parse(valor);
 			re.SetParameterValue("@id", id);
-			re.ExportToHttpResponse(ExportFormatType.WordForWindows, Response, true, "NombreArchivo");
+			//Obtenemos el tipo de archvios que quiere descargar
+			switch (Export.SelectedValue)
+				{
+				case "1" :
+						re.ExportToHttpResponse(ExportFormatType.WordForWindows, Response, true, "ReciboOGMN°:" + id);
+						break;
+				case "2":
+					re.ExportToHttpResponse(ExportFormatType.PortableDocFormat, Response, true, "ReciboOGMN°:" + id);
+					break;
+				case "3":
+					re.ExportToHttpResponse(ExportFormatType.Excel, Response, true, "ReciboOGMN°:" + id);
+					break;
+			}
 		}
 	}
 }
