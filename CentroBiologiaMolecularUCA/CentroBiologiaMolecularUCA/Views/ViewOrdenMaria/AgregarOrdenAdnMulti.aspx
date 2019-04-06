@@ -170,7 +170,7 @@
                         <div class="row form-group ">
                 <div class="col col-md-3 "><label for="password-input" class=" form-control-label">Código ADN</label></div>
                 <div class="col-12 col-md-9">&nbsp;
-                <asp:TextBox ID="Mcodigomadre" runat="server" Text="" ToolTip="codigodelamadre" CssClass="form-control" placeholder="Ingrese el codigo de la madre"></asp:TextBox>
+                <asp:TextBox ID="Mcodigomadre" runat="server" ReadOnly="true" ToolTip="codigodelamadre" CssClass="form-control" placeholder="Ingrese el codigo de la madre"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="Mcodigomadre" Display="Dynamic" ErrorMessage="Este Campo es requerido"></asp:RequiredFieldValidator>     
                     </div>
                 </div>
@@ -260,26 +260,16 @@
 
              
 
-                   <!--Seleccion de estado-->
+                   <!--estado eliminado-->
 
-                    <div class="row form-group ">
-                <div class="col col-md-3 "><label for="select" class=" form-control-label">Estado</label></div>
-                <div class="col-12 col-md-9 ">&nbsp; 
-                    <asp:DropDownList ID="Mestadomaternidad" runat="server" ToolTip="estado" CssClass="form-control">
-                    <asp:ListItem Value="0">SELECCIONE</asp:ListItem>
-                    <asp:ListItem Value="1">Activo</asp:ListItem>
-                    <asp:ListItem Value="2">En espera</asp:ListItem>
-                    </asp:DropDownList>
-                     <asp:RequiredFieldValidator ID="RequiredFieldValidator26" InitialValue="0" runat="server" ControlToValidate="Mestadomaternidad" Display="Dynamic" ErrorMessage="Debe Seleccionar el estado de la Orden" ForeColor="Red" Font-Italic="true"></asp:RequiredFieldValidator> 
-                </div>
-                </div>
+              
                  <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                 <asp:HiddenField runat="server" ID="idorden_maternidad" />
                 <asp:Button id="insertarordenmaternidad" runat="server" Text="enviar" CssClass="btn btn-primary" OnClick="insertarordenmaternidad_Click"/>
             </div>
 
-                  <asp:Button class="btn btn-outline-success btn-lg btn-block" ID="Btnbackpaternidad" runat="server" Text="Regresar a ordenes" OnClick="Btnbackpaternidad_Click"  />&nbsp;
+       
                   
                   </asp:View>
             
@@ -295,7 +285,7 @@
                         <div class="row form-group ">
                 <div class="col col-md-3 "><label for="password-input" class=" form-control-label">Código ADN</label></div>
                 <div class="col-12 col-md-9">&nbsp;
-                <asp:TextBox ID="Mcodigoabuela" runat="server" Text="" ToolTip="codigodelamadre" CssClass="form-control" placeholder="Ingrese el codigo de la abuela"></asp:TextBox>
+                <asp:TextBox ID="Mcodigoabuela" runat="server" ReadOnly="true" ToolTip="codigodelamadre" CssClass="form-control" placeholder="Ingrese el codigo de la abuela"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator13" runat="server" ControlToValidate="Mcodigoabuela" Display="Dynamic" ErrorMessage="Este Campo es requerido"></asp:RequiredFieldValidator>     
                     </div>
                 </div>
@@ -375,27 +365,16 @@
 
             
 
-                   <!--Seleccion de estado-->
+                   <!--estado eliminado-->
 
-                    <div class="row form-group ">
-                <div class="col col-md-3 "><label for="select" class=" form-control-label">Estado</label></div>
-                <div class="col-12 col-md-9 ">&nbsp; 
-                    <asp:DropDownList ID="Mestadoabuelidad" runat="server" ToolTip="estado" CssClass="form-control">
-                    <asp:ListItem Value="0">SELECCIONE</asp:ListItem>
-                    <asp:ListItem Value="1">Activo</asp:ListItem>
-                    <asp:ListItem Value="2">En espera</asp:ListItem>
-                         
-                    </asp:DropDownList>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator32" InitialValue="0" runat="server" ControlToValidate="Mestadoabuelidad" Display="Dynamic" ErrorMessage="Debe Seleccionar el estado de la Orden" ForeColor="Red" Font-Italic="true"></asp:RequiredFieldValidator>
-                </div>
-                </div>
+           
                  <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                 <asp:HiddenField runat="server" ID="HiddenField1" />
                 <asp:Button id="insertarordenabuelidad" runat="server" Text="enviar" CssClass="btn btn-primary" OnClick="insertarordenabuelidad_Click"/>
             </div>
                
-               <asp:Button class="btn btn-outline-success btn-lg btn-block" ID="Btnbackabuelidad" runat="server" Text="Regresar a ordenes" OnClick="Btnbackabuelidad_Click"  />&nbsp;
+              
                   
                   </asp:View>
              <!-------------------------alzheimer--------------------------------------------------------------------> 
@@ -410,7 +389,7 @@
                         <div class="row form-group ">
                 <div class="col col-md-3 "><label for="password-input" class=" form-control-label">Código ADN</label></div>
                 <div class="col-12 col-md-9">&nbsp;
-                <asp:TextBox ID="Mcodigoalzheimer" runat="server" Text="" ToolTip="codigodelamadre" CssClass="form-control" placeholder="codigo doctor"></asp:TextBox>
+                <asp:TextBox ID="Mcodigoalzheimer" runat="server" ReadOnly="true" ToolTip="codigodelamadre" CssClass="form-control" placeholder="codigo doctor"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator22" runat="server" ControlToValidate="Mcodigoalzheimer" Display="Dynamic" ErrorMessage="Este Campo es requerido"></asp:RequiredFieldValidator>     
                     </div>
                 </div>
@@ -489,25 +468,15 @@
 
               
 
-                   <!--Seleccion de estado-->
+                   <!--estado eliminado-->
 
-                    <div class="row form-group ">
-                <div class="col col-md-3 "><label for="select" class=" form-control-label">Estado</label></div>
-                <div class="col-12 col-md-9 ">&nbsp; 
-                    <asp:DropDownList ID="Mestadoalzheimer" runat="server" ToolTip="estado" CssClass="form-control">
-                    <asp:ListItem Value="0">SELECCIONE</asp:ListItem>
-                    <asp:ListItem Value="1">Activo</asp:ListItem>
-                    <asp:ListItem Value="2">En espera</asp:ListItem>
-                    </asp:DropDownList>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator33" InitialValue="0" runat="server" ControlToValidate="Mestadoalzheimer" Display="Dynamic" ErrorMessage="Debe Seleccionar el estado de la Orden" ForeColor="Red" Font-Italic="true"></asp:RequiredFieldValidator>
-                </div>
-                </div>
+               
                  <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                 <asp:HiddenField runat="server" ID="HiddenField2" />
                 <asp:Button id="insertarordenalzheimer" runat="server" Text="enviar" CssClass="btn btn-primary" OnClick="insertarordenalzheimer_Click"/>
             </div>
-                 <asp:Button class="btn btn-outline-success btn-lg btn-block" ID="Btnbackmaternidad" runat="server" Text="Regresar a ordenes" OnClick="Btnbackmaternidad_Click"  />&nbsp;
+               
                 </asp:View>
              <!-------------------------------------papiloma--------------------------------------------------------> 
             <asp:View ID="View4" runat="server">
@@ -521,7 +490,7 @@
                         <div class="row form-group ">
                 <div class="col col-md-3 "><label for="password-input" class=" form-control-label">Código ADN</label></div>
                 <div class="col-12 col-md-9">&nbsp;
-                <asp:TextBox ID="Mcodigopapiloma" runat="server" Text="" ToolTip="codigodelamadre" CssClass="form-control" placeholder="codigo doctor"></asp:TextBox>
+                <asp:TextBox ID="Mcodigopapiloma" runat="server" ReadOnly="true" ToolTip="codigodelamadre" CssClass="form-control" placeholder="codigo doctor"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator27" runat="server" ControlToValidate="Mcodigopapiloma" Display="Dynamic" ErrorMessage="Este Campo es requerido"></asp:RequiredFieldValidator>     
                     </div>
                 </div>
@@ -600,25 +569,15 @@
 
                
 
-                   <!--Seleccion de estado-->
+                   <!--estado eliminado-->
 
-                    <div class="row form-group ">
-                <div class="col col-md-3 "><label for="select" class=" form-control-label">Estado</label></div>
-                <div class="col-12 col-md-9 ">&nbsp; 
-                    <asp:DropDownList ID="Mestadopapiloma" runat="server" ToolTip="estado" CssClass="form-control">
-                    <asp:ListItem Value="0">SELECCIONE</asp:ListItem>
-                    <asp:ListItem Value="1">Activo</asp:ListItem>
-                    <asp:ListItem Value="2">En espera</asp:ListItem>
-                    </asp:DropDownList>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator34" InitialValue="0" runat="server" ControlToValidate="Mestadopapiloma" Display="Dynamic" ErrorMessage="Debe Seleccionar el estado de la Orden" ForeColor="Red" Font-Italic="true"></asp:RequiredFieldValidator>
-                </div>
-                </div>
+              
                  <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                 <asp:HiddenField runat="server" ID="HiddenField3" />
                 <asp:Button id="insertarordenpapiloma" runat="server" Text="enviar" CssClass="btn btn-primary" OnClick="insertarordenpapiloma_Click"/>
             </div>
-                <asp:Button class="btn btn-outline-success btn-lg btn-block" ID="btnpaternidad" runat="server" Text="Paternidad" OnClick="btnpaternidad_Click"/>
+              
 
                 </asp:View>
             <asp:View ID="View5" runat="server">
@@ -703,19 +662,9 @@
 
 
                
-  <!--Seleccion de estado-->
+  <!--estado eliminado-->
 
-                    <div class="row form-group ">
-                <div class="col col-md-3 "><label for="select" class=" form-control-label">Estado</label></div>
-                <div class="col-12 col-md-9 ">&nbsp; 
-                    <asp:DropDownList ID="Mestado" runat="server" ToolTip="estado" CssClass="form-control">
-                    <asp:ListItem Value="0">SELECCIONE</asp:ListItem>
-                    <asp:ListItem Value="1">Activo</asp:ListItem>
-                    <asp:ListItem Value="2">En espera</asp:ListItem>
-                    </asp:DropDownList>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator35" InitialValue="0" runat="server" ControlToValidate="Mestado" Display="Dynamic" ErrorMessage="Debe Seleccionar el estado de la Orden" ForeColor="Red" Font-Italic="true"></asp:RequiredFieldValidator>
-                </div>
-                </div>
+               
                  <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                 <asp:HiddenField runat="server" ID="id_orden" />
@@ -726,7 +675,7 @@
                  
                     
                 </div>
-                 <asp:Button class="btn btn-outline-success btn-lg btn-block" ID="btnvolverpaternidadnuevo" runat="server" Text="Paternidad" OnClick="btnvolverpaternidadnuevo_Click"/>
+                  
                  </asp:View>
         </asp:MultiView>
     </form>

@@ -45,7 +45,7 @@ namespace CentroBiologiaMolecularUCA.Views.ViewOrdenMaria
 
                 ord.Observaciones = this.registro["Observaciones"].ToString();
                 ord.Baucher = this.registro["Baucher"].ToString();
-                ord.Estado = this.registro["Estado"].ToString();
+             
             }
         }
     }

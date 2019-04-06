@@ -1,4 +1,4 @@
-﻿function edit(codigo, padre, hijo, fecha, tipocaso, observaciones, boucher, estado) {
+﻿function edit(codigo, padre, hijo, fecha, tipocaso, observaciones, boucher) {
     document.getElementById('MainContent_Mcodigoalzheimer').value = codigo;
     document.getElementById('MainContent_Mnombredeldoctor').value = padre;
     document.getElementById('MainContent_Mnombredelpaciente').value = hijo;
@@ -7,7 +7,7 @@
 
     document.getElementById('MainContent_Mobservacionesalzheimer').value = observaciones;
     document.getElementById('MainContent_Mboucheralzheimer').value = boucher;
-    document.getElementById('MainContent_Mestadoalzheimer').value = estado;
+    
 }
 
 function eliminar(url) {

@@ -46,21 +46,23 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
                 c = Conexion.getInstance().ConexionDB();
                 // string sql = "insert into T_Orden (Id_orden,Fecha,Entregado,Tipo_orden,Observaciones,Baucher,No_orden,Estado,Actividad) VALUES(2,@Mfecha,@Mentregado,@Mtipoorden,@Mobservaciones,@Mbaucher,@Mnoorden,@Mestado,1)";
 
-                string sql = "insert into T_Orden (id_Codigo,Tipo_caso,Id_examenes,Id_tipo_muestra,Id_cliente,Id_usuario,Id_empleado,Nombre_pareja,Nombre_menor,fec_nac,Observaciones,Baucher,Estado,Activo,Fecha,Tipo_examen) VALUES(@Mcodigo,@Mtipocaso,NULL,NULL,@Mcliente,@Midusuario,NULL,@Mnombrepareja,@Mnombrehijo,NULL,@Mobservaciones,@Mbaucher,@Mestado,1,@Mfecha,'Paternidad')";
+                string sql = "insert into T_Orden (id_Codigo,Tipo_caso,Id_examenes,Id_tipo_muestra,Id_cliente,Id_usuario,Id_empleado,Nombre_pareja,Nombre_menor,fec_nac,Observaciones,Baucher,Estado,Activo,Fecha) VALUES(@Mcodigo,@Mtipocaso,@Mexamen,NULL,@Mcliente,@Midusuario,NULL,@Mnombrepareja,@Mnombrehijo,NULL,@Mobservaciones,@Mbaucher,1,1,@Mfecha)";
                 //PASANDO PARÁMETROS A CONSULTA SQL
                 using (comando = new SqlCommand(sql, c))
                 {
                    // comando.Parameters.AddWithValue("@Midcliente", e.id_cliente);
                     comando.Parameters.AddWithValue("@Mcodigo", e.Id_codigo);
-                    comando.Parameters.AddWithValue("@Mtipocaso", e.Tipo_Caso);
+                   comando.Parameters.AddWithValue("@Mtipocaso", e.Tipo_Caso);
+                    comando.Parameters.AddWithValue("@Mexamen", e.Tipo_examen);
                     comando.Parameters.AddWithValue("@Mcliente", e.Id_cliente);
+                    
                     comando.Parameters.AddWithValue("@Midusuario", e.Id_usuario);
                     comando.Parameters.AddWithValue("@Mnombrepareja", e.Nombre_pareja);
 
                     comando.Parameters.AddWithValue("@Mnombrehijo", e.Nombre_menor);
                     comando.Parameters.AddWithValue("@Mobservaciones", e.Observaciones);
                     comando.Parameters.AddWithValue("@Mbaucher", e.Baucher);
-                    comando.Parameters.AddWithValue("@Mestado", e.Estado);
+                   // comando.Parameters.AddWithValue("@Mestado", e.Estado);
                     comando.Parameters.AddWithValue("@Mfecha", e.Fecha);
 
                     //VALIDANDO SI LA CONEXIÓN ESTÁ ACTIVA O CERRADA
@@ -130,7 +132,7 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
                     comando.Parameters.AddWithValue("@Mnombrehijo", e.Nombre_menor);
                     comando.Parameters.AddWithValue("@Mobservaciones", e.Observaciones);
                     comando.Parameters.AddWithValue("@Mbaucher", e.Baucher);
-                    comando.Parameters.AddWithValue("@Mestado", e.Estado);
+                   // comando.Parameters.AddWithValue("@Mestado", e.Estado);
                     comando.Parameters.AddWithValue("@Mfecha", e.Fecha);
                     //VALIDANDO SI LA CONEXIÓN ESTÁ ACTIVA O CERRADA
                     if (comando.Connection.State != System.Data.ConnectionState.Closed)
@@ -258,7 +260,7 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
         public SqlDataReader getOrdenporid(int id)
         {
             c = Conexion.getInstance().ConexionDB();
-            String sql = "select Id_codigo,Fecha,Tipo_caso,Nombre_pareja,Nombre_menor,Observaciones,Baucher,Estado from T_Orden where Id_orden='" + id + "';";
+            String sql = "select Id_codigo,Id_cliente,Fecha,Tipo_caso,Nombre_pareja,Nombre_menor,Observaciones,Baucher from T_Orden where Id_orden='" + id + "';";
 
             SqlCommand comando = new SqlCommand(sql, this.c);
             this.registros = comando.ExecuteReader();
@@ -291,6 +293,7 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
                                 Id_orden = x.GetInt32(0),
                                 Nombre_menor = x.GetString(1),
                                 Baucher = x.GetString(2),
+                            
 
                             }).ToList();
 
@@ -376,6 +379,104 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
                 else if (total < 10000)
                 {
                     codigo = "ADN" + mes + anio + "-0" + total.ToString();
+                }
+
+            }
+            catch (Exception)
+            {
+
+                c.Close();
+
+            }
+            return codigo;
+
+        }
+
+        public String generarCodigoAlzheimer()
+        {
+            c = Conexion.getInstance().ConexionDB();
+            String codigo = "";
+            int total = 0;
+            String date;
+            date = DateTime.Now.ToString("MM/dd/yyyy");
+            String mes = date.Substring(0, 2);
+            String anio = date.Substring(8, 2);
+
+            try
+            {
+                SqlCommand cmd = new SqlCommand("Select count(*) as Id_orden from T_Orden", c);
+                SqlDataReader sd = cmd.ExecuteReader();
+
+                if (sd.Read())
+                {
+                    total = int.Parse(sd["Id_orden"].ToString()) + 1;
+                }
+                sd.Close();
+
+                if (total < 10)
+                {
+                    codigo = "ALZ" + mes + anio + "-0000" + total.ToString();
+                }
+                else if (total < 100)
+                {
+                    codigo = "ALZ" + mes + anio + "-000" + total.ToString();
+                }
+                else if (total < 1000)
+                {
+                    codigo = "ALZ" + mes + anio + "-00" + total.ToString();
+                }
+                else if (total < 10000)
+                {
+                    codigo = "ALZ" + mes + anio + "-0" + total.ToString();
+                }
+
+            }
+            catch (Exception)
+            {
+
+                c.Close();
+
+            }
+            return codigo;
+
+        }
+
+        public String generarCodigoPapiloma()
+        {
+            c = Conexion.getInstance().ConexionDB();
+            String codigo = "";
+            int total = 0;
+            String date;
+            date = DateTime.Now.ToString("MM/dd/yyyy");
+            String mes = date.Substring(0, 2);
+            String anio = date.Substring(8, 2);
+
+            try
+            {
+                SqlCommand cmd = new SqlCommand("Select count(*) as Id_orden from T_Orden", c);
+                SqlDataReader sd = cmd.ExecuteReader();
+
+                if (sd.Read())
+                {
+                    total = int.Parse(sd["Id_orden"].ToString()) + 1;
+                }
+                sd.Close();
+
+                if (total < 10)
+                {
+                    codigo = "VPH" + mes + anio + "-0000" + total.ToString();
+                }
+                else if (total < 100)
+                {
+                    codigo = "VPH" + mes + anio + "-000" + total.ToString();
+                }
+                else if (total < 1000)
+                {
+                    codigo = "VPH" + mes + anio + "-00" + total.ToString();
+                }
+                else if (total < 10000)
+                {
+                    codigo = "VPH" + mes + anio + "-0" + total.ToString();
                 }
 
             }

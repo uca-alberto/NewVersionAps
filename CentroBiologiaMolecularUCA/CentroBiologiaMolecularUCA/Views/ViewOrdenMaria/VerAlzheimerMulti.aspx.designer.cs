@@ -85,15 +85,6 @@ namespace CentroBiologiaMolecularUCA.Views.ViewOrdenMaria {
         protected global::System.Web.UI.WebControls.TextBox Mboucheralzheimer;
         
         /// <summary>
-        /// Control Mestadoalzheimer.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList Mestadoalzheimer;
-        
-        /// <summary>
         /// Control Id_orden.
         /// </summary>
         /// <remarks>

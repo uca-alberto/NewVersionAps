@@ -1,4 +1,4 @@
-﻿function edit(codigo, padre, hijo, fecha, tipocaso, observaciones, boucher, estado) {
+﻿function edit(codigo, padre, hijo, fecha, tipocaso, observaciones, boucher) {
     document.getElementById('MainContent_Mcodigoabuela').value = codigo;
     document.getElementById('MainContent_Mnombredelaabuela').value = padre;
     document.getElementById('MainContent_Mnombrenieto').value = hijo;
@@ -7,7 +7,7 @@
 
     document.getElementById('MainContent_Mobservacionesabuelidad').value = observaciones;
     document.getElementById('MainContent_Mboucherabuelidad').value = boucher;
-    document.getElementById('MainContent_Mestadoabuelidad').value = estado;
+    
 }
 
 function eliminar(url) {
