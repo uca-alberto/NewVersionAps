@@ -1,4 +1,6 @@
-﻿using WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos;
+﻿using System.Collections.Generic;
+using System.Data.SqlClient;
+using WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos;
 using WebSistemaCentroBiologiaMolecularUCA.Ncapas.Entidades;
 
 namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Negocio
@@ -45,5 +47,60 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Negocio
         }
 
 
+        public SqlDataReader acceso(int rol)
+        {
+            return DTUsuario.getInstance().acceso(rol);
+        }
+        /*
+        public SqlDataReader lista()
+        {
+            return DTUsuario.getInstance().lista();
+        }
+        */
+        public SqlDataReader ListarEmpleados()
+        {
+            return DTUsuario.getInstance().ListarEmpleados();
+        }
+
+        public SqlDataReader getUsuarioporid(int id)
+        {
+            return DTUsuario.getInstance().getUsuarioporid(id);
+        }
+
+        public List<Usuario> GetData()
+        {
+            return DTUsuario.getInstance().GetData();
+        }
+
+        public SqlDataReader listarRol()
+        {
+            return DTrol.getInstance().listarRol();
+        }
+
+      /*  public SqlDataReader listarPermisos(int id)
+        {
+           /return DTUsuario.getInstance().listaPermisos(id);
+        }
+
+        public SqlDataReader permisos()
+        {
+            return DTUsuario.getInstance().Permisos();
+        }
+
+        public SqlDataReader opciones(string opc)
+        {
+            return DTUsuario.getInstance().opciones(opc);
+        }
+
+        public bool guardar(Permiso pers)
+        {
+
+            return DTUsuario.getInstance().guardar(pers);
+        }
+
+        public bool delete(Permiso pers)
+        {
+            return DTUsuario.getInstance().delete(pers);
+        }*/
     }
 }

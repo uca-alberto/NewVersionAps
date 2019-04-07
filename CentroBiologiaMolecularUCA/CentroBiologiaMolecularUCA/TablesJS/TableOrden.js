@@ -24,8 +24,8 @@ function addRowDT(data) {
            data[i].Examen,
            '<a title="visualizar" id="ver"><i class="fa ti-eye"></i>&nbsp;' +
            '<a title="Eliminar" value="Eliminarre" id="Eliminar"><i class="fa fa-trash-o"></i>&nbsp;' +
-           '<a title="Generar Resultado" href="../../Views/Vreogm/Addreogm?id=' + data[i].Id_orden + '"><i class="fa fa-file-text-o"></i>&nbsp;'+
-           '<a title="Generar Resultado" href="../../Views/Rpt/Recibo?id=' + data[i].Id_orden + '"><i class="fa fa-download"></i>&nbsp;'
+           '<a title="Generar Resultado" id="generar"><i class="fa fa-file-text-o"></i>&nbsp;' +
+           '<a title="Generar Recibo"  href="../../Views/Rpt/Recibo?id=' + data[i].Id_orden + '"><i class="fa fa-download"></i>&nbsp;'
 
 
         ]).draw(false);
@@ -101,7 +101,7 @@ $(document).on('click', '#Eliminar', function (e) {
 sendDataAjax();
 
 //Probando el Visualizar
-$('#bootstrap-data-table tbody').on('click', '#ver', function () {
+$('#bootstrap-data-table tbody').on('click', '#generar', function () {
     var table = $('#bootstrap-data-table').DataTable();
     var data = table.row($(this).parents("tr")).data();
     var id = data[0];
@@ -109,7 +109,24 @@ $('#bootstrap-data-table tbody').on('click', '#ver', function () {
     var redict = data[3];
     //Granos
     if (redict == "OGM") {
-         location.href = 'Seeogm.aspx?id=' + id + ''
+        location.href = '../../Views/Vreogm/Addreogm?id=' + id + ''
+    }
+    //ADN
+    if (redict == "Paternidad") {
+        location.href = '../../Views/Vreadn/addreadn?id=' + id + ''
+    }
+});
+
+//Probando el Visualizar
+$('#bootstrap-data-table tbody').on('click', '#ver', function () {
+    var table = $('#bootstrap-data-table').DataTable();
+    var data = table.row($(this).parents("tr")).data();
+    var id = data[0];
+
+    var redict = data[3];
+    //Granos
+    if (redict == "OGM") {
+        location.href = 'Seeogm.aspx?id=' + id + ''
     }
     //ADN
     if (redict == "Paternidad") {

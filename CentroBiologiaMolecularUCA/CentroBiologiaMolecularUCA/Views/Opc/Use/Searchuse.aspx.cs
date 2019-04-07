@@ -8,24 +8,22 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos;
 using WebSistemaCentroBiologiaMolecularUCA.Ncapas.Entidades;
+using WebSistemaCentroBiologiaMolecularUCA.Ncapas.Negocio;
 
 namespace CentroBiologiaMolecularUCA.Views.ViewUsuario
 {
     public partial class BuscarUsuario : System.Web.UI.Page
     {
 
-        private DTUsuario dtusuario;
         private SqlDataReader registro;
         protected void Page_Load(object sender, EventArgs e)
         {
-            this.dtusuario = new DTUsuario();
-
             String rolid = (string)Session["Id_rol"];
             string ubicacion = HttpContext.Current.Request.Url.AbsolutePath;
 
             int rol = Convert.ToInt32(rolid);
 
-            this.registro = dtusuario.acceso(rol);
+            this.registro = NGUsuario.getInstance().acceso(rol);
             bool permiso = false;
             String[] array = new String[10];
             int index = 0;

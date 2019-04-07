@@ -31,6 +31,11 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Negocio
             return DTresultado.getInstance().crear(resultado);
         }
 
+        public bool guardaradnresultado(Resultado resultado)
+        {
+            return DTresultado.getInstance().crearAdn(resultado);
+        }
+
         public bool Eliminar(Resultado resultado)
         {
             return DTresultado.getInstance().eliminar(resultado);
@@ -50,6 +55,12 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Negocio
         public SqlDataReader verResultados(int id)
         {
             return DTresultado.getInstance().verdatosresultados(id);
+        }
+
+        //Datos Agregar Resultado ADN
+        public SqlDataReader verResultadosadn(int id)
+        {
+            return DTresultado.getInstance().verdatosresultadosadn(id);
         }
         //Datos Tabla ver resultados
         public SqlDataReader Resultadostabla(int id)
@@ -98,6 +109,11 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Negocio
         public SqlDataReader getanalisis(int id)
         {
             return DTresultado.getInstance().getAnalisisporId(id);
+        }
+
+        public SqlDataReader ListardatosResultadosadn(int id)
+        {
+            return DTresultado.getInstance().cargardatosadnporid(id);
         }
     }
 }

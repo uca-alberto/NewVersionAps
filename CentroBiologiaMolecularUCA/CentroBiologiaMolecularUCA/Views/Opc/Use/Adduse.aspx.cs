@@ -14,26 +14,25 @@ namespace CentroBiologiaMolecularUCA.Views.ViewUsuario
 {
     public partial class AgregarUsuario : System.Web.UI.Page
     {
-        private DTUsuario dtusuario;
         private SqlDataReader registro;
         private SqlDataReader empleado;
        
         private Conexion conexion;
         private String Rol;
-        private DTrol dtrol;
+
 
 
         protected void Page_Load(object sender, EventArgs e)
         {
            
            
-            this.dtusuario = new DTUsuario();
+            
             String rolid = (string)Session["Id_rol"];
             string ubicacion = HttpContext.Current.Request.Url.AbsolutePath;
 
             int rol = Convert.ToInt32(rolid);
 
-            this.registro = dtusuario.acceso(rol);
+            this.registro = NGUsuario.getInstance().acceso(rol);
             bool permiso = false;
             String[] array = new String[10];
             int index = 0;
@@ -73,25 +72,27 @@ namespace CentroBiologiaMolecularUCA.Views.ViewUsuario
                 ClientScript.RegisterStartupScript(GetType(), "Javascript", "javascript: Acceso(); ", true);
             }
 
-            if(dtusuario.Sicrear() >= dtusuario.SicrearE())
+            /*if(dtusuario.Sicrear() >= dtusuario.SicrearE())
             {
                 ClientScript.RegisterStartupScript(GetType(), "Javascript", "javascript: Emleado(); ", true);
 
-            }
+            }*/
 
-
-            this.dtusuario = new DTUsuario();
-            this.empleado = dtusuario.ListarEmpleados();
+            
+            this.empleado = NGUsuario.getInstance().ListarEmpleados();
+            ;
             this.conexion = new Conexion();
-            this.dtrol = new DTrol();
-
+            
             if (!IsPostBack)
             {
                 //en esta parte se carga el dropdownlist
-                Mrol.DataSource = dtrol.listarRol();//aqui le paso mi consulta que esta en la clase dtdepartamento
+                Mrol.DataSource = NGUsuario.getInstance().listarRol();//aqui le paso mi consulta que esta en la clase dtdepartamento
                 Mrol.DataTextField = "Rol";//le paso el texto del items
                 Mrol.DataValueField = "Id_rol";//le paso el id de cada items
                 Mrol.DataBind();
+
+                ListItem li = new ListItem("SELECCIONE", "0");//creamos una lista, para agregar el seleccione
+                Mrol.Items.Insert(0, li);
             }
 
         }

@@ -448,7 +448,7 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
             using (var connection = new SqlConnection(ConfigurationManager.ConnectionStrings["DataBase"].ConnectionString))
             {
                 connection.Open();
-                using (SqlCommand command = new SqlCommand(@"SELECT  [Id_usuario],[Nombre_Usuario],[Id_rol] FROM T_Usuario where Activo=1", connection))
+                using (SqlCommand command = new SqlCommand(@"SELECT  [Id_usuario],[Nombre_Usuario], [rol] FROM T_Usuario us INNER JOIN T_Rol rol ON us.Id_rol = rol.Id_rol where Activo=1", connection))
                 {
                     // Make sure the command object does not already have
                     // a notification object associated with it.
@@ -467,10 +467,9 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
                             {
                                 Id_usuario = x.GetInt32(0),
                                 Nombre = x.GetString(1),
-                                Id_rol = x.GetInt32(2),
+                                nombre_rol = x.GetString(2),
 
                             }).ToList();
-
                 }
             }
         }

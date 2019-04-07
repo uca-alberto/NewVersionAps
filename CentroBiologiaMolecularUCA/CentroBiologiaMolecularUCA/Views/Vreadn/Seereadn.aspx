@@ -1,33 +1,6 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master"  AutoEventWireup="true" CodeBehind="addreadn.aspx.cs" Inherits="CentroBiologiaMolecularUCA.Views.Vreadn.addreadn" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Seereadn.aspx.cs" Inherits="CentroBiologiaMolecularUCA.Views.Vreadn.Seereadn" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-     <link href="../../assets/css_Editables/form-mouse.css" rel="stylesheet" />
-       <script src="../../assets/sweetalert.min.js"></script>
-
-    <script>
-        function ADD() {
-            swal({
-                title: "Error",
-                text: "Revisar Formulario",
-                icon: "warning",
-                button: "OK",
-            });
-    }</script>
-
-    <script>
-        function InsertarResultado(data) {
-            swal({
-                title: "Resultado Agregado",
-                text: "Correctamente",
-                icon: "success",
-            })
-          .then((willDelete) => {
-              if (willDelete) {
-                  location.href = "../Vogm/Searchogm.aspx";
-              } 
-          });
-        }
-    </script>
-
+         <link href="../../assets/css_Editables/form-mouse.css" rel="stylesheet" />
          <div class="card-header">
             <strong class="card-title" >REGISTRO DE ANALISIS DE EXAMEN DE ADN </strong>
         </div>
@@ -96,6 +69,7 @@
                       <asp:Textbox ID="Mmenor" ReadOnly="true" BackColor="White" runat="server" ToolTip="Nombre del menor" CssClass="formcursor"></asp:Textbox>
                      </div>
                    </div>
+
             <!--Seleccion de estado-->
                     <div class="row form-group ">
                 <div class="col col-md-3 "><label for="select" class=" form-control-label">Tipo Caso: </label></div>
@@ -111,21 +85,20 @@
                 </div>
                 </div>
            <!--- Resultados de ADN --->
-            <!--imagen-->                            
+           <div class="card-header">
+            <strong class="card-title" >Resultados</strong>
+        </div>&nbsp;
+           <!--imagen-->                            
                     <div class="row form-group ">
-                 <div class="col col-sm-3"><label for="disabled-input" class=" form-control-label">Resultado:</label></div>
-           <div class="col-12 col-md-9">&nbsp;
-						  <asp:FileUpload ID="FileUpload1" runat="server" />
-						  <asp:label runat="server" ID="Urlimagen"/>
-						  					<br />
-               </div>
-                </div> 
-         
+						   <asp:Image ID="Image1"  runat="server" ImageUrl="../../ImagesClientes/User-placeholder.jpg" style="height:300px;width:700px;margin-top:auto; margin-left:auto;"/>
+					  </div>
+
+            
              <!--observaciones-->                            
                     <div class="row form-group ">
                 <div class="col col-md-3 "><label for="text-input" class=" form-control-label">Observaciones</label></div>
                 <div class="col-12 col-md-9">&nbsp;
-                <asp:Textbox ID="Mobservaciones" runat="server" TextMode="multiline" Columns="50" Rows="5" ToolTip="observaciones" CssClass="form-control" placeholder="Ingrese las observaciones"></asp:Textbox>
+                <asp:Textbox ID="Mobservaciones" ReadOnly="true" BackColor="White" runat="server" TextMode="multiline" Columns="50" Rows="5" ToolTip="observaciones" CssClass="form-control" placeholder="Ingrese las observaciones"></asp:Textbox>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="Mobservaciones" Display="Dynamic" ErrorMessage="Este Campo es requerido" ForeColor="Red" Font-Italic="true"></asp:RequiredFieldValidator>     
                     </div>
                 </div> 
@@ -133,9 +106,9 @@
            
               <!--Seleccion de estado-->
                     <div class="row form-group ">
-                <div class="col col-md-3 "><label for="select" class=" form-control-label">Porcentaje de probabilidad:</label></div>
+                <div class="col col-md-3 "><label for="select" class=" form-control-label">Porcentaje de probabilidad: </label></div>
                 <div class="col-12 col-md-9 ">&nbsp; 
-                    <asp:DropDownList ID="Mresultado" runat="server" ToolTip="estado" CssClass="form-control">
+                    <asp:DropDownList ID="Mresultado" Enable="false" runat="server" ToolTip="estado" CssClass="form-control">
                     <asp:ListItem Value="0">Seleccione</asp:ListItem>
                     <asp:ListItem Value="1">99.9%</asp:ListItem>
                     <asp:ListItem Value="2">0.00%</asp:ListItem>
@@ -145,13 +118,18 @@
                 </div>
                                      
              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" onclick="location.href='../Vogm/Searchogm.aspx'">Cancelar</button>
-                <asp:HiddenField runat="server" ID="id_orden" />
-                <asp:Button id="enviar" runat="server" Text="Guardar" CssClass="btn btn-primary" OnClick="InsertarResultado" />
-           
-          </div>   
+                     <asp:HiddenField runat="server" ID="Id_orden" />
+                      <a class="btn btn-outline-success btn-lg btn-block" OnClick="javascript: return history.back()">Regresar</a>  
+                </div>
+        
+        </form>
+       
+        <script type="text/javascript" src="../../Content/ListarResultado.js"></script>
 
-            </form>
-            </div>
-        </div>
-    </asp:Content>
+    <script  type="text/javascript">
+window.onload = function () {
+    edit( '<%=res.Fecha_procesamiento%>','<%=res.Observaciones%>'
+           )
+};
+</script>
+</asp:Content>

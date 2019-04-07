@@ -18,6 +18,7 @@ function addRowDT(data) {
     tabla = $("#bootstrap-data-table").DataTable();
     for (var i = 0; i < data.length; i++) {
         tabla.row.add([
+           data[i].Id_usuario,
            data[i].Nombre,
            data[i].nombre_rol,
            '<a title="ver" href="Seeuse.aspx?id=' + data[i].Id_usuario + '"><i class="fa ti-eye"></i>&nbsp;' +

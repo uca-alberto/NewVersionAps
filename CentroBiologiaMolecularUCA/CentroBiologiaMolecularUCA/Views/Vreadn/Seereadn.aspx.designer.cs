@@ -10,7 +10,7 @@
 namespace CentroBiologiaMolecularUCA.Views.Vreadn {
     
     
-    public partial class addreadn {
+    public partial class Seereadn {
         
         /// <summary>
         /// Control myfrom.
@@ -103,22 +103,13 @@ namespace CentroBiologiaMolecularUCA.Views.Vreadn {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
         
         /// <summary>
-        /// Control FileUpload1.
+        /// Control Image1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload FileUpload1;
-        
-        /// <summary>
-        /// Control Urlimagen.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Urlimagen;
+        protected global::System.Web.UI.WebControls.Image Image1;
         
         /// <summary>
         /// Control Mobservaciones.
@@ -157,21 +148,12 @@ namespace CentroBiologiaMolecularUCA.Views.Vreadn {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator6;
         
         /// <summary>
-        /// Control id_orden.
+        /// Control Id_orden.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField id_orden;
-        
-        /// <summary>
-        /// Control enviar.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button enviar;
+        protected global::System.Web.UI.WebControls.HiddenField Id_orden;
     }
 }

@@ -19,9 +19,12 @@ namespace CentroBiologiaMolecularUCA.Views.Vreogm
         private SqlDataReader datos;//Traer datos Orden
         private SqlDataReader analisis;//Tipos de examenes
         private SqlDataReader tabla;//Resultados
+        private SqlDataReader usuario;
         private String[] array = new String[10];
         private int index = 0;
         private int Idorden;
+
+        private int Usuario_procesa;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -79,12 +82,20 @@ namespace CentroBiologiaMolecularUCA.Views.Vreogm
 
             if (registro.Read())
             {
-                res.Usuario_procesa = registro["Usuario_procesa"].ToString();
+                Usuario_procesa = Convert.ToInt32(datos["Usuario_procesa"].ToString());
                 res.Fecha_procesamiento = Convert.ToDateTime(registro["Fecha_procesamiento"].ToString());
                 res.Observaciones = registro["Observaciones"].ToString();
 
                 Mhora.Text = registro["Hora"].ToString();
             }
+
+            //Mostrar datos en el textbox
+            usuario = NGresultado.getInstance().datosusuario(Usuario_procesa);
+            if (usuario.Read())
+            {
+                Minvestigador.Text = usuario["Nombre_empleado"].ToString() + " " + usuario["Apellido"].ToString();
+            }
+
         }
         //cargar datos en la tabla 
         public SqlDataReader getregistros()

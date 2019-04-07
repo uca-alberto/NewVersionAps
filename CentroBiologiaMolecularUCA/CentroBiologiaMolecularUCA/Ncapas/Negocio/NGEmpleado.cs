@@ -51,5 +51,9 @@ namespace CentroBiologiaMolecularUCA.Ncapas.Negocio
 		{
 			return DTEmpleados.getInstance().getEmpleadoporid(id);
 		}
-	}
+        public SqlDataReader listarempleado()
+        {
+            return DTEmpleados.getInstance().listarempleado();
+        }
+    }
 }

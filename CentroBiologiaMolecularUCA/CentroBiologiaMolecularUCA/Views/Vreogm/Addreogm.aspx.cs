@@ -149,7 +149,10 @@ namespace CentroBiologiaMolecularUCA.Views.Vreogm
             res.Id_orden = id;
             res.Fecha_procesamiento = Convert.ToDateTime(Mfecha.Text);
             res.Hora = Convert.ToDateTime(Mhora.Text);
-            res.Usuario_procesa = Minvestigador.Text;
+
+            //Obtener el usuario actual
+            String userprocesa = (string)Session["Id_usuario"];
+            res.Usuario_procesa = userprocesa;
 
             //estado para mientras
             res.Estado = "Procesada";

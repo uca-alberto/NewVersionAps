@@ -108,6 +108,77 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
 
         }
 
+        public bool crearAdn(Resultado e)
+        {
+            bool guardado = false;
+            try
+            {
+                //CONSULTA SQL
+                c = Conexion.getInstance().ConexionDB();
+
+                string sql = "insert into T_Resultados (Id_Orden,Validacion,Fecha_procesamiento,Hora,Usuario_valida,Usuario_procesa,Estado,Observaciones,imagen,Activo) VALUES(@idorden,@validacion,@Mfecha,@Mhora,NULL,@Musuarioprocesa,@Mestado,@Mobservaciones,@imagen,1)";
+                //PASANDO PARÁMETROS A CONSULTA SQL
+                using (comando = new SqlCommand(sql, c))
+                {
+                    comando.Parameters.AddWithValue("@idorden", e.Id_orden);
+                    comando.Parameters.AddWithValue("@validacion", e.Validacion);
+                    comando.Parameters.AddWithValue("@Mfecha", e.Fecha_procesamiento);
+                    comando.Parameters.AddWithValue("@Mhora", e.Hora);
+                    //comando.Parameters.AddWithValue("@Musuariovalida", e.Usuario_valida);
+                    comando.Parameters.AddWithValue("@Musuarioprocesa", e.Usuario_procesa);
+                    comando.Parameters.AddWithValue("@Mestado", e.Estado);
+                    comando.Parameters.AddWithValue("@Mobservaciones", e.Observaciones);
+                    comando.Parameters.AddWithValue("@imagen", e.Imagen);
+
+                    //VALIDANDO SI LA CONEXIÓN ESTÁ ACTIVA O CERRADA
+                    if (comando.Connection.State != System.Data.ConnectionState.Closed)
+                    {
+                        //EJECUTANDO SENTENCIA SQL CON EXECUTENONQUERY
+                        int result = comando.ExecuteNonQuery();
+
+                        /* 
+                         * EL BLOQUE IF SIRVE PARA HACER UNA VALIDACIÓN DEL EXECUTENONQUERY
+                         * DICHO MÉTODO DEVUELVE UN ENTERO, DONDE 0 ES QUE NO AFECTO NINGUNA FILA
+                         * SI ES MAYOR A 0 (POSITIVO)
+                         * QUIERE DECIR QUE SE GUARDARON DATOS EN LA BASE DE DATOS
+                         */
+                        if (result < 0)
+                        {
+                            guardado = false;
+                            Console.WriteLine("ERROR AL INSERTAR DATOS");
+                        }
+                        else
+                        {
+                            guardado = true;
+                        }
+                    }
+                    else
+                    {
+                        comando.Connection.Open();
+
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                comando.Connection.Close();
+                c.Close();
+                c = null;
+                throw;
+            }
+            finally
+            {
+                //LUEGO DE REALIZAR LA SENTENCIA SQL
+                //CERRAMOS LA CONEXIÓN A LA BASE DE DATOS
+                comando.Connection.Close();
+                c.Close();
+                c = null;
+            }
+
+            return guardado;
+
+        }
+
         public bool modificar(Resultado e)
         {
             bool guardado = false;
@@ -253,7 +324,7 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
         public SqlDataReader getresultadoporid(int id)
         {
             c = Conexion.getInstance().ConexionDB();
-            String sql = "SELECT Usuario_procesa,Fecha_procesamiento,Hora,Observaciones FROM T_Resultados where Id_resultado='" + id + "';";
+            String sql = "SELECT Usuario_procesa,Fecha_procesamiento,Hora,Observaciones, imagen, Validacion FROM T_Resultados where Id_resultado='" + id + "';";
 
             SqlCommand comando = new SqlCommand(sql, this.c);
             this.registros = comando.ExecuteReader();
@@ -283,11 +354,22 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
             return this.registros;
             c.Close();
         }
+        //Obtener data para generar el resultado adn
+        public SqlDataReader verdatosresultadosadn(int id)
+        {
+            c = Conexion.getInstance().ConexionDB();
+            String sql = "SELECT res.Id_Orden,ord.Id_codigo,cli.Nombre,cli.Apellido,ord.Tipo_Caso, ord.Nombre_pareja, ord.Nombre_menor, ord.fec_nac FROM T_Resultados res INNER JOIN T_Orden ord ON ord.Id_orden=res.Id_Orden INNER JOIN T_Clientes cli ON cli.Id_cliente=ord.Id_cliente where Id_resultado='" + id + "';";
+
+            SqlCommand comando = new SqlCommand(sql, this.c);
+            this.registros = comando.ExecuteReader();
+            return this.registros;
+            c.Close();
+        }
         //ADN
         public SqlDataReader cargardatosadnporid(int id)
         {
             c = Conexion.getInstance().ConexionDB();
-            String sql = "SELECT clientes.Nombre, clientes.Apellido,orden.Id_codigo,orden.Nombre_pareja, orden.Nombre_menor FROM T_Orden orden INNER JOIN T_Clientes clientes ON orden.Id_cliente=clientes.Id_cliente where Id_orden ='" + id + "';";
+            String sql = "SELECT clientes.Nombre, clientes.Apellido,orden.Id_codigo,orden.Nombre_pareja, orden.Nombre_menor, orden.Tipo_caso FROM T_Orden orden INNER JOIN T_Clientes clientes ON orden.Id_cliente=clientes.Id_cliente where Id_orden ='" + id + "';";
 
             SqlCommand comando = new SqlCommand(sql, this.c);
             this.registros = comando.ExecuteReader();

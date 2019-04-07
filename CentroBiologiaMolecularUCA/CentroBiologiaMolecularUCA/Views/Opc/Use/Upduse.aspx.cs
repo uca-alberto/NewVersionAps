@@ -1,4 +1,5 @@
 ﻿using CentroBiologiaMolecularUCA.Ncapas.Datos;
+using CentroBiologiaMolecularUCA.Ncapas.Negocio;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -14,10 +15,7 @@ namespace CentroBiologiaMolecularUCA.Views.Opc.Use
 {
     public partial class Upduse : System.Web.UI.Page
     {
-        private DTUsuario dtusuario;
-        private DTrol dtrol;
-        private SqlDataReader empleado;
-        private DTEmpleados dte;
+      private SqlDataReader empleado;
         private SqlDataReader registro;
         public Usuario us;
         private SqlDataReader empleados;
@@ -27,21 +25,22 @@ namespace CentroBiologiaMolecularUCA.Views.Opc.Use
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            this.dte = new DTEmpleados();
-            this.empleado = this.dte.listarempleado();
-            this.dtusuario = new DTUsuario();
+            this.empleado = NGEmpleado.getInstance().listarempleado();
             us = new Usuario();
-            this.dtrol = new DTrol();
             String valor = Request.QueryString["id"];
             int id = int.Parse(valor);
             us.Id_usuario = id;
 
-            Mrol.DataSource = dtrol.listarRol();
-            Mrol.DataTextField = "Rol";
-            Mrol.DataValueField = "Id_rol";
-            Mrol.DataBind();
+            if(!IsPostBack)
+            {
 
-            this.registro = dtusuario.getUsuarioporid(id);
+                Mrol.DataSource = NGUsuario.getInstance().listarRol();
+                Mrol.DataTextField = "Rol";
+                Mrol.DataValueField = "Id_rol";
+                Mrol.DataBind();
+            }
+
+            this.registro = NGUsuario.getInstance().getUsuarioporid(id);
             Id_usuario.Value = valor;
 
 

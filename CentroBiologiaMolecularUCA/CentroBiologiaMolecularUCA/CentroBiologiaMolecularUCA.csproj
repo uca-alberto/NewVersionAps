@@ -1268,6 +1268,7 @@
     <Content Include="Views\Opc\Use\Adduse.aspx" />
     <Content Include="Views\Opc\Use\Searchuse.aspx" />
     <Content Include="Views\Vreadn\addreadn.aspx" />
+    <Content Include="Views\Vreadn\Seereadn.aspx" />
     <Content Include="Views\Vreogm\Addreogm.aspx" />
     <Content Include="Views\Vreogm\Searchreogm.aspx" />
     <Content Include="Views\Vreogm\Seereogm.aspx" />
@@ -1671,6 +1672,13 @@
     <Compile Include="Views\Vreadn\addreadn.aspx.designer.cs">
       <DependentUpon>addreadn.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Views\Vreadn\Seereadn.aspx.cs">
+      <DependentUpon>Seereadn.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Vreadn\Seereadn.aspx.designer.cs">
+      <DependentUpon>Seereadn.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\Vreogm\Addreogm.aspx.cs">
       <DependentUpon>Addreogm.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1694,6 +1702,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="ImagesAdn\" />
     <Folder Include="js\plugins\timepicker\" />
   </ItemGroup>
   <ItemGroup>
