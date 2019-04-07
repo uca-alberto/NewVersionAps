@@ -347,7 +347,7 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
         public SqlDataReader verdatosresultados(int id)
         {
             c = Conexion.getInstance().ConexionDB();
-            String sql = "SELECT res.Id_Orden,ord.Id_codigo,cli.Nombre,cli.Apellido,ord.Id_tipo_muestra FROM T_Resultados res INNER JOIN T_Orden ord ON ord.Id_orden=res.Id_Orden INNER JOIN T_Clientes cli ON cli.Id_cliente=ord.Id_cliente where Id_resultado='" + id + "';";
+            String sql = "SELECT res.Id_Orden,res.Usuario_procesa,ord.Id_codigo,cli.Nombre,cli.Apellido,ord.Id_tipo_muestra FROM T_Resultados res INNER JOIN T_Orden ord ON ord.Id_orden=res.Id_Orden INNER JOIN T_Clientes cli ON cli.Id_cliente=ord.Id_cliente where Id_resultado='" + id + "';";
 
             SqlCommand comando = new SqlCommand(sql, this.c);
             this.registros = comando.ExecuteReader();

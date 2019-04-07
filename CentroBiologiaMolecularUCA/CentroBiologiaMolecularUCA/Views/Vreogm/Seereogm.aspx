@@ -129,7 +129,7 @@
 
     <script  type="text/javascript">
 window.onload = function () {
-    edit( '<%=res.Usuario_procesa%>','<%=res.Fecha_procesamiento%>','<%=res.Observaciones%>'
+    edit('<%=res.Fecha_procesamiento%>','<%=res.Observaciones%>'
            )
 };
 </script> 
