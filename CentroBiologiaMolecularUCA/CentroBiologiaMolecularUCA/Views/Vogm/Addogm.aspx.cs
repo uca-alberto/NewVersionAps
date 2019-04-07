@@ -98,14 +98,6 @@ namespace CentroBiologiaMolecularUCA.Views.ViewOrden
             {
                 ord.Id_codigo = Mcodigo.Text;
             }
-            if (Mestado.SelectedValue.ToString() == "0")
-            {
-                RegularExpressionValidator.GetValidationProperty(RequiredFieldValidator1);
-            }
-            else
-            {
-                ord.Estado = Mestado.SelectedValue;
-            }
             if (Mfecha.ToString() == null)
             {
                 RegularExpressionValidator.GetValidationProperty(RequiredFieldValidator1);

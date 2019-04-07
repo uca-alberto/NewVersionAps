@@ -46,11 +46,22 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Negocio
         {
             return DTresultado.getInstance().cargardatosporid(id);
         }
-        //Datos Tabla
+        //Datos Agregar Resultado
+        public SqlDataReader verResultados(int id)
+        {
+            return DTresultado.getInstance().verdatosresultados(id);
+        }
+        //Datos Tabla ver resultados
         public SqlDataReader Resultadostabla(int id)
         {
             return DTresultado.getInstance().getAnalisisporId(id);
         }
+        //Datos tabla Agregar
+        public SqlDataReader getanalisispororden(int id)
+        {
+            return DTresultado.getInstance().getAnalisisporIdorden(id);
+        }
+
         //Datos usuario actual
         public SqlDataReader datosusuario(int id)
         {
@@ -65,8 +76,28 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Negocio
         {
             return DTresultado.getInstance().visualizartabla(id);
         }
-        public List<Resultado> getData(){
+        public List<Resultado> getData()
+        {
             return DTresultado.getInstance().GetData();
-            }
+        }
+
+        //Detalle
+        public bool creardetalle(Resultado resultado)
+        {
+            return DTresultado.getInstance().creardetalle(resultado);
+        }
+        public bool procesarorden(Resultado resultado)
+        {
+            return DTresultado.getInstance().ordenprocesada(resultado);
+        }
+
+        public int idresultado()
+        {
+            return DTresultado.getInstance().ultimoid();
+        }
+        public SqlDataReader getanalisis(int id)
+        {
+            return DTresultado.getInstance().getAnalisisporId(id);
+        }
     }
 }

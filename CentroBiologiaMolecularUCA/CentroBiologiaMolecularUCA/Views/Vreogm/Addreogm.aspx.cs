@@ -4,6 +4,7 @@ using System.Data.SqlClient;
 using System.Globalization;
 using System.Linq;
 using System.Web;
+using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos;
@@ -14,20 +15,22 @@ namespace CentroBiologiaMolecularUCA.Views.Vreogm
 {
     public partial class Addreogm : System.Web.UI.Page
     {
-
-        private SqlDataReader tablaresultado;
+        private SqlDataReader Tablaresultado;
         private SqlDataReader analisis;//Cargar tipo examen
         private SqlDataReader registro;//Data resultado
         private SqlDataReader usuario;
-        private String[] array = new String[10];
+        private String[] array = new String[10];//check
         private int index = 0;
         private int id;
+        private int idresultado;
+
 
         protected void Page_Load(object sender, EventArgs e)
         {
             //Obtener el Id Orden
             String valor = Request.QueryString["id"];
-            id = int.Parse(valor);
+            id = Convert.ToInt16(valor);
+            idresultado = NGresultado.getInstance().idresultado();
 
             //Cargar los tipos de Analisis
 
@@ -48,10 +51,8 @@ namespace CentroBiologiaMolecularUCA.Views.Vreogm
             this.analisis = NGorden.getInstance().Listarexamen(id);
             llenarcheckbox();
 
-            //data para la tabla de resultados
-            tablaresultado = NGresultado.getInstance().Resultadostabla(id);
-
             //Registros
+            Tablaresultado = NGresultado.getInstance().getanalisispororden(id);
             registro = NGresultado.getInstance().ListardatosResultados(id);
 
             if (registro.Read())
@@ -68,12 +69,13 @@ namespace CentroBiologiaMolecularUCA.Views.Vreogm
             {
                 Minvestigador.Text = usuario["Nombre_empleado"].ToString() + " " + usuario["Apellido"].ToString();
             }
-            
+
 
             //Cargar Fecha y hora 
             Mfecha.Text = DateTime.Now.ToString("dd/MM/yyyy");
             Mhora.Text = DateTime.Now.ToString("hh:mm");
 
+            radiosocultos();
         }
 
         public void llenarcheckbox()
@@ -97,6 +99,39 @@ namespace CentroBiologiaMolecularUCA.Views.Vreogm
                 }
             }
         }
+        public SqlDataReader getregistros()
+        {
+            return Tablaresultado;
+        }
+
+
+        public void radiosocultos()
+        {
+            if (index == 1)
+            {
+                radio1.Visible = true;
+            }
+            if (index == 2)
+            {
+                radio1.Visible = true;
+                radio2.Visible = true;
+            }
+            if (index == 3)
+            {
+                radio1.Visible = true;
+                radio2.Visible = true;
+                radio3.Visible = true;
+            }
+            if (index == 4)
+            {
+                radio1.Visible = true;
+                radio2.Visible = true;
+                radio3.Visible = true;
+                radio4.Visible = true;
+            }
+
+        }
+
 
         public Resultado GetEntity()
         {
@@ -110,7 +145,7 @@ namespace CentroBiologiaMolecularUCA.Views.Vreogm
             {
                 res.Observaciones = Mobservaciones.Text;
             }
-            
+
             res.Id_orden = id;
             res.Fecha_procesamiento = Convert.ToDateTime(Mfecha.Text);
             res.Hora = Convert.ToDateTime(Mhora.Text);
@@ -119,6 +154,44 @@ namespace CentroBiologiaMolecularUCA.Views.Vreogm
             //estado para mientras
             res.Estado = "Procesada";
             return res;
+        }
+
+        public void guardardetalle()
+        {
+            String val1 = radio1.SelectedValue;
+            String val2 = radio2.SelectedValue;
+            String val3 = radio3.SelectedValue;
+            String val4 = radio4.SelectedValue;
+
+            Resultado res = new Resultado();
+            if (index > 1)
+            {
+                res.Id_analisis = Convert.ToInt32(array[0]);
+                res.Id_resultado = idresultado;
+                res.Resultados = Convert.ToInt32(val1);
+                NGresultado.getInstance().creardetalle(res);
+            }
+            if (index >= 2)
+            {
+                res.Id_analisis = Convert.ToInt32(array[1]);
+                res.Id_resultado = idresultado;
+                res.Resultados = Convert.ToInt32(val2);
+                NGresultado.getInstance().creardetalle(res);
+            }
+            if (index >= 3)
+            {
+                res.Id_analisis = Convert.ToInt32(array[2]);
+                res.Id_resultado = idresultado;
+                res.Resultados = Convert.ToInt32(val3);
+                NGresultado.getInstance().creardetalle(res);
+            }
+            if (index >= 4)
+            {
+                res.Id_analisis = Convert.ToInt32(array[3]);
+                res.Id_resultado = idresultado;
+                res.Resultados = Convert.ToInt32(val4);
+                NGresultado.getInstance().creardetalle(res);
+            }
         }
 
 
@@ -130,10 +203,13 @@ namespace CentroBiologiaMolecularUCA.Views.Vreogm
             {
                 Resultado res = GetEntity();
                 //LLAMANDO A CAPA DE NEGOCIO
+
                 bool resp = NGresultado.getInstance().guardarresultado(res);
 
                 if (resp == true)
                 {
+                    guardardetalle();
+                    NGresultado.getInstance().procesarorden(res);
                     //Mostrar Notificacion
                     ClientScript.RegisterStartupScript(GetType(), "Javascript", "javascript: InsertarResultado(); ", true);
                 }

@@ -87,19 +87,7 @@
                         <asp:TextBox ID="Mbaucher" BackColor="White" ReadOnly="true" runat="server" Text="" ToolTip="baucher" CssClass="formcursor"></asp:TextBox>
                 </div>
                     </div>
-
-              <!--Seleccion de estado-->
-                    <div class="row form-group ">
-                <div class="col col-md-3 "><label for="select" class=" form-control-label">Estado</label></div>
-                <div class="col-12 col-md-9 ">&nbsp; 
-                    <asp:DropDownList ID="Mestado" BackColor="White" Enabled="false" runat="server" ToolTip="estado" CssClass="formcursor">
-                    <asp:ListItem Value="0">SELECCIONE</asp:ListItem>
-                    <asp:ListItem Value="1">Activo</asp:ListItem>
-                    <asp:ListItem Value="2">En espera</asp:ListItem>
-                    </asp:DropDownList>
-                </div>
-                </div>
-                          
+ 
                <div class="modal-footer">
                        <asp:HiddenField runat="server" ID="Id_orden" />
                       <a class="btn btn-outline-success btn-lg btn-block" OnClick="javascript: return history.back()">Regresar</a>  
@@ -112,7 +100,7 @@
 
 <script  type="text/javascript">
 window.onload = function () {
-    edit( '<%=ord.Id_codigo%>','<%=ord.Fecha%>','<%=ord.Id_analisis%>','<%=ord.Tipo_muestra%>','<%=ord.Observaciones%>','<%=ord.Baucher%>','<%=ord.Estado%>'
+    edit( '<%=ord.Id_codigo%>','<%=ord.Fecha%>','<%=ord.Id_analisis%>','<%=ord.Tipo_muestra%>','<%=ord.Observaciones%>','<%=ord.Baucher%>'
            )
 };
 </script> 

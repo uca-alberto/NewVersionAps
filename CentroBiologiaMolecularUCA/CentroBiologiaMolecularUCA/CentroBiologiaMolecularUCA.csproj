@@ -329,7 +329,6 @@
     <Content Include="Content\ListaPapiloma.js" />
     <Content Include="Content\ListarUsuario.js" />
     <Content Include="Content\listausuario.js" />
-    <Content Include="Content\ResultadoOgm.js" />
     <Content Include="Content\Vercliente.js" />
     <Content Include="Content\VerExamen.js" />
     <Content Include="Content\VerMaternidad.js" />
@@ -1260,7 +1259,6 @@
     <Content Include="Views\ViewOrdenMaria\VerPapilomaMulti.aspx" />
     <Content Include="Views\Vogm\Addogm.aspx" />
     <Content Include="Views\Vogm\Searchogm.aspx" />
-    <Content Include="Views\Vogm\Updogm.aspx" />
     <Content Include="Views\Vogm\Seeogm.aspx" />
     <Content Include="Views\ViewResultadoMaria\AgregarResultadoOgm.aspx" />
     <Content Include="Views\ViewResultadoMaria\BuscarResultadoOgm.aspx" />
@@ -1609,13 +1607,6 @@
     </Compile>
     <Compile Include="Views\Vogm\Searchogm.aspx.designer.cs">
       <DependentUpon>Searchogm.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Vogm\Updogm.aspx.cs">
-      <DependentUpon>Updogm.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Views\Vogm\Updogm.aspx.designer.cs">
-      <DependentUpon>Updogm.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Vogm\Seeogm.aspx.cs">
       <DependentUpon>Seeogm.aspx</DependentUpon>

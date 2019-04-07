@@ -16,6 +16,9 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Entidades
         private String usuario_procesa;
         private String estado;
         private String observaciones;
+        //Detalle
+        private int id_analisis;
+        private int resultados;
 
         public int Id_resultado
         {
@@ -131,6 +134,32 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Entidades
             set
             {
                 observaciones = value;
+            }
+        }
+
+        public int Id_analisis
+        {
+            get
+            {
+                return id_analisis;
+            }
+
+            set
+            {
+                id_analisis = value;
+            }
+        }
+
+        public int Resultados
+        {
+            get
+            {
+                return resultados;
+            }
+
+            set
+            {
+                resultados = value;
             }
         }
     }

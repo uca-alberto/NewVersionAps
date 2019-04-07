@@ -1,11 +1,10 @@
-﻿function edit(codigo, fecha, analisis, muestra, observaciones, boucher, estado) {
+﻿function edit(codigo, fecha, analisis, muestra, observaciones, boucher) {
     document.getElementById('MainContent_Mcodigo').value = codigo;
     document.getElementById('MainContent_Mfecha').value = fecha;
     document.getElementById('MainContent_Manalisis').value = analisis;
     document.getElementById('MainContent_Mmuestra').value = muestra;
     document.getElementById('MainContent_Mobservaciones').value = observaciones;
     document.getElementById('MainContent_Mbaucher').value = boucher;
-    document.getElementById('MainContent_Mestado').value = estado;
 }
 var table;
 $(document).ready(function () {

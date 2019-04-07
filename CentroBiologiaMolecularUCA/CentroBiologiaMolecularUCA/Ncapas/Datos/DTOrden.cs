@@ -54,7 +54,7 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
                 c = Conexion.getInstance().ConexionDB();
                 // string sql = "insert into T_Orden (Id_orden,Fecha,Entregado,Tipo_orden,Observaciones,Baucher,No_orden,Estado,Actividad) VALUES(2,@Mfecha,@Mentregado,@Mtipoorden,@Mobservaciones,@Mbaucher,@Mnoorden,@Mestado,1)";
 
-                string sql = "insert into T_Orden (id_Codigo,Tipo_caso,Id_examenes,Id_tipo_muestra,Id_cliente,Id_usuario,Id_empleado,Nombre_pareja,Nombre_menor,fec_nac,Observaciones,Baucher,Estado,Activo,Fecha) VALUES(@Mcodigo,NULL,@Mexamen,@Mtipomuestra,@Midcliente,@Midusuario,NULL,NULL,NULL,NULL,@Mobservaciones,@Mbaucher,@Mestado,1,@Mfecha)";
+                string sql = "insert into T_Orden (id_Codigo,Tipo_caso,Id_examenes,Id_tipo_muestra,Id_cliente,Id_usuario,Id_empleado,Nombre_pareja,Nombre_menor,fec_nac,Observaciones,Baucher,Estado,Activo,Fecha) VALUES(@Mcodigo,NULL,@Mexamen,@Mtipomuestra,@Midcliente,@Midusuario,NULL,NULL,NULL,NULL,@Mobservaciones,@Mbaucher,1,1,@Mfecha)";
                 //PASANDO PARÁMETROS A CONSULTA SQL
                 using (comando = new SqlCommand(sql, c))
                 {
@@ -65,7 +65,7 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
                     comando.Parameters.AddWithValue("@Midusuario", e.Id_usuario);
                     comando.Parameters.AddWithValue("@Mobservaciones", e.Observaciones);
                     comando.Parameters.AddWithValue("@Mbaucher", e.Baucher);
-                    comando.Parameters.AddWithValue("@Mestado", e.Estado);
+                    //comando.Parameters.AddWithValue("@Mestado", e.Estado);
                     comando.Parameters.AddWithValue("@Mfecha", e.Fecha);
 
                     //VALIDANDO SI LA CONEXIÓN ESTÁ ACTIVA O CERRADA
@@ -280,7 +280,7 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
             using (var connection = new SqlConnection(ConfigurationManager.ConnectionStrings["DataBase"].ConnectionString))
             {
                 connection.Open();
-                using (SqlCommand command = new SqlCommand(@"SELECT  [Id_orden],[Id_codigo],[Baucher],[Nombre] FROM T_Orden ord INNER JOIN T_Examenes exa ON ord.Id_examenes=exa.Id_examenes where Activo=1", connection))
+                using (SqlCommand command = new SqlCommand(@"SELECT  [Id_orden],[Id_codigo],[Baucher],[Nombre] FROM T_Orden ord INNER JOIN T_Examenes exa ON ord.Id_examenes=exa.Id_examenes where Activo=1 and Estado=1", connection))
                 {
                     // Make sure the command object does not already have
                     // a notification object associated with it.
@@ -300,7 +300,7 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
                                 Id_orden = x.GetInt32(0),
                                 Id_codigo = x.GetString(1),
                                 Baucher = x.GetString(2),
-                                Examen= x.GetString(3),
+                                Examen = x.GetString(3),
                             }).ToList();
 
                 }
@@ -396,14 +396,14 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
                 c = Conexion.getInstance().ConexionDB();
 
                 //Ejecutar Consulta Guardar
-                string sql = "insert into T_Orden_detalle (Id_orden,Id_analisis,Muestra_adn,Estado_orden) VALUES(@Id,@Tipoanalisis,NULL,@Mestado)";
+                string sql = "insert into T_Orden_detalle (Id_orden,Id_analisis,Muestra_adn,Estado_orden) VALUES(@Id,@Tipoanalisis,NULL,1)";
                 //PASANDO PARÁMETROS A CONSULTA SQL
                 using (comando = new SqlCommand(sql, c))
                 {
 
                     comando.Parameters.AddWithValue("@Id", e.Id_orden);
                     comando.Parameters.AddWithValue("@Tipoanalisis", e.Id_analisis);
-                    comando.Parameters.AddWithValue("@Mestado", e.Estado);
+                    //comando.Parameters.AddWithValue("@Mestado", e.Estado);
 
 
                     //VALIDANDO SI LA CONEXIÓN ESTÁ ACTIVA O CERRADA

@@ -103,15 +103,6 @@ namespace CentroBiologiaMolecularUCA.Views.Vogm {
         protected global::System.Web.UI.WebControls.TextBox Mbaucher;
         
         /// <summary>
-        /// Control Mestado.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList Mestado;
-        
-        /// <summary>
         /// Control Id_orden.
         /// </summary>
         /// <remarks>

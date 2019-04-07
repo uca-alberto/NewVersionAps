@@ -216,22 +216,9 @@
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="Mbaucher" Display="Dynamic" ErrorMessage="Este Campo es requerido" ForeColor="Red" Font-Italic="true"></asp:RequiredFieldValidator>     
                 </div>
                     </div>
-
-              <!--Seleccion de estado-->
-                    <div class="row form-group ">
-                <div class="col col-md-3 "><label for="select" class=" form-control-label">Estado</label></div>
-                <div class="col-12 col-md-9 ">&nbsp; 
-                    <asp:DropDownList ID="Mestado" runat="server" ToolTip="estado" CssClass="form-control">
-                    <asp:ListItem Value="0">SELECCIONE</asp:ListItem>
-                    <asp:ListItem Value="1">Activo</asp:ListItem>
-                    <asp:ListItem Value="2">En espera</asp:ListItem>
-                    </asp:DropDownList>
-                     <asp:RequiredFieldValidator ID="RequiredFieldValidator7" InitialValue="0" runat="server" ControlToValidate="Mestado" Display="Dynamic" ErrorMessage="Debe Seleccionar el estado de la Orden" ForeColor="Red" Font-Italic="true"></asp:RequiredFieldValidator>     
-                </div>
-                </div>
                           
              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-secondary" OnClick="location.href='../Index.aspx'" data-dismiss="modal">Cancelar</button>
                 <asp:HiddenField runat="server" ID="id_orden" />
                 <asp:Button id="enviar" runat="server" Text="Guardar" CssClass="btn btn-primary" OnClick="InsertarOrden"/>
             </div>             

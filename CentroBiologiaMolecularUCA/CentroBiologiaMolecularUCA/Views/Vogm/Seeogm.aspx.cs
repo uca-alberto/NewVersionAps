@@ -85,7 +85,6 @@ namespace CentroBiologiaMolecularUCA.Views.Vogm
                 ord.Tipo_muestra = Convert.ToInt32(this.registro["Id_tipo_muestra"].ToString());
                 ord.Observaciones = this.registro["Observaciones"].ToString();
                 ord.Baucher = this.registro["Baucher"].ToString();
-                ord.Estado = this.registro["Estado"].ToString();
 
                 //Datos Cliente
                 idcliente = Convert.ToInt32(registro["Id_cliente"].ToString());

@@ -7,6 +7,7 @@ using System.Web;
 using System.Configuration;
 using System.Data;
 using WebSistemaCentroBiologiaMolecularUCA.Ncapas.Entidades;
+using CentroBiologiaMolecularUCA.Ncapas.Entidades;
 
 namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
 {
@@ -236,7 +237,7 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
 
             return guardado;
         }
-
+        //Listar todos los Resultados
         public SqlDataReader listarTodo()
         {
             c = Conexion.getInstance().ConexionDB();
@@ -247,7 +248,8 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
             return this.registros;
             c.Close();
         }
-        //Cargar datos del resultado
+
+        //Cargar datos del resultado(OGM)
         public SqlDataReader getresultadoporid(int id)
         {
             c = Conexion.getInstance().ConexionDB();
@@ -259,28 +261,29 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
             c.Close();
         }
 
-        //Para cargar los tipos de analisis a la tabla
-        public SqlDataReader getAnalisisporId(int id)
-        {
-            c = Conexion.getInstance().ConexionDB();
-            String sql = "SELECT detalle.Id_analisis, analisis.analisis From T_Tipo_Analisis analisis INNER JOIN T_Orden_detalle detalle on analisis.Id_analisis=detalle.Id_analisis where detalle.Id_orden='" + id + "';";
-            SqlCommand comando = new SqlCommand(sql, this.c);
-            this.registros = comando.ExecuteReader();
-            return this.registros;
-            c.Close();
-        }
-        //Obtener data para generar el resultado
+        //Obtener data Ver Resultado segun Orden
         public SqlDataReader cargardatosporid(int id)
         {
             c = Conexion.getInstance().ConexionDB();
-            String sql = "SELECT clientes.Nombre,clientes.Apellido,orden.Id_codigo,orden.Id_tipo_muestra FROM T_Orden orden INNER JOIN T_Clientes clientes ON orden.Id_cliente=clientes.Id_cliente where Id_orden ='" + id + "';";
+            String sql = "SELECT ord.Id_codigo,ord.Id_tipo_muestra,cli.Nombre,cli.Apellido FROM T_Orden ord INNER JOIN T_Clientes cli ON ord.Id_cliente=cli.Id_cliente where ord.Id_orden='" + id + "';";
 
             SqlCommand comando = new SqlCommand(sql, this.c);
             this.registros = comando.ExecuteReader();
             return this.registros;
             c.Close();
         }
+        //Obtener data para generar el resultado 
+        public SqlDataReader verdatosresultados(int id)
+        {
+            c = Conexion.getInstance().ConexionDB();
+            String sql = "SELECT res.Id_Orden,ord.Id_codigo,cli.Nombre,cli.Apellido,ord.Id_tipo_muestra FROM T_Resultados res INNER JOIN T_Orden ord ON ord.Id_orden=res.Id_Orden INNER JOIN T_Clientes cli ON cli.Id_cliente=ord.Id_cliente where Id_resultado='" + id + "';";
 
+            SqlCommand comando = new SqlCommand(sql, this.c);
+            this.registros = comando.ExecuteReader();
+            return this.registros;
+            c.Close();
+        }
+        //ADN
         public SqlDataReader cargardatosadnporid(int id)
         {
             c = Conexion.getInstance().ConexionDB();
@@ -303,7 +306,7 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
             c.Close();
         }
 
-        //Llenar tabla visualiza
+        //Llenar tabla visualizar Resultado
         public SqlDataReader visualizartabla(int id)
         {
             c = Conexion.getInstance().ConexionDB();
@@ -315,8 +318,26 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
             c.Close();
         }
 
+        //Para cargar los tipos de analisis a la tabla
+        public SqlDataReader getAnalisisporId(int id)
+        {
+            c = Conexion.getInstance().ConexionDB();
+            String sql = "SELECT Id_analisis FROM T_Resultado_Detalle where Id_resultado='" + id + "';";
+            SqlCommand comando = new SqlCommand(sql, this.c);
+            this.registros = comando.ExecuteReader();
+            return this.registros;
+            c.Close();
+        }
 
-
+        public SqlDataReader getAnalisisporIdorden(int id)
+        {
+            c = Conexion.getInstance().ConexionDB();
+            String sql = "SELECT det.Id_analisis,tipo.analisis FROM T_Orden_detalle det INNER JOIN T_Tipo_Analisis tipo ON det.Id_analisis=tipo.Id_analisis where Id_orden='" + id + "';";
+            SqlCommand comando = new SqlCommand(sql, this.c);
+            this.registros = comando.ExecuteReader();
+            return this.registros;
+            c.Close();
+        }
 
         public List<Resultado> GetData()
         {
@@ -357,6 +378,138 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
         List<Resultado> Igeneric<Resultado>.listarTodo()
         {
             throw new NotImplementedException();
+        }
+
+        public bool creardetalle(Resultado e)
+        {
+            bool guardado = false;
+            try
+            {
+                //CONSULTA SQL
+                c = Conexion.getInstance().ConexionDB();
+
+                string sql = "insert into T_Resultado_Detalle (Id_resultado,Id_analisis,Resultado) VALUES(@Idresultado,@Idanalisis,@Resultado)";
+                //PASANDO PARÁMETROS A CONSULTA SQL
+                using (comando = new SqlCommand(sql, c))
+                {
+                    comando.Parameters.AddWithValue("@Idresultado", e.Id_resultado);
+                    comando.Parameters.AddWithValue("@Idanalisis", e.Id_analisis);
+                    comando.Parameters.AddWithValue("@Resultado", e.Resultados);
+
+                    //VALIDANDO SI LA CONEXIÓN ESTÁ ACTIVA O CERRADA
+                    if (comando.Connection.State != System.Data.ConnectionState.Closed)
+                    {
+                        //EJECUTANDO SENTENCIA SQL CON EXECUTENONQUERY
+                        int result = comando.ExecuteNonQuery();
+                        if (result < 0)
+                        {
+                            guardado = false;
+                            Console.WriteLine("ERROR AL INSERTAR DATOS");
+                        }
+                        else
+                        {
+                            guardado = true;
+                        }
+                    }
+                    else
+                    {
+                        comando.Connection.Open();
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                comando.Connection.Close();
+                c.Close();
+                c = null;
+                throw;
+            }
+            finally
+            {
+                comando.Connection.Close();
+                c.Close();
+                c = null;
+            }
+
+            return guardado;
+
+        }
+        
+        public bool ordenprocesada(Resultado res)
+        {
+            bool guardado = false;
+            try
+            {
+                //CONSULTA SQL
+                c = Conexion.getInstance().ConexionDB();
+                string sql = "update T_Orden set Estado=0 where Id_orden=(@mid)";
+
+                //PASANDO PARÁMETROS A CONSULTA SQL
+                using (comando = new SqlCommand(sql, c))
+                {
+
+                    comando.Parameters.AddWithValue("@mid", res.Id_orden);
+                    //VALIDANDO SI LA CONEXIÓN ESTÁ ACTIVA O CERRADA
+                    if (comando.Connection.State != System.Data.ConnectionState.Closed)
+                    {
+                        //EJECUTANDO SENTENCIA SQL CON EXECUTENONQUERY
+                        int result = comando.ExecuteNonQuery();
+                        if (result < 0)
+                        {
+                            guardado = false;
+                            Console.WriteLine("ERROR AL ELIMINAR DATOS");
+                        }
+                        else
+                        {
+                            guardado = true;
+                        }
+                    }
+                    else
+                    {
+                        comando.Connection.Open();
+
+                    }
+                }
+            }
+
+            catch (Exception)
+            {
+                comando.Connection.Close();
+                c.Close();
+                c = null;
+                throw;
+            }
+            finally
+            {
+                comando.Connection.Close();
+                c.Close();
+                c = null;
+            }
+
+            return guardado;
+        }
+
+        public int ultimoid()
+        {
+            int id = 0;
+            try
+            {
+                SqlCommand cmd = new SqlCommand("Select count(*) as Id_resultado from T_resultados", c);
+                SqlDataReader sd = cmd.ExecuteReader();
+
+                if (sd.Read())
+                {
+                    id = int.Parse(sd["Id_resultado"].ToString()) + 1;
+                }
+                sd.Close();
+
+            }
+            catch (Exception)
+            {
+                c.Close();
+
+            }
+            return id;
         }
     }
 }

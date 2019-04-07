@@ -28,6 +28,7 @@
         }
     </script>
 
+
          <div class="card-header">
             <strong class="card-title" >REGISTRO DE ANALISIS DE DETECCION DE OGMs </strong>
         </div>
@@ -109,18 +110,45 @@
            <!--TABLA PARA RESULTADO DETALLE-->
 
                     <div class="card-body">
-                        <table id="table" class="table table-striped table-bordered" >
+                        <table id="table" class="table table-striped table-bordered"  >
                             <thead>
                                 <tr>
-                                    <th>Tipo de Analisis</th>  
-                                    <th>Resultado</th>
-                                    
+                                    <th>Tipo de Analisis</th> 
                                 </tr>
                             </thead>
-                            <tbody>                                                                                                           
+                            <tbody>  
+                                        <%
+                                    while(getregistros().Read())
+                                    {
+                                        %>
+                                            <tr><td><%=getregistros()["analisis"] %></td>
+                                        <%
+                                    }
+                                %>                                                                                                                                       
                             </tbody>
                         </table>
                     </div>
+
+           <asp:RadioButtonList runat="server" ID="radio1" Visible="false" RepeatDirection="Horizontal">
+               <asp:ListItem Value="1" Text="Positivo "></asp:ListItem>
+               <asp:ListItem Value="0" Text="Negativo"></asp:ListItem>
+           </asp:RadioButtonList>
+
+            <asp:RadioButtonList runat="server" ID="radio2" Visible="false" RepeatDirection="Horizontal">
+               <asp:ListItem Value="1" Text="Positivo "></asp:ListItem>
+               <asp:ListItem Value="0" Text="Negativo"></asp:ListItem>
+           </asp:RadioButtonList>
+
+             <asp:RadioButtonList runat="server" ID="radio3" Visible="false" RepeatDirection="Horizontal">
+               <asp:ListItem Value="1" Text="Positivo"></asp:ListItem>
+               <asp:ListItem Value="0" Text="Negativo"></asp:ListItem>
+           </asp:RadioButtonList>
+
+             <asp:RadioButtonList runat="server" ID="radio4" Visible="false" RepeatDirection="Horizontal">
+               <asp:ListItem Value="1" Text="Positivo "></asp:ListItem>
+               <asp:ListItem Value="0" Text="Negativo"></asp:ListItem>
+           </asp:RadioButtonList>&nbsp;
+
 
              <!--observaciones-->                            
                     <div class="row form-group ">
@@ -143,5 +171,4 @@
             </div>
         </div>
 
-       <script type="text/javascript" src="../../Content/ResultadoOgm.js"></script>
 </asp:Content>

@@ -85,6 +85,42 @@ namespace CentroBiologiaMolecularUCA.Views.Vreogm {
         protected global::System.Web.UI.WebControls.DropDownList Mmuestra;
         
         /// <summary>
+        /// Control radio1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButtonList radio1;
+        
+        /// <summary>
+        /// Control radio2.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButtonList radio2;
+        
+        /// <summary>
+        /// Control radio3.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButtonList radio3;
+        
+        /// <summary>
+        /// Control radio4.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButtonList radio4;
+        
+        /// <summary>
         /// Control Mobservaciones.
         /// </summary>
         /// <remarks>

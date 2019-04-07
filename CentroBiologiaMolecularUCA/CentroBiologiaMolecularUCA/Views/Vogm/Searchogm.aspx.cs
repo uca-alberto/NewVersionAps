@@ -85,12 +85,5 @@ namespace CentroBiologiaMolecularUCA.Views.Vogm
             resp = NGorden.getInstance().eliminarord(ord);
             return resp;
         }
-
-        public void redireccionesOrden()
-        {
-
-        }
-
-
     }
 }
