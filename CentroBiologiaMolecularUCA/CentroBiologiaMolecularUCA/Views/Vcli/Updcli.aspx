@@ -12,17 +12,6 @@
     }
     </script>     
     <script>
-        function Advertenciaimg() {
-            swal({
-                title: "Error",
-                text: "Imagen Demasiado Grande",
-                icon: "warning",
-                button: "OK",
-            });
-    }
-    </script>
-    
-    <script>
         function ModificarCliente(data) {
             swal({
                 title: "Cliente Modificado",
@@ -45,17 +34,6 @@
             <div class="card-body card-block">
                 <form id="myfrom" method="post" enctype="multipart/form-data" class="form-horizontal" runat="server">
                     <!--Comienzo de los formulario--> 
-					<!--imagen -->
-					<div>
-						  <asp:Image ID="Image1" CssClass="user-avatar rounded-circle" runat="server" ImageUrl="../../ImagesClientes/User-placeholder.jpg" style="height:100px;width:100px;margin-top:auto; margin-left:auto;"/>
-						   <asp:FileUpload ID="FileUpload1" runat="server" CssClass="btn btn-outline-info" style="margin-left:auto;"  /> 
-					
-					  <div>
-                        <div class="col col-sm-10"><h2 class="text-center" style="margin-left:70px;">Centro de Biología Molecular UCA</h2></div>
-						   <asp:Image ID="Image2" CssClass="user-avatar rounded-circle" runat="server" ImageUrl="../../ImagesClientes/User-placeholder.jpg" style="height:100px;width:100px;"/>
-						          <asp:label runat="server" ID="Urlimagen"/>
-						   </div>
-						</div> 
                     <!--cedula-->
                 <div>
                     <div class="col col-sm-3"><label for="password-input" class=" form-control-label">Cedula:</label></div>

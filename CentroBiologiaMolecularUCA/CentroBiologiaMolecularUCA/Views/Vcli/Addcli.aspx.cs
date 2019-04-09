@@ -21,7 +21,7 @@ namespace CentroBiologiaMolecularUCA.Views.ViewCliente
 		protected void Page_Load(object sender, EventArgs e)
 		{
 			
-			Urlimagen.Enabled = false;
+			
 			Mtelefono.MaxLength = 8;
 			this.dtusuario = new DTUsuario();
 			String rolid = (string)Session["Id_rol"];
@@ -173,62 +173,29 @@ namespace CentroBiologiaMolecularUCA.Views.ViewCliente
 				//Registro del Empleado
 				Cliente cli = GetEntity();
 				//LLAMANDO A CAPA DE NEGOCIO
-				if (FileUpload1.HasFile)
+	           bool resp = NGcliente.getInstance().guardarcliente(cli);
+
+				if (resp == true)
 				{
-
-					string extension = System.IO.Path.GetExtension(FileUpload1.FileName);
-
-					if (extension == ".jpg" || extension == ".png")
-					{
-						if (FileUpload1.PostedFile.ContentLength >30000)
-						{
-							ClientScript.RegisterStartupScript(GetType(), "Javascript", "javascript: Advertenciaimg(); ", true);
-
-
-						}
-						else
-						{
-								string path = Server.MapPath("../../ImagesClientes\\");
-								Urlimagen.Text = path;
-								FileUpload1.SaveAs(path + cli.Cedula + extension);
-								//guardar en bd 
-								url = "ImagesClientes\\" + cli.Cedula + extension;
-								cli.imagen = url;
-								bool resp = NGcliente.getInstance().guardarcliente(cli);
-
-								if (resp == true)
-								{
-									ClientScript.RegisterStartupScript(GetType(), "Javascript", "javascript: InsertarCliente(); ", true);
-								}
-						}
+		 		 ClientScript.RegisterStartupScript(GetType(), "Javascript", "javascript: InsertarCliente(); ", true);
+				}
 							
-					}
-					else
-					Urlimagen.Text = "Imagen no corresponde a un formato correcto";
-					ClientScript.RegisterStartupScript(GetType(), "Javascript", "javascript: ADD(); ", true);
-
-				}
 				else
 				{
-					url = "ImagesClientes/User-placeholder.jpg";
-					cli.imagen = url;
 
-					bool resp1 = NGcliente.getInstance().guardarcliente(cli);
+					ClientScript.RegisterStartupScript(GetType(), "Javascript", "javascript: ADD(); ", true);
 
-					if (resp1 == true)
-					{
-						ClientScript.RegisterStartupScript(GetType(), "Javascript", "javascript: InsertarCliente(); ", true);
-					}
 				}
 
 
 			}
 				else
 				{
-					ClientScript.RegisterStartupScript(GetType(), "Javascript", "javascript: ADD(); ", true);
-				}
+				ClientScript.RegisterStartupScript(GetType(), "Javascript", "javascript: ADD(); ", true);
 
 			}
+
+		}
 
 			protected void Mdepartamento_SelectedIndexChanged(object sender, EventArgs e)
 			{
@@ -245,7 +212,5 @@ namespace CentroBiologiaMolecularUCA.Views.ViewCliente
 					//tratar de hacerlo con jqury https://www.youtube.com/watch?v=P_-zxQYPy5w Ese es eñ video
 				}
 			}
-
-			
 	   }
 	}

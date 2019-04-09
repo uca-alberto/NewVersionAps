@@ -7,15 +7,6 @@
             <div class="card-body card-block">
                 <form id="Form1" method="post" enctype="multipart/form-data" class="form-horizontal" runat="server">
                     <!--Comienzo de los formulario-->  
-					<!--imagen -->
-					<div>
-						   <asp:Image ID="Image2" CssClass="user-avatar rounded-circle" runat="server" ImageUrl="../../ImagesClientes/User-placeholder.jpg" style="height:100px;width:100px;"/>
-					
-					  <div>
-                        <div class="col col-sm-10"><h2 class="text-center" style="margin-left:70px;">Centro de Biología Molecular UCA</h2></div>
-						   <asp:Image ID="Image1" CssClass="user-avatar rounded-circle" runat="server" ImageUrl="../../ImagesClientes/User-placeholder.jpg" style="height:100px;width:100px;margin-top:auto; margin-left:auto;"/>
-					  </div>
-						</div>
                     <!--cedula-->
                 <div>
                     <div class="col col-sm-3"><label for="password-input" class=" form-control-label">Cedula:</label></div>

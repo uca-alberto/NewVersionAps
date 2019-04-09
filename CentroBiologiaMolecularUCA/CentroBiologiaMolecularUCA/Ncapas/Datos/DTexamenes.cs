@@ -164,7 +164,7 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
         public SqlDataReader listarexamenes()
         {
             conexion = Conexion.getInstance().ConexionDB();
-            String sql = "select Id_examenes , Nombre, Precio_examen from T_Examenes where Estado=1;";
+            String sql = "select Id_examenes , Nombre, Precio_examen from T_Examenes where estado=1;";
 
             SqlCommand comando = new SqlCommand(sql, this.conexion);
             registros = comando.ExecuteReader();

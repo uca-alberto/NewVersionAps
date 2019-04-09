@@ -52,15 +52,6 @@ namespace CentroBiologiaMolecularUCA.Views.ViewCliente
                 cli.Sexo = this.registro["Sexo"].ToString();
                 cli.Telefono = int.Parse(this.registro["Num_Telefono"].ToString());
                 cli.Correo = this.registro["Email"].ToString();
-				if (registro["Imagen"].ToString()=="")
-				{
-					Image1.ImageUrl = "../../ImagesClientes/User-placeholder.jpg";
-				}
-				else
-				{
-					Image1.ImageUrl = "../../" + registro["Imagen"].ToString();
-				}
-
 			}
 
         }

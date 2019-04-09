@@ -41,7 +41,7 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
             {
                 //CONSULTA SQL
                 c = Conexion.getInstance().ConexionDB();
-                string sql = "insert into T_Clientes (Nombre,Activo,Apellido,Cedula,Direccion,Id_Departamento, Id_Municipio, Sexo, Num_telefono, Email,Imagen) VALUES(@Mnombre,1,@Mapellido,@Mcedula,@Mdireccion,@Mdepartamento,@Mmunicipio,@Msexo,@Mtelefono,@Mcorreo,@Imagen)";
+                string sql = "insert into T_Clientes (Nombre,Activo,Apellido,Cedula,Direccion,Id_Departamento, Id_Municipio, Sexo, Num_telefono, Email) VALUES(@Mnombre,1,@Mapellido,@Mcedula,@Mdireccion,@Mdepartamento,@Mmunicipio,@Msexo,@Mtelefono,@Mcorreo)";
                 //PASANDO PARÁMETROS A CONSULTA SQL
                 using (comando = new SqlCommand(sql, c))
                 {
@@ -55,7 +55,6 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
                     comando.Parameters.AddWithValue("@Msexo", cliente.Sexo);
                     comando.Parameters.AddWithValue("@Mtelefono", cliente.Telefono);
                     comando.Parameters.AddWithValue("@Mcorreo", cliente.Correo);
-					comando.Parameters.AddWithValue("@Imagen", cliente.imagen);
 
 					//VALIDANDO SI LA CONEXIÓN ESTÁ ACTIVA O CERRADA
 					if (comando.Connection.State != System.Data.ConnectionState.Closed)
@@ -112,7 +111,7 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
             {
                 //CONSULTA SQL
                 c = Conexion.getInstance().ConexionDB();
-                string sql = "update T_Clientes set Nombre=(@Mnombre),Apellido=(@Mapellido),Cedula=(@Mcedula) ,Id_Departamento=(@Mdepartamento),Direccion=(@Mdireccion), Id_Municipio=(@Mmunicipio), Sexo=(@Msexo), Num_telefono=(@Mtelefono), Email=(@Mcorreo),Imagen=(@Mimagen) where Id_Cliente=(@mid)";
+                string sql = "update T_Clientes set Nombre=(@Mnombre),Apellido=(@Mapellido),Cedula=(@Mcedula) ,Id_Departamento=(@Mdepartamento),Direccion=(@Mdireccion), Id_Municipio=(@Mmunicipio), Sexo=(@Msexo), Num_telefono=(@Mtelefono), Email=(@Mcorreo) where Id_Cliente=(@mid)";
                 //PASANDO PARÁMETROS A CONSULTA SQL
                 using (comando = new SqlCommand(sql, c))
                 {
@@ -126,7 +125,6 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
                     comando.Parameters.AddWithValue("@Msexo", cliente.Sexo);
                     comando.Parameters.AddWithValue("@Mtelefono", cliente.Telefono);
                     comando.Parameters.AddWithValue("@Mcorreo", cliente.Correo);
-					comando.Parameters.AddWithValue("Mimagen",cliente.imagen);
 
                     //VALIDANDO SI LA CONEXIÓN ESTÁ ACTIVA O CERRADA
                     if (comando.Connection.State != System.Data.ConnectionState.Closed)
@@ -266,7 +264,7 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
         public SqlDataReader getClienteporid(int id)
         {
             c = Conexion.getInstance().ConexionDB();
-            String sql = "select Nombre,Apellido,Cedula , Id_Departamento, Id_Municipio,Direccion, Sexo, Num_telefono, Email,Imagen from T_Clientes where Id_Cliente='" + id + "';";
+            String sql = "select Nombre,Apellido,Cedula , Id_Departamento, Id_Municipio,Direccion, Sexo, Num_telefono, Email from T_Clientes where Id_Cliente='" + id + "';";
 
             SqlCommand comando = new SqlCommand(sql, this.c);
             this.registros = comando.ExecuteReader();

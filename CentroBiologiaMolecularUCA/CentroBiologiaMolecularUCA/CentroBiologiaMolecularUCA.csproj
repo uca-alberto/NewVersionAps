@@ -1224,7 +1224,6 @@
     <Content Include="TablesJS\TableResultadoOgm.js" />
     <Content Include="TablesJS\TableUsuario.js" />
     <Content Include="ViewSwitcher.ascx" />
-    <Content Include="Views\Opc\Exa\Addexa.aspx" />
     <Content Include="Views\Opc\Exa\Searchexa.aspx" />
     <Content Include="Views\Opc\Exa\Updexa.aspx" />
     <Content Include="Views\Opc\Emp\Addemp.aspx" />
@@ -1357,13 +1356,6 @@
     </Compile>
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Opc\Exa\Addexa.aspx.cs">
-      <DependentUpon>Addexa.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Views\Opc\Exa\Addexa.aspx.designer.cs">
-      <DependentUpon>Addexa.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Opc\Exa\Searchexa.aspx.cs">
       <DependentUpon>Searchexa.aspx</DependentUpon>
