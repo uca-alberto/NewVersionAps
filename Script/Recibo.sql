@@ -13,7 +13,10 @@ BEGIN
 
 SELECT 
 orden.Id_codigo,CONCAT(clientes.Nombre ,' ', clientes.Apellido) as nombres,
-CONCAT(examenes.Nombre,'.') AS Name_examen, dbo.CantidadConLetra(examenes.Precio_examen)as montoletras,examenes.Precio_examen FROM T_Orden orden
+CONCAT(examenes.Nombre,'.') AS Name_examen, dbo.CantidadConLetra(examenes.Precio_examen)as montoletras,
+examenes.Precio_examen,orden.Baucher
+FROM 
+T_Orden orden
 INNER JOIN T_Clientes clientes on orden.Id_cliente=clientes.Id_cliente
 INNER JOIN T_Examenes examenes on orden.Id_examenes=examenes.Id_examenes
 WHERE orden.Id_orden=@id

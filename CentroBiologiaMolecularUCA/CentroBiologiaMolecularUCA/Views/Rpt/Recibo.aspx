@@ -11,6 +11,7 @@
 			<asp:ListItem Value="2">PDF</asp:ListItem>
 			<asp:ListItem Value="3">Excel</asp:ListItem>
 		</asp:DropDownList>
+		<br />
 		<asp:Button runat="server" CssClass="btn btn-outline-success btn-lg btn-block" ID="Exportar" Text="Exportar Documento" OnClick="Exportar_Click"  />
 
 		<CR:CrystalReportViewer ID="CrystalReportViewer1" runat="server" AutoDataBind="True" ToolPanelWidth="0px" HasPrintButton="False" HasExportButton="False" />
