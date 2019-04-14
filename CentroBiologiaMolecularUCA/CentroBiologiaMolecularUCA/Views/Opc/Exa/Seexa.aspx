@@ -33,11 +33,10 @@
                         </form>
                       </div>
                     </div>
-
-    <script type="text/javascript" src="../../../Content/VerExamen.js"></script> 
+	<script src="../../../Content/Generic.js"></script>
     <script  type="text/javascript">
         window.onload = function () {
-            edit('<%=exam.nombre%>', '<%=exam.precio_examen%>')
+        	editExamen('<%=exam.nombre%>', '<%=exam.precio_examen%>')
         };
     </script> 
 </asp:Content>

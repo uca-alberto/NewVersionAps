@@ -83,12 +83,11 @@
             </div>
          </div>   
    
-
-    <script type="text/javascript" src="../../Content/listacliente.js"></script>    
+	<script src="../../Content/Generic.js"></script>
      
     <script  type="text/javascript">
         window.onload = function () {
-            edit('<%=cli.Cedula%>', '<%=cli.Nombres%>', '<%=cli.Apellidos%>', '<%=cli.Municipio%>','<%=cli.Departamento%>',
+        	editCliente('<%=cli.Cedula%>', '<%=cli.Nombres%>', '<%=cli.Apellidos%>', '<%=cli.Municipio%>', '<%=cli.Departamento%>',
                 '<%=cli.Sexo%>','<%=cli.Telefono%>','<%=cli.Correo%>','<%=cli.Dirreccion %>','<%=cli.imagen%>')
         };
     </script>    

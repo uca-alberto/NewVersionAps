@@ -55,10 +55,8 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
                    comando.Parameters.AddWithValue("@Mtipocaso", e.Tipo_Caso);
                     comando.Parameters.AddWithValue("@Mexamen", e.Tipo_examen);
                     comando.Parameters.AddWithValue("@Mcliente", e.Id_cliente);
-                    
                     comando.Parameters.AddWithValue("@Midusuario", e.Id_usuario);
                     comando.Parameters.AddWithValue("@Mnombrepareja", e.Nombre_pareja);
-
                     comando.Parameters.AddWithValue("@Mnombrehijo", e.Nombre_menor);
                     comando.Parameters.AddWithValue("@Mobservaciones", e.Observaciones);
                     comando.Parameters.AddWithValue("@Mbaucher", e.Baucher);

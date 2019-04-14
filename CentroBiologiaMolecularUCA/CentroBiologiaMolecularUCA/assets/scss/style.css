@@ -870,8 +870,8 @@ aside.left-panel {
     .navbar .navbar-brand.hidden {
       display: none; }
   .navbar .menu-title {
-    border-bottom: 1px solid #4e4e52;
-    color: #9496a1;
+    border-bottom: 1px solid #fff;
+    color: #fff;
     clear: both;
     display: block;
     font-family: 'Open Sans';
@@ -893,7 +893,7 @@ aside.left-panel {
         display: none; }
       .navbar .navbar-nav li > a {
         background: none !important;
-        color: #c8c9ce !important;
+        color: #d7d9e3  !important;
         display: inline-block;
         font-family: 'Open Sans';
         font-size: 14px;
@@ -940,7 +940,7 @@ aside.left-panel {
           .navbar .navbar-nav li.menu-item-has-children a:hover:before {
             color: #fff; }
         .navbar .navbar-nav li.menu-item-has-children .sub-menu {
-          background: #272c33;
+          background:	#272c33;
           border: none;
           box-shadow: none;
           overflow-y: hidden;

@@ -95,12 +95,10 @@
    </form>
     </div>
     </div>
-
-    <script type="text/javascript" src="../../Content/ListaordenOgm.js"></script>
-
+	<script src="../../Content/Generic.js"></script>
 <script  type="text/javascript">
 window.onload = function () {
-    edit( '<%=ord.Id_codigo%>','<%=ord.Fecha%>','<%=ord.Id_analisis%>','<%=ord.Tipo_muestra%>','<%=ord.Observaciones%>','<%=ord.Baucher%>'
+	editOrdenOgm('<%=ord.Id_codigo%>', '<%=ord.Fecha%>', '<%=ord.Id_analisis%>', '<%=ord.Tipo_muestra%>', '<%=ord.Observaciones%>', '<%=ord.Baucher%>'
            )
 };
 </script> 

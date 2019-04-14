@@ -62,11 +62,10 @@
         </div> 
 
 
-       <script src="../../../Content/listaempleado.js"></script>
-
+	<script src="../../../Content/Generic.js"></script>
 <script  type="text/javascript">
 window.onload = function () {
-    edit( '<%=emp.Cargo%>' ,'<%=emp.Cedula%>', '<%=emp.Nombre_Empleado%>', '<%=emp.Apellido%>'
+	editEmpleados('<%=emp.Cargo%>', '<%=emp.Cedula%>', '<%=emp.Nombre_Empleado%>', '<%=emp.Apellido%>'
            )
 };
 </script> 

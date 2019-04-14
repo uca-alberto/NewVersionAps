@@ -1447,24 +1447,8 @@
     <Content Include="assets\scss\widgets.css" />
     <Content Include="assets\sweetalert.css" />
     <Content Include="assets\sweetalert.min.js" />
+    <Content Include="Content\Generic.js" />
     <Content Include="Content\Global.js" />
-    <Content Include="Content\Listaabuelidad.js" />
-    <Content Include="Content\ListaAlzheimer.js" />
-    <Content Include="Content\listacliente.js" />
-    <Content Include="Content\listaempleado.js" />
-    <Content Include="Content\ListaMaternidad.js" />
-    <Content Include="Content\ListaMuestra.js" />
-    <Content Include="Content\ListaOrdenAdn.js" />
-    <Content Include="Content\ListaOrdenOgm.js" />
-    <Content Include="Content\ListaPapiloma.js" />
-    <Content Include="Content\ListarUsuario.js" />
-    <Content Include="Content\listausuario.js" />
-    <Content Include="Content\Vercliente.js" />
-    <Content Include="Content\VerExamen.js" />
-    <Content Include="Content\VerMaternidad.js" />
-    <Content Include="Content\Vermuestra.js" />
-    <Content Include="Content\VerOrdenAdn.js" />
-    <Content Include="Content\ListarResultado.js" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -1789,6 +1773,7 @@
     <Content Include="Views\Opc\Use\Seeuse.aspx" />
     <Content Include="Views\Opc\Use\Upduse.aspx" />
     <Content Include="Views\Rpt\Recibo.aspx" />
+    <Content Include="Views\Valz\Addalz.aspx" />
     <Content Include="Views\Vcli\Addcli.aspx" />
     <Content Include="Views\Vcli\Searchcli.aspx" />
     <Content Include="Views\Vcli\Updcli.aspx" />
@@ -1817,6 +1802,7 @@
     <Content Include="Views\ViewResultadoMaria\VerResultadoOgm.aspx" />
     <Content Include="Views\Opc\Use\Adduse.aspx" />
     <Content Include="Views\Opc\Use\Searchuse.aspx" />
+    <Content Include="Views\Vpap\Addpap.aspx" />
     <Content Include="Views\Vreadn\addreadn.aspx" />
     <Content Include="Views\Vreadn\Seereadn.aspx" />
     <Content Include="Views\Vreogm\Addreogm.aspx" />
@@ -1992,6 +1978,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ReciboOrden.rpt</DependentUpon>
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Views\Valz\Addalz.aspx.cs">
+      <DependentUpon>Addalz.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Valz\Addalz.aspx.designer.cs">
+      <DependentUpon>Addalz.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Vcli\Addcli.aspx.cs">
       <DependentUpon>Addcli.aspx</DependentUpon>
@@ -2188,6 +2181,13 @@
     </Compile>
     <Compile Include="Views\Opc\Use\Searchuse.aspx.designer.cs">
       <DependentUpon>Searchuse.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Vpap\Addpap.aspx.cs">
+      <DependentUpon>Addpap.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Vpap\Addpap.aspx.designer.cs">
+      <DependentUpon>Addpap.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Vreadn\addreadn.aspx.cs">
       <DependentUpon>addreadn.aspx</DependentUpon>

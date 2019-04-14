@@ -60,10 +60,10 @@
                         </form>
                       </div>
                     </div>
-    <script src="../../../Content/Vermuestra.js"></script>
+	<script src="../../../Content/Generic.js"></script>
     <script  type="text/javascript">
         window.onload = function () {
-          edit('<%=mue.muestra%>','<%=mue.Id_tipo_analisis%>')
+        	editMuestra('<%=mue.muestra%>', '<%=mue.Id_tipo_analisis%>')
         };
     </script>
 </asp:Content>
