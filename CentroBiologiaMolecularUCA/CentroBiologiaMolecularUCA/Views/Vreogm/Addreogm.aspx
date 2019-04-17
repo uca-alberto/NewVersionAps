@@ -110,7 +110,7 @@
            <!--TABLA PARA RESULTADO DETALLE-->
 
                     <div class="card-body">
-                        <table id="table" class="table table-striped table-bordered"  >
+                        <table id="table" class="table table-striped table-bordered">
                             <thead>
                                 <tr>
                                     <th>Tipo de Analisis</th> 
@@ -138,17 +138,6 @@
                <asp:ListItem Value="1" Text="Positivo "></asp:ListItem>
                <asp:ListItem Value="0" Text="Negativo"></asp:ListItem>
            </asp:RadioButtonList>
-
-             <asp:RadioButtonList runat="server" ID="radio3" Visible="false" RepeatDirection="Horizontal">
-               <asp:ListItem Value="1" Text="Positivo"></asp:ListItem>
-               <asp:ListItem Value="0" Text="Negativo"></asp:ListItem>
-           </asp:RadioButtonList>
-
-             <asp:RadioButtonList runat="server" ID="radio4" Visible="false" RepeatDirection="Horizontal">
-               <asp:ListItem Value="1" Text="Positivo "></asp:ListItem>
-               <asp:ListItem Value="0" Text="Negativo"></asp:ListItem>
-           </asp:RadioButtonList>&nbsp;
-
 
              <!--observaciones-->                            
                     <div class="row form-group ">

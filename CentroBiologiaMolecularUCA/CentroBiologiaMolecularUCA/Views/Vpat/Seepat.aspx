@@ -1,6 +1,7 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Seeogm.aspx.cs" Inherits="CentroBiologiaMolecularUCA.Views.Vogm.Seeogm" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Seepat.aspx.cs" Inherits="CentroBiologiaMolecularUCA.Views.Vpat.Seepat" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
- <link href="../../assets/css_Editables/form-mouse.css" rel="stylesheet" />
+
+    <link href="../../assets/css_Editables/form-mouse.css" rel="stylesheet" />
 
      <div class="card-header">
             <strong class="card-title" v-if="headerText">Ver Orden OGM</strong>
@@ -104,5 +105,3 @@ window.onload = function () {
 </script> 
 
 </asp:Content>
-
-

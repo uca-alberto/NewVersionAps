@@ -1,6 +1,7 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Addogm.aspx.cs" Inherits="CentroBiologiaMolecularUCA.Views.ViewOrden.AgregarOrdenOgm" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <link href="../../assets/css_Editables/form-mouse.css" rel="stylesheet" />
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Addpat.aspx.cs" Inherits="CentroBiologiaMolecularUCA.Views.Vpat.Addpat" %>
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+
+        <link href="../../assets/css_Editables/form-mouse.css" rel="stylesheet" />
     <!-- Añadir Script-->
                 <script src="../../../assets/js/vendor/jquery-2.1.4.min.js"></script>
                 <script src="../../assets/sweetalert.min.js"></script>
@@ -24,7 +25,7 @@
             })
           .then((willDelete) => {
               if (willDelete) {
-                  location.href = "Searchogm.aspx";
+                  location.href = "../Vogm/Searchogm.aspx";
               } 
           });
         }
@@ -218,12 +219,12 @@
                     </div>
                           
              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" OnClick="location.href='../Index.aspx'" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-secondary" onclick="location.href='../Index.aspx'" data-dismiss="modal">Cancelar</button>
                 <asp:HiddenField runat="server" ID="id_orden" />
                 <asp:Button id="enviar" runat="server" Text="Guardar" CssClass="btn btn-primary" OnClick="InsertarOrden"/>
             </div>             
    </form>
     </div>
     </div>
-	<script src="../../Content/Generic.js"></script>
+    	<script src="../../Content/Generic.js"></script>
 </asp:Content>

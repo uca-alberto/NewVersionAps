@@ -5,14 +5,14 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos;
 using WebSistemaCentroBiologiaMolecularUCA.Ncapas.Entidades;
 using WebSistemaCentroBiologiaMolecularUCA.Ncapas.Negocio;
 
-namespace CentroBiologiaMolecularUCA.Views.Vogm
+namespace CentroBiologiaMolecularUCA.Views.Vpat
 {
-    public partial class Seeogm : System.Web.UI.Page
+    public partial class Seepat : System.Web.UI.Page
     {
+        //Cliente
         private SqlDataReader cliente;
 
         //Orden y analisis
@@ -35,7 +35,7 @@ namespace CentroBiologiaMolecularUCA.Views.Vogm
 
             //Cargar los tipos de Analisis
 
-            Manalisis.DataSource = NGorden.getInstance().ListarAnalisisOgm();
+            Manalisis.DataSource = NGorden.getInstance().ListarAnalisisPat();
             Manalisis.DataTextField = "analisis";
             Manalisis.DataValueField = "Id_analisis";
             Manalisis.DataBind();
@@ -58,6 +58,7 @@ namespace CentroBiologiaMolecularUCA.Views.Vogm
                 array[index] = this.analisis["Id_analisis"].ToString();
                 index++;
             }
+
             analisis.Close();
             //Recorro la cantidad de Items y comparo los id del areglo con los del checkbox si son iguales me checkea
             for (int i = 0; i < Manalisis.Items.Count; i++)

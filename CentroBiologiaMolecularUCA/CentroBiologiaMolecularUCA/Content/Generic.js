@@ -89,7 +89,7 @@ $(document).ready(function () {
             text: "Usted a seleccionado al cliente: \n" + nombre,
             icon: "info",
             buttons: false,
-            timer: 2600,
+            timer: 2000,
         });
     })
 });

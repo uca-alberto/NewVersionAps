@@ -43,9 +43,13 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Negocio
         {
             return DTmuestra.getInstance().listarmuestras();
         }
-        public SqlDataReader ListarAnalisis()
+        public SqlDataReader ListarAnalisisOgm()
         {
-            return DTanalisis.getInstance().listaranalisis();
+            return DTanalisis.getInstance().listaranalisisOgm();
+        }
+        public SqlDataReader ListarAnalisisPat()
+        {
+            return DTanalisis.getInstance().listaranalisisPat();
         }
 
         //Agregar Orden
@@ -71,6 +75,10 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Negocio
         public string GenerarCodigo()
         {
             return TOrden.getInstance().generarCodigo();
+        }
+        public string GenerarCodigoPat()
+        {
+            return TOrden.getInstance().generarCodigopat();
         }
         public int UltimoId()
         {

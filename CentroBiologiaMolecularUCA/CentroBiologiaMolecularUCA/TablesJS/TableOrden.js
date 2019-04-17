@@ -128,6 +128,10 @@ $('#bootstrap-data-table tbody').on('click', '#ver', function () {
     if (redict == "OGM") {
         location.href = 'Seeogm.aspx?id=' + id + ''
     }
+    //Granos
+    if (redict == "Patogeno") {
+        location.href = '../Vpat/Seepat.aspx?id=' + id + ''
+    }
     //ADN
     if (redict == "Paternidad") {
         location.href = '../ViewOrdenMaria/VerOrdenAdnMulti.aspx?id=' + id + ''

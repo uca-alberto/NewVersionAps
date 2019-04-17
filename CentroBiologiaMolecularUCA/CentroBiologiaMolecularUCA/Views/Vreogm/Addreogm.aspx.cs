@@ -34,7 +34,7 @@ namespace CentroBiologiaMolecularUCA.Views.Vreogm
 
             //Cargar los tipos de Analisis
 
-            Manalisis.DataSource = NGorden.getInstance().ListarAnalisis();
+            Manalisis.DataSource = NGorden.getInstance().ListarAnalisisOgm();
             Manalisis.DataTextField = "analisis";
             Manalisis.DataValueField = "Id_analisis";
             Manalisis.DataBind();
@@ -116,20 +116,6 @@ namespace CentroBiologiaMolecularUCA.Views.Vreogm
                 radio1.Visible = true;
                 radio2.Visible = true;
             }
-            if (index == 3)
-            {
-                radio1.Visible = true;
-                radio2.Visible = true;
-                radio3.Visible = true;
-            }
-            if (index == 4)
-            {
-                radio1.Visible = true;
-                radio2.Visible = true;
-                radio3.Visible = true;
-                radio4.Visible = true;
-            }
-
         }
 
 
@@ -163,8 +149,6 @@ namespace CentroBiologiaMolecularUCA.Views.Vreogm
         {
             String val1 = radio1.SelectedValue;
             String val2 = radio2.SelectedValue;
-            String val3 = radio3.SelectedValue;
-            String val4 = radio4.SelectedValue;
 
             Resultado res = new Resultado();
             if (index > 1)
@@ -179,20 +163,6 @@ namespace CentroBiologiaMolecularUCA.Views.Vreogm
                 res.Id_analisis = Convert.ToInt32(array[1]);
                 res.Id_resultado = idresultado;
                 res.Resultados = Convert.ToInt32(val2);
-                NGresultado.getInstance().creardetalle(res);
-            }
-            if (index >= 3)
-            {
-                res.Id_analisis = Convert.ToInt32(array[2]);
-                res.Id_resultado = idresultado;
-                res.Resultados = Convert.ToInt32(val3);
-                NGresultado.getInstance().creardetalle(res);
-            }
-            if (index >= 4)
-            {
-                res.Id_analisis = Convert.ToInt32(array[3]);
-                res.Id_resultado = idresultado;
-                res.Resultados = Convert.ToInt32(val4);
                 NGresultado.getInstance().creardetalle(res);
             }
         }

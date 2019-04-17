@@ -1803,6 +1803,8 @@
     <Content Include="Views\Opc\Use\Adduse.aspx" />
     <Content Include="Views\Opc\Use\Searchuse.aspx" />
     <Content Include="Views\Vpap\Addpap.aspx" />
+    <Content Include="Views\Vpat\Seepat.aspx" />
+    <Content Include="Views\Vpat\Addpat.aspx" />
     <Content Include="Views\Vreadn\addreadn.aspx" />
     <Content Include="Views\Vreadn\Seereadn.aspx" />
     <Content Include="Views\Vreogm\Addreogm.aspx" />
@@ -2188,6 +2190,20 @@
     </Compile>
     <Compile Include="Views\Vpap\Addpap.aspx.designer.cs">
       <DependentUpon>Addpap.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Vpat\Seepat.aspx.cs">
+      <DependentUpon>Seepat.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Vpat\Seepat.aspx.designer.cs">
+      <DependentUpon>Seepat.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Vpat\Addpat.aspx.cs">
+      <DependentUpon>Addpat.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Vpat\Addpat.aspx.designer.cs">
+      <DependentUpon>Addpat.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Vreadn\addreadn.aspx.cs">
       <DependentUpon>addreadn.aspx</DependentUpon>

@@ -31,7 +31,7 @@ namespace CentroBiologiaMolecularUCA.Views.Vreogm
             this.res = new Resultado();
 
             //Cargar los tipos de Analisis
-            Manalisis.DataSource = NGorden.getInstance().ListarAnalisis();
+            Manalisis.DataSource = NGorden.getInstance().ListarAnalisisOgm();
             Manalisis.DataTextField = "analisis";
             Manalisis.DataValueField = "Id_analisis";
             Manalisis.DataBind();

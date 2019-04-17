@@ -64,9 +64,10 @@
                     <!--/Segundo Menu, seccion de ordenes y resultados-->
                     <h3 class="menu-title">Control de Servicios</h3><!-- /Titulo del Menu -->
                     <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-list-ol"></i>Orden OGM</a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-list-ol"></i>Ordenes</a>
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="menu-icon fa fa-plus-circle"></i><a href="../../Views/Vogm/Addogm.aspx">Crear Orden</a></li>
+                            <li><i class="menu-icon fa fa-plus-circle"></i><a href="../../Views/Vpat/Addpat.aspx">Crear Patogeno</a></li>
                               <li><i class="ti-search"></i><a href="../../Views/Vogm/Searchogm">Buscar Orden</a></li>
                             
 

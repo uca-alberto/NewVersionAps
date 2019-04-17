@@ -360,6 +360,49 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
 
         }
 
+        public String generarCodigopat()
+        {
+            c = Conexion.getInstance().ConexionDB();
+            String codigo = "";
+            int total = 0;
+            String date;
+            date = DateTime.Now.ToString("MM/dd/yyyy");
+            String mes = date.Substring(0, 2);
+            String anio = date.Substring(8, 2);
+
+            total = ultimoid();
+
+            try
+            {
+                if (total < 10)
+                {
+                    codigo = "PAT" + mes + anio + "-0000" + total.ToString();
+                }
+                else if (total < 100)
+                {
+                    codigo = "PAT" + mes + anio + "-000" + total.ToString();
+                }
+                else if (total < 1000)
+                {
+                    codigo = "PAT" + mes + anio + "-00" + total.ToString();
+                }
+                else if (total < 10000)
+                {
+                    codigo = "PAT" + mes + anio + "-0" + total.ToString();
+                }
+
+            }
+            catch (Exception)
+            {
+
+                c.Close();
+
+            }
+            return codigo;
+
+        }
+
+
         //Obtener El ultimo Id de la Tabla
         public int ultimoid()
         {

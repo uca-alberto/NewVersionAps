@@ -1,31 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos;
 using WebSistemaCentroBiologiaMolecularUCA.Ncapas.Entidades;
 using WebSistemaCentroBiologiaMolecularUCA.Ncapas.Negocio;
 
-namespace CentroBiologiaMolecularUCA.Views.ViewOrden
+namespace CentroBiologiaMolecularUCA.Views.Vpat
 {
-    public partial class AgregarOrdenOgm : System.Web.UI.Page
+    public partial class Addpat : System.Web.UI.Page
     {
         private SqlDataReader registro;
-        private Conexion conexion;
         private int Id;
-
-
         protected void Page_Load(object sender, EventArgs e)
         {
-            this.conexion = new Conexion();
             this.registro = NGcliente.getInstance().ListarClientes();
 
             //Generar el codigo
-            Mcodigo.Text = NGorden.getInstance().GenerarCodigo();
+            Mcodigo.Text = NGorden.getInstance().GenerarCodigoPat();
             //Obtengo el Id
             Id = NGorden.getInstance().UltimoId();
 
@@ -33,7 +27,7 @@ namespace CentroBiologiaMolecularUCA.Views.ViewOrden
             {
                 //en esta parte se carga el dropdownlist de Examen
 
-                Manalisis.DataSource = NGorden.getInstance().ListarAnalisisOgm();//aqui le paso mi consulta que esta en la clase dtexamenes
+                Manalisis.DataSource = NGorden.getInstance().ListarAnalisisPat();//aqui le paso mi consulta que esta en la clase dtexamenes
                 Manalisis.DataTextField = "analisis";//le paso el texto del items
                 Manalisis.DataValueField = "Id_analisis";//le paso el id de cada items
                 Manalisis.DataBind();
@@ -59,7 +53,7 @@ namespace CentroBiologiaMolecularUCA.Views.ViewOrden
         {
             OrdenAdn ord = new OrdenAdn();
 
-            if (Manalisis.ToString()==null )
+            if (Manalisis.ToString() == null)
             {
             }
             else
@@ -109,7 +103,7 @@ namespace CentroBiologiaMolecularUCA.Views.ViewOrden
             String userid = (string)Session["Id_usuario"];
             ord.Id_cliente = int.Parse(Id_cliente.Value.ToString());
             ord.Id_usuario = Convert.ToInt32(userid);
-            ord.Tipo_examen = 7;
+            ord.Tipo_examen = 8;
             ord.Id_orden = Id;
             return ord;
         }

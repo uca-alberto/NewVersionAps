@@ -7,10 +7,10 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace CentroBiologiaMolecularUCA.Views.Vreogm {
+namespace CentroBiologiaMolecularUCA.Views.Vpat {
     
     
-    public partial class Addreogm {
+    public partial class Addpat {
         
         /// <summary>
         /// Control myfrom.
@@ -22,6 +22,33 @@ namespace CentroBiologiaMolecularUCA.Views.Vreogm {
         protected global::System.Web.UI.HtmlControls.HtmlForm myfrom;
         
         /// <summary>
+        /// Control Id_cliente.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField Id_cliente;
+        
+        /// <summary>
+        /// Control Mcliente.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Mcliente;
+        
+        /// <summary>
+        /// Control Mcedula.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Mcedula;
+        
+        /// <summary>
         /// Control Mcodigo.
         /// </summary>
         /// <remarks>
@@ -31,13 +58,13 @@ namespace CentroBiologiaMolecularUCA.Views.Vreogm {
         protected global::System.Web.UI.WebControls.TextBox Mcodigo;
         
         /// <summary>
-        /// Control Minvestigador.
+        /// Control RequiredFieldValidator3.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Minvestigador;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator3;
         
         /// <summary>
         /// Control Mfecha.
@@ -49,22 +76,13 @@ namespace CentroBiologiaMolecularUCA.Views.Vreogm {
         protected global::System.Web.UI.WebControls.TextBox Mfecha;
         
         /// <summary>
-        /// Control Mhora.
+        /// Control RequiredFieldValidator4.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Mhora;
-        
-        /// <summary>
-        /// Control Mimportador.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Mimportador;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator4;
         
         /// <summary>
         /// Control Manalisis.
@@ -76,6 +94,15 @@ namespace CentroBiologiaMolecularUCA.Views.Vreogm {
         protected global::System.Web.UI.WebControls.CheckBoxList Manalisis;
         
         /// <summary>
+        /// Control CustomValidator1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CustomValidator CustomValidator1;
+        
+        /// <summary>
         /// Control Mmuestra.
         /// </summary>
         /// <remarks>
@@ -85,22 +112,13 @@ namespace CentroBiologiaMolecularUCA.Views.Vreogm {
         protected global::System.Web.UI.WebControls.DropDownList Mmuestra;
         
         /// <summary>
-        /// Control radio1.
+        /// Control RequiredFieldValidator5.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList radio1;
-        
-        /// <summary>
-        /// Control radio2.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList radio2;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator5;
         
         /// <summary>
         /// Control Mobservaciones.
@@ -110,6 +128,24 @@ namespace CentroBiologiaMolecularUCA.Views.Vreogm {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox Mobservaciones;
+        
+        /// <summary>
+        /// Control RequiredFieldValidator1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
+        
+        /// <summary>
+        /// Control Mbaucher.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Mbaucher;
         
         /// <summary>
         /// Control RequiredFieldValidator2.

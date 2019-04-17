@@ -31,10 +31,30 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
         SqlConnection c = new SqlConnection();
         SqlCommand comando = null;
 
+        public SqlDataReader listaranalisisOgm()
+        {
+            c = Conexion.getInstance().ConexionDB();
+            String sql = "SELECT Id_analisis,analisis FROM T_Tipo_Analisis where Id_analisis<=2;";
+
+            SqlCommand comando = new SqlCommand(sql, this.c);
+            this.registros = comando.ExecuteReader();
+            return this.registros;
+            c.Close();
+        }
+        public SqlDataReader listaranalisisPat()
+        {
+            c = Conexion.getInstance().ConexionDB();
+            String sql = "SELECT Id_analisis,analisis FROM T_Tipo_Analisis where Id_analisis>2;";
+
+            SqlCommand comando = new SqlCommand(sql, this.c);
+            this.registros = comando.ExecuteReader();
+            return this.registros;
+            c.Close();
+        }
         public SqlDataReader listaranalisis()
         {
             c = Conexion.getInstance().ConexionDB();
-            String sql = "select Id_analisis , analisis  from T_Tipo_Analisis;";
+            String sql = "SELECT Id_analisis,analisis FROM T_Tipo_Analisis where Id_analisis>2;";
 
             SqlCommand comando = new SqlCommand(sql, this.c);
             this.registros = comando.ExecuteReader();
