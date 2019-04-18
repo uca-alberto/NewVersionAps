@@ -14,11 +14,16 @@ namespace CentroBiologiaMolecularUCA.Views.Rpt
         int id;
         protected void Page_Load(object sender, EventArgs e)
         {
+		
+			if(!IsPostBack)
+			{
+				String valor = Request.QueryString["id"];
+				id = int.Parse(valor);
+				re.SetParameterValue("@Id", id);
+				CrystalReportViewer.ReportSource = re;
 
-            String valor = Request.QueryString["id"];
-            id = int.Parse(valor);
-            re.SetParameterValue("@Id", id);
-            CrystalReportViewer.ReportSource = re;
+			}
+            
 
         }
 
