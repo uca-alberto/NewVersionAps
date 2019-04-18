@@ -31,7 +31,7 @@ namespace CentroBiologiaMolecularUCA.Views.Rpt
 		{
 			String valor = Request.QueryString["id"];
 			id = int.Parse(valor);
-			re.SetParameterValue("@id", id);
+			re.SetParameterValue("@Id", id);
 			//Obtenemos el tipo de archvios que quiere descargar
 			switch (Export.SelectedValue)
 				{

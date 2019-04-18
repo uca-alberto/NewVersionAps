@@ -1,9 +1,9 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Seereogm.aspx.cs" Inherits="CentroBiologiaMolecularUCA.Views.Vreogm.Seereogm" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Seerepat.aspx.cs" Inherits="CentroBiologiaMolecularUCA.Views.Vrepat.Seerepat" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
      <link href="../../assets/css_Editables/form-mouse.css" rel="stylesheet" />
 
          <div class="card-header">
-            <strong class="card-title" >REGISTRO DE ANALISIS DE DETECCION DE OGMs </strong>
+            <strong class="card-title" >REGISTRO DE ANALISIS DE DETECCION DE PATOGENO </strong>
         </div>
     <div class="card">                       
             <div class="card-body card-block">

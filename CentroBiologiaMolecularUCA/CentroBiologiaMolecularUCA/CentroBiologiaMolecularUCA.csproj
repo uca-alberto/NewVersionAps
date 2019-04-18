@@ -1773,6 +1773,7 @@
     <Content Include="Views\Opc\Use\Seeuse.aspx" />
     <Content Include="Views\Opc\Use\Upduse.aspx" />
     <Content Include="Views\Rpt\Recibo.aspx" />
+    <Content Include="Views\Rpt\ResultadoOgm.aspx" />
     <Content Include="Views\Valz\Addalz.aspx" />
     <Content Include="Views\Vcli\Addcli.aspx" />
     <Content Include="Views\Vcli\Searchcli.aspx" />
@@ -1810,6 +1811,8 @@
     <Content Include="Views\Vreogm\Addreogm.aspx" />
     <Content Include="Views\Vreogm\Searchreogm.aspx" />
     <Content Include="Views\Vreogm\Seereogm.aspx" />
+    <Content Include="Views\Vrepat\Addrepat.aspx" />
+    <Content Include="Views\Vrepat\Seerepat.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -1980,6 +1983,19 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ReciboOrden.rpt</DependentUpon>
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Views\Rpt\ReporteOrdenOGM.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReporteOrdenOGM.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Views\Rpt\ResultadoOgm.aspx.cs">
+      <DependentUpon>ResultadoOgm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Rpt\ResultadoOgm.aspx.designer.cs">
+      <DependentUpon>ResultadoOgm.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Valz\Addalz.aspx.cs">
       <DependentUpon>Addalz.aspx</DependentUpon>
@@ -2240,6 +2256,20 @@
     <Compile Include="Views\Vreogm\Seereogm.aspx.designer.cs">
       <DependentUpon>Seereogm.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Views\Vrepat\Addrepat.aspx.cs">
+      <DependentUpon>Addrepat.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Vrepat\Addrepat.aspx.designer.cs">
+      <DependentUpon>Addrepat.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Vrepat\Seerepat.aspx.cs">
+      <DependentUpon>Seerepat.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Vrepat\Seerepat.aspx.designer.cs">
+      <DependentUpon>Seerepat.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ImagesAdn\" />
@@ -2248,6 +2278,10 @@
     <EmbeddedResource Include="Views\Rpt\ReciboOrden.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>ReciboOrden.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Rpt\ReporteOrdenOGM.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReporteOrdenOGM.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

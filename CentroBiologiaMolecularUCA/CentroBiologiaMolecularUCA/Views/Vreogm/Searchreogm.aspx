@@ -21,6 +21,7 @@
                     <thead>
                         <th>Id Resultado</th>
                         <th>Estado Orden</th>
+                        <th>Tipo Resultado</th>
                         <th>Opciones</th>
                     </thead>
                     <tbody>

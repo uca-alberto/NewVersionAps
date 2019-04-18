@@ -25,7 +25,7 @@ function addRowDT(data) {
            '<a title="visualizar" id="ver"><i class="fa ti-eye"></i>&nbsp;' +
            '<a title="Eliminar" value="Eliminarre" id="Eliminar"><i class="fa fa-trash-o"></i>&nbsp;' +
            '<a title="Generar Resultado" id="generar"><i class="fa fa-file-text-o"></i>&nbsp;' +
-           '<a title="Generar Recibo"  href="../../Views/Rpt/Recibo?id=' + data[i].Id_orden + '"><i class="fa fa-download"></i>&nbsp;'
+           '<a title="Generar Recibo"  href="../../Views/Rpt/Recibo?id=' + data[i].Id_orden + '"><i class="ti-clipboard"></i>&nbsp;'
 
 
         ]).draw(false);
@@ -100,7 +100,7 @@ $(document).on('click', '#Eliminar', function (e) {
 //LLAMANDO A LA FUNCION AJAX AL CARGAR DOCUMENTO
 sendDataAjax();
 
-//Probando el Visualizar
+//Resultado
 $('#bootstrap-data-table tbody').on('click', '#generar', function () {
     var table = $('#bootstrap-data-table').DataTable();
     var data = table.row($(this).parents("tr")).data();
@@ -110,6 +110,9 @@ $('#bootstrap-data-table tbody').on('click', '#generar', function () {
     //Granos
     if (redict == "OGM") {
         location.href = '../../Views/Vreogm/Addreogm?id=' + id + ''
+    }
+    if (redict == "Patogeno") {
+        location.href = '../../Views/Vrepat/Addrepat?id=' + id + ''
     }
     //ADN
     if (redict == "Paternidad") {

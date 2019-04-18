@@ -5,7 +5,10 @@ function addRowDT(data) {
         tabla.row.add([
            data[i].Id_resultado,
            data[i].Estado,
-          '<a title="ver" href="Seereogm.aspx?id=' + data[i].Id_resultado + '"><i class="fa ti-eye"></i>&nbsp;'
+           data[i].Tipo,
+          '<a title="ver" id="see"><i class="fa ti-eye"></i>&nbsp;'+
+           '<a title="Reporte Resultado"  id="report"><i class="ti-clipboard"></i>&nbsp;'
+
         ]).draw(false);
     }
 }
@@ -76,3 +79,35 @@ $(document).on('click', '#Eliminar', function (e) {
 
 //LLAMANDO A LA FUNCION AJAX AL CARGAR DOCUMENTO
 sendDataAjax();
+//Reporte
+$('#bootstrap-data-table tbody').on('click', '#report', function () {
+    var table = $('#bootstrap-data-table').DataTable();
+    var data = table.row($(this).parents("tr")).data();
+    var id = data[0];
+
+    var redict = data[2];
+    //Granos
+    if (redict == "OGM") {
+        location.href ='../../Views/Rpt/ResultadoOgm?id=' + id + ''
+    }
+    //ADN
+    if (redict == "Patogeno") {
+        location.href = '../../Views/Rpt/ResultadoOgm?id=' + id + ''
+    }
+});
+//Visualizar
+$('#bootstrap-data-table tbody').on('click', '#see', function () {
+    var table = $('#bootstrap-data-table').DataTable();
+    var data = table.row($(this).parents("tr")).data();
+    var id = data[0];
+
+    var redict = data[2];
+    //Granos
+    if (redict == "OGM") {
+        location.href = '../../Views/Vreogm/seereogm?id=' + id + ''
+    }
+    //ADN
+    if (redict == "Patogeno") {
+        location.href = '../../Views/Vrepat/Seerepat?id=' + id + ''
+    }
+});

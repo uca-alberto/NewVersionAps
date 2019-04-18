@@ -1,9 +1,37 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Seereogm.aspx.cs" Inherits="CentroBiologiaMolecularUCA.Views.Vreogm.Seereogm" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Addrepat.aspx.cs" Inherits="CentroBiologiaMolecularUCA.Views.Vrepat.Addrepat" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+
      <link href="../../assets/css_Editables/form-mouse.css" rel="stylesheet" />
+       <script src="../../assets/sweetalert.min.js"></script>
+
+    <script>
+        function ADD() {
+            swal({
+                title: "Error",
+                text: "Revisar Formulario",
+                icon: "warning",
+                button: "OK",
+            });
+    }</script>
+
+    <script>
+        function InsertarResultado(data) {
+            swal({
+                title: "Resultado Agregado",
+                text: "Correctamente",
+                icon: "success",
+            })
+          .then((willDelete) => {
+              if (willDelete) {
+                  location.href = "../Vogm/Searchogm.aspx";
+              } 
+          });
+        }
+    </script>
+
 
          <div class="card-header">
-            <strong class="card-title" >REGISTRO DE ANALISIS DE DETECCION DE OGMs </strong>
+            <strong class="card-title" >REGISTRO DE ANALISIS DE DETECCION DE PATOGENO</strong>
         </div>
     <div class="card">                       
             <div class="card-body card-block">
@@ -83,54 +111,54 @@
            <!--TABLA PARA RESULTADO DETALLE-->
 
                     <div class="card-body">
-                        <table id="table" class="table table-striped table-bordered" >
+                        <table id="table" class="table table-striped table-bordered">
                             <thead>
                                 <tr>
-                                    <th>Tipo de Analisis</th>  
-                                    <th>Resultado</th>
-                                    
+                                    <th>Tipo de Analisis</th> 
                                 </tr>
                             </thead>
-                            <tbody> 
-<%
+                            <tbody>  
+                                        <%
                                     while(getregistros().Read())
                                     {
                                         %>
-                                            <tr>
-                                                <td><%=getregistros()["analisis"]%></td>
-                                                <td><%=getregistros()["Resultado"]%></td>
-                                            </tr>
+                                            <tr><td><%=getregistros()["analisis"] %></td>
                                         <%
                                     }
-                                %>                                                                                                             
+                                %>                                                                                                                                       
                             </tbody>
                         </table>
                     </div>
+
+           <asp:RadioButtonList runat="server" ID="radio1" Visible="false" RepeatDirection="Horizontal">
+               <asp:ListItem Value="1" Text="Positivo "></asp:ListItem>
+               <asp:ListItem Value="0" Text="Negativo"></asp:ListItem>
+           </asp:RadioButtonList>
+
+            <asp:RadioButtonList runat="server" ID="radio2" Visible="false" RepeatDirection="Horizontal">
+               <asp:ListItem Value="1" Text="Positivo "></asp:ListItem>
+               <asp:ListItem Value="0" Text="Negativo"></asp:ListItem>
+           </asp:RadioButtonList>
 
              <!--observaciones-->                            
                     <div class="row form-group ">
                 <div class="col col-md-3 "><label for="text-input" class=" form-control-label">Observaciones</label></div>
                 <div class="col-12 col-md-9">&nbsp;
-                <asp:Textbox ID="Mobservaciones" ReadOnly="true" BackColor="White" runat="server" TextMode="multiline" Columns="50" Rows="5" ToolTip="observaciones" CssClass="formcursor" placeholder="Ingrese las observaciones"></asp:Textbox>
+                <asp:Textbox ID="Mobservaciones" runat="server" TextMode="multiline" Columns="50" Rows="5" ToolTip="observaciones" CssClass="form-control" placeholder="Ingrese las observaciones"></asp:Textbox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="Mobservaciones" Display="Dynamic" ErrorMessage="Este Campo es requerido" ForeColor="Red" Font-Italic="true"></asp:RequiredFieldValidator>     
                     </div>
                 </div> 
 
-                
-               <div class="modal-footer">
-                       <asp:HiddenField runat="server" ID="Id_orden" />
-                      <a class="btn btn-outline-success btn-lg btn-block" OnClick="javascript: return history.back()">Regresar</a>  
-                </div>        
+
+                                     
+             <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" onclick="location.href='../Vogm/Searchogm.aspx'">Cancelar</button>
+                <asp:HiddenField runat="server" ID="id_orden" />
+                <asp:Button id="enviar" runat="server" Text="Guardar" CssClass="btn btn-primary" OnClick="InsertarResultado" />
+            </div>   
 
             </form>
             </div>
         </div>
 
-        <script type="text/javascript" src="../../Content/Generic.js"></script>
-
-    <script  type="text/javascript">
-window.onload = function () {
-    editResultado('<%=res.Fecha_procesamiento%>', '<%=res.Observaciones%>'
-           )
-};
-</script> 
 </asp:Content>

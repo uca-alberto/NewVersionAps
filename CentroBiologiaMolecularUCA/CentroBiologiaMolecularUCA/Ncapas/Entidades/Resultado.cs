@@ -17,6 +17,7 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Entidades
         private String estado;
         private String observaciones;
         private String imagen;
+        private String tipo;
         //Detalle
         private int id_analisis;
         private int resultados;
@@ -173,6 +174,19 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Entidades
             set
             {
                 resultados = value;
+            }
+        }
+
+        public string Tipo
+        {
+            get
+            {
+                return tipo;
+            }
+
+            set
+            {
+                tipo = value;
             }
         }
     }

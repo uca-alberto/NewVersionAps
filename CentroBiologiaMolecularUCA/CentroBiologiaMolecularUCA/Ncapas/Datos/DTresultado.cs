@@ -426,7 +426,7 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
             using (var connection = new SqlConnection(ConfigurationManager.ConnectionStrings["DataBase"].ConnectionString))
             {
                 connection.Open();
-                using (SqlCommand command = new SqlCommand(@"SELECT  [Id_resultado],[Estado] FROM T_Resultados where Activo=1", connection))
+                using (SqlCommand command = new SqlCommand(@"SELECT  res.Id_resultado,res.Estado,exa.Nombre FROM T_Resultados res INNER JOIN T_Orden ord ON res.Id_Orden=ord.Id_orden INNER JOIN T_Examenes exa ON exa.Id_examenes=ord.Id_examenes where res.Activo=1", connection))
                 {
                     // Make sure the command object does not already have
                     // a notification object associated with it.
@@ -444,7 +444,8 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
 
                             {
                                 Id_resultado = x.GetInt32(0),
-                                Estado = x.GetString(1)
+                                Estado = x.GetString(1),
+                                Tipo = x.GetString(2)
                             }).ToList();
 
                 }
