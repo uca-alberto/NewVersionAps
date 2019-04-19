@@ -253,7 +253,7 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
             {
                 //CONSULTA SQL
                 c = Conexion.getInstance().ConexionDB();
-                string sql = "update T_Resultados set Actividad=0 where Id_resultado=(@mid)";
+                string sql = "Delete from T_Resultados where Id_resultado=(@mid)";
 
                 //PASANDO PARÁMETROS A CONSULTA SQL
                 using (comando = new SqlCommand(sql, c))
@@ -308,8 +308,64 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
 
             return guardado;
         }
-        //Listar todos los Resultados
-        public SqlDataReader listarTodo()
+		//update estado Orden
+		public bool updateorden(Resultado re)
+		{
+			bool guardado = false;
+			try
+			{
+				//CONSULTA SQL
+				c = Conexion.getInstance().ConexionDB();
+				string sql = "UPDATE ord SET ord.Estado=1 FROM T_Orden ord INNER JOIN T_Resultados res ON res.Id_Orden=ord.Id_orden where res.Id_resultado=(@mid)";
+
+				//PASANDO PARÁMETROS A CONSULTA SQL
+				using (comando = new SqlCommand(sql, c))
+				{
+
+					comando.Parameters.AddWithValue("@mid", re.Id_resultado);
+					//VALIDANDO SI LA CONEXIÓN ESTÁ ACTIVA O CERRADA
+					if (comando.Connection.State != System.Data.ConnectionState.Closed)
+					{
+						//EJECUTANDO SENTENCIA SQL CON EXECUTENONQUERY
+						int result = comando.ExecuteNonQuery();
+						if (result < 0)
+						{
+							guardado = false;
+							Console.WriteLine("ERROR AL ELIMINAR DATOS");
+						}
+						else
+						{
+							guardado = true;
+						}
+					}
+					else
+					{
+						comando.Connection.Open();
+					}
+				}
+			}
+
+			catch (Exception)
+			{
+				comando.Connection.Close();
+				c.Close();
+				c = null;
+				throw;
+			}
+			finally
+			{
+				comando.Connection.Close();
+				c.Close();
+				c = null;
+			}
+
+			return guardado;
+		}
+
+
+
+		//Listar todos los Resultados
+		public SqlDataReader listarTodo()
         {
             c = Conexion.getInstance().ConexionDB();
             String sql = "select * from T_Resultados where Actividad = 1;";
@@ -574,25 +630,35 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
 
         public int ultimoid()
         {
-            int id = 0;
-            try
+			int valor=0;
+            string id;
+			c = Conexion.getInstance().ConexionDB();
+			try
             {
-                SqlCommand cmd = new SqlCommand("Select count(*) as Id_resultado from T_resultados", c);
+                SqlCommand cmd = new SqlCommand("SELECT MAX(Id_resultado)as Id_Resultado FROM T_Resultados", c);
                 SqlDataReader sd = cmd.ExecuteReader();
 
                 if (sd.Read())
                 {
-                    id = int.Parse(sd["Id_resultado"].ToString()) + 1;
-                }
+                    id = sd["Id_Resultado"].ToString();
+					valor = int.Parse(id);
+				}
                 sd.Close();
+				
 
             }
             catch (Exception)
             {
-                c.Close();
-
-            }
-            return id;
+				c.Close();
+				c = null;
+				throw;
+			}
+			finally
+			{
+				c.Close();
+				c = null;
+			}
+			return valor;
         }
     }
 }

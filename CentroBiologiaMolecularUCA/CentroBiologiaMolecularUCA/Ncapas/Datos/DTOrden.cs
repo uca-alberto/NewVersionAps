@@ -280,7 +280,7 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
             using (var connection = new SqlConnection(ConfigurationManager.ConnectionStrings["DataBase"].ConnectionString))
             {
                 connection.Open();
-                using (SqlCommand command = new SqlCommand(@"SELECT  [Id_orden],[Id_codigo],[Baucher],[Nombre] FROM T_Orden ord INNER JOIN T_Examenes exa ON ord.Id_examenes=exa.Id_examenes where Activo=1", connection))
+                using (SqlCommand command = new SqlCommand(@"SELECT  [Id_orden],[Id_codigo],[Baucher],[Nombre] FROM T_Orden ord INNER JOIN T_Examenes exa ON ord.Id_examenes=exa.Id_examenes where Activo=1 and ord.Estado=1", connection))
                 {
                     // Make sure the command object does not already have
                     // a notification object associated with it.

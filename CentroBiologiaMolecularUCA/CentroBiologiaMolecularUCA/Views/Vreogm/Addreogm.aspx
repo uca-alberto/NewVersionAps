@@ -106,41 +106,45 @@
            <div class="card-header">
             <strong class="card-title" >Resultado Examen</strong>
         </div>&nbsp;
-
-           <!--TABLA PARA RESULTADO DETALLE-->
-
+		            <!--TABLA PARA RESULTADO DETALLE-->
+		   <div class="row form-group">
+			   <div class="col-sm-6">
                     <div class="card-body">
-                        <table id="table" class="table table-striped table-bordered">
+                        <table id="table"class="table table-striped table-bordered" >
                             <thead>
                                 <tr>
                                     <th>Tipo de Analisis</th> 
                                 </tr>
                             </thead>
                             <tbody>  
-                                        <%
+
+                                    <%
                                     while(getregistros().Read())
                                     {
                                         %>
                                             <tr><td><%=getregistros()["analisis"] %></td>
                                         <%
-                                    }
-                                %>                                                                                                                                       
+											}
+                                %>
+                            </tr>
+								
                             </tbody>
                         </table>
                     </div>
+				   </div> 
+			   <div class="radioEspecial">
+					   <asp:RadioButtonList runat="server" ID="radio1" Visible="false" RepeatDirection="Horizontal">
+						   <asp:ListItem Value="1" Text="Positivo "></asp:ListItem>
+						   <asp:ListItem Value="0" Text="Negativo"></asp:ListItem>
+					   </asp:RadioButtonList>
+				   
+					<asp:RadioButtonList runat="server" ID="radio2" Visible="false" RepeatDirection="Horizontal">
+					   <asp:ListItem Value="1" Text="Positivo "></asp:ListItem>
+					   <asp:ListItem Value="0" Text="Negativo"></asp:ListItem>
+				   </asp:RadioButtonList>
+				   </div>
 
-           <asp:RadioButtonList runat="server" ID="radio1" Visible="false" RepeatDirection="Horizontal">
-               <asp:ListItem Value="1" Text="Positivo "></asp:ListItem>
-               <asp:ListItem Value="0" Text="Negativo"></asp:ListItem>
-           </asp:RadioButtonList>
-
-            <asp:RadioButtonList runat="server" ID="radio2" Visible="false" RepeatDirection="Horizontal">
-               <asp:ListItem Value="1" Text="Positivo "></asp:ListItem>
-               <asp:ListItem Value="0" Text="Negativo"></asp:ListItem>
-           </asp:RadioButtonList>
-
-             <!--observaciones-->                            
-                    <div class="row form-group ">
+			   </div><!--observaciones--><div class="row form-group ">
                 <div class="col col-md-3 "><label for="text-input" class=" form-control-label">Observaciones</label></div>
                 <div class="col-12 col-md-9">&nbsp;
                 <asp:Textbox ID="Mobservaciones" runat="server" TextMode="multiline" Columns="50" Rows="5" ToolTip="observaciones" CssClass="form-control" placeholder="Ingrese las observaciones"></asp:Textbox>
@@ -159,5 +163,5 @@
             </form>
             </div>
         </div>
-
+	<script src="../../Content/Global.js"></script>
 </asp:Content>

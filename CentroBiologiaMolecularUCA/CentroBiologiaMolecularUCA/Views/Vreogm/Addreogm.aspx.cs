@@ -30,11 +30,11 @@ namespace CentroBiologiaMolecularUCA.Views.Vreogm
             //Obtener el Id Orden
             String valor = Request.QueryString["id"];
             id = Convert.ToInt16(valor);
-            idresultado = NGresultado.getInstance().idresultado();
+		
 
-            //Cargar los tipos de Analisis
+			//Cargar los tipos de Analisis
 
-            Manalisis.DataSource = NGorden.getInstance().ListarAnalisisOgm();
+			Manalisis.DataSource = NGorden.getInstance().ListarAnalisisOgm();
             Manalisis.DataTextField = "analisis";
             Manalisis.DataValueField = "Id_analisis";
             Manalisis.DataBind();
@@ -178,10 +178,11 @@ namespace CentroBiologiaMolecularUCA.Views.Vreogm
                 //LLAMANDO A CAPA DE NEGOCIO
 
                 bool resp = NGresultado.getInstance().guardarresultado(res);
-
-                if (resp == true)
+				idresultado = NGresultado.getInstance().idresultado();
+				if (resp == true)
                 {
-                    guardardetalle();
+					
+					guardardetalle();
                     NGresultado.getInstance().procesarorden(res);
                     //Mostrar Notificacion
                     ClientScript.RegisterStartupScript(GetType(), "Javascript", "javascript: InsertarResultado(); ", true);

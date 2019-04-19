@@ -40,8 +40,12 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Negocio
         {
             return DTresultado.getInstance().eliminar(resultado);
         }
+		public bool Updateorden(Resultado resultado)
+		{
+			return DTresultado.getInstance().updateorden(resultado);
+		}
 
-        public bool Modificarresultado(Resultado resultado)
+		public bool Modificarresultado(Resultado resultado)
         {
             return DTresultado.getInstance().modificar(resultado);
         }

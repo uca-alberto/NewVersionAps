@@ -31,9 +31,9 @@ namespace CentroBiologiaMolecularUCA.Views.Vreogm
 
             Resultado res = new Resultado
             {
-                Id_orden = Convert.ToInt32(id)
+                Id_resultado = Convert.ToInt32(id)
             };
-
+			NGresultado.getInstance().Updateorden(res);
             resp = NGresultado.getInstance().Eliminar(res);
             return resp;
         }

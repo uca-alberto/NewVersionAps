@@ -26,7 +26,7 @@ namespace CentroBiologiaMolecularUCA.Views.Vrepat
             //Obtener el Id Orden
             String valor = Request.QueryString["id"];
             id = Convert.ToInt16(valor);
-            idresultado = NGresultado.getInstance().idresultado();
+            
 
             //Cargar los tipos de Analisis
 
@@ -174,10 +174,10 @@ namespace CentroBiologiaMolecularUCA.Views.Vrepat
                 //LLAMANDO A CAPA DE NEGOCIO
 
                 bool resp = NGresultado.getInstance().guardarresultado(res);
-
-                if (resp == true)
+				idresultado = NGresultado.getInstance().idresultado();
+				if (resp == true)
                 {
-                    guardardetalle();
+					guardardetalle();
                     NGresultado.getInstance().procesarorden(res);
                     //Mostrar Notificacion
                     ClientScript.RegisterStartupScript(GetType(), "Javascript", "javascript: InsertarResultado(); ", true);

@@ -7,7 +7,8 @@ function addRowDT(data) {
            data[i].Estado,
            data[i].Tipo,
           '<a title="ver" id="see"><i class="fa ti-eye"></i>&nbsp;'+
-           '<a title="Reporte Resultado"  id="report"><i class="ti-clipboard"></i>&nbsp;'
+           '<a title="Reporte Resultado"  id="report"><i class="ti-clipboard"></i>&nbsp;'+
+		   '<a title="Eliminar" value="Eliminarre" id="Eliminar"><i class="fa fa-trash-o"></i>&nbsp;' 
 
         ]).draw(false);
     }
@@ -33,7 +34,7 @@ function sendDataAjax() {
 function deleteDataAjax(data) {
     swal({
         title: "Esta Seguro?",
-        text: "Eliminar Resultado OGM",
+        text: "Eliminar Resultado",
         icon: "warning",
         buttons: true,
         dangerMode: true,
@@ -45,7 +46,7 @@ function deleteDataAjax(data) {
           });
           $.ajax({
               type: "POST",
-              url: "Searchreogm.aspx/EliminarCli",
+              url: "Searchreogm.aspx/EliminarOrd",
               data: obj,
               dataType: "json",
               contentType: "application/json; charset=utf-8",
@@ -87,12 +88,8 @@ $('#bootstrap-data-table tbody').on('click', '#report', function () {
 
     var redict = data[2];
     //Granos
-    if (redict == "OGM") {
+    if (redict == "OGM" || redict == "Patogeno") {
         location.href ='../../Views/Rpt/ResultadoOgm?id=' + id + ''
-    }
-    //ADN
-    if (redict == "Patogeno") {
-        location.href = '../../Views/Rpt/ResultadoOgm?id=' + id + ''
     }
 });
 //Visualizar
