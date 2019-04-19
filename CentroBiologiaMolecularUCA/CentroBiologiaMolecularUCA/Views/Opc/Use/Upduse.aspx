@@ -184,13 +184,12 @@
                         </form>
                       </div>
                     </div>
-                                                        
-  <script type="text/javascript" src="../../../Content/ListarUsuario.js"></script>
+                                                       
 
-    <script type="text/javascript" src="../../../Content/listausuario.js"></script>     
+    <script type="text/javascript" src="../../../Content/Generic.js"></script>     
 <script  type="text/javascript">
        window.onload = function () {
-            edit('<%=us.Nombre%>', '<%=us.Id_rol%>')
+       	editUsuario( '<%=us.Id_rol%>','<%=us.Nombre%>')
         };
     </script> 
 

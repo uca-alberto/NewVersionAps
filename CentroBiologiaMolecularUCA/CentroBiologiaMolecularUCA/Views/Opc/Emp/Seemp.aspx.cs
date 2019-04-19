@@ -36,11 +36,11 @@ namespace CentroBiologiaMolecularUCA.Views.OpcionesConfigurables.Emp
             //Comenzamos a recorer el sqldatareader
             if (registro.Read())
             {
-                this.emp.Cargo = this.registro["Cargo"].ToString();
                 this.emp.Cedula = this.registro["cedula"].ToString();
                 this.emp.Nombre_Empleado = this.registro["Nombre_empleado"].ToString();
                 this.emp.Apellido = this.registro["Apellido"].ToString();
-            }
+				this.emp.Cargo = this.registro["Cargo"].ToString();
+			}
 
         }
     }

@@ -42,7 +42,6 @@ namespace CentroBiologiaMolecularUCA.Views.Opc.Use
             if (registro.Read())
             {
                 us.Nombre = this.registro["Nombre_Usuario"].ToString();
-
                 us.Id_rol = Convert.ToInt32(this.registro["Id_rol"]);
                 id_empleado = Convert.ToInt32(this.registro["Id_empleado"]);
             }

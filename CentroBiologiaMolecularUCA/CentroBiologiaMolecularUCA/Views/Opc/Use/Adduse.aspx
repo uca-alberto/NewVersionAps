@@ -216,10 +216,9 @@
                       </div>
                     </div>
                             <!--Botones del Modal-->                               
-              
-                            
+             
                         
- <script type="text/javascript" src="../../../Content/ListarUsuario.js"></script>
+ <script type="text/javascript" src="../../../Content/Generic.js"></script>
 
 </asp:Content>
 

@@ -18,16 +18,6 @@ namespace CentroBiologiaMolecularUCA.Views.Opc
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            if (!IsPostBack)
-            {
-
-                Danalisis.DataSource = NGmuestra.getInstance().Listaranalisis();
-                Danalisis.DataBind();
-                
-
-            }
-
-
         }
         [WebMethod]
         public static List<Muestra> GetData()
@@ -45,14 +35,6 @@ namespace CentroBiologiaMolecularUCA.Views.Opc
             else
             {
                 muestra.muestra = Mmuestra.Text;
-            }
-            if (Danalisis.ToString() == null)//todo esto se hace para todos los campos del formulario
-            {
-                RegularExpressionValidator.GetValidationProperty(RequiredFieldValidator2);
-            }
-            else
-            {
-                muestra.Id_tipo_analisis = int.Parse(Danalisis.SelectedValue);
             }
 
             return muestra;
@@ -103,8 +85,5 @@ namespace CentroBiologiaMolecularUCA.Views.Opc
             return resp;
 
         }
-
-
-
     }
 }

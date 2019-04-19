@@ -71,13 +71,6 @@
                                  <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="Mmuestra" ErrorMessage="Datos Incorrectos" ValidationExpression="^[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]*$" ForeColor="#FF3300"></asp:RegularExpressionValidator>              
                             </div>
                           </div>
-                            <!--Tipo Analisis-->
-                            <div class="row form-group">
-                                 <div class="col col-md-3"><label for="text-input" class=" form-control-label">Tipo de Analisis</label></div>
-                                   <div class="col-12 col-md-9">
-                                <asp:DropDownList ID="Danalisis" runat="server" ToolTip="Analisis" CssClass="form-control" DataTextField="analisis" DataValueField="Id_analisis"></asp:DropDownList>
-                                  </div>
-                            </div>
                          <div class="modal-footer">
                           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                               <asp:HiddenField runat="server" ID="id_usuario" />

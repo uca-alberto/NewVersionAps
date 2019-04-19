@@ -48,7 +48,7 @@
                          <div class="modal-footer">
                               <button type="button" onclick="javascript: return history.back()" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                               <asp:HiddenField runat="server" ID="Id_Examen" />
-                              <asp:Button id="Aceptar" runat="server" Text="Editar" CssClass="btn btn-primary" OnClick="EditarFormulario"/>
+                              <asp:Button id="Aceptar" runat="server" Text="Modificar" CssClass="btn btn-primary" OnClick="EditarFormulario"/>
                           </div>
                             
                         </form>

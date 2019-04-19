@@ -68,7 +68,6 @@ namespace CentroBiologiaMolecularUCA.Views.OpcionesConfigurables.Emp
             {
                 Response.Redirect("../../Views/OpcionesConfigurables/Index.aspx");
             }
-            Mcedula.MaxLength = 16;
 
         }
 
@@ -102,13 +101,13 @@ namespace CentroBiologiaMolecularUCA.Views.OpcionesConfigurables.Emp
             {
                 emp.Cedula = Mcedula.Text;
             }
-            if (Mcargo.ToString() == null)//todo esto se hace para todos los campos del formulario
+            if (Mcargo.SelectedValue == null)//todo esto se hace para todos los campos del formulario
             {
                 RegularExpressionValidator.GetValidationProperty(RequiredFieldValidator1);
             }
             else
             {
-                emp.Cargo = Mcargo.Text;
+                emp.Cargo = Mcargo.SelectedValue;
             }
 
 

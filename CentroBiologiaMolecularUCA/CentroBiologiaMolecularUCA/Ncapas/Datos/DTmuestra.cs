@@ -54,11 +54,10 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
             {
                 //CONSULTA SQL
                 c = Conexion.getInstance().ConexionDB();
-                string sql = "insert into T_Tipo_muestra (Id_tipo_analisis,muestra,estado) values(@Tanalisis,@Muestra,1)";
+                string sql = "insert into T_Tipo_muestra (muestra,estado) values(@Muestra,1)";
                 //PASANDO PARÁMETROS A CONSULTA SQL
                 using (comando = new SqlCommand(sql, c))
                 {
-                    comando.Parameters.AddWithValue("@Tanalisis", muestra.Id_tipo_analisis);
                     comando.Parameters.AddWithValue("@Muestra", muestra.muestra);
   
                     //VALIDANDO SI LA CONEXIÓN ESTÁ ACTIVA O CERRADA
@@ -117,14 +116,13 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
             {
                 //CONSULTA SQL
                 c = Conexion.getInstance().ConexionDB();
-                string sql = "update T_Tipo_muestra set muestra=(@Muestra),Id_tipo_analisis=(@Tanalisis) where Id_tipo_muestra=(@mid)";
+                string sql = "update T_Tipo_muestra set muestra=(@Muestra) where Id_tipo_muestra=(@mid)";
                 //PASANDO PARÁMETROS A CONSULTA SQL
                 using (comando = new SqlCommand(sql, c))
                 {
                     comando.Parameters.AddWithValue("@mid", muestra.Id_muestra);
                     comando.Parameters.AddWithValue("@Muestra", muestra.muestra);
-                    comando.Parameters.AddWithValue("@Tanalisis", muestra.Id_tipo_analisis);
-
+				
                     //VALIDANDO SI LA CONEXIÓN ESTÁ ACTIVA O CERRADA
                     if (comando.Connection.State != System.Data.ConnectionState.Closed)
                     {
@@ -241,7 +239,7 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
             using (var connection = new SqlConnection(ConfigurationManager.ConnectionStrings["DataBase"].ConnectionString))
             {
                 connection.Open();
-                using (SqlCommand command = new SqlCommand(@"SELECT  [Id_tipo_muestra],[Id_tipo_analisis],[muestra] FROM T_Tipo_muestra where estado=1", connection))
+                using (SqlCommand command = new SqlCommand(@"SELECT  [Id_tipo_muestra],[muestra] FROM T_Tipo_muestra where estado=1", connection))
                 {
                     // Make sure the command object does not already have
                     // a notification object associated with it.
@@ -258,8 +256,7 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
                             .Select(x => new Muestra()
                             {
                                 Id_muestra = x.GetInt32(0),
-                                Id_tipo_analisis = x.GetInt32(1),
-                                muestra = x.GetString(2),
+                                muestra = x.GetString(1),
                                
                             }).ToList();
 
@@ -279,7 +276,7 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
         public SqlDataReader getmuestraporid(int id)
         {
             c = Conexion.getInstance().ConexionDB();
-            String sql = "select Id_tipo_muestra,Id_tipo_analisis,muestra from T_Tipo_muestra where Id_tipo_muestra='" + id + "';";
+            String sql = "select Id_tipo_muestra,muestra from T_Tipo_muestra where Id_tipo_muestra='" + id + "';";
 
             SqlCommand comando = new SqlCommand(sql, this.c);
             this.registros = comando.ExecuteReader();

@@ -12,14 +12,6 @@
                 <form id="Form1" method="post" enctype="multipart/form-data" class="form-horizontal" runat="server">
                
                      <!--Comienzo de los formulario-->
-                      <!--Cargo -->
-                  <div>
-                    <div class="col col-sm-3"><label for="email-input" class=" form-control-label">Cargo:</label></div>
-                        <asp:TextBox ID="Mcargo" runat="server" Text="" ToolTip="cargo" CssClass="form-control" ></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="Mcargo" Display="Dynamic" ErrorMessage="Este Campo es requerido" ForeColor="#FF3300"></asp:RequiredFieldValidator>
-                        <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ControlToValidate="Mcargo" ErrorMessage="Datos Incorrectos" ValidationExpression="^[a-z &amp; A-Z]*$" ForeColor="#FF3300"></asp:RegularExpressionValidator>     
-                      </div>
-
                   <!--cedula-->
 
                 <div>
@@ -46,7 +38,14 @@
                         <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="Mapellido" ErrorMessage="Datos Incorrectos" ValidationExpression="^[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]*$" ForeColor="#FF3300"></asp:RegularExpressionValidator>              
                    </div>
 
-                           
+                     <!--Cargo -->
+                    <div class="col col-sm-3"><label for="email-input" class=" form-control-label">Cargo:</label></div>
+					
+					<asp:DropDownList ID="Mcargo" runat="server" CssClass="form-control">
+						<asp:ListItem Value="Laboratorista">Laboratorista</asp:ListItem>
+						<asp:ListItem Value="Recepcionista">Recepcionista </asp:ListItem>
+						<asp:ListItem Value="Administrador">Administrador</asp:ListItem>
+					</asp:DropDownList>
             
 
                     <div class="modal-footer">
@@ -65,8 +64,7 @@
 	<script src="../../../Content/Generic.js"></script>
 <script  type="text/javascript">
 window.onload = function () {
-	editEmpleados('<%=emp.Cargo%>', '<%=emp.Cedula%>', '<%=emp.Nombre_Empleado%>', '<%=emp.Apellido%>'
-           )
+	editEmpleados( '<%=emp.Cedula%>', '<%=emp.Nombre_Empleado%>', '<%=emp.Apellido%>','<%=emp.Cargo%>')
 };
 </script> 
 

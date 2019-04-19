@@ -30,11 +30,11 @@ function editCliente(cedula, nombre, apellido, departamento, municipio, sexo, te
     document.getElementById('MainContent_Mcorreo').value = correo;
 }
 
-function editEmpleados(Cargo, Cedula, Nombre_empleado, Apellido) {
-    document.getElementById('ContentPlaceHolder1_Mcargo').value = Cargo;
-    document.getElementById('ContentPlaceHolder1_Mcedula').value = Cedula;
+function editEmpleados( Cedula, Nombre_empleado, Apellido,Cargo) {
+	document.getElementById('ContentPlaceHolder1_Mcedula').value = Cedula;
     document.getElementById('ContentPlaceHolder1_Mnombre').value = Nombre_empleado;
     document.getElementById('ContentPlaceHolder1_Mapellido').value = Apellido;
+    document.getElementById('ContentPlaceHolder1_Mcargo').value = Cargo;
 }
 
 function editMaternidad(codigo, padre, hijo, fecha, tipocaso, observaciones, boucher) {
@@ -148,8 +148,8 @@ function editResultado(fecha, observaciones) {
 }
 
 
-function editUsuario(nombre, rol) {
-    document.getElementById('MainContent_Mnombre').value = nombre;
+function editUsuario(User,nombre, rol) {
+	document.getElementById('ContentPlaceHolder1_Mnombre').value = nombre;
     document.getElementById('MainContent_Mrol1').value = rol;
 }
 var table;

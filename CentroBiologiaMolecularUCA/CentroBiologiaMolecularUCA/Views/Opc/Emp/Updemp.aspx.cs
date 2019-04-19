@@ -31,13 +31,14 @@ namespace CentroBiologiaMolecularUCA.Views.OpcionesConfigurables.Emp
             if (registro.Read()) //validamos 
             {
 
-                this.emp.Cargo = this.registro["Cargo"].ToString();
+               
                 this.emp.Cedula = this.registro["cedula"].ToString();
                 this.emp.Nombre_Empleado = this.registro["Nombre_empleado"].ToString();
                 this.emp.Apellido = this.registro["Apellido"].ToString();
-                //le seteamos los valores que obtenemos del empleado;
+				this.emp.Cargo = this.registro["Cargo"].ToString();
+				//le seteamos los valores que obtenemos del empleado;
 
-            }
+			}
 
 
         }
@@ -73,13 +74,13 @@ namespace CentroBiologiaMolecularUCA.Views.OpcionesConfigurables.Emp
             {
                 emp.Cedula = Mcedula.Text;
             }
-            if (Mcargo.ToString() == null)//todo esto se hace para todos los campos del formulario
+            if (Mcargo.SelectedValue == null)//todo esto se hace para todos los campos del formulario
             {
                 RegularExpressionValidator.GetValidationProperty(RequiredFieldValidator1);
             }
             else
             {
-                emp.Cargo = Mcargo.Text;
+                emp.Cargo = Mcargo.SelectedValue;
             }
 
 

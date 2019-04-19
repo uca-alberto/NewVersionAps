@@ -25,16 +25,11 @@ namespace CentroBiologiaMolecularUCA.Views.Opc.Mue
             String valor = Request.QueryString["id"];//obtenemos el id que le pasamos a travez de la url
             int id = int.Parse(valor);//parseamos el valorm, para obtenerlo un int;
             registro = NGmuestra.getInstance().Listarmuestraporid(id);//usamos el metodo de la clase dtcliente para buscar el cliente por el id
-            if (!IsPostBack)
-            {
-                Danalisis.DataSource = NGmuestra.getInstance().Listaranalisis();
-                Danalisis.DataBind();
-            }
+            
 
             if (registro.Read())//validamos 
             {
                 mue.Id_muestra = int.Parse(this.registro["Id_tipo_muestra"].ToString());
-                mue.Id_tipo_analisis = int.Parse(registro["Id_tipo_analisis"].ToString());
                 mue.muestra = this.registro["muestra"].ToString();
              
             }
@@ -52,14 +47,7 @@ namespace CentroBiologiaMolecularUCA.Views.Opc.Mue
             {
                 mue.muestra = Mmuestra.Text;
             }
-            if (Danalisis.ToString() == null)
-            {
-                RegularExpressionValidator.GetValidationProperty(RequiredFieldValidator2);
-            }
-            else
-            {
-                mue.Id_tipo_analisis = int.Parse(Danalisis.SelectedValue);
-            }
+
 
             return mue;
         }
@@ -71,8 +59,7 @@ namespace CentroBiologiaMolecularUCA.Views.Opc.Mue
                 bool resp = NGmuestra.getInstance().ModificarMuestra(mues);
                 if (resp == true)
                 {
-                   Response.Redirect("Searchmue.aspx");
-
+					ClientScript.RegisterStartupScript(GetType(), "Javascript", "javascript: Modificarmuestra(); ", true);
                 }
                 else
                 {
