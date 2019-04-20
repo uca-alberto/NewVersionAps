@@ -23,44 +23,25 @@ namespace CentroBiologiaMolecularUCA.Views.ViewUsuario
 
             int rol = Convert.ToInt32(rolid);
 
-            this.registro = NGUsuario.getInstance().acceso(rol);
             bool permiso = false;
-            String[] array = new String[10];
-            int index = 0;
 
-            if (rolid == "1")
+            if (rol == 1)
             {
                 permiso = true;
             }
             else
             {
-                //guardar los datos que se extraen de la BD
-                while (registro.Read())
-                {
-                    array[index] = registro["opciones"].ToString();
-                    index++;
+                permiso = NGUsuario.getInstance().acceso(rol, ubicacion);
 
-                }
-
-                for (int i = 0; i < array.Length; i++)
-                {
-
-                    if (array[i] == ubicacion)
-                    {
-                        permiso = true;
-                        break;
-                    }
-
-
-                }
             }
 
-
-
+            //Se redirecciona si no tiene permiso
             if (permiso == false)
             {
-                Response.Redirect("../../Views/Opc/Index.aspx");
+
+                ClientScript.RegisterStartupScript(GetType(), "Javascript", "javascript: Acceso(); ", true);
             }
+
 
         }
         [WebMethod]

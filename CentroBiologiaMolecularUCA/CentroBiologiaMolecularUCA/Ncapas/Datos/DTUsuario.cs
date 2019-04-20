@@ -1,4 +1,5 @@
 ﻿using CentroBiologiaMolecularUCA;
+using CentroBiologiaMolecularUCA.Ncapas.Entidades;
 using Microsoft.AspNet.SignalR.Messaging;
 using System;
 using System.Collections.Generic;
@@ -473,6 +474,40 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
                 }
             }
         }
+
+        /// Permisos
+        /// Listar los roles excepto el admin
+        public List<Usuario> GetRoles()
+        {
+            using (var connection = new SqlConnection(ConfigurationManager.ConnectionStrings["DataBase"].ConnectionString))
+            {
+                connection.Open();
+                using (SqlCommand command = new SqlCommand(@"Select Id_rol, Rol from T_Rol WHERE rol != 'Administrador'", connection))
+                {
+                    // Make sure the command object does not already have
+                    // a notification object associated with it.
+                    command.Notification = null;
+                    SqlDependency.Start(ConfigurationManager.ConnectionStrings["DataBase"].ConnectionString);
+                    SqlDependency dependency = new SqlDependency(command);
+                    dependency.OnChange += new OnChangeEventHandler(dependency_OnChange);
+
+                    if (connection.State == ConnectionState.Closed)
+                        connection.Open();
+
+                    using (var reader = command.ExecuteReader())
+                        return reader.Cast<IDataRecord>()
+                            .Select(x => new Usuario()
+
+                            {
+                                Id_rol = x.GetInt32(0),
+                                nombre_rol = x.GetString(1),
+
+                            }).ToList();
+
+                }
+            }
+        }
+
         private static void dependency_OnChange(object sender, SqlNotificationEventArgs e)
         {
             MyHub.Show();
@@ -481,20 +516,254 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
 
 
 
+        //Listar permisos que no posee
+        public SqlDataReader Permisos(int id)
+        {
+            c = Conexion.getInstance().ConexionDB();
+            string sql = "Select T_Rol_opciones.Id_rol_opciones, T_Rol_opciones.rol_opciones from T_Rol_opciones WHERE T_Rol_opciones.Id_rol = 1 AND NOT EXISTS (Select T_opciones.Id_opciones from T_Opciones Where T_Rol_opciones.Id_rol_opciones = T_opciones.Id_opciones AND T_Rol_opciones.Id_rol ='" + id + "')";
+            SqlCommand comando = new SqlCommand(sql, c);
+            SqlDataReader leer = comando.ExecuteReader();
+            return leer;
+            c.Close();
+        }
+
+        //Listar permisos que posee
+        public SqlDataReader eliminable(int id)
+        {
+            c = Conexion.getInstance().ConexionDB();
+            string sql = "Select Id_rol_opciones, rol_opciones FROM T_Rol_opciones WHERE Id_rol ='" + id + "';";
+            SqlCommand comando = new SqlCommand(sql, c);
+            SqlDataReader leer = comando.ExecuteReader();
+            return leer;
+            c.Close();
+        }
+
+        /// Permisos
+        /// Extraer la seleccion
+        public SqlDataReader opciones(int opc)
+        {
+            c = Conexion.getInstance().ConexionDB();
+            string sql = "Select * from T_Rol_opciones Where Id_rol_opciones = '" + opc + "';";
+            SqlCommand comando = new SqlCommand(sql, c);
+            SqlDataReader opcion = comando.ExecuteReader();
+            return opcion;
+            c.Close();
+        }
+
+
+        /// Permisos
+        /// Agregar permisos
+
+        public bool guardar(Permiso per)
+        {
+            bool guardado = false;
+            try
+            {
+                //CONSULTA SQL
+                c = Conexion.getInstance().ConexionDB();
+                string sql = "insert into T_Rol_opciones (Id_rol, Id_opciones, rol_opciones) VALUES(@id_rol, @id_opciones, @rol_opciones)";
+                //PASANDO PARÁMETROS A CONSULTA SQL
+                using (comando = new SqlCommand(sql, c))
+                {
+
+                    comando.Parameters.AddWithValue("@id_rol", per.Id_rol);
+                    comando.Parameters.AddWithValue("@Id_opciones", per.Id_opciones);
+                    comando.Parameters.AddWithValue("@rol_opciones", per.Rol_opciones);
+
+
+
+                    //VALIDANDO SI LA CONEXIÓN ESTÁ ACTIVA O CERRADA
+                    if (comando.Connection.State != System.Data.ConnectionState.Closed)
+                    {
+                        //EJECUTANDO SENTENCIA SQL CON EXECUTENONQUERY
+                        int result = comando.ExecuteNonQuery();
+
+                        /* 
+                         * EL BLOQUE IF SIRVE PARA HACER UNA VALIDACIÓN DEL EXECUTENONQUERY
+                         * DICHO MÉTODO DEVUELVE UN ENTERO, DONDE 0 ES QUE NO AFECTO NINGUNA FILA
+                         * SI ES MAYOR A 0 (POSITIVO)
+                         * QUIERE DECIR QUE SE GUARDARON DATOS EN LA BASE DE DATOS
+                         */
+                        if (result < 0)
+                        {
+                            guardado = false;
+                            Console.WriteLine("ERROR AL INSERTAR DATOS");
+                        }
+                        else
+                        {
+                            guardado = true;
+                        }
+                    }
+                    else
+                    {
+                        comando.Connection.Open();
+
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                comando.Connection.Close();
+                c.Close();
+                c = null;
+                throw;
+            }
+            finally
+            {
+                //LUEGO DE REALIZAR LA SENTENCIA SQL
+                //CERRAMOS LA CONEXIÓN A LA BASE DE DATOS
+                comando.Connection.Close();
+                c.Close();
+                c = null;
+            }
+
+            return guardado;
+        }
+
         List<Usuario> Igeneric<Usuario>.listarTodo()
         {
             throw new NotImplementedException();
         }
 
-        public SqlDataReader acceso(int rol)
+        /// Permisos
+        /// Eliminar permisos
+        public bool delete(Permiso per)
         {
+            bool eliminado = false;
+
+            try
+            {
+                //CONSULTA SQL
+                c = Conexion.getInstance().ConexionDB();
+                string sql = "DELETE FROM T_Rol_opciones Where Id_rol_opciones = (@mid)";
+
+
+                //PASANDO PARÁMETROS A CONSULTA SQL
+                using (comando = new SqlCommand(sql, c))
+                {
+
+                    comando.Parameters.AddWithValue("@mid", per.Id_rol_opciones);
+                    //VALIDANDO SI LA CONEXIÓN ESTÁ ACTIVA O CERRADA
+                    if (comando.Connection.State != System.Data.ConnectionState.Closed)
+                    {
+                        //EJECUTANDO SENTENCIA SQL CON EXECUTENONQUERY
+                        int result = comando.ExecuteNonQuery();
+
+                        /* 
+                         * EL BLOQUE IF SIRVE PARA HACER UNA VALIDACIÓN DEL EXECUTENONQUERY
+                         * DICHO MÉTODO DEVUELVE UN ENTERO, DONDE 0 ES QUE NO AFECTO NINGUNA FILA
+                         * SI ES MAYOR A 0 (POSITIVO)
+                         * QUIERE DECIR QUE SE GUARDARON DATOS EN LA BASE DE DATOS
+                         */
+                        if (result < 0)
+                        {
+                            eliminado = false;
+                            Console.WriteLine("ERROR AL ELIMINAR DATOS");
+                        }
+                        else
+                        {
+                            eliminado = true;
+                        }
+                    }
+                    else
+                    {
+                        comando.Connection.Open();
+
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                comando.Connection.Close();
+                c.Close();
+                c = null;
+                throw;
+            }
+            finally
+            {
+                //LUEGO DE REALIZAR LA SENTENCIA SQL
+                //CERRAMOS LA CONEXIÓN A LA BASE DE DATOS
+                comando.Connection.Close();
+                c.Close();
+                c = null;
+            }
+
+
+            return eliminado;
+        }
+
+        public bool acceso(int rol, string ubicacion)
+        {
+            bool autentico = false;
+            //Declaramos la sentencia SQL 
+            string sql = "SELECT COUNT(*) FROM T_Opciones INNER JOIN T_Rol_opciones ON T_Opciones.Id_opciones = T_Rol_opciones.Id_opciones INNER JOIN T_Rol ON T_Rol_opciones.Id_rol = T_Rol.Id_rol where T_Rol.Id_rol = @rol AND T_Opciones.Opciones = @ubicacion";
             c = Conexion.getInstance().ConexionDB();
 
-            string sql = "SELECT T_Opciones.Opciones FROM T_Opciones INNER JOIN T_Rol_opciones ON T_Opciones.Id_opciones = T_Rol_opciones.Id_opciones INNER JOIN T_Rol ON T_Rol_opciones.Id_rol = T_Rol.Id_rol where T_Rol.Id_rol = '" + rol + "';";
-            SqlCommand comando = new SqlCommand(sql, c);
-            SqlDataReader leer = comando.ExecuteReader();
-            return leer;
-            c.Close();
+            //Se utiliza Using para indicarle al compilador que este bloque se llame al metodo dispose
+
+            try
+            {
+
+                using (comando = new SqlCommand(sql, c))
+                {
+
+                    comando.Parameters.AddWithValue("@rol", rol);
+                    comando.Parameters.AddWithValue("@ubicacion", ubicacion);//QUITE EL HASH
+
+                    int count = Convert.ToInt32(comando.ExecuteScalar());
+
+
+                    if (count != 0)
+                    {
+                        autentico = true;
+                    }
+
+
+                    if (comando.Connection.State != System.Data.ConnectionState.Closed)
+                    {
+                        //EJECUTANDO SENTENCIA SQL CON EXECUTENONQUERY
+                        int result = comando.ExecuteNonQuery();
+
+                        /* 
+                         * EL BLOQUE IF SIRVE PARA HACER UNA VALIDACIÓN DEL EXECUTENONQUERY
+                         * DICHO MÉTODO DEVUELVE UN ENTERO, DONDE 0 ES QUE NO AFECTO NINGUNA FILA
+                         * SI ES MAYOR A 0 (POSITIVO)
+                         * QUIERE DECIR QUE SE GUARDARON DATOS EN LA BASE DE DATOS
+                         */
+
+
+                        if (result < 0)
+                        {
+
+                            Console.WriteLine("ERROR AL INSERTAR DATOS");
+                        }
+                        else
+                        {
+                            comando.Connection.Open();
+                        }
+                    }
+
+                }
+
+
+
+            }
+            catch
+            {
+                comando.Connection.Close();
+                c.Close();
+                c = null;
+                throw;
+            }
+            finally
+            {
+                comando.Connection.Close();
+                c.Close();
+                c = null;
+            }
+
+
+            return autentico;
         }
     }
 }

@@ -119,5 +119,21 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Negocio
         {
             return DTresultado.getInstance().cargardatosadnporid(id);
         }
+
+        //Aprobar
+        public List<Resultado> getDatos()
+        {
+            return DTresultado.getInstance().GetDatos();
+        }
+
+        public bool Aprobar(Resultado re)
+        {
+            return DTresultado.getInstance().Aprobar(re);
+        }
+
+        public bool Anular(Resultado re)
+        {
+            return DTresultado.getInstance().Anular(re);
+        }
     }
 }

@@ -21,6 +21,8 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Entidades
         //Detalle
         private int id_analisis;
         private int resultados;
+        private string id_codigo;
+        private string examen;
 
         public int Id_resultado
         {
@@ -187,6 +189,30 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Entidades
             set
             {
                 tipo = value;
+            }
+        }
+
+        public string Id_codigo
+        {
+            get
+            {
+                return id_codigo;
+            }
+            set
+            {
+                id_codigo = value;
+            }
+        }
+
+        public string Examen
+        {
+            get
+            {
+                return examen;
+            }
+            set
+            {
+                examen = value;
             }
         }
     }

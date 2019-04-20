@@ -50,7 +50,8 @@
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="ti-user"></i><a href="../../../Views/Opc/Use/Adduse.aspx">Crear Usuario</a></li>
                             <li><i class="ti-search"></i><a href="../../../Views/Opc/Use/Searchuse.aspx">Buscar Usuario</a></li>
-
+                            
+                            <li><i class="ti-search"></i><a href="../../../Views/Opc/Use/Rolesuse.aspx">Administrar Roles</a></li>
                                 
                         </ul>
                     </li>

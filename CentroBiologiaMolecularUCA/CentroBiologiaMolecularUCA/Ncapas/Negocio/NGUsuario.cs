@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using CentroBiologiaMolecularUCA.Ncapas.Entidades;
+using System.Collections.Generic;
 using System.Data.SqlClient;
 using WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos;
 using WebSistemaCentroBiologiaMolecularUCA.Ncapas.Entidades;
@@ -47,16 +48,11 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Negocio
         }
 
 
-        public SqlDataReader acceso(int rol)
+        public bool acceso(int rol, string ubicacion)
         {
-            return DTUsuario.getInstance().acceso(rol);
+            return DTUsuario.getInstance().acceso(rol, ubicacion);
         }
-        /*
-        public SqlDataReader lista()
-        {
-            return DTUsuario.getInstance().lista();
-        }
-        */
+
         public SqlDataReader ListarEmpleados()
         {
             return DTUsuario.getInstance().ListarEmpleados();
@@ -77,17 +73,18 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Negocio
             return DTrol.getInstance().listarRol();
         }
 
-      /*  public SqlDataReader listarPermisos(int id)
+        public SqlDataReader listarPermisos(int id)
         {
-           /return DTUsuario.getInstance().listaPermisos(id);
+           return DTUsuario.getInstance().Permisos(id);
         }
 
-        public SqlDataReader permisos()
+        public SqlDataReader permisosUsuario(int id)
         {
-            return DTUsuario.getInstance().Permisos();
+            return DTUsuario.getInstance().eliminable(id);
         }
 
-        public SqlDataReader opciones(string opc)
+
+        public SqlDataReader opciones(int opc)
         {
             return DTUsuario.getInstance().opciones(opc);
         }
@@ -101,6 +98,6 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Negocio
         public bool delete(Permiso pers)
         {
             return DTUsuario.getInstance().delete(pers);
-        }*/
+        }
     }
 }

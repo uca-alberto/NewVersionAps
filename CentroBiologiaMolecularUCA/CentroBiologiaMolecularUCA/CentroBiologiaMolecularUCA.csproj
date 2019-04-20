@@ -1753,11 +1753,13 @@
     <Content Include="Site.Master" />
     <Content Include="TablesJS\new.js" />
     <Content Include="TablesJS\TableAdnMulti.js" />
+    <Content Include="TablesJS\TableAprobar.js" />
     <Content Include="TablesJS\TableCliente.js" />
     <Content Include="TablesJS\TableEmpleado.js" />
     <Content Include="TablesJS\TableMuestra.js" />
     <Content Include="TablesJS\TableOrden.js" />
     <Content Include="TablesJS\TableResultadoOgm.js" />
+    <Content Include="TablesJS\TableRol.js" />
     <Content Include="TablesJS\TableUsuario.js" />
     <Content Include="Views\Opc\Exa\Searchexa.aspx" />
     <Content Include="Views\Opc\Exa\Updexa.aspx" />
@@ -1770,6 +1772,7 @@
     <Content Include="Views\Opc\Mue\Searchmue.aspx" />
     <Content Include="Views\Opc\Mue\Updmue.aspx" />
     <Content Include="Views\Opc\Use\Peruser.aspx" />
+    <Content Include="Views\Opc\Use\Rolesuse.aspx" />
     <Content Include="Views\Opc\Use\Seeuse.aspx" />
     <Content Include="Views\Opc\Use\Upduse.aspx" />
     <Content Include="Views\Rpt\Recibo.aspx" />
@@ -1809,6 +1812,7 @@
     <Content Include="Views\Vreadn\addreadn.aspx" />
     <Content Include="Views\Vreadn\Seereadn.aspx" />
     <Content Include="Views\Vreogm\Addreogm.aspx" />
+    <Content Include="Views\Vreogm\Aprreall.aspx" />
     <Content Include="Views\Vreogm\Searchreogm.aspx" />
     <Content Include="Views\Vreogm\Seereogm.aspx" />
     <Content Include="Views\Vrepat\Addrepat.aspx" />
@@ -1860,6 +1864,7 @@
     <Compile Include="Ncapas\Entidades\Muestra.cs" />
     <Compile Include="Ncapas\Entidades\Municipio.cs" />
     <Compile Include="Ncapas\Entidades\Orden.cs" />
+    <Compile Include="Ncapas\Entidades\Permiso.cs" />
     <Compile Include="Ncapas\Entidades\Resultado.cs" />
     <Compile Include="Ncapas\Entidades\Usuario.cs" />
     <Compile Include="Ncapas\Negocio\NGAdnPaternidad.cs" />
@@ -1956,6 +1961,13 @@
     </Compile>
     <Compile Include="Views\Opc\Use\Peruser.aspx.designer.cs">
       <DependentUpon>Peruser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Opc\Use\Rolesuse.aspx.cs">
+      <DependentUpon>Rolesuse.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Opc\Use\Rolesuse.aspx.designer.cs">
+      <DependentUpon>Rolesuse.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Opc\Use\Seeuse.aspx.cs">
       <DependentUpon>Seeuse.aspx</DependentUpon>
@@ -2241,6 +2253,13 @@
     </Compile>
     <Compile Include="Views\Vreogm\Addreogm.aspx.designer.cs">
       <DependentUpon>Addreogm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Vreogm\Aprreall.aspx.cs">
+      <DependentUpon>Aprreall.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Vreogm\Aprreall.aspx.designer.cs">
+      <DependentUpon>Aprreall.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Vreogm\Searchreogm.aspx.cs">
       <DependentUpon>Searchreogm.aspx</DependentUpon>

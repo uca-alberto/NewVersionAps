@@ -23,54 +23,31 @@ namespace CentroBiologiaMolecularUCA.Views.ViewCliente
 			
 			
 			Mtelefono.MaxLength = 8;
-			this.dtusuario = new DTUsuario();
-			String rolid = (string)Session["Id_rol"];
-			string ubicacion = HttpContext.Current.Request.Url.AbsolutePath;
+            String rolid = (string)Session["Id_rol"];
+            string ubicacion = HttpContext.Current.Request.Url.AbsolutePath;
 
-			int rol = Convert.ToInt32(rolid);
+            int rol = Convert.ToInt32(rolid);
 
-			this.registro = dtusuario.acceso(rol);
-			bool permiso = false;
-			String[] array = new String[10];
-			int index = 0;
+            bool permiso = false;
 
-			//Si es admin tiene acceso
-			if (rol == 1)
-			{
-				permiso = true;
-			}
-			else
-			{
-				//guardar los datos que se extraen de la BD
-				while (registro.Read())
-				{
-					array[index] = registro["opciones"].ToString();
-					index++;
+            if (rol == 1)
+            {
+                permiso = true;
+            }
+            else
+            {
+                permiso = NGUsuario.getInstance().acceso(rol, ubicacion);
 
-				}
+            }
 
-				for (int i = 0; i < array.Length; i++)
-				{
+            //Se redirecciona si no tiene permiso
+            if (permiso == false)
+            {
 
-					if (array[i] == ubicacion)
-					{
-						permiso = true;
-						break;
-					}
+                ClientScript.RegisterStartupScript(GetType(), "Javascript", "javascript: Acceso(); ", true);
+            }
 
-
-				}
-			}
-
-
-			//Se redirecciona si no tiene permiso
-			if (permiso == false)
-			{
-
-				ClientScript.RegisterStartupScript(GetType(), "Javascript", "javascript: Acceso(); ", true);
-			}
-
-			Mcedula.MaxLength = 16;
+            Mcedula.MaxLength = 16;
 			if (!IsPostBack)
 			{
 				//en esta parte se carga el dropdownlist

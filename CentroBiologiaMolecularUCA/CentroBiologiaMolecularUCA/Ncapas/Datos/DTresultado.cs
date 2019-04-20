@@ -482,7 +482,7 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
             using (var connection = new SqlConnection(ConfigurationManager.ConnectionStrings["DataBase"].ConnectionString))
             {
                 connection.Open();
-                using (SqlCommand command = new SqlCommand(@"SELECT  res.Id_resultado,res.Estado,exa.Nombre FROM T_Resultados res INNER JOIN T_Orden ord ON res.Id_Orden=ord.Id_orden INNER JOIN T_Examenes exa ON exa.Id_examenes=ord.Id_examenes where res.Activo=1", connection))
+                using (SqlCommand command = new SqlCommand(@"SELECT  res.Id_resultado,res.Estado,exa.Nombre FROM T_Resultados res INNER JOIN T_Orden ord ON res.Id_Orden=ord.Id_orden INNER JOIN T_Examenes exa ON exa.Id_examenes=ord.Id_examenes where res.Activo=1 AND res.Estado = 'Aprobada'", connection))
                 {
                     // Make sure the command object does not already have
                     // a notification object associated with it.
@@ -508,6 +508,38 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
             }
         }
 
+        public List<Resultado> GetDatos()
+        {
+            using (var connection = new SqlConnection(ConfigurationManager.ConnectionStrings["DataBase"].ConnectionString))
+            {
+                connection.Open();
+                using (SqlCommand command = new SqlCommand(@"SELECT  [Id_resultado],[Id_codigo], [Nombre], re.Estado FROM T_Resultados re INNER JOIN T_Orden ord ON re.Id_orden = ord.Id_orden INNER JOIN T_Examenes exa ON ord.Id_examenes=exa.Id_examenes where re.Activo=1 AND re.Estado = 'Procesada'", connection))
+                {
+                    // Make sure the command object does not already have
+                    // a notification object associated with it.
+                    command.Notification = null;
+                    SqlDependency.Start(ConfigurationManager.ConnectionStrings["DataBase"].ConnectionString);
+                    SqlDependency dependency = new SqlDependency(command);
+                    dependency.OnChange += new OnChangeEventHandler(dependency_OnChange);
+
+                    if (connection.State == ConnectionState.Closed)
+                        connection.Open();
+
+                    using (var reader = command.ExecuteReader())
+                        return reader.Cast<IDataRecord>()
+                            .Select(x => new Resultado()
+
+                            {
+                                Id_resultado = x.GetInt32(0),
+                                Id_codigo = x.GetString(1),
+                                Examen = x.GetString(2),
+                                Estado = x.GetString(3)
+                            }).ToList();
+
+                }
+            }
+        }
+
         private static void dependency_OnChange(object sender, SqlNotificationEventArgs e)
         {
             MyHub.Show();
@@ -517,6 +549,133 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
         List<Resultado> Igeneric<Resultado>.listarTodo()
         {
             throw new NotImplementedException();
+        }
+
+        public bool Aprobar(Resultado re)
+        {
+            bool guardado = false;
+            try
+            {
+                //CONSULTA SQL
+                c = Conexion.getInstance().ConexionDB();
+                string sql = "update T_Resultados set Estado='Aprobada', Usuario_valida = (@mus) where Id_resultado=(@mid)";
+
+                //PASANDO PARÁMETROS A CONSULTA SQL
+                using (comando = new SqlCommand(sql, c))
+                {
+
+                    comando.Parameters.AddWithValue("@mid", re.Id_resultado);
+                    comando.Parameters.AddWithValue("@mus", re.Usuario_valida);
+                    //VALIDANDO SI LA CONEXIÓN ESTÁ ACTIVA O CERRADA
+                    if (comando.Connection.State != System.Data.ConnectionState.Closed)
+                    {
+                        //EJECUTANDO SENTENCIA SQL CON EXECUTENONQUERY
+                        int result = comando.ExecuteNonQuery();
+
+                        /* 
+                         * EL BLOQUE IF SIRVE PARA HACER UNA VALIDACIÓN DEL EXECUTENONQUERY
+                         * DICHO MÉTODO DEVUELVE UN ENTERO, DONDE 0 ES QUE NO AFECTO NINGUNA FILA
+                         * SI ES MAYOR A 0 (POSITIVO)
+                         * QUIERE DECIR QUE SE GUARDARON DATOS EN LA BASE DE DATOS
+                         */
+                        if (result < 0)
+                        {
+                            guardado = false;
+                            Console.WriteLine("ERROR AL ELIMINAR DATOS");
+                        }
+                        else
+                        {
+                            guardado = true;
+                        }
+                    }
+                    else
+                    {
+                        comando.Connection.Open();
+
+                    }
+                }
+            }
+
+            catch (Exception)
+            {
+                comando.Connection.Close();
+                c.Close();
+                c = null;
+                throw;
+            }
+            finally
+            {
+                //LUEGO DE REALIZAR LA SENTENCIA SQL
+                //CERRAMOS LA CONEXIÓN A LA BASE DE DATOS
+                comando.Connection.Close();
+                c.Close();
+                c = null;
+            }
+
+            return guardado;
+        }
+
+        public bool Anular(Resultado re)
+        {
+            bool guardado = false;
+            try
+            {
+                //CONSULTA SQL
+                c = Conexion.getInstance().ConexionDB();
+                string sql = "update T_Resultados set Estado='Anulada' where Id_resultado=(@mid)";
+
+                //PASANDO PARÁMETROS A CONSULTA SQL
+                using (comando = new SqlCommand(sql, c))
+                {
+
+                    comando.Parameters.AddWithValue("@mid", re.Id_resultado);
+                    //VALIDANDO SI LA CONEXIÓN ESTÁ ACTIVA O CERRADA
+                    if (comando.Connection.State != System.Data.ConnectionState.Closed)
+                    {
+                        //EJECUTANDO SENTENCIA SQL CON EXECUTENONQUERY
+                        int result = comando.ExecuteNonQuery();
+
+                        /* 
+                         * EL BLOQUE IF SIRVE PARA HACER UNA VALIDACIÓN DEL EXECUTENONQUERY
+                         * DICHO MÉTODO DEVUELVE UN ENTERO, DONDE 0 ES QUE NO AFECTO NINGUNA FILA
+                         * SI ES MAYOR A 0 (POSITIVO)
+                         * QUIERE DECIR QUE SE GUARDARON DATOS EN LA BASE DE DATOS
+                         */
+                        if (result < 0)
+                        {
+                            guardado = false;
+                            Console.WriteLine("ERROR AL ELIMINAR DATOS");
+                        }
+                        else
+                        {
+                            guardado = true;
+                        }
+                    }
+                    else
+                    {
+                        comando.Connection.Open();
+
+                    }
+                }
+            }
+
+            catch (Exception)
+            {
+                comando.Connection.Close();
+                c.Close();
+                c = null;
+                throw;
+            }
+            finally
+            {
+                //LUEGO DE REALIZAR LA SENTENCIA SQL
+                //CERRAMOS LA CONEXIÓN A LA BASE DE DATOS
+                comando.Connection.Close();
+                c.Close();
+                c = null;
+            }
+
+            return guardado;
         }
 
         public bool creardetalle(Resultado e)

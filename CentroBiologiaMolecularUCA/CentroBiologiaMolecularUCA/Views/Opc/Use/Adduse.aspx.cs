@@ -24,61 +24,36 @@ namespace CentroBiologiaMolecularUCA.Views.ViewUsuario
 
         protected void Page_Load(object sender, EventArgs e)
         {
-           
-           
-            
             String rolid = (string)Session["Id_rol"];
             string ubicacion = HttpContext.Current.Request.Url.AbsolutePath;
 
             int rol = Convert.ToInt32(rolid);
 
-            this.registro = NGUsuario.getInstance().acceso(rol);
             bool permiso = false;
-            String[] array = new String[10];
-            int index = 0;
 
-            if (rolid == "1")
+            if (rol == 1)
             {
                 permiso = true;
             }
             else
             {
-                //guardar los datos que se extraen de la BD
-                while (registro.Read())
-                {
-                    array[index] = registro["opciones"].ToString();
-                    index++;
+                permiso = NGUsuario.getInstance().acceso(rol, ubicacion);
 
-                }
-
-                for (int i = 0; i < array.Length; i++)
-                {
-
-                    if (array[i] == ubicacion)
-                    {
-                        permiso = true;
-                        break;
-                    }
-
-
-                }
             }
 
-            
-
-
+            //Se redirecciona si no tiene permiso
             if (permiso == false)
             {
+
                 ClientScript.RegisterStartupScript(GetType(), "Javascript", "javascript: Acceso(); ", true);
             }
-
             /*if(dtusuario.Sicrear() >= dtusuario.SicrearE())
-            {
-                ClientScript.RegisterStartupScript(GetType(), "Javascript", "javascript: Emleado(); ", true);
+                       {
+                           ClientScript.RegisterStartupScript(GetType(), "Javascript", "javascript: Emleado(); ", true);
 
-            }*/
+                       }*/
 
-            
+
             this.empleado = NGUsuario.getInstance().ListarEmpleados();
             ;
             this.conexion = new Conexion();
