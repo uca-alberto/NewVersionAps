@@ -116,7 +116,7 @@
 
                      <div class="modal-footer">
                        <asp:HiddenField runat="server" ID="Id_orden" />
-                      <a class="btn btn-outline-success btn-lg btn-block" href="../../Views/ViewOrdenMaria/BuscarMultiAdnOrden.aspx">Regresar</a>  
+                      <a class="btn btn-outline-success btn-lg btn-block" href="../../Views/Vogm/Searchogm.aspx">Regresar</a>  
                 </div> 
 
 

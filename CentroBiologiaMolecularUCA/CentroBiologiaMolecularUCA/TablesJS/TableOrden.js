@@ -76,7 +76,7 @@ function deleteDataAjax(data) {
           swal("Orden Eliminada Correctamente", {
               icon: "success",
           });
-          location.href = "BuscarOrden.aspx"
+          location.href = "Searchogm.aspx"
       }
   });
 }

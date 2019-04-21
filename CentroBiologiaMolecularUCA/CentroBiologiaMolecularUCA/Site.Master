@@ -64,23 +64,11 @@
                     <!--/Segundo Menu, seccion de ordenes y resultados-->
                     <h3 class="menu-title">Control de Servicios</h3><!-- /Titulo del Menu -->
                     <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-list-ol"></i>Ordenes</a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-list-ol"></i>Crear Orden</a>
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="menu-icon fa fa-plus-circle"></i><a href="../../Views/Vogm/Addogm.aspx">Crear Orden</a></li>
                             <li><i class="menu-icon fa fa-plus-circle"></i><a href="../../Views/Vpat/Addpat.aspx">Crear Patogeno</a></li>
-                              <li><i class="ti-search"></i><a href="../../Views/Vogm/Searchogm">Buscar Orden</a></li>
-                            
-
-                            
-                        </ul>
-                    </li>
-                    <!--/Segundo Menu, seccion de ordenes-->
-                    <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-area-chart"></i>Orden ADN</a>
-                        
-						<ul class="sub-menu children dropdown-menu">
-                             <li><i class="ti-search"></i><a href="../../Views/ViewOrdenMaria/BuscarMultiAdnOrden.aspx">Buscar Orden</a></li>
-							 <li><i class="menu-icon fa fa-plus-circle"></i><a href="../../Views/Vpap/Addpap.aspx">Orden Papiloma </a></li>
+                        <li><i class="menu-icon fa fa-plus-circle"></i><a href="../../Views/Vpap/Addpap.aspx">Orden Papiloma </a></li>
                              <li><i class="menu-icon fa fa-plus-circle"></i><a href="../../Views/Valz/Addalz">Orden Alzheimer</a></li>
                              <li><i class="menu-icon fa fa-plus-circle"></i><a href="#">Orden ADN</a></li>
 							
@@ -89,6 +77,15 @@
                      <li><i class="menu-icon fa fa-dot-circle-o"></i><a href="../../Views/ViewOrdenMaria/AgregarOrdenAdnMulti.aspx">Paternidad</a></li>
                      <li><i class="menu-icon fa fa-dot-circle-o"></i><a href="../../Views/ViewOrdenMaria/AgregarOrdenAdnMulti.aspx">Abuelidad</a></li>
 					 </ul>
+						</ul>
+    
+                    </li>
+                    <!--/Segundo Menu, seccion de ordenes-->
+                    <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-area-chart"></i>Buscar Orden</a>
+                        
+						<ul class="sub-menu children dropdown-menu">
+                            <li><i class="ti-search"></i><a href="../../Views/Vogm/Searchogm">Buscar Orden</a></li>
 						</ul>
                     </li>
 
@@ -192,14 +189,6 @@
     <script src="/assets/js/lib/data-table/dataTables.bootstrap.min.js"></script>
     <script src="/assets/js/lib/data-table/datatables-init.js"></script>
 	<script type="text/javascript" src="/crystalreportviewers13/js/crviewer/crv.js"></script>
-   
-<%--                <!--Script para JqueryUi Datepicker-->
-  <link rel="stylesheet" href="../../assets/css/jquery-ui.css">
-  <script src="../../js/jquery.js"></script>
-  <script src="../../js/jquery-ui.min.js"></script>
-  <script src="../../js/datepicker-es.js"></script>
-         <asp:ContentPlaceHolder ID="head" runat="server">
-            </asp:ContentPlaceHolder>--%>
 
 </body>
 </html>

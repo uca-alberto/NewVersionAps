@@ -10,7 +10,7 @@
             })
           .then((willDelete) => {
               if (willDelete) {
-                  location.href = "../../Views/ViewOrdenMaria/BuscarMultiAdnOrden.aspx";
+                  location.href = "../../Views/Vogm/Searchogm.aspx";
               } 
           });
         }
@@ -210,7 +210,7 @@
                  <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                 <asp:HiddenField runat="server" ID="HiddenField3" />
-                <asp:Button id="insertarordenpapiloma" runat="server" Text="enviar" CssClass="btn btn-primary" OnClick="insertarordenpapiloma_Click"/>
+                <asp:Button id="insertarordenpapiloma" runat="server" Text="Guardar" CssClass="btn btn-primary" OnClick="insertarordenpapiloma_Click"/>
             </div>
 		   </div>
 		</div>
