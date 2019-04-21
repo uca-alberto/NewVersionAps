@@ -124,6 +124,7 @@ namespace CentroBiologiaMolecularUCA.Views.Vreadn
 
                             if (resp == true)
                             {
+                                NGresultado.getInstance().procesarorden(res);
                                 ClientScript.RegisterStartupScript(GetType(), "Javascript", "javascript: InsertarCliente(); ", true);
                             }
                         }

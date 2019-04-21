@@ -139,7 +139,7 @@ namespace CentroBiologiaMolecularUCA.Views.Vreogm
             //Obtener el usuario actual
             String userprocesa = (string)Session["Id_usuario"];
             res.Usuario_procesa = userprocesa;
-
+            res.Validacion = "0";
             //estado para mientras
             res.Estado = "Procesada";
             return res;

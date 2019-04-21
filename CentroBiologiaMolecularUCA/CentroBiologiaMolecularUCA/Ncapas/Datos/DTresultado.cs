@@ -47,7 +47,7 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
                 //CONSULTA SQL
                 c = Conexion.getInstance().ConexionDB();
 
-                string sql = "insert into T_Resultados (Id_Orden,Validacion,Fecha_procesamiento,Hora,Usuario_valida,Usuario_procesa,Estado,Observaciones,imagen,Activo) VALUES(@idorden,NULL,@Mfecha,@Mhora,NULL,@Musuarioprocesa,@Mestado,@Mobservaciones,NULL,1)";
+                string sql = "insert into T_Resultados (Id_Orden,Validacion,Fecha_procesamiento,Hora,Usuario_valida,Usuario_procesa,Estado,Observaciones,imagen,Activo) VALUES(@idorden,@parametro,@Mfecha,@Mhora,NULL,@Musuarioprocesa,@Mestado,@Mobservaciones,NULL,1)";
                 //PASANDO PARÁMETROS A CONSULTA SQL
                 using (comando = new SqlCommand(sql, c))
                 {
@@ -58,7 +58,7 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
                     comando.Parameters.AddWithValue("@Musuarioprocesa", e.Usuario_procesa);
                     comando.Parameters.AddWithValue("@Mestado", e.Estado);
                     comando.Parameters.AddWithValue("@Mobservaciones", e.Observaciones);
-
+                    comando.Parameters.AddWithValue("@parametro", e.Validacion);
                     //VALIDANDO SI LA CONEXIÓN ESTÁ ACTIVA O CERRADA
                     if (comando.Connection.State != System.Data.ConnectionState.Closed)
                     {
@@ -399,6 +399,28 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
             return this.registros;
             c.Close();
         }
+        //Obtener data Ver Resultado Alzhaimer
+        public SqlDataReader datosrealzhaimer(int id)
+        {
+            c = Conexion.getInstance().ConexionDB();
+            String sql = "SELECT ord.Id_codigo,ord.Fecha,CONCAT(cli.Nombre,' ',cli.Apellido) AS Cliente FROM T_Orden ord INNER JOIN T_Clientes cli ON cli.Id_cliente=ord.Id_cliente where Id_orden='" + id + "';";
+
+            SqlCommand comando = new SqlCommand(sql, this.c);
+            this.registros = comando.ExecuteReader();
+            return this.registros;
+            c.Close();
+        }
+        public SqlDataReader seerealzhaimer(int id)
+        {
+            c = Conexion.getInstance().ConexionDB();
+            String sql = "SELECT ord.Id_codigo,res.Fecha_procesamiento,res.Hora,ord.Fecha as fecha_muestra,res.Observaciones,CONCAT(emp.Nombre_empleado,' ',emp.Apellido) AS Investigador,CONCAT(cli.Nombre,' ',cli.Apellido) AS Nombre_Cliente,par.Nombre FROM T_Resultados res INNER JOIN T_Orden ord ON res.Id_Orden=ord.Id_orden INNER JOIN T_Parametros par ON par.Id_parametros=res.Validacion INNER JOIN T_Usuario usu ON usu.Id_usuario=res.Usuario_procesa INNER JOIN T_Empleados emp ON usu.Id_empleado=emp.Id_empleado INNER JOIN T_Clientes cli ON cli.Id_cliente=ord.Id_cliente where res.Id_resultado='" + id + "';";
+
+            SqlCommand comando = new SqlCommand(sql, this.c);
+            this.registros = comando.ExecuteReader();
+            return this.registros;
+            c.Close();
+        }
+
         //Obtener data para generar el resultado 
         public SqlDataReader verdatosresultados(int id)
         {

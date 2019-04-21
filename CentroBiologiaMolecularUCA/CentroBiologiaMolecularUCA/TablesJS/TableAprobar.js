@@ -125,3 +125,24 @@ $(document).on('click', '#Anular', function (e) {
 
 //LLAMANDO A LA FUNCION AJAX AL CARGAR DOCUMENTO
 sendDataAjax();
+
+//Visualizar
+$('#bootstrap-data-table tbody').on('click', '#ver', function () {
+    var table = $('#bootstrap-data-table').DataTable();
+    var data = table.row($(this).parents("tr")).data();
+    var id = data[0];
+
+    var redict = data[2];
+    //Granos
+    if (redict == "OGM") {
+        location.href = '../../Views/Vreogm/seereogm?id=' + id + ''
+    }
+    //Patogeno
+    if (redict == "Patogeno") {
+        location.href = '../../Views/Vrepat/Seerepat?id=' + id + ''
+    }
+    //Alzhaimer
+    if (redict == "Alzhaimer") {
+        location.href = '../../Views/Vrealz/Seerealz?id=' + id + ''
+    }
+});

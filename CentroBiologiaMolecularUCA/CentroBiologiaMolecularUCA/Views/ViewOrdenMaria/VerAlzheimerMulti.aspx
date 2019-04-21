@@ -8,9 +8,9 @@
                 <form id="Form1" method="post" enctype="multipart/form-data" class="form-horizontal" runat="server">
                   <!--codigo de alzheimer-->  
                         <div class="row form-group ">
-                <div class="col col-md-3 "><label for="text-input" class=" form-control-label">Código de ordenr</label></div>
+                <div class="col col-md-3 "><label for="text-input" class=" form-control-label">Código de orden</label></div>
                 <div class="col-12 col-md-9">&nbsp;
-                <asp:TextBox ID="Mcodigoalzheimer" runat="server" ReadOnly="true"  Text="" ToolTip="codigodelamadre" CssClass="form-control"></asp:TextBox>
+                <asp:TextBox ID="Mcodigoalzheimer" runat="server" ReadOnly="true"  Text="" ToolTip="codigo de la madre" CssClass="form-control"></asp:TextBox>
                       
                     </div>
                 </div>
@@ -43,7 +43,7 @@
                           <div class="col col-md-3 "><label for="text-input" class=" form-control-label">Fecha</label></div>
                 <div class="col-12 col-md-9">&nbsp; 
                     
-                      <asp:Textbox ID="Mfechaalzheimer" runat="server" ToolTip="fecha" placeholder="dd/mm/yyyy"></asp:Textbox>
+                      <asp:Textbox ID="Mfechaalzheimer" runat="server" CssClass="form-control" ToolTip="fecha" placeholder="dd/mm/yyyy"></asp:Textbox>
                     
                        
                      </div>
@@ -104,10 +104,10 @@
             </div>
          </div>  
 
-      <script type="text/javascript" src="../../Content/ListaAlzheimer.js"></script>
+      <script type="text/javascript" src="../../Content/Generic.js"></script>
     <script  type="text/javascript">
  window.onload = function () {
-    edit( '<%=ord.Id_codigo%>', '<%=ord.Nombre_pareja%>','<%=ord.Nombre_menor%>','<%=ord.Fecha%>','<%=ord.Tipo_Caso%>','<%=ord.Observaciones%>','<%=ord.Baucher%>'
+     editAlzheimer('<%=ord.Id_codigo%>', '<%=ord.Nombre_pareja%>', '<%=ord.Nombre_menor%>', '<%=ord.Fecha%>', '<%=ord.Tipo_Caso%>', '<%=ord.Observaciones%>', '<%=ord.Baucher%>'
            )
 };
 </script> 

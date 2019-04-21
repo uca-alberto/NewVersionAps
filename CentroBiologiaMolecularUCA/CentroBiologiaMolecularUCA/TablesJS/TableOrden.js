@@ -118,6 +118,10 @@ $('#bootstrap-data-table tbody').on('click', '#generar', function () {
     if (redict == "Paternidad") {
         location.href = '../../Views/Vreadn/addreadn?id=' + id + ''
     }
+    //Alzhaimer
+    if (redict == "Alzhaimer") {
+        location.href = '../../Views/Vrealz/Addrealz?id=' + id + ''
+    }
 });
 
 //Probando el Visualizar

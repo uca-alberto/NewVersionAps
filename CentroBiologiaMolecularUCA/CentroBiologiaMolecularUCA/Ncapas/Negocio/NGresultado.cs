@@ -55,6 +55,10 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Negocio
         {
             return DTresultado.getInstance().cargardatosporid(id);
         }
+        public SqlDataReader datosResultadosAlz(int id)
+        {
+            return DTresultado.getInstance().datosrealzhaimer(id);
+        }
         //Datos Agregar Resultado
         public SqlDataReader verResultados(int id)
         {
@@ -135,5 +139,17 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Negocio
         {
             return DTresultado.getInstance().Anular(re);
         }
+
+        //ALZHAIMER parametros
+        public SqlDataReader listarParametros()
+        {
+            return DTparametros.getInstance().listarparametros();
+        }
+        public SqlDataReader veralzhaimer(int id)
+        {
+            return DTresultado.getInstance().seerealzhaimer(id);
+        }
+
+
     }
 }

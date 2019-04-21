@@ -520,7 +520,7 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
         public SqlDataReader Permisos(int id)
         {
             c = Conexion.getInstance().ConexionDB();
-            string sql = "Select T_Rol_opciones.Id_rol_opciones, T_Rol_opciones.rol_opciones from T_Rol_opciones WHERE T_Rol_opciones.Id_rol = 1 AND NOT EXISTS (Select T_opciones.Id_opciones from T_Opciones Where T_Rol_opciones.Id_rol_opciones = T_opciones.Id_opciones AND T_Rol_opciones.Id_rol ='" + id + "')";
+            string sql = "Select [Id_opciones], [rol_opciones] From T_Rol_Opciones Where Id_rol = 1 EXCEPT SELECT [Id_opciones], [rol_opciones] From T_Rol_Opciones Where Id_rol ='" + id + "')";
             SqlCommand comando = new SqlCommand(sql, c);
             SqlDataReader leer = comando.ExecuteReader();
             return leer;

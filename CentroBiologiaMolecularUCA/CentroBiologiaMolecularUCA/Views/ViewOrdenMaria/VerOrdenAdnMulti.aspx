@@ -95,10 +95,10 @@
             </div>
          </div>  
 
-    <script type="text/javascript" src="../../Content/ListaOrdenAdn.js"></script>
+    <script type="text/javascript" src="../../Content/Generic.js"></script>
     <script  type="text/javascript">
  window.onload = function () {
-    edit( '<%=ord.Id_codigo%>', '<%=ord.Nombre_pareja%>','<%=ord.Nombre_menor%>','<%=ord.Fecha%>','<%=ord.Tipo_Caso%>','<%=ord.Observaciones%>','<%=ord.Baucher%>'
+     editOrdenAdn('<%=ord.Id_codigo%>', '<%=ord.Nombre_pareja%>', '<%=ord.Nombre_menor%>', '<%=ord.Fecha%>', '<%=ord.Tipo_Caso%>', '<%=ord.Observaciones%>', '<%=ord.Baucher%>'
            )
 };
 </script> 

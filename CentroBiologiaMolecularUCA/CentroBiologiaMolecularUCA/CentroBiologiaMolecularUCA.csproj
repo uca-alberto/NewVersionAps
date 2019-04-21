@@ -1448,7 +1448,6 @@
     <Content Include="assets\sweetalert.css" />
     <Content Include="assets\sweetalert.min.js" />
     <Content Include="Content\Generic.js" />
-    <Content Include="Content\Global.js" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -1811,6 +1810,8 @@
     <Content Include="Views\Vpat\Addpat.aspx" />
     <Content Include="Views\Vreadn\addreadn.aspx" />
     <Content Include="Views\Vreadn\Seereadn.aspx" />
+    <Content Include="Views\Vrealz\Addrealz.aspx" />
+    <Content Include="Views\Vrealz\Seerealz.aspx" />
     <Content Include="Views\Vreogm\Addreogm.aspx" />
     <Content Include="Views\Vreogm\Aprreall.aspx" />
     <Content Include="Views\Vreogm\Searchreogm.aspx" />
@@ -1851,6 +1852,7 @@
     <Compile Include="Ncapas\Datos\DTlogin.cs" />
     <Compile Include="Ncapas\Datos\DTmuestra.cs" />
     <Compile Include="Ncapas\Datos\DTmunicipio.cs" />
+    <Compile Include="Ncapas\Datos\DTparametros.cs" />
     <Compile Include="Ncapas\Datos\DTresultado.cs" />
     <Compile Include="Ncapas\Datos\DTrol.cs" />
     <Compile Include="Ncapas\Datos\DTUsuario.cs" />
@@ -2246,6 +2248,20 @@
     </Compile>
     <Compile Include="Views\Vreadn\Seereadn.aspx.designer.cs">
       <DependentUpon>Seereadn.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Vrealz\Addrealz.aspx.cs">
+      <DependentUpon>Addrealz.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Vrealz\Addrealz.aspx.designer.cs">
+      <DependentUpon>Addrealz.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Vrealz\Seerealz.aspx.cs">
+      <DependentUpon>Seerealz.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Vrealz\Seerealz.aspx.designer.cs">
+      <DependentUpon>Seerealz.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Vreogm\Addreogm.aspx.cs">
       <DependentUpon>Addreogm.aspx</DependentUpon>

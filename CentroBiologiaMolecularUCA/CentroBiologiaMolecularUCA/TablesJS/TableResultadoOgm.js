@@ -91,6 +91,16 @@ $('#bootstrap-data-table tbody').on('click', '#report', function () {
     if (redict == "OGM" || redict == "Patogeno") {
         location.href ='../../Views/Rpt/ResultadoOgm?id=' + id + ''
     }
+    else {
+        swal({
+            title: "Lo sentimos",
+            text: "El reporte seleccionado esta en mantenimiento: \n",
+            icon: "warning",
+            buttons: false,
+            timer: 2000,
+        });
+
+    }
 });
 //Visualizar
 $('#bootstrap-data-table tbody').on('click', '#see', function () {
@@ -103,8 +113,12 @@ $('#bootstrap-data-table tbody').on('click', '#see', function () {
     if (redict == "OGM") {
         location.href = '../../Views/Vreogm/seereogm?id=' + id + ''
     }
-    //ADN
+    //Patogeno
     if (redict == "Patogeno") {
         location.href = '../../Views/Vrepat/Seerepat?id=' + id + ''
+    }
+    //Alzhaimer
+    if (redict == "Alzhaimer") {
+        location.href = '../../Views/Vrealz/Seerealz?id=' + id + ''
     }
 });

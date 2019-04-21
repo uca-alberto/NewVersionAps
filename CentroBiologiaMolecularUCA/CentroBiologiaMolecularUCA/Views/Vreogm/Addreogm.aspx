@@ -144,16 +144,16 @@
 				   </asp:RadioButtonList>
 				   </div>
 
-			   </div><!--observaciones--><div class="row form-group ">
+			   </div>
+           <!--observaciones-->
+        <div class="row form-group ">
                 <div class="col col-md-3 "><label for="text-input" class=" form-control-label">Observaciones</label></div>
                 <div class="col-12 col-md-9">&nbsp;
                 <asp:Textbox ID="Mobservaciones" runat="server" TextMode="multiline" Columns="50" Rows="5" ToolTip="observaciones" CssClass="form-control" placeholder="Ingrese las observaciones"></asp:Textbox>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="Mobservaciones" Display="Dynamic" ErrorMessage="Este Campo es requerido" ForeColor="Red" Font-Italic="true"></asp:RequiredFieldValidator>     
                     </div>
                 </div> 
-
-
-                                     
+                   
              <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" onclick="location.href='../Vogm/Searchogm.aspx'">Cancelar</button>
                 <asp:HiddenField runat="server" ID="id_orden" />
@@ -162,6 +162,4 @@
 
             </form>
             </div>
-        </div>
-	<script src="../../Content/Global.js"></script>
 </asp:Content>

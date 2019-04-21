@@ -76,7 +76,8 @@ namespace CentroBiologiaMolecularUCA.Views.Vreogm
 
             };
 
-            resp = NGresultado.getInstance().Anular(res);
+            NGresultado.getInstance().Updateorden(res);
+            resp = NGresultado.getInstance().Eliminar(res);
             return resp;
         }
     }
