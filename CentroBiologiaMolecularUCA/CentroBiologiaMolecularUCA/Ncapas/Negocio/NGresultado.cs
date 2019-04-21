@@ -145,11 +145,30 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Negocio
         {
             return DTparametros.getInstance().listarparametros();
         }
+        public SqlDataReader listarvphbajo()
+        {
+            return DTparametros.getInstance().listarvphbajo();
+        }
+        public SqlDataReader listarvphalto()
+        {
+            return DTparametros.getInstance().listarvphalto();
+        }
         public SqlDataReader veralzhaimer(int id)
         {
             return DTresultado.getInstance().seerealzhaimer(id);
         }
-
+        public SqlDataReader verrevph(int id)
+        {
+            return DTresultado.getInstance().verrevph(id);
+        }
+        public SqlDataReader datarevph(int id)
+        {
+            return DTresultado.getInstance().datorevph(id);
+        }
+        public SqlDataReader Tablavph(int id)
+        {
+            return DTresultado.getInstance().tablavph(id);
+        }
 
     }
 }

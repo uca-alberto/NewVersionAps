@@ -25,7 +25,7 @@
             })
           .then((willDelete) => {
               if (willDelete) {
-                  location.href = "../../Views/ViewOrdenMaria/BuscarMultiAdnOrden.aspx";
+                  location.href = "../../Views/Vogm/Searchogm.aspx";
               } 
           });
         }
@@ -258,7 +258,7 @@
                  <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                 <asp:HiddenField runat="server" ID="idorden_maternidad" />
-                <asp:Button id="insertarordenmaternidad" runat="server" Text="enviar" CssClass="btn btn-primary" OnClick="insertarordenmaternidad_Click"/>
+                <asp:Button id="insertarordenmaternidad" runat="server" Text="Guardar" CssClass="btn btn-primary" OnClick="insertarordenmaternidad_Click"/>
             </div>
 
        
@@ -363,7 +363,7 @@
                  <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                 <asp:HiddenField runat="server" ID="HiddenField1" />
-                <asp:Button id="insertarordenabuelidad" runat="server" Text="enviar" CssClass="btn btn-primary" OnClick="insertarordenabuelidad_Click"/>
+                <asp:Button id="insertarordenabuelidad" runat="server" Text="Guardar" CssClass="btn btn-primary" OnClick="insertarordenabuelidad_Click"/>
             </div>
                
               
@@ -471,7 +471,7 @@
                  <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                 <asp:HiddenField runat="server" ID="id_orden" />
-                <asp:Button id="enviar" runat="server" Text="enviar" CssClass="btn btn-primary" OnClick="InsertarOrden"/>
+                <asp:Button id="enviar" runat="server" Text="Guardar" CssClass="btn btn-primary" OnClick="InsertarOrden"/>
             </div>
 
                 <div class="modal-footer">

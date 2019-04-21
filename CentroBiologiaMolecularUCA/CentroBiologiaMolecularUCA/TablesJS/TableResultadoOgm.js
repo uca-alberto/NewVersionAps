@@ -121,4 +121,8 @@ $('#bootstrap-data-table tbody').on('click', '#see', function () {
     if (redict == "Alzhaimer") {
         location.href = '../../Views/Vrealz/Seerealz?id=' + id + ''
     }
+    //VPH
+    if (redict == "Papiloma Humano") {
+        location.href = '../../Views/Vrevph/Seerevph?id=' + id + ''
+    }
 });

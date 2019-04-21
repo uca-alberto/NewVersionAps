@@ -42,5 +42,27 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
             return this.registros;
             c.Close();
         }
+
+
+        public SqlDataReader listarvphbajo()
+        {
+            c = Conexion.getInstance().ConexionDB();
+            String sql = "SELECT Id_parametros,Nombre AS VPH_Bajo FROM T_Parametros where Id_examenes=6 AND Id_parametros<=15;";
+
+            SqlCommand comando = new SqlCommand(sql, this.c);
+            this.registros = comando.ExecuteReader();
+            return this.registros;
+            c.Close();
+        }
+        public SqlDataReader listarvphalto()
+        {
+            c = Conexion.getInstance().ConexionDB();
+            String sql = "SELECT Id_parametros,Nombre AS VPH_Alto FROM T_Parametros where Id_examenes=6 AND Id_parametros>15;";
+
+            SqlCommand comando = new SqlCommand(sql, this.c);
+            this.registros = comando.ExecuteReader();
+            return this.registros;
+            c.Close();
+        }
     }
 }

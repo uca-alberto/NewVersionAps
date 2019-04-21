@@ -115,12 +115,16 @@ $('#bootstrap-data-table tbody').on('click', '#generar', function () {
         location.href = '../../Views/Vrepat/Addrepat?id=' + id + ''
     }
     //ADN
-    if (redict == "Paternidad") {
+    if (redict == "Paternidad" || redict == "Maternidad" || redict == "Abuelidad" || redict == "Hermandad") {
         location.href = '../../Views/Vreadn/addreadn?id=' + id + ''
     }
     //Alzhaimer
     if (redict == "Alzhaimer") {
         location.href = '../../Views/Vrealz/Addrealz?id=' + id + ''
+    }
+    //VPH
+    if (redict == "Papiloma Humano") {
+        location.href = '../../Views/Vrevph/Addrevph?id=' + id + ''
     }
   
   

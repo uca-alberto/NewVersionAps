@@ -1818,6 +1818,8 @@
     <Content Include="Views\Vreogm\Seereogm.aspx" />
     <Content Include="Views\Vrepat\Addrepat.aspx" />
     <Content Include="Views\Vrepat\Seerepat.aspx" />
+    <Content Include="Views\Vrevph\Addrevph.aspx" />
+    <Content Include="Views\Vrevph\Seerevph.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -2304,6 +2306,20 @@
     </Compile>
     <Compile Include="Views\Vrepat\Seerepat.aspx.designer.cs">
       <DependentUpon>Seerepat.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Vrevph\Addrevph.aspx.cs">
+      <DependentUpon>Addrevph.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Vrevph\Addrevph.aspx.designer.cs">
+      <DependentUpon>Addrevph.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Vrevph\Seerevph.aspx.cs">
+      <DependentUpon>Seerevph.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Vrevph\Seerevph.aspx.designer.cs">
+      <DependentUpon>Seerevph.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

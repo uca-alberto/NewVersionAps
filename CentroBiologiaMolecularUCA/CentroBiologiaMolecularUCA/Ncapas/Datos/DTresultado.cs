@@ -410,6 +410,27 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
             return this.registros;
             c.Close();
         }
+        //Obtener data Ver Resultado VPH
+        public SqlDataReader verrevph(int id)
+        {
+            c = Conexion.getInstance().ConexionDB();
+            String sql = "SELECT ord.Id_codigo,res.Fecha_procesamiento,res.Hora,ord.Fecha as fecha_muestra,CONCAT(emp.Nombre_empleado,' ',emp.Apellido) AS Investigador,CONCAT(cli.Nombre,' ',cli.Apellido) AS Nombre_Cliente,cli.Cedula,res.Observaciones FROM T_Resultados res INNER JOIN T_Orden ord ON res.Id_Orden=ord.Id_orden INNER JOIN T_Usuario usu ON usu.Id_usuario=res.Usuario_procesa INNER JOIN T_Empleados emp ON usu.Id_empleado=emp.Id_empleado INNER JOIN T_Clientes cli ON cli.Id_cliente=ord.Id_cliente where res.Id_resultado='" + id + "';";
+
+            SqlCommand comando = new SqlCommand(sql, this.c);
+            this.registros = comando.ExecuteReader();
+            return this.registros;
+            c.Close();
+        }
+        public SqlDataReader datorevph(int id)
+        {
+            c = Conexion.getInstance().ConexionDB();
+            String sql = "SELECT ord.Id_codigo,ord.Fecha,CONCAT(emp.Nombre_empleado,' ',emp.Apellido) AS Investigador, CONCAT(cli.Nombre,' ',cli.Apellido) AS Cliente,cli.Cedula FROM T_Orden ord INNER JOIN T_Usuario usu ON ord.Id_usuario=usu.Id_usuario INNER JOIN T_Empleados emp ON emp.Id_empleado=ord.Id_usuario INNER JOIN T_Clientes cli ON cli.Id_cliente=ord.Id_orden where ord.Id_orden='" + id + "';";
+
+            SqlCommand comando = new SqlCommand(sql, this.c);
+            this.registros = comando.ExecuteReader();
+            return this.registros;
+            c.Close();
+        }
         public SqlDataReader seerealzhaimer(int id)
         {
             c = Conexion.getInstance().ConexionDB();
@@ -471,6 +492,16 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
         {
             c = Conexion.getInstance().ConexionDB();
             String sql = "SELECT ta.analisis,op.Resultado FROM T_Tipo_Analisis ta INNER JOIN T_Resultado_Detalle detalle ON ta.Id_analisis=detalle.Id_analisis INNER JOIN T_Opcion_resultado op ON op.Id_opcion=detalle.Resultado where detalle.Id_resultado='" + id + "';";
+
+            SqlCommand comando = new SqlCommand(sql, this.c);
+            this.registros = comando.ExecuteReader();
+            return this.registros;
+            c.Close();
+        }
+        public SqlDataReader tablavph(int id)
+        {
+            c = Conexion.getInstance().ConexionDB();
+            String sql = "SELECT pa.Nombre,op.Resultado FROM T_Parametros pa INNER JOIN T_Resultado_Detalle detalle ON pa.Id_parametros=detalle.Id_analisis INNER JOIN T_Opcion_resultado op ON op.Id_opcion=detalle.Resultado where detalle.Id_resultado='" + id + "';";
 
             SqlCommand comando = new SqlCommand(sql, this.c);
             this.registros = comando.ExecuteReader();
