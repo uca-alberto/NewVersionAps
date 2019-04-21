@@ -6,16 +6,20 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos;
 using WebSistemaCentroBiologiaMolecularUCA.Ncapas.Entidades;
+using WebSistemaCentroBiologiaMolecularUCA.Ncapas.Negocio;
 using System.Data.SqlClient;
 
 namespace CentroBiologiaMolecularUCA.Views.ViewOrdenMaria
 {
     public partial class VerPapilomaMulti : System.Web.UI.Page
     {
+        private SqlDataReader cliente;
         private DTAdnPaternidad dtadnpaternidad;
 
         private SqlDataReader registro;
         public OrdenAdn ord;
+        //Guardar el id cliente
+        private int idcliente;
         protected void Page_Load(object sender, EventArgs e)
         {
             this.dtadnpaternidad = new DTAdnPaternidad();
@@ -45,7 +49,16 @@ namespace CentroBiologiaMolecularUCA.Views.ViewOrdenMaria
 
                 ord.Observaciones = this.registro["Observaciones"].ToString();
                 ord.Baucher = this.registro["Baucher"].ToString();
-                
+                //Datos Cliente
+                idcliente = Convert.ToInt32(registro["Id_cliente"].ToString());
+
+            }
+            //Mostrar datos en el textbox
+            this.cliente = NGcliente.getInstance().ListarClientePorId(idcliente);
+            if (cliente.Read())
+            {
+                Mcliente.Text = cliente["Nombre"].ToString() + " " + cliente["Apellido"].ToString();
+                Mcedula.Text = cliente["Cedula"].ToString();
             }
         }
     }

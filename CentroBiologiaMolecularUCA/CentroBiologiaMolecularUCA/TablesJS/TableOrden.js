@@ -122,6 +122,8 @@ $('#bootstrap-data-table tbody').on('click', '#generar', function () {
     if (redict == "Alzhaimer") {
         location.href = '../../Views/Vrealz/Addrealz?id=' + id + ''
     }
+  
+  
 });
 
 //Probando el Visualizar
@@ -153,7 +155,7 @@ $('#bootstrap-data-table tbody').on('click', '#ver', function () {
     if (redict == "Alzhaimer") {
         location.href = '../ViewOrdenMaria/VerAlzheimerMulti.aspx?id=' + id + ''
     }
-    if (redict == "Papiloma") {
+    if (redict == "Papiloma Humano") {
         location.href = '../ViewOrdenMaria/VerPapilomaMulti.aspx?id=' + id + ''
     }
 });

@@ -1,11 +1,30 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="VerAlzheimerMulti.aspx.cs" Inherits="CentroBiologiaMolecularUCA.Views.ViewOrdenMaria.VerAlzheimerMulti" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
      <div class="card-header">
-                        <strong class="card-title">Datos de las personas de orden ADN Alzheimer</strong>
+                        <strong class="card-title">Datos de las personas de orden ADN </strong>
                             </div>  
       <div class="card">
             <div class="card-body card-block">
                 <form id="Form1" method="post" enctype="multipart/form-data" class="form-horizontal" runat="server">
+                     <!------------------------------------------------------------------------------------>
+                     <div class="card-header">
+                        <strong class="card-title">Orden del Cliente</strong>
+                            </div>&nbsp;
+                     <!--Obtener el nombre del cliente que selecciono-->
+            <div class="row form-group ">
+                <div class="col col-md-3 "><label for="text-input" class=" form-control-label">Nombre Cliente</label></div>
+                <div class="col-12 col-md-9">
+                     <asp:TextBox ID="Mcliente" ReadOnly="true" runat="server" ToolTip="Nombre Cliente" CssClass="form-control"></asp:TextBox>   
+                </div>
+             </div>
+                    <!--Obtener la cedula del cliente que selecciono-->
+           <div class="row form-group ">
+                <div class="col col-md-3 "><label for="text-input" class=" form-control-label">Cedula</label></div>
+                <div class="col-12 col-md-9">
+                     <asp:TextBox ID="Mcedula" ReadOnly="true" runat="server" ToolTip="Cedula Cliente" CssClass="form-control"></asp:TextBox>      
+                     </div>
+             </div>
+                     <!------------------------------------------------------------------------------------>
                   <!--codigo de alzheimer-->  
                         <div class="row form-group ">
                 <div class="col col-md-3 "><label for="text-input" class=" form-control-label">Código de orden</label></div>
@@ -17,7 +36,7 @@
 
                       <!--nombre  alzheimer-->    
                        <div class="row form-group ">
-                <div class="col col-md-3 "><label for="password-input" class=" form-control-label">Nombre del doctor</label></div>
+                <div class="col col-md-3 "><label for="password-input" class=" form-control-label">Nombre</label></div>
                 <div class="col-12 col-md-9">&nbsp;
                 <asp:TextBox ID="Mnombredeldoctor" runat="server" Text="" ToolTip="nombremadre" CssClass="form-control" placeholder="Ingrese el nombre del hijo"></asp:TextBox>
                        
@@ -25,7 +44,7 @@
                 </div> 
                     <!--nombre del paciente alzheimer-->    
                        <div class="row form-group ">
-                <div class="col col-md-3 "><label for="password-input" class=" form-control-label">Nombre del paciente</label></div>
+                <div class="col col-md-3 "><label for="password-input" class=" form-control-label">Nombre</label></div>
                 <div class="col-12 col-md-9">&nbsp;
                 <asp:TextBox ID="Mnombredelpaciente" runat="server" Text="" ToolTip="nombrehijomadre" CssClass="form-control" placeholder="Ingrese el nombre del hijo"></asp:TextBox>
                        

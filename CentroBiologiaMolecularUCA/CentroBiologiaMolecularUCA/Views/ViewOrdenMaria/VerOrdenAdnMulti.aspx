@@ -7,6 +7,25 @@
             <div class="card">
             <div class="card-body card-block">
                 <form id="Form1" method="post" enctype="multipart/form-data" class="form-horizontal" runat="server">
+                       <!------------------------------------------------------------------------------------>
+                     <div class="card-header">
+                        <strong class="card-title">Orden del Cliente</strong>
+                            </div>&nbsp;
+                     <!--Obtener el nombre del cliente que selecciono-->
+            <div class="row form-group ">
+                <div class="col col-md-3 "><label for="text-input" class=" form-control-label">Nombre Cliente</label></div>
+                <div class="col-12 col-md-9">
+                     <asp:TextBox ID="Mcliente" ReadOnly="true" runat="server" ToolTip="Nombre Cliente" CssClass="form-control"></asp:TextBox>   
+                </div>
+             </div>
+                    <!--Obtener la cedula del cliente que selecciono-->
+           <div class="row form-group ">
+                <div class="col col-md-3 "><label for="text-input" class=" form-control-label">Cedula</label></div>
+                <div class="col-12 col-md-9">
+                     <asp:TextBox ID="Mcedula" ReadOnly="true" runat="server" ToolTip="Cedula Cliente" CssClass="form-control"></asp:TextBox>      
+                     </div>
+             </div>
+                     <!------------------------------------------------------------------------------------>
                     <!--Comienzo de los formulario-->    
                       <!--Codigo-->  
                      <div class="row form-group ">
