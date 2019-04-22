@@ -26,7 +26,7 @@ namespace CentroBiologiaMolecularUCA.Views.Vrealz
             if (!IsPostBack)
             {
                 Mparametro.DataSource = NGresultado.getInstance().listarParametros();
-                Mparametro.DataTextField = "id_parametros";
+                Mparametro.DataTextField = "Id_parametros";
                 Mparametro.DataTextField = "Nombre";
                 Mparametro.DataBind();
                 ListItem li = new ListItem("SELECCIONE", "0");//creamos una lista, para agregar el seleccione
@@ -61,7 +61,7 @@ namespace CentroBiologiaMolecularUCA.Views.Vrealz
             res.Fecha_procesamiento = Convert.ToDateTime(fecha);
             res.Hora = Convert.ToDateTime(hora);
             res.Usuario_procesa = userprocesa;
-            res.Observaciones = Mobservaciones.Text;
+            res.Observaciones = Mobservaciones.Text.Replace("\r\n", " "); ;
             res.Estado = "Procesada";
             return res;
         }

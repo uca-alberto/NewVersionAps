@@ -70,7 +70,7 @@ namespace CentroBiologiaMolecularUCA.Views.Vrevph
             res.Fecha_procesamiento = Convert.ToDateTime(fecha);
             res.Hora = Convert.ToDateTime(hora);
             res.Usuario_procesa = userprocesa;
-            res.Observaciones = Mobservaciones.Text;
+            res.Observaciones = Mobservaciones.Text.Replace("\r\n", " ");
             res.Estado = "Procesada";
             return res;
         }

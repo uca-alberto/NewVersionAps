@@ -129,7 +129,7 @@ namespace CentroBiologiaMolecularUCA.Views.Vreogm
             }
             else
             {
-                res.Observaciones = Mobservaciones.Text;
+                res.Observaciones = Mobservaciones.Text.Replace("\r\n", " ");
             }
 
             res.Id_orden = id;

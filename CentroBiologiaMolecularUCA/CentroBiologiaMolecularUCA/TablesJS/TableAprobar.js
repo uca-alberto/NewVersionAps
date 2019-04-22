@@ -110,7 +110,7 @@ function deleteDataAjax(data) {
 }
 
 //EVENTO PARA BOTON ELIMINAR
-$(document).on('click', '#Anular', function (e) {
+$(document).on('click', '#anular', function (e) {
     e.preventDefault();
     var dataRow = tabla.rows($(this).parents('tr')).data()[0];
     console.log(dataRow[0])

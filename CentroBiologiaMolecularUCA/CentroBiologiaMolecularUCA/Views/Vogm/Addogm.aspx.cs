@@ -80,7 +80,8 @@ namespace CentroBiologiaMolecularUCA.Views.ViewOrden
             }
             else
             {
-                ord.Observaciones = Mobservaciones.Text;
+                
+                ord.Observaciones = Mobservaciones.Text.Replace("\r\n", " ");
             }
             if (Mbaucher.ToString() == null)
             {

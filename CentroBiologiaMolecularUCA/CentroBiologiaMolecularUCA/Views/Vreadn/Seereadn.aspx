@@ -110,8 +110,8 @@
                 <div class="col-12 col-md-9 ">&nbsp; 
                     <asp:DropDownList ID="Mresultado" Enable="false" runat="server" ToolTip="estado" CssClass="form-control">
                     <asp:ListItem Value="0">Seleccione</asp:ListItem>
-                    <asp:ListItem Value="1">99.9%</asp:ListItem>
-                    <asp:ListItem Value="2">0.00%</asp:ListItem>
+                    <asp:ListItem Value="3">99.9%</asp:ListItem>
+                    <asp:ListItem Value="4">0.00%</asp:ListItem>
                     </asp:DropDownList>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator6" InitialValue="0" runat="server" ControlToValidate="Mresultado" Display="Dynamic" ErrorMessage="Seleccione el Resultado del Examen" ForeColor="Red" Font-Italic="true"></asp:RequiredFieldValidator>
                 </div>
