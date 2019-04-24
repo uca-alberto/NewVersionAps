@@ -485,5 +485,5 @@
         </div>
         </div>
 
-    <script type="text/javascript" src="../../Content/ListaordenAdn.js"></script>
+    <script type="text/javascript" src="../../Content/Generic.js"></script>
 </asp:Content>

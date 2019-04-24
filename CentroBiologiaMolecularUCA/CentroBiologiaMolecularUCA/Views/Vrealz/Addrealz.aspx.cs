@@ -26,9 +26,9 @@ namespace CentroBiologiaMolecularUCA.Views.Vrealz
             if (!IsPostBack)
             {
                 Mparametro.DataSource = NGresultado.getInstance().listarParametros();
-                Mparametro.DataTextField = "Id_parametros";
-                Mparametro.DataTextField = "Nombre";
-                Mparametro.DataBind();
+				Mparametro.DataTextField = "Nombre";
+				Mparametro.DataValueField = "Id_parametros";
+				Mparametro.DataBind();
                 ListItem li = new ListItem("SELECCIONE", "0");//creamos una lista, para agregar el seleccione
                 Mparametro.Items.Insert(0, li);
             }

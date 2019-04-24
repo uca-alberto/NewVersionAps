@@ -66,7 +66,7 @@
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-list-ol"></i>Crear Orden</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-plus-circle"></i><a href="../../Views/Vogm/Addogm.aspx">Crear Orden</a></li>
+                            <li><i class="menu-icon fa fa-plus-circle"></i><a href="../../Views/Vogm/Addogm.aspx">Crear Ogm</a></li>
                             <li><i class="menu-icon fa fa-plus-circle"></i><a href="../../Views/Vpat/Addpat.aspx">Crear Patogeno</a></li>
                         <li><i class="menu-icon fa fa-plus-circle"></i><a href="../../Views/Vpap/Addpap.aspx">Orden Papiloma </a></li>
                              <li><i class="menu-icon fa fa-plus-circle"></i><a href="../../Views/Valz/Addalz">Orden Alzheimer</a></li>
@@ -96,8 +96,9 @@
                              <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-area-chart"></i>Control de Resultados OGM</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="ti-search"></i><a href="../../Views/Vreogm/Searchreogm.aspx">Buscar Resultado Ogm</a></li>
-                        <li><i class="ti-search"></i><a href="../../Views/Vreogm/Aprreall.aspx">Aprobar Resultado</a></li>
+							<li><i class="ti-check-box"></i><a href="../../Views/Vreogm/Aprreall.aspx">Aprobar Resultado</a></li>
+                            <li><i class="ti-search"></i><a href="../../Views/Vreogm/Searchreogm.aspx">Buscar Resultado</a></li>
+                        
                         </ul>
                     </li>
                         <!-- /.Resultado ADN -->

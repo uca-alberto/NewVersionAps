@@ -1776,6 +1776,7 @@
     <Content Include="Views\Opc\Use\Upduse.aspx" />
     <Content Include="Views\Rpt\Recibo.aspx" />
     <Content Include="Views\Rpt\ResultadoOgm.aspx" />
+    <Content Include="Views\Rpt\Tmuestra.aspx" />
     <Content Include="Views\Valz\Addalz.aspx" />
     <Content Include="Views\Vcli\Addcli.aspx" />
     <Content Include="Views\Vcli\Searchcli.aspx" />
@@ -1987,6 +1988,12 @@
     <Compile Include="Views\Opc\Use\Upduse.aspx.designer.cs">
       <DependentUpon>Upduse.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Views\Rpt\ConMue.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ConMue.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Views\Rpt\Recibo.aspx.cs">
       <DependentUpon>Recibo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2012,6 +2019,13 @@
     </Compile>
     <Compile Include="Views\Rpt\ResultadoOgm.aspx.designer.cs">
       <DependentUpon>ResultadoOgm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Rpt\Tmuestra.aspx.cs">
+      <DependentUpon>Tmuestra.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Rpt\Tmuestra.aspx.designer.cs">
+      <DependentUpon>Tmuestra.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Valz\Addalz.aspx.cs">
       <DependentUpon>Addalz.aspx</DependentUpon>
@@ -2326,6 +2340,10 @@
     <Folder Include="ImagesAdn\" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Views\Rpt\ConMue.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ConMue.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Rpt\ReciboOrden.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>ReciboOrden.cs</LastGenOutput>

@@ -106,6 +106,8 @@
                     <asp:ListItem Value="1">Publico</asp:ListItem>
 
                     <asp:ListItem Value="2">Privado</asp:ListItem>
+						
+                    <asp:ListItem Value="3">No Necesita</asp:ListItem>
                     </asp:DropDownList>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator1" InitialValue="0" runat="server" ControlToValidate="Mresultado" Display="Dynamic" ErrorMessage="Seleccione el Resultado del Examen" ForeColor="Red" Font-Italic="true"></asp:RequiredFieldValidator>
                 </div>

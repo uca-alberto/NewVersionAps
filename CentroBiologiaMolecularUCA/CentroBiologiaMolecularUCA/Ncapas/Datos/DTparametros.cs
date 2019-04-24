@@ -35,7 +35,7 @@ namespace WebSistemaCentroBiologiaMolecularUCA.Ncapas.Datos
         public SqlDataReader listarparametros()
         {
             c = Conexion.getInstance().ConexionDB();
-            String sql = "SELECT Id_parametros,Nombre FROM T_Parametros where Id_examenes=5;";
+            String sql = "SELECT * FROM T_Parametros where Id_examenes=5;";
 
             SqlCommand comando = new SqlCommand(sql, this.c);
             this.registros = comando.ExecuteReader();
